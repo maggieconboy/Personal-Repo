@@ -1,252 +1,184 @@
 ---
-trigger: sizing
-title: Semester Sizing
+name: Semester Sizing
 description: Semester Planning Engineering Sizing
-surfaces:
-  - issue
-steps:
-  - type: form
-    style: embedded
-    body:
-      - type: markdown
-        attributes:
-          value: >
-            # 📏 Project Sizing Template
-    
-            Use this template to gather details about the scope, complexity, and requirements of a project to estimate its size and timeline.
-    
-            - Answer the structured questions below to provide necessary context.
-            - Once filled, this information will be used to generate a detailed sizing breakdown.
-    
-      - type: textarea
-        attributes:
-          id: initial_issue_description
-          label: Initial Issue Description
-          description: Copy and paste the problem statement and context provided by the Product Manager.
-          placeholder: Include the initial issue description here or link to the original issue for reference.
-        validations:
-          required: true
-    
-      - type: markdown
-        attributes:
-          value: "### 1. Scope and Complexity"
-      - type: dropdown
-        attributes:
-          id: project_type
-          label: Is this project an enhancement to an existing service or a completely new service?
-          description: Select the type of project.
-          options:
-            - label: "Enhancement to an existing service"
-              value: "Enhancement to an existing service"
-            - label: "Completely new service"
-              value: "Completely new service"
-        validations:
-          required: true
-      - type: input
-        attributes:
-          id: systems_or_components
-          label: Will this project require changes to multiple systems or components?
-          description: Specify the systems or components involved (e.g., frontend, backend, third-party integrations).
-          placeholder: List the systems or components impacted.
-        validations:
-          required: true
-      - type: input
-        attributes:
-          id: api_changes
-          label: Does the implementation involve creating or modifying APIs?
-          description: If yes, specify how many endpoints are affected.
-          placeholder: List the number and type of APIs affected.
-        validations:
-          required: true
-      - type: input
-        attributes:
-          id: database_changes
-          label: Will the project require significant database changes?
-          description: Specify the type of database changes (e.g., schema updates, migrations).
-          placeholder: Describe the database changes required.
-        validations:
-          required: true
-    
-      - type: markdown
-        attributes:
-          value: "### 2. Dependencies"
-      - type: input
-        attributes:
-          id: dependencies
-          label: Are there dependencies on other teams, external services, or third-party vendors for this project?
-          description: List the dependencies and any potential risks they introduce.
-          placeholder: Describe dependencies here.
-        validations:
-          required: true
-      - type: input
-        attributes:
-          id: external_approvals
-          label: Will there be external approvals required?
-          description: Specify if approvals are required from security, compliance, or external partners.
-          placeholder: Describe external approval requirements.
-        validations:
-          required: true
-    
-      - type: markdown
-        attributes:
-          value: "### 3. Design and Alignment"
-      - type: dropdown
-        attributes:
-          id: technical_design
-          label: Does this project require a new technical design document or significant architectural changes?
-          description: Indicate whether a new design or architecture is needed.
-          options:
-            - label: "Yes"
-              value: "Yes"
-            - label: "No"
-              value: "No"
-        validations:
-          required: true
-      - type: input
-        attributes:
-          id: alignment_with_teams
-          label: Will alignment with other teams or stakeholders be necessary for this design?
-          description: Describe the alignment required and any associated challenges.
-          placeholder: Describe alignment needs.
-        validations:
-          required: true
-    
-      - type: markdown
-        attributes:
-          value: "### 4. Testing and Quality Assurance"
-      - type: input
-        attributes:
-          id: testing_type
-          label: What type of testing will be required?
-          description: Specify the types of testing (e.g., unit tests, integration tests, manual testing).
-          placeholder: List the testing requirements.
-        validations:
-          required: true
-    
-      - type: markdown
-        attributes:
-          value: "### 5. Security and Compliance"
-      - type: dropdown
-        attributes:
-          id: security_review
-          label: Will this project require a security or privacy review?
-          description: Indicate whether a security or privacy review is necessary due to sensitive data handling.
-          options:
-            - label: "Yes"
-              value: "Yes"
-            - label: "No"
-              value: "No"
-        validations:
-          required: true
-    
-      - type: markdown
-        attributes:
-          value: "### 6. Deployment and Release"
-      - type: input
-        attributes:
-          id: feature_flags
-          label: Will this project use feature flags for a phased rollout? If yes, how many phases are planned?
-          description: Specify the number of phases or describe the rollout strategy.
-          placeholder: Describe feature flag requirements.
-        validations:
-          required: true
-      - type: input
-        attributes:
-          id: release_readiness_requirements
-          label: Are there specific release readiness requirements?
-          description: List any ticketing, on-call prep, or other requirements.
-          placeholder: Describe release readiness needs.
-        validations:
-          required: true
-    
-      - type: markdown
-        attributes:
-          value: "### 7. Monitoring and Maintenance"
-      - type: input
-        attributes:
-          id: monitoring_alerting_requirements
-          label: Are there new monitoring or alerting requirements for this project?
-          description: Specify what needs to be monitored or alerted post-release.
-          placeholder: Describe monitoring needs.
-        validations:
-          required: true
-      - type: input
-        attributes:
-          id: operational_risks
-          label: Does this project introduce new operational risks or require post-release maintenance?
-          description: Describe any risks or maintenance considerations.
-          placeholder: Describe operational risks or maintenance needs.
-        validations:
-          required: true
-    
-      - type: markdown
-        attributes:
-          value: |
-            ## Submission Instructions
-    
-            - Fill out all required fields above.
-            - Submit this issue to initiate the sizing estimation process.
-  - type: fill
-    template: |
-      # 📏 Project Sizing
+title: "📏 Project Sizing"
+labels: ["sizing"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # 📏 Project Sizing Template
+
+        Use this template to gather details about the scope, complexity, and requirements of a project to estimate its size and timeline.
+
+        - Answer the structured questions below to provide necessary context.
+        - Once filled, this information will be used to generate a detailed sizing breakdown.
+
+  - type: textarea
+    id: initial_issue_description
+    attributes:
+      label: Initial Issue Description
+      description: Copy and paste the problem statement and context provided by the Product Manager.
+      placeholder: Include the initial issue description here or link to the original issue for reference.
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: "### 1. Scope and Complexity"
   
-      ## Initial Issue Description
-      {{ data.initial_issue_description }}
+  - type: dropdown
+    id: project_type
+    attributes:
+      label: Is this project an enhancement to an existing service or a completely new service?
+      description: Select the type of project.
+      options:
+        - "Enhancement to an existing service"
+        - "Completely new service"
+    validations:
+      required: true
   
-      ## Engineering Review
-      ### 1. Scope and Complexity
+  - type: textarea
+    id: systems_or_components
+    attributes:
+      label: Will this project require changes to multiple systems or components?
+      description: Specify the systems or components involved (e.g., frontend, backend, third-party integrations).
+      placeholder: List the systems or components impacted.
+    validations:
+      required: true
   
-      #### Is this project an enhancement to an existing service or a completely new service?
-      {{ data.project_type }}
+  - type: textarea
+    id: api_changes
+    attributes:
+      label: Does the implementation involve creating or modifying APIs?
+      description: If yes, specify how many endpoints are affected.
+      placeholder: List the number and type of APIs affected.
+    validations:
+      required: true
   
-      #### Will this project require changes to multiple systems or components?
-      {{ data.systems_or_components }}
+  - type: textarea
+    id: database_changes
+    attributes:
+      label: Will the project require significant database changes?
+      description: Specify the type of database changes (e.g., schema updates, migrations).
+      placeholder: Describe the database changes required.
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: "### 2. Dependencies"
   
-      #### Does the implementation involve creating or modifying APIs?
-      {{ data.api_changes }}
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Are there dependencies on other teams, external services, or third-party vendors for this project?
+      description: List the dependencies and any potential risks they introduce.
+      placeholder: Describe dependencies here.
+    validations:
+      required: true
   
-      #### Will the project require significant database changes?
-      {{ data.database_changes }}
+  - type: textarea
+    id: external_approvals
+    attributes:
+      label: Will there be external approvals required?
+      description: Specify if approvals are required from security, compliance, or external partners.
+      placeholder: Describe external approval requirements.
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: "### 3. Design and Alignment"
   
-      ### 2. Dependencies
+  - type: dropdown
+    id: technical_design
+    attributes:
+      label: Does this project require a new technical design document or significant architectural changes?
+      description: Indicate whether a new design or architecture is needed.
+      options:
+        - "Yes"
+        - "No"
+    validations:
+      required: true
   
-      #### Are there dependencies on other teams, external services, or third-party vendors for this project?
-      {{ data.dependencies }}
-      
-      #### Will there be external approvals required?
-      {{ data.external_approvals }}
-      
-      ### 3. Design and Alignment
-      
-      #### Does this project require a new technical design document or significant architectural changes?
-      {{ data.technical_design }}
-      
-      #### Will alignment with other teams or stakeholders be necessary for this design?
-      {{ data.alignment_with_teams }}
+  - type: textarea
+    id: alignment_with_teams
+    attributes:
+      label: Will alignment with other teams or stakeholders be necessary for this design?
+      description: Describe the alignment required and any associated challenges.
+      placeholder: Describe alignment needs.
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: "### 4. Testing and Quality Assurance"
   
-      ### 4. Testing and Quality Assurance
+  - type: textarea
+    id: testing_type
+    attributes:
+      label: What type of testing will be required?
+      description: Specify the types of testing (e.g., unit tests, integration tests, manual testing).
+      placeholder: List the testing requirements.
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: "### 5. Security and Compliance"
   
-      #### What type of testing will be required?
-      {{ data.testing_type }}
+  - type: dropdown
+    id: security_review
+    attributes:
+      label: Will this project require a security or privacy review?
+      description: Indicate whether a security or privacy review is necessary due to sensitive data handling.
+      options:
+        - "Yes"
+        - "No"
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: "### 6. Deployment and Release"
   
-      ### 5. Security and Compliance
+  - type: textarea
+    id: feature_flags
+    attributes:
+      label: Will this project use feature flags for a phased rollout? If yes, how many phases are planned?
+      description: Specify the number of phases or describe the rollout strategy.
+      placeholder: Describe feature flag requirements.
+    validations:
+      required: true
   
-      #### Will this project require a security or privacy review?
-      {{ data.security_review }}
+  - type: textarea
+    id: release_readiness_requirements
+    attributes:
+      label: Are there specific release readiness requirements?
+      description: List any ticketing, on-call prep, or other requirements.
+      placeholder: Describe release readiness needs.
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: "### 7. Monitoring and Maintenance"
   
-      ### 6. Deployment and Release
+  - type: textarea
+    id: monitoring_alerting_requirements
+    attributes:
+      label: Are there new monitoring or alerting requirements for this project?
+      description: Specify what needs to be monitored or alerted post-release.
+      placeholder: Describe monitoring needs.
+    validations:
+      required: true
   
-      #### Will this project use feature flags for a phased rollout? If yes, how many phases are planned?
-      {{ data.feature_flags }}
-      
-      #### Are there specific release readiness requirements?
-      {{ data.release_readiness_requirements }}
-  
-      ### 7. Monitoring and Maintenance
-  
-      #### Are there new monitoring or alerting requirements for this project?
-      {{ data.monitoring_alerting_requirements }}
-      
-      #### Does this project introduce new operational risks or require post-release maintenance?
-      {{ data.operational_risks }}
-      
+  - type: textarea
+    id: operational_risks
+    attributes:
+      label: Does this project introduce new operational risks or require post-release maintenance?
+      description: Describe any risks or maintenance considerations.
+      placeholder: Describe operational risks or maintenance needs.
+    validations:
+      required: true
