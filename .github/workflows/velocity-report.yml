@@ -1,0 +1,292 @@
+name: Velocity Reporting
+
+on:
+  schedule:
+    # Runs every Friday at 5pm PT (1am UTC Saturday, accounting for both PST and PDT)
+    - cron: '0 1 * * SAT'
+  workflow_dispatch: # Allow manual triggering
+
+permissions:
+  contents: write
+  issues: read
+  pull-requests: read
+  projects: write
+
+jobs:
+  velocity-report:
+    runs-on: ubuntu-latest
+    name: Generate Velocity Report
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        
+    - name: Generate Velocity Report
+      id: velocity
+      uses: actions/github-script@v7
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+          const fs = require('fs');
+          const path = require('path');
+          
+          // Get current date for reporting period
+          const now = new Date();
+          const weekStart = new Date(now);
+          weekStart.setDate(now.getDate() - now.getDay() - 6); // Previous week start (Sunday)
+          const weekEnd = new Date(weekStart);
+          weekEnd.setDate(weekStart.getDate() + 6); // Previous week end (Saturday)
+          
+          console.log(`Analyzing week of ${weekStart.toISOString().split('T')[0]} to ${weekEnd.toISOString().split('T')[0]}`);
+          
+          // Get current milestone
+          const milestones = await github.rest.issues.listMilestones({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            state: 'open',
+            sort: 'due_on',
+            direction: 'asc'
+          });
+          
+          let currentMilestone = null;
+          if (milestones.data.length > 0) {
+            // Use the first open milestone (earliest due date)
+            currentMilestone = milestones.data[0];
+            console.log(`Current milestone: ${currentMilestone.title}`);
+          }
+          
+          // Query closed issues in the reporting period
+          const issues = await github.rest.issues.listForRepo({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            state: 'closed',
+            since: weekStart.toISOString(),
+            per_page: 100
+          });
+          
+          // Filter issues closed in the week and extract story points
+          let weeklyPoints = 0;
+          const closedIssues = [];
+          
+          for (const issue of issues.data) {
+            const closedDate = new Date(issue.closed_at);
+            if (closedDate >= weekStart && closedDate <= weekEnd) {
+              // Filter by milestone if we have one
+              if (!currentMilestone || (issue.milestone && issue.milestone.id === currentMilestone.id)) {
+                // Extract story points from labels
+                let points = 0;
+                for (const label of issue.labels) {
+                  const labelName = typeof label === 'string' ? label : label.name;
+                  const match = labelName.match(/^points-(\d+)$/);
+                  if (match) {
+                    points = parseInt(match[1], 10);
+                    break;
+                  }
+                }
+                if (points > 0) {
+                  weeklyPoints += points;
+                  closedIssues.push({
+                    number: issue.number,
+                    title: issue.title,
+                    points: points,
+                    closed_at: issue.closed_at
+                  });
+                }
+              }
+            }
+          }
+          
+          console.log(`Found ${closedIssues.length} closed issues with ${weeklyPoints} total story points`);
+          
+          // Read existing velocity data
+          let velocityData = { weeks: [] };
+          const velocityFile = 'VELOCITY.md';
+          
+          try {
+            if (fs.existsSync(velocityFile)) {
+              const content = fs.readFileSync(velocityFile, 'utf8');
+              // Parse existing data from markdown
+              const lines = content.split('\n');
+              let inDataSection = false;
+              
+              for (const line of lines) {
+                if (line.includes('## Historical Data')) {
+                  inDataSection = true;
+                  continue;
+                }
+                if (inDataSection && line.startsWith('- Week of ')) {
+                  const match = line.match(/Week of ([\d-]+): (\d+) story points/);
+                  if (match) {
+                    velocityData.weeks.push({
+                      date: match[1],
+                      points: parseInt(match[2], 10)
+                    });
+                  }
+                }
+              }
+            }
+          } catch (error) {
+            console.log('No existing velocity file found, creating new one');
+          }
+          
+          // Add current week's data
+          const weekString = weekStart.toISOString().split('T')[0];
+          const existingWeekIndex = velocityData.weeks.findIndex(w => w.date === weekString);
+          
+          if (existingWeekIndex >= 0) {
+            velocityData.weeks[existingWeekIndex].points = weeklyPoints;
+          } else {
+            velocityData.weeks.push({
+              date: weekString,
+              points: weeklyPoints
+            });
+          }
+          
+          // Sort by date (most recent first)
+          velocityData.weeks.sort((a, b) => new Date(b.date) - new Date(a.date));
+          
+          // Calculate 3-week average
+          const recentWeeks = velocityData.weeks.slice(0, 3);
+          const threeWeekAverage = recentWeeks.length > 0 
+            ? Math.round(recentWeeks.reduce((sum, week) => sum + week.points, 0) / recentWeeks.length) 
+            : 0;
+          
+          // Calculate velocity trend
+          let velocityTrend = '';
+          let trendPercent = 0;
+          
+          if (velocityData.weeks.length >= 2) {
+            const currentPoints = velocityData.weeks[0].points;
+            const previousPoints = velocityData.weeks[1].points;
+            
+            if (previousPoints > 0) {
+              trendPercent = Math.round(((currentPoints - previousPoints) / previousPoints) * 100);
+              if (trendPercent > 0) {
+                velocityTrend = `↑ ${trendPercent}%`;
+              } else if (trendPercent < 0) {
+                velocityTrend = `↓ ${Math.abs(trendPercent)}%`;
+              } else {
+                velocityTrend = '→ 0%';
+              }
+            } else {
+              velocityTrend = currentPoints > 0 ? '↑ ∞%' : '→ 0%';
+            }
+          }
+          
+          // Create velocity report content
+          const reportDate = new Date().toISOString().split('T')[0];
+          let velocityContent = `# Velocity Report\n\n`;
+          velocityContent += `*Last updated: ${reportDate}*\n\n`;
+          velocityContent += `## Current Week Summary\n\n`;
+          velocityContent += `**Week of ${weekString}**: ${weeklyPoints} story points completed\n`;
+          velocityContent += `**3-week average**: ${threeWeekAverage} points\n`;
+          velocityContent += `**Velocity trend**: ${velocityTrend}\n\n`;
+          
+          if (closedIssues.length > 0) {
+            velocityContent += `### Issues Completed This Week\n\n`;
+            for (const issue of closedIssues) {
+              velocityContent += `- #${issue.number}: ${issue.title} (${issue.points} points)\n`;
+            }
+            velocityContent += `\n`;
+          }
+          
+          velocityContent += `## Historical Data\n\n`;
+          for (const week of velocityData.weeks) {
+            velocityContent += `- Week of ${week.date}: ${week.points} story points\n`;
+          }
+          
+          // Write velocity file
+          fs.writeFileSync(velocityFile, velocityContent);
+          
+          // Set outputs for commit
+          core.setOutput('weekly-points', weeklyPoints);
+          core.setOutput('average-points', threeWeekAverage);
+          core.setOutput('trend', velocityTrend);
+          core.setOutput('week-date', weekString);
+          
+          return {
+            weeklyPoints,
+            threeWeekAverage,
+            velocityTrend,
+            weekString,
+            closedIssuesCount: closedIssues.length
+          };
+    
+    - name: Commit velocity report
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add VELOCITY.md
+        if git diff --staged --quiet; then
+          echo "No changes to commit"
+        else
+          git commit -m "Update velocity report for week of ${{ steps.velocity.outputs.week-date }}"
+          git push
+        fi
+    
+    - name: Create project board comment
+      uses: actions/github-script@v7
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+          const weeklyPoints = '${{ steps.velocity.outputs.weekly-points }}';
+          const averagePoints = '${{ steps.velocity.outputs.average-points }}';
+          const trend = '${{ steps.velocity.outputs.trend }}';
+          const weekDate = '${{ steps.velocity.outputs.week-date }}';
+          
+          const commentBody = `## 📈 Weekly Velocity Report
+          
+          **Week of ${weekDate}**: ${weeklyPoints} story points completed
+          **3-week average**: ${averagePoints} points  
+          **Velocity trend**: ${trend}
+          
+          *Generated automatically by [Velocity Reporting Action](https://github.com/${context.repo.owner}/${context.repo.repo}/actions/workflows/velocity-report.yml)*`;
+
+          // Try to find an existing velocity comment to update
+          const comments = await github.rest.issues.listComments({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            issue_number: 1 // Assuming issue #1 exists as project board reference
+          }).catch(() => ({ data: [] }));
+          
+          const existingComment = comments.data.find(comment => 
+            comment.body.includes('Weekly Velocity Report') && 
+            comment.user.login === 'github-actions[bot]'
+          );
+          
+          if (existingComment) {
+            // Update existing comment
+            await github.rest.issues.updateComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              comment_id: existingComment.id,
+              body: commentBody
+            });
+            console.log('Updated existing velocity comment');
+          } else {
+            // Create new comment - try issue #1, if it doesn't exist, create a new issue
+            try {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: 1,
+                body: commentBody
+              });
+              console.log('Created new velocity comment on issue #1');
+            } catch (error) {
+              console.log('Issue #1 not found, creating velocity tracking issue');
+              const issue = await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: '📈 Velocity Tracking Board',
+                body: `This issue serves as a project board for velocity reporting.\n\n${commentBody}`,
+                labels: ['velocity', 'tracking']
+              });
+              console.log(`Created velocity tracking issue #${issue.data.number}`);
+            }
+          }
