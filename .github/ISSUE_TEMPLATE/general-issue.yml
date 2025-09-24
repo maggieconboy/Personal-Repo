@@ -1,0 +1,124 @@
+---
+name: General Issue
+description: Submit a new issue for automated refinement
+title: "[Issue] "
+labels: ["needs-refinement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # 🎯 Issue Submission
+
+        This template helps our automated refinement system better understand your issue and assign appropriate story points and priority. The more details you provide, the more accurate the automated analysis will be.
+
+  - type: textarea
+    id: issue_description
+    attributes:
+      label: Issue Description
+      description: Provide a clear and detailed description of the issue, feature request, or task.
+      placeholder: Describe the issue, what you're trying to achieve, and any relevant context...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: issue_type
+    attributes:
+      label: Issue Type
+      description: What type of issue is this?
+      options:
+        - "Bug Fix"
+        - "New Feature"
+        - "Enhancement"
+        - "Documentation"
+        - "Configuration/Setup"
+        - "Performance Issue"
+        - "Security Issue"
+        - "Infrastructure"
+        - "Other"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: estimated_complexity
+    attributes:
+      label: Estimated Complexity (Optional)
+      description: If you have a sense of the complexity, it helps our automation
+      options:
+        - "Low - Minor changes or bug fixes"
+        - "Medium - Standard feature development"
+        - "High - Complex features or system changes"
+        - "Very High - Architecture changes or new systems"
+        - "Unknown"
+      default: 4
+
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: Urgency Level
+      description: How urgent is this issue?
+      options:
+        - "Critical - Production down or security vulnerability"
+        - "High - Important for upcoming release or customer impact"
+        - "Medium - Standard priority"
+        - "Low - Nice to have or future enhancement"
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      description: What needs to be done for this issue to be considered complete?
+      placeholder: |
+        - [ ] Criterion 1
+        - [ ] Criterion 2
+        - [ ] Criterion 3
+
+  - type: textarea
+    id: technical_details
+    attributes:
+      label: Technical Details (Optional)
+      description: Any technical specifications, dependencies, or implementation notes
+      placeholder: Include any technical requirements, API changes, database modifications, etc.
+
+  - type: textarea
+    id: impact_assessment
+    attributes:
+      label: Impact Assessment
+      description: Who or what will this issue affect?
+      placeholder: Describe the impact on users, systems, other features, etc.
+
+  - type: checkboxes
+    id: system_components
+    attributes:
+      label: System Components Involved (Check all that apply)
+      options:
+        - label: Frontend/UI
+        - label: Backend/API
+        - label: Database
+        - label: Authentication/Security
+        - label: Third-party integrations
+        - label: Infrastructure/DevOps
+        - label: Documentation
+        - label: Testing
+        - label: Monitoring/Analytics
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional Context
+      description: Any other information that would be helpful
+      placeholder: Screenshots, links, related issues, etc.
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        
+        **After submission, this issue will be automatically analyzed and refined with:**
+        - 📊 Story point estimation based on complexity
+        - 🚀 Priority assignment based on urgency and impact
+        - 📋 Automatic labeling for better organization
+        - 💬 Analysis comment with reasoning
+        
+        You'll receive a notification once the refinement is complete and the issue is ready for review!
