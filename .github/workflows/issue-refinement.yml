@@ -210,6 +210,45 @@ jobs:
             labels: filteredLabels
           });
           
+          // Assign issue to "Intake" milestone
+          try {
+            // First, try to get the "Intake" milestone
+            let intakeMilestone;
+            const milestones = await github.rest.issues.listMilestones({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open'
+            });
+            
+            intakeMilestone = milestones.data.find(milestone => milestone.title === 'Intake');
+            
+            // If "Intake" milestone doesn't exist, create it
+            if (!intakeMilestone) {
+              const milestoneResponse = await github.rest.issues.createMilestone({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: 'Intake',
+                description: 'Issues that have been automatically refined and are ready for review by leads',
+                state: 'open'
+              });
+              intakeMilestone = milestoneResponse.data;
+              console.log('Created "Intake" milestone');
+            }
+            
+            // Assign the issue to the "Intake" milestone
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+              milestone: intakeMilestone.number
+            });
+            
+            console.log(`Assigned issue #${issueNumber} to "Intake" milestone`);
+          } catch (error) {
+            console.error('Error assigning milestone:', error.message);
+            // Don't fail the workflow if milestone assignment fails
+          }
+          
           // Add analysis comment to the issue
           const analysisComment = "## 🤖 Automated Issue Refinement\n\n" +
             "**Story Points**: " + storyPoints + " points\n" +
@@ -220,7 +259,7 @@ jobs:
             "- **Keywords Detected**: " + (detectedKeywords.join(', ') || 'None') + "\n" +
             "- **Content Length**: " + bodyLength + " characters\n\n" +
             "### Next Steps\n" +
-            "This issue has been automatically refined and is ready for review. The engineering team will validate the story point estimate and priority assignment during the next planning session.\n\n" +
+            "This issue has been automatically refined and added to the **Intake** milestone for review. The engineering team will validate the story point estimate and priority assignment during the next planning session.\n\n" +
             "---\n" +
             "*Generated automatically by [Issue Refinement Automation](https://github.com/" + context.repo.owner + "/" + context.repo.repo + "/actions/workflows/issue-refinement.yml)*";
 
