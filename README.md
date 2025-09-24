@@ -35,6 +35,16 @@ Explore more in my top repositories:
 
 I actively explore how [Copilot Agents](https://github.com/copilot/agents), [Loops](https://github.com/copilot/loops), [Spaces](https://github.com/copilot/spaces), and [Spark](https://github.com/spark) can fully or partially automate workflows, accelerate product delivery, and drive business impact. My focus is on enabling non-developers to unlock new potential with AI tools.
 
+### 📊 Automated Velocity Reporting
+This repository demonstrates practical automation through a **[Velocity Reporting GitHub Action](.github/workflows/velocity-report.yml)** that:
+- Runs every Friday at 5pm PT automatically
+- Analyzes story points from closed issues in current milestones  
+- Calculates 3-week velocity averages and trends
+- Updates [VELOCITY.md](VELOCITY.md) with data-driven insights
+- Posts summaries to project boards
+
+*Example of how AI-driven automation can eliminate manual reporting overhead while providing actionable team performance insights.*
+
 ## 📈 Values & Mindset
 
 - Proactive product leadership, opportunity-focused thinking
