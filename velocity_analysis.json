@@ -1,0 +1,217 @@
+{
+  "analysis_date": "2025-09-24T19:19:13.543880",
+  "repository": "maggieconboy/Personal-Repo",
+  "milestones_analyzed": 3,
+  "milestone_details": [
+    {
+      "milestone_number": 1,
+      "title": "Sprint 1 - 7/14-7/25",
+      "state": "open",
+      "total_issues": 9,
+      "closed_issues": 4,
+      "open_issues": 5,
+      "closed_story_points": 0,
+      "open_story_points": 31,
+      "total_story_points": 31,
+      "completion_rate": 0.0,
+      "cycle_times": [
+        0,
+        67,
+        67,
+        67
+      ],
+      "avg_cycle_time": 50.25,
+      "created_at": "2025-07-15T20:23:24Z",
+      "issues_detail": {
+        "closed": [
+          {
+            "number": 18,
+            "title": "Phase 1: Seller User Personas",
+            "story_points": 0,
+            "cycle_time": 0
+          },
+          {
+            "number": 9,
+            "title": "Request System Data",
+            "story_points": 0,
+            "cycle_time": 67
+          },
+          {
+            "number": 7,
+            "title": "Conduct User Survey",
+            "story_points": 0,
+            "cycle_time": 67
+          },
+          {
+            "number": 5,
+            "title": "Synthesis of user insights and research",
+            "story_points": 0,
+            "cycle_time": 67
+          }
+        ],
+        "open": [
+          {
+            "number": 19,
+            "title": "Phase 2: Zendesk Personas",
+            "story_points": 8
+          },
+          {
+            "number": 15,
+            "title": "Help Parker & team push through salesforce entitlement automation efforts",
+            "story_points": 5
+          },
+          {
+            "number": 14,
+            "title": "GitHub Seller Journey Research Project",
+            "story_points": 2
+          },
+          {
+            "number": 2,
+            "title": "Clean up unused fields in SFDC",
+            "story_points": 13
+          },
+          {
+            "number": 1,
+            "title": "Set up Gong to allow for simultaneous use of both Zoom & Teams",
+            "story_points": 3
+          }
+        ]
+      }
+    },
+    {
+      "milestone_number": 2,
+      "title": "Sprint 2 - 7/28-8/8",
+      "state": "open",
+      "total_issues": 6,
+      "closed_issues": 4,
+      "open_issues": 2,
+      "closed_story_points": 0,
+      "open_story_points": 0,
+      "total_story_points": 0,
+      "completion_rate": 0,
+      "cycle_times": [
+        61,
+        63,
+        67,
+        67
+      ],
+      "avg_cycle_time": 64.5,
+      "created_at": "2025-07-15T20:23:53Z",
+      "issues_detail": {
+        "closed": [
+          {
+            "number": 13,
+            "title": "Write user stories & AC for the GitHub Recommender work",
+            "story_points": 0,
+            "cycle_time": 61
+          },
+          {
+            "number": 11,
+            "title": "Get Copilot/Transcription on by default in Teams meetings",
+            "story_points": 0,
+            "cycle_time": 63
+          },
+          {
+            "number": 6,
+            "title": "Customer Lifecycle Maps",
+            "story_points": 0,
+            "cycle_time": 67
+          },
+          {
+            "number": 4,
+            "title": "Create User Journey Maps",
+            "story_points": 0,
+            "cycle_time": 67
+          }
+        ],
+        "open": [
+          {
+            "number": 12,
+            "title": "Salesforce ending support for Workflow Rules and Process Builder on December 31, 2025",
+            "story_points": 0
+          },
+          {
+            "number": 17,
+            "title": "Epic: GitHub Persona Development",
+            "story_points": 0
+          }
+        ]
+      }
+    },
+    {
+      "milestone_number": 3,
+      "title": "Sprint 3 - 8/11-8/22",
+      "state": "open",
+      "total_issues": 8,
+      "closed_issues": 3,
+      "open_issues": 5,
+      "closed_story_points": 0,
+      "open_story_points": 0,
+      "total_story_points": 0,
+      "completion_rate": 0,
+      "cycle_times": [
+        67,
+        10,
+        67
+      ],
+      "avg_cycle_time": 48.0,
+      "created_at": "2025-07-15T20:24:41Z",
+      "issues_detail": {
+        "closed": [
+          {
+            "number": 10,
+            "title": "Conduct User Interviews",
+            "story_points": 0,
+            "cycle_time": 67
+          },
+          {
+            "number": 8,
+            "title": "Get seller demographic data from HR",
+            "story_points": 0,
+            "cycle_time": 10
+          },
+          {
+            "number": 3,
+            "title": "Create Personas for Revenue Team Users",
+            "story_points": 0,
+            "cycle_time": 67
+          }
+        ],
+        "open": [
+          {
+            "number": 26,
+            "title": "I am an enhancement request that is aligned to an approved project",
+            "story_points": 0
+          },
+          {
+            "number": 23,
+            "title": "Test 3",
+            "story_points": 0
+          },
+          {
+            "number": 22,
+            "title": "Test 2",
+            "story_points": 0
+          },
+          {
+            "number": 21,
+            "title": "Test",
+            "story_points": 0
+          },
+          {
+            "number": 16,
+            "title": "Standardize Salesforce Roles & Permissions",
+            "story_points": 0
+          }
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "avg_story_points_completed": 0.0,
+    "avg_cycle_time_days": 54.81818181818182,
+    "velocity_trend_percent": 0,
+    "total_story_points_completed": 0,
+    "total_issues_completed": 11
+  }
+}
