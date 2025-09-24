@@ -3,7 +3,6 @@
 Generate velocity summary and trends visualization
 """
 import json
-from datetime import datetime
 
 
 def generate_velocity_summary():
@@ -108,10 +107,27 @@ def generate_velocity_summary():
         print(f"  📊 Story Points Concentration: {sp_by_milestone[0][1]} SP in {sp_by_milestone[0][0]}")
     
     print(f"\n🎯 RECOMMENDATIONS:")
-    print(f"  1. Complete Sprint 1 backlog (31 SP remaining)")
-    print(f"  2. Assign story points to all future sprints")
-    print(f"  3. Target <30 day average cycle time")
-    print(f"  4. Maintain Sprint 2's 67% completion rate consistency")
+    
+    # Generate dynamic recommendations based on analysis
+    sprint_1_remaining = next((m['open_story_points'] for m in milestones if m['milestone_number'] == 1), 0)
+    if sprint_1_remaining > 0:
+        print(f"  1. Complete Sprint 1 backlog ({sprint_1_remaining} SP remaining)")
+    
+    # Check if story points are assigned consistently
+    sprints_without_sp = [m['title'] for m in milestones if m['total_story_points'] == 0]
+    if sprints_without_sp:
+        print(f"  2. Assign story points to future sprints")
+    
+    # Cycle time recommendation based on current average
+    avg_cycle_time = data['summary']['avg_cycle_time_days']
+    target_cycle_time = max(20, avg_cycle_time * 0.6)  # Target 60% of current average, min 20 days
+    print(f"  3. Target <{target_cycle_time:.0f} day average cycle time")
+    
+    # Best completion rate recommendation
+    best_completion_rate = max(completion_rates)
+    if best_completion_rate > 0:
+        best_sprint_name = milestones[completion_rates.index(best_completion_rate)]['title']
+        print(f"  4. Maintain {best_sprint_name}'s {best_completion_rate:.1f}% completion rate consistency")
     
     # Generate trend indicators
     if len(completion_rates) >= 2:

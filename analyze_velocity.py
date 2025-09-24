@@ -10,7 +10,7 @@ This script analyzes velocity trends across the last 3 milestones including:
 
 import json
 import requests
-from datetime import datetime, timedelta
+from datetime import datetime
 from typing import Dict, List, Tuple, Optional
 import sys
 
