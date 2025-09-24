@@ -61,21 +61,22 @@ jobs:
           
           // High complexity indicators (13 points)
           const highComplexityKeywords = [
-            'new service', 'new system', 'architecture', 'refactor', 'migration', 
+            'new service', 'new microservice', 'architecture', 'refactor', 'migration', 
             'security review', 'compliance', 'multiple teams', 'third-party integration',
-            'database schema', 'api design', 'microservice', 'infrastructure'
+            'database schema', 'api design', 'microservice', 'infrastructure', 'new system'
           ];
           
           // Medium complexity indicators (5-8 points)
           const mediumComplexityKeywords = [
-            'enhancement', 'feature', 'integration', 'database', 'api', 
-            'testing', 'deployment', 'monitoring', 'performance', 'ui/ux'
+            'feature', 'integration', 'database', 'api', 'profile',
+            'testing', 'deployment', 'monitoring', 'performance', 'ui/ux',
+            'settings', 'user interface', 'backend', 'frontend'
           ];
           
           // Low complexity indicators (1-3 points)
           const lowComplexityKeywords = [
-            'bug', 'fix', 'typo', 'documentation', 'config', 'small change',
-            'update text', 'minor', 'quick fix'
+            'bug', 'fix', 'typo', 'documentation', 'config', 'small',
+            'update text', 'minor', 'quick fix', 'small change'
           ];
           
           let complexityScore = 0;
@@ -105,22 +106,30 @@ jobs:
             }
           }
           
+          // Special case: Security vulnerabilities are always high complexity
+          if (combinedText.includes('security vulnerability') || 
+              combinedText.includes('security issue') || 
+              combinedText.includes('vulnerability')) {
+            complexityScore += 5;
+            detectedKeywords.push('security vulnerability');
+          }
+          
           // Additional complexity factors
           const bodyLength = (issue.body || '').length;
           if (bodyLength > 2000) complexityScore += 2;
           if (bodyLength > 1000) complexityScore += 1;
           
           // Assign story points based on complexity score
-          if (complexityScore >= 8) {
+          if (complexityScore >= 7) {
             storyPoints = 13;
             complexityReason = 'High complexity: multiple systems, architecture changes, or extensive requirements';
-          } else if (complexityScore >= 5) {
+          } else if (complexityScore >= 4) {
             storyPoints = 8;
             complexityReason = 'Medium-high complexity: significant feature work or integrations';
           } else if (complexityScore >= 3) {
             storyPoints = 5;
             complexityReason = 'Medium complexity: standard feature development';
-          } else if (complexityScore >= 2) {
+          } else if (complexityScore >= 1) {
             storyPoints = 3;
             complexityReason = 'Low-medium complexity: small enhancements';
           } else {
