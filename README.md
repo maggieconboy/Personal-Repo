@@ -35,8 +35,18 @@ Explore more in my top repositories:
 
 I actively explore how [Copilot Agents](https://github.com/copilot/agents), [Loops](https://github.com/copilot/loops), [Spaces](https://github.com/copilot/spaces), and [Spark](https://github.com/spark) can fully or partially automate workflows, accelerate product delivery, and drive business impact. My focus is on enabling non-developers to unlock new potential with AI tools.
 
+### 🎯 Automated Issue Refinement
+This repository demonstrates advanced automation through an **[Issue Refinement GitHub Action](.github/workflows/issue-refinement.yml)** that:
+- Automatically analyzes new issues for complexity and priority
+- Assigns story points (1-13) based on content analysis and keyword detection
+- Sets priority levels (critical/high/medium/low) based on urgency indicators
+- Adds analysis comments with detailed reasoning
+- Creates tracking issues and notifications for ready-to-review items
+
+*Example of intelligent automation that eliminates manual triage overhead while providing consistent, data-driven issue assessment.*
+
 ### 📊 Automated Velocity Reporting
-This repository demonstrates practical automation through a **[Velocity Reporting GitHub Action](.github/workflows/velocity-report.yml)** that:
+This repository also includes a **[Velocity Reporting GitHub Action](.github/workflows/velocity-report.yml)** that:
 - Runs every Friday at 5pm PT automatically
 - Analyzes story points from closed issues in current milestones  
 - Calculates 3-week velocity averages and trends

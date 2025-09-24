@@ -1,0 +1,350 @@
+name: Issue Refinement Automation
+
+on:
+  issues:
+    types: [opened, edited]
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: 'Issue number to refine'
+        required: true
+        type: number
+
+permissions:
+  issues: write
+  contents: read
+  pull-requests: read
+
+jobs:
+  refine-issue:
+    runs-on: ubuntu-latest
+    name: Automated Issue Refinement
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        
+    - name: Analyze Issue and Assign Labels
+      id: analyze
+      uses: actions/github-script@v7
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+          const issueNumber = context.payload.issue ? context.payload.issue.number : ${{ github.event.inputs.issue_number || 'null' }};
+          
+          if (!issueNumber) {
+            console.log('No issue number found');
+            return;
+          }
+          
+          // Get the issue details
+          const { data: issue } = await github.rest.issues.get({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            issue_number: issueNumber
+          });
+          
+          console.log(`Analyzing issue #${issueNumber}: ${issue.title}`);
+          
+          const title = issue.title.toLowerCase();
+          const body = (issue.body || '').toLowerCase();
+          const combinedText = `${title} ${body}`;
+          
+          // Story Points Assignment Logic based on complexity indicators
+          let storyPoints = 1; // default
+          let complexityReason = '';
+          
+          // High complexity indicators (13 points)
+          const highComplexityKeywords = [
+            'new service', 'new system', 'architecture', 'refactor', 'migration', 
+            'security review', 'compliance', 'multiple teams', 'third-party integration',
+            'database schema', 'api design', 'microservice', 'infrastructure'
+          ];
+          
+          // Medium complexity indicators (5-8 points)
+          const mediumComplexityKeywords = [
+            'enhancement', 'feature', 'integration', 'database', 'api', 
+            'testing', 'deployment', 'monitoring', 'performance', 'ui/ux'
+          ];
+          
+          // Low complexity indicators (1-3 points)
+          const lowComplexityKeywords = [
+            'bug', 'fix', 'typo', 'documentation', 'config', 'small change',
+            'update text', 'minor', 'quick fix'
+          ];
+          
+          let complexityScore = 0;
+          let detectedKeywords = [];
+          
+          // Check for high complexity
+          for (const keyword of highComplexityKeywords) {
+            if (combinedText.includes(keyword)) {
+              complexityScore += 3;
+              detectedKeywords.push(keyword);
+            }
+          }
+          
+          // Check for medium complexity
+          for (const keyword of mediumComplexityKeywords) {
+            if (combinedText.includes(keyword)) {
+              complexityScore += 2;
+              detectedKeywords.push(keyword);
+            }
+          }
+          
+          // Check for low complexity
+          for (const keyword of lowComplexityKeywords) {
+            if (combinedText.includes(keyword)) {
+              complexityScore += 1;
+              detectedKeywords.push(keyword);
+            }
+          }
+          
+          // Additional complexity factors
+          const bodyLength = (issue.body || '').length;
+          if (bodyLength > 2000) complexityScore += 2;
+          if (bodyLength > 1000) complexityScore += 1;
+          
+          // Assign story points based on complexity score
+          if (complexityScore >= 8) {
+            storyPoints = 13;
+            complexityReason = 'High complexity: multiple systems, architecture changes, or extensive requirements';
+          } else if (complexityScore >= 5) {
+            storyPoints = 8;
+            complexityReason = 'Medium-high complexity: significant feature work or integrations';
+          } else if (complexityScore >= 3) {
+            storyPoints = 5;
+            complexityReason = 'Medium complexity: standard feature development';
+          } else if (complexityScore >= 2) {
+            storyPoints = 3;
+            complexityReason = 'Low-medium complexity: small enhancements';
+          } else {
+            storyPoints = 1;
+            complexityReason = 'Low complexity: bug fixes or minor changes';
+          }
+          
+          console.log(`Complexity score: ${complexityScore}, Story points: ${storyPoints}`);
+          console.log(`Detected keywords: ${detectedKeywords.join(', ')}`);
+          
+          // Priority Assignment Logic based on severity and urgency
+          let priority = 'medium'; // default
+          let priorityReason = '';
+          
+          // Critical priority indicators
+          const criticalKeywords = [
+            'critical', 'urgent', 'production down', 'security vulnerability', 
+            'data loss', 'outage', 'blocking', 'p0', 'sev1'
+          ];
+          
+          // High priority indicators  
+          const highPriorityKeywords = [
+            'high', 'important', 'asap', 'customer impact', 'revenue impact',
+            'p1', 'sev2', 'deadline', 'release blocker'
+          ];
+          
+          // Low priority indicators
+          const lowPriorityKeywords = [
+            'low', 'nice to have', 'future', 'enhancement', 'improvement',
+            'p3', 'p4', 'sev3', 'sev4', 'backlog'
+          ];
+          
+          if (criticalKeywords.some(keyword => combinedText.includes(keyword))) {
+            priority = 'critical';
+            priorityReason = 'Critical: Production impact, security issues, or blocking issues detected';
+          } else if (highPriorityKeywords.some(keyword => combinedText.includes(keyword))) {
+            priority = 'high';  
+            priorityReason = 'High: Customer or revenue impact, or time-sensitive requirements';
+          } else if (lowPriorityKeywords.some(keyword => combinedText.includes(keyword))) {
+            priority = 'low';
+            priorityReason = 'Low: Enhancement or non-urgent improvement';
+          } else {
+            priority = 'medium';
+            priorityReason = 'Medium: Standard priority for new issues';
+          }
+          
+          console.log(`Priority: ${priority} - ${priorityReason}`);
+          
+          // Get current labels to avoid duplicates
+          const currentLabels = issue.labels.map(label => 
+            typeof label === 'string' ? label : label.name
+          );
+          
+          const newLabels = [...currentLabels];
+          
+          // Remove existing story point and priority labels
+          const filteredLabels = newLabels.filter(label => 
+            !label.startsWith('points-') && 
+            !['priority-critical', 'priority-high', 'priority-medium', 'priority-low'].includes(label)
+          );
+          
+          // Add new labels
+          filteredLabels.push(`points-${storyPoints}`);
+          filteredLabels.push(`priority-${priority}`);
+          
+          // Add refinement status
+          if (!filteredLabels.includes('refined')) {
+            filteredLabels.push('refined');
+          }
+          
+          // Update issue with new labels
+          await github.rest.issues.update({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            issue_number: issueNumber,
+            labels: filteredLabels
+          });
+          
+          // Add analysis comment to the issue
+          const analysisComment = "## 🤖 Automated Issue Refinement\n\n" +
+            "**Story Points**: " + storyPoints + " points\n" +
+            "**Priority**: " + priority.charAt(0).toUpperCase() + priority.slice(1) + "\n\n" +
+            "### Analysis Details\n" +
+            "- **Complexity Reasoning**: " + complexityReason + "\n" +
+            "- **Priority Reasoning**: " + priorityReason + "\n" +
+            "- **Keywords Detected**: " + (detectedKeywords.join(', ') || 'None') + "\n" +
+            "- **Content Length**: " + bodyLength + " characters\n\n" +
+            "### Next Steps\n" +
+            "This issue has been automatically refined and is ready for review. The engineering team will validate the story point estimate and priority assignment during the next planning session.\n\n" +
+            "---\n" +
+            "*Generated automatically by [Issue Refinement Automation](https://github.com/" + context.repo.owner + "/" + context.repo.repo + "/actions/workflows/issue-refinement.yml)*";
+
+          await github.rest.issues.createComment({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            issue_number: issueNumber,
+            body: analysisComment
+          });
+          
+          // Set outputs for notification step
+          core.setOutput('issue-number', issueNumber);
+          core.setOutput('story-points', storyPoints);
+          core.setOutput('priority', priority);
+          core.setOutput('title', issue.title);
+          core.setOutput('complexity-reason', complexityReason);
+          core.setOutput('priority-reason', priorityReason);
+          
+          return {
+            issueNumber,
+            storyPoints,
+            priority,
+            title: issue.title,
+            complexityReason,
+            priorityReason
+          };
+    
+    - name: Create Labels if they don't exist
+      uses: actions/github-script@v7
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+          const labels = [
+            // Story point labels
+            { name: 'points-1', color: 'e6f3ff', description: '1 story point - Low complexity task' },
+            { name: 'points-3', color: 'd1e7ff', description: '3 story points - Low-medium complexity task' },
+            { name: 'points-5', color: 'a8d4ff', description: '5 story points - Medium complexity task' },
+            { name: 'points-8', color: '7fc3ff', description: '8 story points - Medium-high complexity task' },
+            { name: 'points-13', color: '4ea5ff', description: '13 story points - High complexity task' },
+            
+            // Priority labels
+            { name: 'priority-critical', color: 'ff0000', description: 'Critical priority - immediate attention required' },
+            { name: 'priority-high', color: 'ff6600', description: 'High priority - important and time-sensitive' },
+            { name: 'priority-medium', color: 'ffcc00', description: 'Medium priority - standard priority' },
+            { name: 'priority-low', color: '99ff99', description: 'Low priority - nice to have' },
+            
+            // Process labels
+            { name: 'refined', color: '0e8a16', description: 'Issue has been automatically refined' }
+          ];
+          
+          for (const label of labels) {
+            try {
+              await github.rest.issues.createLabel({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                name: label.name,
+                color: label.color,
+                description: label.description
+              });
+              console.log(`Created label: ${label.name}`);
+            } catch (error) {
+              if (error.status === 422) {
+                console.log(`Label ${label.name} already exists`);
+              } else {
+                console.error(`Error creating label ${label.name}:`, error.message);
+              }
+            }
+          }
+          
+    - name: Send Notification
+      uses: actions/github-script@v7  
+      if: steps.analyze.outputs.issue-number
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        script: |
+          const issueNumber = '${{ steps.analyze.outputs.issue-number }}';
+          const storyPoints = '${{ steps.analyze.outputs.story-points }}';
+          const priority = '${{ steps.analyze.outputs.priority }}';
+          const title = '${{ steps.analyze.outputs.title }}';
+          const complexityReason = '${{ steps.analyze.outputs.complexity-reason }}';
+          const priorityReason = '${{ steps.analyze.outputs.priority-reason }}';
+          
+          console.log(`📋 Issue #${issueNumber} refined and ready for review:`);
+          console.log(`📌 Title: ${title}`);
+          console.log(`⚡ Story Points: ${storyPoints}`);
+          console.log(`🚀 Priority: ${priority}`);
+          console.log(`🔍 Complexity: ${complexityReason}`);
+          console.log(`📈 Priority Logic: ${priorityReason}`);
+          
+          // Try to find a refinement tracking issue or create notifications
+          try {
+            // Look for existing refinement tracking issue
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              labels: 'refinement-tracking',
+              state: 'open'
+            });
+            
+            let trackingIssue = issues.data[0];
+            
+            if (!trackingIssue) {
+              // Create refinement tracking issue
+              const trackingIssueResponse = await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: '📋 Issue Refinement Tracking',
+                body: "This issue tracks all automatically refined issues that are ready for review.\n\n## Recently Refined Issues\n\nIssue refinements will be posted as comments below.",
+                labels: ['refinement-tracking', 'automation']
+              });
+              trackingIssue = trackingIssueResponse.data;
+              console.log(`Created refinement tracking issue #${trackingIssue.number}`);
+            }
+            
+            // Post notification to tracking issue
+            const notificationComment = "## 📋 New Issue Refined - Ready for Review\n\n" +
+              "**Issue**: #" + issueNumber + " - " + title + "\n" +
+              "**Story Points**: " + storyPoints + " points\n" +
+              "**Priority**: " + priority.charAt(0).toUpperCase() + priority.slice(1) + "\n" +
+              "**Refined**: " + new Date().toISOString().split('T')[0] + "\n\n" +
+              "**Analysis Summary**:\n" +
+              "- " + complexityReason + "\n" +
+              "- " + priorityReason + "\n\n" +
+              "[View Issue #" + issueNumber + "](https://github.com/" + context.repo.owner + "/" + context.repo.repo + "/issues/" + issueNumber + ")\n\n" +
+              "---";
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: trackingIssue.number,
+              body: notificationComment
+            });
+            
+            console.log(`✅ Notification posted to tracking issue #${trackingIssue.number}`);
+            
+          } catch (error) {
+            console.error('Error creating notification:', error.message);
+          }
