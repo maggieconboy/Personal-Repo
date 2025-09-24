@@ -63,7 +63,7 @@ jobs:
           const highComplexityKeywords = [
             'new service', 'new microservice', 'architecture', 'refactor', 'migration', 
             'security review', 'compliance', 'multiple teams', 'third-party integration',
-            'database schema', 'api design', 'microservice', 'infrastructure', 'new system'
+            'database schema', 'api design', 'infrastructure', 'new system'
           ];
           
           // Medium complexity indicators (5-8 points)
@@ -120,6 +120,8 @@ jobs:
           if (bodyLength > 1000) complexityScore += 1;
           
           // Assign story points based on complexity score
+          // Note: Thresholds are designed to be slightly generous to avoid under-estimation
+          // Security issues get special handling (+5 points) due to their critical nature
           if (complexityScore >= 7) {
             storyPoints = 13;
             complexityReason = 'High complexity: multiple systems, architecture changes, or extensive requirements';
