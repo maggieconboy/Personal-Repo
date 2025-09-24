@@ -211,31 +211,45 @@ jobs:
           });
           
           // Assign issue to "Intake" milestone
+          const MILESTONE_NAME = 'Intake';
           try {
-            // First, try to get the "Intake" milestone
+            // First, try to get the milestone (with pagination support)
             let intakeMilestone;
-            const milestones = await github.rest.issues.listMilestones({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              state: 'open'
-            });
+            let page = 1;
+            let found = false;
             
-            intakeMilestone = milestones.data.find(milestone => milestone.title === 'Intake');
+            while (!found) {
+              const milestones = await github.rest.issues.listMilestones({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                state: 'open',
+                per_page: 100,
+                page: page
+              });
+              
+              intakeMilestone = milestones.data.find(milestone => milestone.title === MILESTONE_NAME);
+              
+              if (intakeMilestone || milestones.data.length === 0) {
+                found = true;
+              } else {
+                page++;
+              }
+            }
             
-            // If "Intake" milestone doesn't exist, create it
+            // If milestone doesn't exist, create it
             if (!intakeMilestone) {
               const milestoneResponse = await github.rest.issues.createMilestone({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                title: 'Intake',
+                title: MILESTONE_NAME,
                 description: 'Issues that have been automatically refined and are ready for review by leads',
                 state: 'open'
               });
               intakeMilestone = milestoneResponse.data;
-              console.log('Created "Intake" milestone');
+              console.log(`Created "${MILESTONE_NAME}" milestone`);
             }
             
-            // Assign the issue to the "Intake" milestone
+            // Assign the issue to the milestone
             await github.rest.issues.update({
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -243,7 +257,7 @@ jobs:
               milestone: intakeMilestone.number
             });
             
-            console.log(`Assigned issue #${issueNumber} to "Intake" milestone`);
+            console.log(`Assigned issue #${issueNumber} to "${MILESTONE_NAME}" milestone`);
           } catch (error) {
             console.error('Error assigning milestone:', error.message);
             // Don't fail the workflow if milestone assignment fails
