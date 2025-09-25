@@ -1,34 +1,12 @@
 theme: jekyll-theme-primer
 title: Maggie Conboy
-tagline: "Transforming Enterprise Strategy Through AI Innovation"
-description: "Senior Product Manager driving $100M+ initiatives at GitHub"
+description: Senior Product Manager | AI Leader | Restaurant Tech Pioneer
+show_downloads: false
 
-# Professional metadata for SEO
-author:
-  name: Maggie Conboy
-  email: your.email@github.com
-  
-# Social presence
-social:
-  name: Maggie Conboy
-  links:
-    - https://linkedin.com/in/maggieconboy
-    - https://github.com/maggieconboy
-
-# Navigation structure
-header_pages:
-  - portfolio.md
-  - leadership.md
-  - speaking.md
-
-# Analytics tracking (add when ready)
-google_analytics: UA-XXXXXXXXX
-
-# Plugins that work with GitHub Pages
-plugins:
-  - jekyll-seo-tag
-  - jekyll-sitemap
-
+# This makes navigation appear
 header_pages:
   - restaurant-portfolio.md
-  - about.md
+
+# This ensures proper URL structure
+baseurl: "/Personal-Repo"
+url: "https://maggieconboy.github.io"
