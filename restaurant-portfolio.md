@@ -4,6 +4,13 @@ title: Restaurant Technology Portfolio
 permalink: /restaurant-portfolio/
 ---
 
+<div class="nav-container">
+  <a href="https://maggieconboy.github.io/Personal-Repo/">Home</a>
+  <a href="https://maggieconboy.github.io/Personal-Repo/restaurant-portfolio/">Restaurant Portfolio</a>
+  <a href="https://github.com/maggieconboy">GitHub Profile</a>
+  <a href="https://linkedin.com/in/maggieconboy">LinkedIn</a>
+</div>
+
 # Restaurant Technology Leadership
 
 I led digital transformation for major restaurant brands, creating platforms that now serve millions of customers daily.
