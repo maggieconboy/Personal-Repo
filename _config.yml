@@ -1,36 +1,30 @@
-remote_theme: "mmistakes/minimal-mistakes@4.26.2" 
-minimal_mistakes_skin: "dark" # Try "air", "aqua", "contrast", "dark", "default", "dirt", "mint", "sunrise"
-
+theme: jekyll-theme-primer
 title: Maggie Conboy
-subtitle: "Transforming Enterprise Strategy Through AI Innovation"
-name: Maggie Conboy
+tagline: "Transforming Enterprise Strategy Through AI Innovation"
 description: "Senior Product Manager driving $100M+ initiatives at GitHub"
 
+# Professional metadata for SEO
 author:
-  name: "Maggie Conboy"
-  avatar: "/assets/images/your-photo.jpg"
-  bio: "Senior Product Manager at GitHub | AI Strategy Leader | Building the Future of Enterprise Software"
-  location: "San Francisco, CA"
+  name: Maggie Conboy
+  email: your.email@github.com
+  
+# Social presence
+social:
+  name: Maggie Conboy
   links:
-    - label: "LinkedIn"
-      icon: "fab fa-fw fa-linkedin"
-      url: "https://linkedin.com/in/maggieconboy"
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope"
-      url: "mailto:your.email@github.com"
+    - https://linkedin.com/in/maggieconboy
+    - https://github.com/maggieconboy
 
-# Reading experience
-read_time: true
-words_per_minute: 200
-
-# Navigation
+# Navigation structure
 header_pages:
-  - index.md
   - portfolio.md
   - leadership.md
+  - speaking.md
 
-# Analytics (add your ID when ready)
-analytics:
-  provider: "google-gtag"
-  google:
-    tracking_id: "YOUR-ID"
+# Analytics tracking (add when ready)
+google_analytics: UA-XXXXXXXXX
+
+# Plugins that work with GitHub Pages
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
