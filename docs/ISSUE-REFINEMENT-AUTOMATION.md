@@ -57,6 +57,12 @@ Adds a detailed comment to each issue containing:
 - Logs analysis results to workflow output
 - Ready-for-review status for planning sessions
 
+#### Milestone Assignment
+- Automatically assigns refined issues to the **"Intake"** milestone
+- Creates the "Intake" milestone if it doesn't exist
+- Provides leads with an easy way to identify issues ready for review
+- Milestone description: "Issues that have been automatically refined and are ready for review by leads"
+
 ## Setup Requirements
 
 ### Labels
@@ -77,6 +83,16 @@ The workflow automatically creates these labels if they don't exist:
 
 **Process Labels:**
 - `refined` (Green) - Issue has been automatically refined
+
+### Milestones
+The workflow automatically manages milestones:
+
+**Intake Milestone:**
+- **Title**: "Intake"
+- **Purpose**: Contains all automatically refined issues ready for review
+- **Description**: "Issues that have been automatically refined and are ready for review by leads"
+- **State**: Open
+- **Auto-created**: If the milestone doesn't exist, it will be created automatically
 
 ### Permissions
 The workflow requires these permissions (already configured):
@@ -132,7 +148,7 @@ The refinement system integrates seamlessly with the existing [Velocity Reportin
 - **Content Length**: 1247 characters
 
 ### Next Steps
-This issue has been automatically refined and is ready for review...
+This issue has been automatically refined and added to the **Intake** milestone for review...
 ```
 
 ### Refinement Tracking Issue
@@ -160,6 +176,7 @@ To modify the refinement logic:
 3. **Priority Logic**: Modify priority assignment conditions
 4. **Analysis Template**: Update comment template format
 5. **Label Configuration**: Customize label names and colors
+6. **Milestone Configuration**: Change the milestone name by updating the `MILESTONE_NAME` constant in the workflow file
 
 ## Troubleshooting
 
@@ -197,6 +214,7 @@ Check the Actions tab for detailed execution logs including:
 - **Consistent Sizing**: Standardized story point assignment reduces estimation variance
 - **Priority Clarity**: Automatic priority assignment based on defined criteria
 - **Ready Notifications**: Clear indication when issues are ready for planning
+- **Easy Review Process**: All refined issues automatically organized in "Intake" milestone
 
 ### For Engineering Teams
 - **Faster Planning**: Pre-refined issues accelerate planning sessions
@@ -209,5 +227,6 @@ Check the Actions tab for detailed execution logs including:
 - **Consistency**: Standardized approach reduces subjective bias
 - **Efficiency**: Faster time-to-planning for new requirements
 - **Visibility**: Automatic notifications and tracking for issue status
+- **Lead-Friendly**: Centralized "Intake" milestone makes it easy to find issues ready for review
 
 This automation system demonstrates how AI-driven analysis can eliminate manual overhead while providing actionable insights for product delivery.

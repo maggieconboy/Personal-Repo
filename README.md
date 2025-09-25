@@ -41,6 +41,7 @@ This repository demonstrates advanced automation through an **[Issue Refinement 
 - Assigns story points (1-13) based on content analysis and keyword detection
 - Sets priority levels (critical/high/medium/low) based on urgency indicators
 - Adds analysis comments with detailed reasoning
+- **Automatically assigns issues to the "Intake" milestone for easy lead review**
 - Creates tracking issues and notifications for ready-to-review items
 
 *Example of intelligent automation that eliminates manual triage overhead while providing consistent, data-driven issue assessment.*
