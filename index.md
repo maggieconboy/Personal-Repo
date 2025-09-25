@@ -27,3 +27,4 @@ Developed predictive capacity model using machine learning to optimize team reso
 
 ## Let's Connect
 Interested in discussing AI strategy, product leadership, or innovation? Reach out via [LinkedIn](https://linkedin.com/in/yourprofile).
+ 
