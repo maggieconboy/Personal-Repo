@@ -28,3 +28,7 @@ google_analytics: UA-XXXXXXXXX
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
+
+header_pages:
+  - restaurant-portfolio.md
+  - about.md
