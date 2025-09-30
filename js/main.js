@@ -104,13 +104,30 @@ document.addEventListener('DOMContentLoaded', () => {
     animateSkills();
 });
 
-// Smooth scroll
+// Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// Add active state to navigation based on current page
+document.addEventListener('DOMContentLoaded', function() {
+    const currentLocation = location.pathname.split('/').pop() || 'index.html';
+    const menuItems = document.querySelectorAll('.nav-menu a');
+    
+    menuItems.forEach(item => {
+        if(item.getAttribute('href') === currentLocation) {
+            item.classList.add('active');
+        } else {
+            item.classList.remove('active');
         }
     });
 });
