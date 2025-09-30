@@ -698,3 +698,248 @@ body {
         padding: 32px 24px;
     }
 }
+
+/* Enhanced Resume Page Styles */
+.resume-header {
+    padding: 80px 0 40px;
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    text-align: center;
+}
+
+.resume-header h1 {
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.resume-tagline {
+    font-size: 24px;
+    color: var(--primary);
+    margin-bottom: 24px;
+    font-weight: 500;
+}
+
+.resume-quick-links {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.resume-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.resume-link:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.resume-summary-section {
+    padding: 60px 0;
+    background: var(--bg-primary);
+}
+
+.resume-summary {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.achievements-bar {
+    background: var(--primary);
+    color: white;
+    padding: 40px 0;
+}
+
+.achievement-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 32px;
+    text-align: center;
+}
+
+.achievement {
+    display: flex;
+    flex-direction: column;
+}
+
+.achievement-number {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+
+.achievement-label {
+    font-size: 14px;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.job {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 32px;
+    margin-bottom: 24px;
+    transition: all 0.2s;
+}
+
+.job:hover {
+    border-color: var(--primary);
+    box-shadow: var(--shadow-md);
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 16px;
+}
+
+.job-header h3 {
+    font-size: 24px;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.company {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.job-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.job-badge.current {
+    background: rgba(26, 127, 55, 0.1);
+    color: var(--success);
+}
+
+.job-summary {
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+    font-style: italic;
+}
+
+.job-details {
+    list-style: none;
+    padding: 0;
+}
+
+.job-details li {
+    padding: 10px 0;
+    padding-left: 28px;
+    position: relative;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.job-details li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.job-metrics {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+}
+
+.metric-tag {
+    display: inline-block;
+    padding: 6px 12px;
+    background: rgba(9, 105, 218, 0.1);
+    color: var(--primary);
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 32px;
+}
+
+.skill-category {
+    background: var(--bg-secondary);
+    padding: 24px;
+    border-radius: 12px;
+    border-left: 4px solid var(--primary);
+}
+
+.skill-category h3 {
+    font-size: 18px;
+    margin-bottom: 16px;
+    color: var(--primary);
+}
+
+.skill-category ul {
+    list-style: none;
+    padding: 0;
+}
+
+.skill-category li {
+    padding: 6px 0;
+    color: var(--text-secondary);
+    position: relative;
+    padding-left: 20px;
+}
+
+.skill-category li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+}
+
+.education {
+    padding: 60px 0;
+    background: var(--bg-secondary);
+}
+
+.degree {
+    background: var(--bg-primary);
+    padding: 32px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.degree h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.school {
+    color: var(--text-secondary);
+    font-size: 16px;
+}
