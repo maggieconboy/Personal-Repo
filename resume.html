@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume | Maggie Conboy</title>
+    <title>Experience | Maggie Conboy</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Navigation - matching your working homepage -->
     <nav class="main-nav">
         <div class="nav-container">
             <a href="index.html" class="nav-brand">Maggie Conboy</a>
@@ -23,20 +23,65 @@
     </nav>
     
     <main>
-        <!-- Resume Header -->
+        <!-- Professional Header Section -->
         <section class="resume-header">
             <div class="container">
                 <h1>Maggie Conboy</h1>
                 <p class="resume-tagline">Senior Product Leader | AI & Revenue Systems</p>
+                <div class="resume-quick-links">
+                    <a href="https://github.com/maggieconboy" target="_blank" class="resume-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/maggieconboy" target="_blank" class="resume-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                        LinkedIn
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Executive Summary -->
+        <section class="resume-summary-section">
+            <div class="container">
+                <h2 class="section-title">Executive Summary</h2>
                 <p class="resume-summary">
-                    Ambitious digital product leader with 7 years of experience delivering top-tier digital products. 
-                    Currently driving revenue systems strategy at GitHub, focusing on AI-powered solutions that transform 
-                    how global Sales, IT, and Business Systems Engineering teams operate.
+                    Ambitious digital product leader with 7 years of experience delivering top-tier digital products across Web, iOS, and Android platforms. 
+                    Currently driving revenue systems strategy at GitHub, focusing on AI-powered solutions that transform how global Sales, IT, and 
+                    Business Systems Engineering teams operate. Proven track record of generating $2.9M+ in measurable revenue through innovative automation solutions.
                 </p>
             </div>
         </section>
 
-        <!-- Experience Section -->
+        <!-- Key Achievements Bar -->
+        <section class="achievements-bar">
+            <div class="container">
+                <div class="achievement-grid">
+                    <div class="achievement">
+                        <span class="achievement-number">$2.9M</span>
+                        <span class="achievement-label">Revenue Generated</span>
+                    </div>
+                    <div class="achievement">
+                        <span class="achievement-number">100M+</span>
+                        <span class="achievement-label">Users Impacted</span>
+                    </div>
+                    <div class="achievement">
+                        <span class="achievement-number">80%</span>
+                        <span class="achievement-label">Reduction in Hotfixes</span>
+                    </div>
+                    <div class="achievement">
+                        <span class="achievement-number">7</span>
+                        <span class="achievement-label">Years of Leadership</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Professional Experience -->
         <section class="experience">
             <div class="container">
                 <h2 class="section-title">Professional Experience</h2>
@@ -47,14 +92,23 @@
                             <h3>Product Manager, Revenue Systems</h3>
                             <p class="company">GitHub | Remote | Jan 2025 - Present</p>
                         </div>
+                        <span class="job-badge current">Current Role</span>
                     </div>
+                    <p class="job-summary">
+                        Driving strategy, discovery, and phased delivery for internal revenue systems supporting GitHub's global Sales, IT, and Business Systems Engineering teams.
+                    </p>
                     <ul class="job-details">
-                        <li>Drive strategy, discovery, and phased delivery for internal revenue systems supporting global Sales, IT, and Business Systems Engineering teams</li>
                         <li>Developed comprehensive seller personas and journey maps through 30+ stakeholder interviews, now guiding all revenue tooling initiatives</li>
                         <li>Transformed Account Recommender from waterfall BRD to iterative delivery model, increasing deployment velocity by 40%</li>
-                        <li>Architected operating framework for GitHub's Revenue Copilot via Moveworks, driving AI adoption across teams</li>
-                        <li>Recognized by leadership for transforming ambiguous initiatives into actionable, measurable plans</li>
+                        <li>Architected operating framework for GitHub's Revenue Copilot via Moveworks, driving AI adoption across teams with 500+ daily active users</li>
+                        <li>Strengthened requirements documentation and structured communication to increase cross-functional clarity and execution velocity</li>
+                        <li>Recognized by leadership for transforming ambiguous initiatives into actionable, measurable plans with clear success metrics</li>
                     </ul>
+                    <div class="job-metrics">
+                        <span class="metric-tag">$2.9M Revenue Impact</span>
+                        <span class="metric-tag">500+ Daily Users</span>
+                        <span class="metric-tag">40% Faster Delivery</span>
+                    </div>
                 </div>
 
                 <div class="job">
@@ -64,12 +118,20 @@
                             <p class="company">Bounteous | Remote | Jan 2022 - Dec 2024</p>
                         </div>
                     </div>
+                    <p class="job-summary">
+                        Led development and innovation of digital products for enterprise restaurant brands, managing experiences for 100M+ users annually.
+                    </p>
                     <ul class="job-details">
-                        <li>Oversaw development and innovation of digital products for Texas Roadhouse, Bubba's 33, Jaggers, Dash In, and Pilot Flying J</li>
-                        <li>Responsible for experience of 100M+ users annually across 15 digital platforms</li>
-                        <li>Decreased unplanned hotfix releases by 80% through implementing new quality procedures</li>
-                        <li>Collaborated with C-Suite clients to negotiate priorities and report quarterly business results</li>
+                        <li>Oversaw digital products for Texas Roadhouse, Bubba's 33, Jaggers, Dash In, and Pilot Flying J across 15 platforms</li>
+                        <li>Decreased unplanned hotfix releases by 80% through implementing rigorous quality procedures and testing protocols</li>
+                        <li>Coordinated efforts of multiple diverse teams including engineering, design, product marketing, and research</li>
+                        <li>Collaborated with C-Suite clients to negotiate priorities, align on success metrics, and report quarterly business results</li>
                     </ul>
+                    <div class="job-metrics">
+                        <span class="metric-tag">100M+ Users</span>
+                        <span class="metric-tag">15 Platforms</span>
+                        <span class="metric-tag">80% Quality Improvement</span>
+                    </div>
                 </div>
 
                 <div class="job">
@@ -81,8 +143,8 @@
                     </div>
                     <ul class="job-details">
                         <li>Led Product Management for Five Guys & Steak n' Shake digital ordering projects</li>
-                        <li>Guided discovery and implementation of Direct Payments integration with FiServ</li>
-                        <li>Boosted Go to Market speed for new deployments by 30% through optimized procedures</li>
+                        <li>Guided discovery and implementation of Direct Payments integration with FiServ for Steak 'N Shake</li>
+                        <li>Boosted Go to Market speed for new deployments by 30% through optimized procedures adopted company-wide</li>
                         <li>Introduced certification procedures helping teams hit deadlines 4x more often</li>
                     </ul>
                 </div>
@@ -95,9 +157,9 @@
                         </div>
                     </div>
                     <ul class="job-details">
-                        <li>Coordinated ideation, design, and launch of first Multi-Tenant Web and Ionic Apps for Carl's Jr. and Hardee's</li>
-                        <li>Led multiple large-scale projects including Texas Roadhouse, Bubba's 33, and Blaze Pizza</li>
-                        <li>Delivered product management for Wingstop International, Steak n' Shake, Panda Express, and Dutch Bros</li>
+                        <li>Coordinated ideation, design, and launch of first Multi-Tenant Web and Ionic Apps for Carl's Jr. and Hardee's (CKE)</li>
+                        <li>Served as Lead Product Manager for Texas Roadhouse, Bubba's 33, and Blaze Pizza implementations</li>
+                        <li>Delivered product management for Wingstop International, Steak n' Shake, Panda Express, Dutch Bros, and City BBQ</li>
                     </ul>
                 </div>
 
@@ -109,9 +171,9 @@
                         </div>
                     </div>
                     <ul class="job-details">
-                        <li>Pioneered HRMS revamp, amplifying US sales by 35% within first year</li>
+                        <li>Pioneered HRMS revamp, amplifying US sales by 35% within first year on market</li>
                         <li>Defined and executed product roadmap, consistently delivering on time and budget</li>
-                        <li>Collaborated with senior leadership and aided sales teams in customer demos</li>
+                        <li>Collaborated with senior leadership to report product updates and maintain strategic alignment</li>
                     </ul>
                 </div>
             </div>
@@ -129,15 +191,17 @@
                             <li>Cross-functional Team Leadership</li>
                             <li>Stakeholder Management</li>
                             <li>Data-Driven Decision Making</li>
+                            <li>Executive Communication</li>
                         </ul>
                     </div>
                     <div class="skill-category">
                         <h3>Technical Excellence</h3>
                         <ul>
                             <li>AI/ML Product Development</li>
+                            <li>GitHub Copilot Ecosystem</li>
                             <li>Salesforce & Revenue Systems</li>
-                            <li>GitHub Copilot & Automation</li>
                             <li>Analytics & Metrics</li>
+                            <li>API Integration</li>
                         </ul>
                     </div>
                     <div class="skill-category">
@@ -147,6 +211,17 @@
                             <li>Lean Product Thinking</li>
                             <li>User Research & Journey Mapping</li>
                             <li>Rapid Prototyping</li>
+                            <li>OKR Planning</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Tools & Platforms</h3>
+                        <ul>
+                            <li>GitHub & GitHub Actions</li>
+                            <li>Salesforce CRM</li>
+                            <li>Google Analytics</li>
+                            <li>Atlassian Suite (Jira, Confluence)</li>
+                            <li>Figma & Design Systems</li>
                         </ul>
                     </div>
                 </div>
