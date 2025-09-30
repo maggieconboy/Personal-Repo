@@ -147,3 +147,184 @@ h2 {
     border-radius: 20px;
     font-size: 0.85rem;
 }
+
+/* Projects Page Specific Styles */
+.projects-hero {
+    text-align: center;
+    padding: 3rem 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    margin: -2rem -2rem 3rem;
+    padding: 4rem 2rem;
+}
+
+.headline {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    margin-bottom: 2rem;
+}
+
+.impact-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.metric {
+    text-align: center;
+}
+
+.metric .value {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.metric .label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Project Showcases */
+.project-showcase {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 3rem;
+    overflow: hidden;
+}
+
+.project-header {
+    padding: 2rem;
+    background: #f6f8fa;
+    border-bottom: 1px solid #e1e4e8;
+}
+
+.project-badges {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.badge {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.badge.production {
+    background: #28a745;
+    color: white;
+}
+
+.badge.revenue {
+    background: #6f42c1;
+    color: white;
+}
+
+.badge.automation {
+    background: #0366d6;
+    color: white;
+}
+
+.project-overview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+@media (max-width: 768px) {
+    .project-overview {
+        grid-template-columns: 1fr;
+    }
+}
+
+.impact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #f6f8fa;
+    border-radius: 8px;
+}
+
+.impact-item {
+    padding: 0.5rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.feature {
+    background: #e1e4e8;
+    padding: 0.75rem;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Code Previews */
+.code-preview, .code-block {
+    background: #1e1e1e;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+.code-preview pre, .code-block pre {
+    color: #d4d4d4;
+    overflow-x: auto;
+}
+
+/* Demo Controls */
+.demo-controls {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.demo-controls button, .demo-controls a {
+    padding: 0.75rem 1.5rem;
+    background: #0366d6;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.demo-controls button:hover, .demo-controls a:hover {
+    background: #0256c7;
+}
+
+/* Vision Section */
+.vision-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.vision-item {
+    padding: 1.5rem;
+    background: #f6f8fa;
+    border-radius: 8px;
+    border-left: 4px solid #0366d6;
+}
+
+/* Responsive iframes */
+iframe {
+    border: 1px solid #e1e4e8;
+    border-radius: 8px;
+    width: 100%;
+}
