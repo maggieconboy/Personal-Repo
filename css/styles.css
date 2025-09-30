@@ -943,3 +943,37 @@ body {
     color: var(--text-secondary);
     font-size: 16px;
 }
+
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-accent {
+    position: absolute;
+    bottom: -50px;
+    right: 10%;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.hero-avatar {
+    width: 300px;
+    height: auto;
+}
+
+/* Alternative: Floating accent for larger screens */
+@media (min-width: 1200px) {
+    .hero-accent {
+        opacity: 0.15;
+        right: 5%;
+        bottom: -30px;
+    }
+}
+
+/* Hide on mobile for cleaner experience */
+@media (max-width: 768px) {
+    .hero-accent {
+        display: none;
+    }
+}
