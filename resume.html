@@ -3,88 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume - Maggie Conboy</title>
+    <title>Resume | Maggie Conboy</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="resume.html" class="active">Resume</a></li>
-            <li><a href="ai-projects.html">AI Projects</a></li>
-        </ul>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">Maggie Conboy</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="resume.html" class="active">Experience</a></li>
+                <li><a href="ai-projects.html">AI Portfolio</a></li>
+                <li><a href="https://www.linkedin.com/in/maggieconboy" target="_blank" class="nav-cta">Connect</a></li>
+            </ul>
+        </div>
     </nav>
     
-    <main class="resume">
-        <header>
-            <h1>Maggie Conboy</h1>
-            <p class="tagline">Senior Product Leader | AI & Revenue Systems</p>
-        </header>
-        
-        <section class="summary">
-            <h2>Executive Summary</h2>
-            <p>Ambitious digital product leader with 7 years of experience delivering top-tier digital products across Web, iOS, and Android platforms. Currently driving revenue systems strategy at GitHub, focusing on AI-powered solutions that transform how global Sales, IT, and Business Systems Engineering teams operate.</p>
+    <main>
+        <!-- Resume Header -->
+        <section class="resume-header">
+            <div class="container">
+                <h1>Maggie Conboy</h1>
+                <p class="resume-tagline">Senior Product Leader | AI & Revenue Systems</p>
+                <p class="resume-summary">
+                    Ambitious digital product leader with 7 years of experience delivering top-tier digital products. 
+                    Currently driving revenue systems strategy at GitHub, focusing on AI-powered solutions that transform 
+                    how global Sales, IT, and Business Systems Engineering teams operate.
+                </p>
+            </div>
         </section>
-        
+
+        <!-- Experience Section -->
         <section class="experience">
-            <h2>Professional Experience</h2>
-            
-            <article class="job">
-                <div class="job-header">
-                    <h3>Product Manager, Revenue Systems</h3>
-                    <span class="company">GitHub | Remote | Jan 2025 - Present</span>
+            <div class="container">
+                <h2 class="section-title">Professional Experience</h2>
+                
+                <div class="job">
+                    <div class="job-header">
+                        <div>
+                            <h3>Product Manager, Revenue Systems</h3>
+                            <p class="company">GitHub | Remote | Jan 2025 - Present</p>
+                        </div>
+                    </div>
+                    <ul class="job-details">
+                        <li>Drive strategy, discovery, and phased delivery for internal revenue systems supporting global Sales, IT, and Business Systems Engineering teams</li>
+                        <li>Developed comprehensive seller personas and journey maps through 30+ stakeholder interviews, now guiding all revenue tooling initiatives</li>
+                        <li>Transformed Account Recommender from waterfall BRD to iterative delivery model, increasing deployment velocity by 40%</li>
+                        <li>Architected operating framework for GitHub's Revenue Copilot via Moveworks, driving AI adoption across teams</li>
+                        <li>Recognized by leadership for transforming ambiguous initiatives into actionable, measurable plans</li>
+                    </ul>
                 </div>
-                <ul>
-                    <li>Conducted 30+ stakeholder interviews to develop comprehensive seller personas and journey maps, now guiding all revenue tooling initiatives</li>
-                    <li>Converted Account Recommender project from waterfall BRD to iterative delivery model, increasing deployment velocity</li>
-                    <li>Architected operating framework for GitHub's Revenue Copilot via Moveworks, driving AI adoption across Sales and IT teams</li>
-                    <li>Recognized for transforming ambiguous initiatives into actionable, measurable plans</li>
-                </ul>
-            </article>
-            
-            <article class="job">
-                <div class="job-header">
-                    <h3>Senior Product Manager</h3>
-                    <span class="company">Bounteous | Remote | Jan 2022 - Dec 2024</span>
+
+                <div class="job">
+                    <div class="job-header">
+                        <div>
+                            <h3>Senior Product Manager</h3>
+                            <p class="company">Bounteous | Remote | Jan 2022 - Dec 2024</p>
+                        </div>
+                    </div>
+                    <ul class="job-details">
+                        <li>Oversaw development and innovation of digital products for Texas Roadhouse, Bubba's 33, Jaggers, Dash In, and Pilot Flying J</li>
+                        <li>Responsible for experience of 100M+ users annually across 15 digital platforms</li>
+                        <li>Decreased unplanned hotfix releases by 80% through implementing new quality procedures</li>
+                        <li>Collaborated with C-Suite clients to negotiate priorities and report quarterly business results</li>
+                    </ul>
                 </div>
-                <ul>
-                    <li>Managed digital products for Texas Roadhouse, Bubba's 33, Jaggers, Dash In, and Pilot Flying J</li>
-                    <li>Responsible for 100M+ users annually across 15 digital platforms</li>
-                    <li>Decreased unplanned hotfix releases by 80% through new quality procedures</li>
-                    <li>Collaborated with C-Suite clients to negotiate priorities and report quarterly business results</li>
-                </ul>
-            </article>
+
+                <div class="job">
+                    <div class="job-header">
+                        <div>
+                            <h3>Product Manager II</h3>
+                            <p class="company">Bounteous | San Luis Obispo, CA | Aug 2021 - Dec 2021</p>
+                        </div>
+                    </div>
+                    <ul class="job-details">
+                        <li>Led Product Management for Five Guys & Steak n' Shake digital ordering projects</li>
+                        <li>Guided discovery and implementation of Direct Payments integration with FiServ</li>
+                        <li>Boosted Go to Market speed for new deployments by 30% through optimized procedures</li>
+                        <li>Introduced certification procedures helping teams hit deadlines 4x more often</li>
+                    </ul>
+                </div>
+
+                <div class="job">
+                    <div class="job-header">
+                        <div>
+                            <h3>Product Manager I</h3>
+                            <p class="company">Hathway (Acquired by Bounteous) | San Luis Obispo, CA | Jan 2020 - Aug 2021</p>
+                        </div>
+                    </div>
+                    <ul class="job-details">
+                        <li>Coordinated ideation, design, and launch of first Multi-Tenant Web and Ionic Apps for Carl's Jr. and Hardee's</li>
+                        <li>Led multiple large-scale projects including Texas Roadhouse, Bubba's 33, and Blaze Pizza</li>
+                        <li>Delivered product management for Wingstop International, Steak n' Shake, Panda Express, and Dutch Bros</li>
+                    </ul>
+                </div>
+
+                <div class="job">
+                    <div class="job-header">
+                        <div>
+                            <h3>Senior Product Manager</h3>
+                            <p class="company">Deskera | San Jose, CA | Apr 2017 - Jan 2020</p>
+                        </div>
+                    </div>
+                    <ul class="job-details">
+                        <li>Pioneered HRMS revamp, amplifying US sales by 35% within first year</li>
+                        <li>Defined and executed product roadmap, consistently delivering on time and budget</li>
+                        <li>Collaborated with senior leadership and aided sales teams in customer demos</li>
+                    </ul>
+                </div>
+            </div>
         </section>
-        
+
+        <!-- Skills Section -->
         <section class="skills">
-            <h2>Core Competencies</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Strategic Leadership</h3>
-                    <ul>
-                        <li>Product Strategy & Roadmapping</li>
-                        <li>Cross-functional Team Leadership</li>
-                        <li>Stakeholder Management</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Technical Excellence</h3>
-                    <ul>
-                        <li>AI/ML Product Development</li>
-                        <li>Salesforce & Revenue Systems</li>
-                        <li>Analytics & Data-Driven Decisions</li>
-                    </ul>
+            <div class="container">
+                <h2 class="section-title">Core Competencies</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Strategic Leadership</h3>
+                        <ul>
+                            <li>Product Strategy & Roadmapping</li>
+                            <li>Cross-functional Team Leadership</li>
+                            <li>Stakeholder Management</li>
+                            <li>Data-Driven Decision Making</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Technical Excellence</h3>
+                        <ul>
+                            <li>AI/ML Product Development</li>
+                            <li>Salesforce & Revenue Systems</li>
+                            <li>GitHub Copilot & Automation</li>
+                            <li>Analytics & Metrics</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Methodologies</h3>
+                        <ul>
+                            <li>Agile/Scrum (CSPO Certified)</li>
+                            <li>Lean Product Thinking</li>
+                            <li>User Research & Journey Mapping</li>
+                            <li>Rapid Prototyping</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
-        
+
+        <!-- Education Section -->
         <section class="education">
-            <h2>Education</h2>
-            <div class="degree">
-                <h3>Bachelor of Arts, Communication Science</h3>
-                <span>University at Buffalo | Dec 2013 | GPA: 3.8</span>
+            <div class="container">
+                <h2 class="section-title">Education</h2>
+                <div class="degree">
+                    <h3>Bachelor of Arts, Communication Science</h3>
+                    <p class="school">University at Buffalo | December 2013 | GPA: 3.8</p>
+                </div>
             </div>
         </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-links">
+                        <a href="https://github.com/maggieconboy" target="_blank">GitHub</a>
+                        <a href="https://www.linkedin.com/in/maggieconboy" target="_blank">LinkedIn</a>
+                        <a href="mailto:maggieconboy@github.com">Email</a>
+                    </div>
+                    <p class="footer-copy">© 2025 Maggie Conboy. Building tomorrow's revenue systems today.</p>
+                </div>
+            </div>
+        </footer>
     </main>
 </body>
 </html>
