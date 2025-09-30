@@ -3,242 +3,244 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Innovation Portfolio - Maggie Conboy</title>
+    <title>AI Portfolio | Maggie Conboy</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/projects.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="resume.html">Resume</a></li>
-            <li><a href="ai-projects.html" class="active">AI Projects</a></li>
-        </ul>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">Maggie Conboy</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="resume.html">Experience</a></li>
+                <li><a href="ai-projects.html" class="active">AI Portfolio</a></li>
+                <li><a href="https://www.linkedin.com/in/maggieconboy" target="_blank" class="nav-cta">Connect</a></li>
+            </ul>
+        </div>
     </nav>
     
-    <main class="projects">
-        <header class="projects-hero">
-            <h1>AI Innovation Portfolio</h1>
-            <p class="headline">Transforming GitHub's Revenue Operations Through Intelligent Automation</p>
-            
-            <div class="impact-summary">
-                <div class="metric">
-                    <span class="value">$2.9M</span>
-                    <span class="label">Closed Revenue Generated</span>
-                </div>
-                <div class="metric">
-                    <span class="value">95%</span>
-                    <span class="label">Automation Rate Achieved</span>
-                </div>
-                <div class="metric">
-                    <span class="value">1,300</span>
-                    <span class="label">Annual Issues Automated</span>
-                </div>
-            </div>
-        </header>
-
-        <section class="featured-projects">
-            
-            <!-- Project 1: The Recommender -->
-            <article class="project-showcase">
-                <div class="project-header">
-                    <h2>The Recommender: AI-Powered Sales Intelligence</h2>
-                    <div class="project-badges">
-                        <span class="badge production">In Production</span>
-                        <span class="badge revenue">$2.9M Revenue Impact</span>
-                    </div>
-                </div>
-                
-                <div class="project-overview">
-                    <div class="project-description">
-                        <h3>Business Challenge</h3>
-                        <p>GitHub's sales teams lacked predictive insights into account propensity, resulting in inefficient prospecting and missed revenue opportunities across global markets.</p>
-                        
-                        <h3>Solution Architecture</h3>
-                        <p>Partnered with Revenue Marketing to architect and launch an AI-powered recommendations engine integrated directly into Salesforce. The system provides 360-degree seller views with real-time analytics on high-propensity accounts.</p>
-                        
-                        <h3>Measurable Impact</h3>
-                        <div class="impact-grid">
-                            <div class="impact-item">
-                                <strong>Total Revenue Generated:</strong> $2,941,207.12
-                            </div>
-                            <div class="impact-item">
-                                <strong>Q1 FY26 Impact:</strong> $1,507,261.12
-                            </div>
-                            <div class="impact-item">
-                                <strong>Pipeline Generated:</strong> ~$5M
-                            </div>
-                            <div class="impact-item">
-                                <strong>Rollout:</strong> Digital, SMB (AMER, APAC), EMEA by Oct
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="project-visual">
-                        <img src="assets/images/recommender-dashboard.png" alt="Recommender Dashboard">
-                        <div class="demo-controls">
-                            <button onclick="playDemo('recommender')">▶ Watch Demo</button>
-                            <a href="https://github.com/github/salesforce" target="_blank">View Repository</a>
-                        </div>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Project 2: IT Ops PMO Space -->
-            <article class="project-showcase">
-                <div class="project-header">
-                    <h2>IT Ops PMO Automation Space</h2>
-                    <div class="project-badges">
-                        <span class="badge automation">95% Automation</span>
-                        <span class="badge efficiency">20+ Hours Saved Weekly</span>
-                    </div>
-                </div>
-                
-                <div class="project-overview">
-                    <div class="project-description">
-                        <h3>Operational Challenge</h3>
-                        <p>Weekly status reporting consumed significant time across the IT Ops PMO team, requiring manual aggregation from 11 different data sources.</p>
-                        
-                        <h3>Intelligent Solution</h3>
-                        <p>Created a Copilot Space that automates 95% of status report generation by intelligently synthesizing data from multiple sources. Currently architecting the next evolution: a fully autonomous agent that eliminates manual data entry entirely.</p>
-                        
-                        <div class="code-preview">
-                            <pre><code>// Next-Gen Vision: Zero-Touch Automation
-const agent = new CopilotAgent({
-  sources: ['Slack', 'GitHub', 'Jira', 'Confluence'],
-  intelligence: 'Context-aware extraction',
-  output: 'Executive-ready status reports'
-});</code></pre>
-                        </div>
-                        
-                        <h3>Strategic Impact</h3>
-                        <ul class="impact-list">
-                            <li>Reclaimed 20+ hours weekly for strategic initiatives</li>
-                            <li>Standardized reporting across IT Ops organization</li>
-                            <li>Created repeatable model for enterprise-wide adoption</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="project-visual">
-                        <iframe src="https://github.com/copilot/spaces/github/354" width="100%" height="400"></iframe>
-                        <div class="demo-controls">
-                            <a href="https://github.com/copilot/spaces/github/354" target="_blank">Open Space</a>
-                            <a href="https://github.com/github/IT-OPS-PMO" target="_blank">View Implementation</a>
-                        </div>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Project 3: Issue Refinement Automation -->
-            <article class="project-showcase">
-                <div class="project-header">
-                    <h2>Intelligent Issue Refinement Workflow</h2>
-                    <div class="project-badges">
-                        <span class="badge scale">1,300 Issues/Year</span>
-                        <span class="badge time">75% Time Reduction</span>
-                    </div>
-                </div>
-                
-                <div class="project-overview">
-                    <div class="project-description">
-                        <h3>Scale Challenge</h3>
-                        <p>Processing 1,300+ annual issues required extensive manual refinement, creating bottlenecks in our development pipeline.</p>
-                        
-                        <h3>Automation Architecture</h3>
-                        <p>Built a GitHub Actions workflow that automatically refines issues upon submission, transforming raw inputs into structured, actionable requirements.</p>
-                        
-                        <div class="workflow-preview">
-                            <img src="assets/images/workflow-diagram.png" alt="Workflow Diagram">
-                        </div>
-                    </div>
-                    
-                    <div class="project-visual">
-                        <div class="code-block">
-                            <pre><code class="language-yaml">name: AI Issue Refinement
-on:
-  issues:
-    types: [opened]
-    
-jobs:
-  refine:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: AI Refinement
-        uses: github/copilot-action@v1
-        with:
-          prompt: |
-            Refine this issue with:
-            - Clear acceptance criteria
-            - Technical requirements
-            - Success metrics</code></pre>
-                        </div>
-                        <div class="demo-controls">
-                            <a href="https://github.com/maggieconboy/Personal-Repo/blob/main/.github/workflows/issue-refinement.yml" target="_blank">View Workflow</a>
-                        </div>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Project 4: Agile Capacity Planning Dashboard -->
-            <article class="project-showcase">
-                <div class="project-header">
-                    <h2>Agile Intelligence Dashboard</h2>
-                    <div class="project-badges">
-                        <span class="badge analytics">Real-time Insights</span>
-                        <span class="badge prediction">ML-Powered Forecasting</span>
-                    </div>
-                </div>
-                
-                <div class="project-overview">
-                    <div class="project-description">
-                        <h3>Strategic Need</h3>
-                        <p>Teams lacked unified visibility into capacity planning, velocity trends, and resource allocation, hindering quarterly planning effectiveness.</p>
-                        
-                        <h3>Comprehensive Solution</h3>
-                        <p>Developed a Spark-powered dashboard providing real-time insights, predictive analytics, and intelligent resource optimization recommendations.</p>
-                        
-                        <h3>Key Capabilities</h3>
-                        <div class="features-grid">
-                            <div class="feature">AI-Powered Insights</div>
-                            <div class="feature">Velocity Tracking</div>
-                            <div class="feature">Capacity Forecasting</div>
-                            <div class="feature">Dependency Analytics</div>
-                            <div class="feature">Risk Prediction</div>
-                            <div class="feature">Historical Trends</div>
-                        </div>
-                    </div>
-                    
-                    <div class="project-visual">
-                        <iframe src="https://agile-capacity-plann--maggieconboy.github.app/" width="100%" height="500"></iframe>
-                        <div class="demo-controls">
-                            <a href="https://agile-capacity-plann--maggieconboy.github.app/" target="_blank">Open Dashboard</a>
-                            <a href="https://github.com/github/agile-capacity-plann" target="_blank">View Code</a>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        </section>
-
-        <section class="future-vision">
-            <h2>Next Horizons</h2>
-            <div class="vision-grid">
-                <div class="vision-item">
-                    <h3>Autonomous Agent Ecosystem</h3>
-                    <p>Building interconnected agents that handle entire workflows without human intervention</p>
-                </div>
-                <div class="vision-item">
-                    <h3>Predictive Revenue Intelligence</h3>
-                    <p>Expanding Recommender to predict churn and identify expansion opportunities</p>
-                </div>
-                <div class="vision-item">
-                    <h3>Enterprise AI Adoption Framework</h3>
-                    <p>Creating playbooks for scaling AI automation across GitHub's operations</p>
+    <main>
+        <!-- Portfolio Header -->
+        <section class="portfolio-header">
+            <div class="container">
+                <h1>AI Innovation Portfolio</h1>
+                <p class="portfolio-tagline">Transforming GitHub's Revenue Operations Through Intelligent Automation</p>
+                <div class="portfolio-metrics">
+                    <span class="metric-pill large">$2.9M Revenue Generated</span>
+                    <span class="metric-pill large">95% Automation Achieved</span>
+                    <span class="metric-pill large">1,300 Annual Issues Automated</span>
                 </div>
             </div>
         </section>
+
+        <!-- Projects Section -->
+        <section class="projects">
+            <div class="container">
+                
+                <!-- Project 1: Recommender -->
+                <div id="recommender" class="project-card featured">
+                    <div class="project-header">
+                        <h2>The Recommender: AI-Powered Sales Intelligence</h2>
+                        <div class="project-badges">
+                            <span class="badge production">In Production</span>
+                            <span class="badge impact">$2.9M Revenue Impact</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-content">
+                        <div class="project-section">
+                            <h3>Business Challenge</h3>
+                            <p>GitHub's sales teams lacked predictive insights into account propensity, resulting in inefficient prospecting and missed revenue opportunities across global markets.</p>
+                        </div>
+                        
+                        <div class="project-section">
+                            <h3>Solution Architecture</h3>
+                            <p>Partnered with Revenue Marketing, IT Revenue Systems, and IT PMO to architect and launch an AI-powered recommendations engine integrated directly into Salesforce. The system provides 360-degree seller views with real-time analytics on high-propensity accounts, delivering actionable insights that drive increased revenue.</p>
+                        </div>
+                        
+                        <div class="project-section">
+                            <h3>Measurable Impact</h3>
+                            <div class="impact-grid">
+                                <div class="impact-item">
+                                    <strong>Total Revenue Generated:</strong>
+                                    <span>$2,941,207.12</span>
+                                </div>
+                                <div class="impact-item">
+                                    <strong>FY26Q1 Impact:</strong>
+                                    <span>$1,507,261.12</span>
+                                </div>
+                                <div class="impact-item">
+                                    <strong>Pipeline Generated:</strong>
+                                    <span>~$5M</span>
+                                </div>
+                                <div class="impact-item">
+                                    <strong>Global Rollout:</strong>
+                                    <span>Digital, SMB (AMER, APAC), EMEA</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="project-section">
+                            <h3>Technical Stack</h3>
+                            <div class="tech-tags">
+                                <span class="tech-tag">Salesforce</span>
+                                <span class="tech-tag">Machine Learning</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Analytics</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: IT Ops PMO Space -->
+                <div id="copilot" class="project-card">
+                    <div class="project-header">
+                        <h2>IT Ops PMO Automation Space</h2>
+                        <div class="project-badges">
+                            <span class="badge production">Active</span>
+                            <span class="badge automation">95% Automation</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-content">
+                        <div class="project-section">
+                            <h3>Operational Challenge</h3>
+                            <p>Weekly status reporting consumed significant time across the IT Ops PMO team, requiring manual aggregation from 11 different data sources with 4,000+ characters of instructions.</p>
+                        </div>
+                        
+                        <div class="project-section">
+                            <h3>Intelligent Solution</h3>
+                            <p>Created a GitHub Copilot Space that automates 95% of status report generation. Currently architecting the next evolution: a fully autonomous agent that connects to Slack, GitHub, and meeting notes to eliminate manual data entry entirely.</p>
+                            <div class="project-link">
+                                <a href="https://github.com/copilot/spaces/github/354" target="_blank" class="link-arrow">View Live Space →</a>
+                            </div>
+                        </div>
+                        
+                        <div class="project-section">
+                            <h3>Strategic Impact</h3>
+                            <ul class="impact-list">
+                                <li>Reclaimed 20+ hours weekly for strategic initiatives</li>
+                                <li>Standardized reporting across IT Ops organization</li>
+                                <li>Created repeatable model for enterprise-wide adoption</li>
+                                <li>Building vision for zero-touch automation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Issue Refinement -->
+                <div id="agents" class="project-card">
+                    <div class="project-header">
+                        <h2>Intelligent Issue Refinement Workflow</h2>
+                        <div class="project-badges">
+                            <span class="badge development">Implementing</span>
+                            <span class="badge scale">1,300 Issues/Year</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-content">
+                        <div class="project-section">
+                            <h3>Scale Challenge</h3>
+                            <p>Processing 1,300+ annual issues in the Salesforce repository required extensive manual refinement, creating bottlenecks in our development pipeline and consuming significant team resources.</p>
+                        </div>
+                        
+                        <div class="project-section">
+                            <h3>Automation Architecture</h3>
+                            <p>Built a GitHub Actions workflow that automatically refines issues upon submission, transforming raw inputs into structured requirements with clear acceptance criteria, technical specifications, and success metrics.</p>
+                            <div class="project-link">
+                                <a href="https://github.com/maggieconboy/Personal-Repo/blob/main/.github/workflows/issue-refinement.yml" target="_blank" class="link-arrow">View Workflow →</a>
+                            </div>
+                        </div>
+                        
+                        <div class="project-section">
+                            <h3>Expected Outcomes</h3>
+                            <ul class="impact-list">
+                                <li>75% reduction in refinement time</li>
+                                <li>Standardized issue quality across teams</li>
+                                <li>Faster sprint planning cycles</li>
+                                <li>Improved developer experience</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Agile Dashboard -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h2>Agile Intelligence Dashboard</h2>
+                        <div class="project-badges">
+                            <span class="badge production">Live</span>
+                            <span class="badge analytics">Real-time Insights</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-content">
+                        <div class="project-section">
+                            <h3>Strategic Need</h3>
+                            <p>Teams lacked unified visibility into capacity planning, velocity trends, and resource allocation, hindering quarterly planning effectiveness and creating dependency risks.</p>
+                        </div>
+                        
+                        <div class="project-section">
+                            <h3>Comprehensive Solution</h3>
+                            <p>Developed a GitHub Spark-powered dashboard providing real-time insights, predictive analytics, and intelligent resource optimization recommendations. Features AI insights section, estimation references, capacity allocation breakdowns, and dependency risk prediction.</p>
+                            <div class="project-link">
+                                <a href="https://agile-capacity-plann--maggieconboy.github.app/" target="_blank" class="link-arrow">Open Dashboard →</a>
+                            </div>
+                        </div>
+                        
+                        <div class="project-section">
+                            <h3>Key Capabilities</h3>
+                            <div class="capabilities-grid">
+                                <span class="capability">AI-Powered Insights</span>
+                                <span class="capability">Velocity Tracking</span>
+                                <span class="capability">Capacity Forecasting</span>
+                                <span class="capability">Dependency Analytics</span>
+                                <span class="capability">Risk Prediction</span>
+                                <span class="capability">Historical Trends</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Future Vision -->
+        <section class="vision">
+            <div class="container">
+                <h2 class="section-title">Next Horizons</h2>
+                <div class="vision-grid">
+                    <div class="vision-item">
+                        <h3>Autonomous Agent Ecosystem</h3>
+                        <p>Building interconnected agents that handle entire workflows without human intervention, from issue creation to deployment.</p>
+                    </div>
+                    <div class="vision-item">
+                        <h3>Predictive Revenue Intelligence</h3>
+                        <p>Expanding Recommender to predict churn risks and identify expansion opportunities using advanced ML models.</p>
+                    </div>
+                    <div class="vision-item">
+                        <h3>Enterprise AI Adoption Framework</h3>
+                        <p>Creating playbooks and templates for scaling AI automation across GitHub's global operations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-links">
+                        <a href="https://github.com/maggieconboy" target="_blank">GitHub</a>
+                        <a href="https://www.linkedin.com/in/maggieconboy" target="_blank">LinkedIn</a>
+                        <a href="mailto:maggieconboy@github.com">Email</a>
+                    </div>
+                    <p class="footer-copy">© 2025 Maggie Conboy. Building tomorrow's revenue systems today.</p>
+                </div>
+            </div>
+        </footer>
     </main>
-
-    <script src="js/main.js"></script>
 </body>
 </html>
