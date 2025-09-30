@@ -6,169 +6,210 @@
     <title>Maggie Conboy | Product & AI Leadership</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="main-nav">
+    <!-- Animated Navigation -->
+    <nav class="main-nav" id="navbar">
         <div class="nav-container">
             <div class="nav-brand">
+                <div class="brand-mark"></div>
                 <span class="brand-name">Maggie Conboy</span>
             </div>
             <ul class="nav-menu">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="resume.html">Experience</a></li>
-                <li><a href="ai-projects.html">AI Portfolio</a></li>
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="resume.html" class="nav-link">Experience</a></li>
+                <li><a href="ai-projects.html" class="nav-link">AI Portfolio</a></li>
                 <li><a href="#contact" class="nav-cta">Connect</a></li>
             </ul>
+            <div class="nav-indicator"></div>
         </div>
     </nav>
     
     <main>
-        <!-- Hero Section -->
+        <!-- Dynamic Hero Section -->
         <section class="hero-section">
-            <div class="hero-content">
-                <div class="hero-text">
+            <div class="animated-gradient"></div>
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-badge">Product Leader at GitHub</div>
                     <h1 class="hero-title">
-                        Building AI-Powered Revenue Systems
-                        <span class="hero-subtitle">That Transform Enterprise Operations</span>
+                        <span class="title-line">Building AI Systems</span>
+                        <span class="title-line highlight">That Generate</span>
+                        <span class="counter-wrapper">
+                            $<span class="revenue-counter" data-target="2.9">0</span>M+ Revenue
+                        </span>
                     </h1>
                     
-                    <p class="hero-description">
-                        Senior Product Leader at GitHub driving strategic initiatives that merge artificial intelligence 
-                        with revenue operations. Proven track record of delivering $2.9M+ in measurable business impact 
-                        through innovative automation solutions.
+                    <p class="hero-description fade-in">
+                        Transforming enterprise operations through intelligent automation. 
+                        Currently architecting GitHub's Revenue Copilot while leading cross-functional 
+                        teams to deliver measurable business impact.
                     </p>
                     
-                    <div class="hero-actions">
-                        <a href="ai-projects.html" class="btn btn-primary">View AI Portfolio</a>
-                        <a href="#impact" class="btn btn-secondary">See Impact</a>
+                    <div class="hero-actions fade-in-delayed">
+                        <a href="ai-projects.html" class="btn btn-glow">
+                            <span>Explore AI Portfolio</span>
+                            <svg class="btn-arrow" width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M12.95 10.707l.707-.707L8 4.343 6.586 5.757 10.828 10l-4.242 4.243L8 15.657l4.95-4.95z"/>
+                            </svg>
+                        </a>
+                        <a href="#impact" class="btn btn-glass">View Live Metrics</a>
                     </div>
                 </div>
                 
-                <div class="hero-visual">
-                    <div class="metric-cards">
-                        <div class="metric-card primary">
+                <!-- Animated Metrics Dashboard -->
+                <div class="metrics-dashboard">
+                    <div class="metric-tile" data-metric="revenue">
+                        <div class="metric-graph">
+                            <svg class="metric-chart" viewBox="0 0 100 50">
+                                <path class="chart-line" d="M0,45 L20,40 L40,30 L60,20 L80,10 L100,5" />
+                            </svg>
+                        </div>
+                        <div class="metric-content">
                             <span class="metric-value">$2.9M</span>
                             <span class="metric-label">Revenue Generated</span>
+                            <span class="metric-trend">+52% QoQ</span>
                         </div>
-                        <div class="metric-card">
+                    </div>
+                    
+                    <div class="metric-tile" data-metric="automation">
+                        <div class="metric-progress">
+                            <svg class="progress-ring" width="60" height="60">
+                                <circle class="progress-bg" cx="30" cy="30" r="25"/>
+                                <circle class="progress-fill" cx="30" cy="30" r="25" style="stroke-dasharray: 148.5 157;"/>
+                            </svg>
+                            <span class="progress-text">95%</span>
+                        </div>
+                        <div class="metric-content">
+                            <span class="metric-label">Automation Rate</span>
+                            <span class="metric-detail">20+ hrs saved weekly</span>
+                        </div>
+                    </div>
+                    
+                    <div class="metric-tile" data-metric="impact">
+                        <div class="metric-pulse">
+                            <div class="pulse-dot"></div>
+                            <div class="pulse-ring"></div>
+                        </div>
+                        <div class="metric-content">
                             <span class="metric-value">100M+</span>
                             <span class="metric-label">Users Impacted</span>
                         </div>
-                        <div class="metric-card">
-                            <span class="metric-value">95%</span>
-                            <span class="metric-label">Automation Rate</span>
-                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Current Focus Section -->
-        <section id="impact" class="focus-section">
+        <!-- Interactive Timeline -->
+        <section id="impact" class="timeline-section">
             <div class="section-container">
-                <h2 class="section-title">Strategic Initiatives in Flight</h2>
+                <h2 class="section-title">
+                    <span class="title-accent">Current</span> Initiatives
+                </h2>
                 
-                <div class="initiative-grid">
-                    <article class="initiative-card">
-                        <div class="initiative-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
-                            </svg>
-                        </div>
-                        <h3>Revenue Copilot Architecture</h3>
-                        <p>Leading GitHub's AI transformation through Moveworks integration, enabling intelligent automation across global sales operations.</p>
-                        <a href="ai-projects.html#copilot" class="initiative-link">Explore Solution →</a>
-                    </article>
+                <div class="timeline-container">
+                    <div class="timeline-line"></div>
                     
-                    <article class="initiative-card">
-                        <div class="initiative-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
-                            </svg>
-                        </div>
-                        <h3>Agile Transformation</h3>
-                        <p>Converting waterfall processes to iterative delivery models, increasing deployment velocity by 40% across revenue tooling initiatives.</p>
-                        <a href="ai-projects.html#agile" class="initiative-link">View Methodology →</a>
-                    </article>
-                    
-                    <article class="initiative-card">
-                        <div class="initiative-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
-                            </svg>
-                        </div>
-                        <h3>User-Centered Discovery</h3>
-                        <p>Conducted 30+ stakeholder interviews to develop comprehensive seller personas, now guiding all revenue tooling decisions.</p>
-                        <a href="resume.html#research" class="initiative-link">See Process →</a>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Leadership Philosophy -->
-        <section class="philosophy-section">
-            <div class="section-container">
-                <div class="philosophy-content">
-                    <div class="philosophy-text">
-                        <h2>Leadership Philosophy</h2>
-                        <p class="philosophy-statement">
-                            I believe in building products that amplify human capability rather than replace it. 
-                            My approach combines rigorous data analysis with empathetic user research to create 
-                            solutions that drive measurable business outcomes while enhancing team productivity.
-                        </p>
-                        
-                        <div class="philosophy-pillars">
-                            <div class="pillar">
-                                <h4>Data-Driven Decisions</h4>
-                                <p>Every initiative backed by quantifiable metrics and clear success criteria</p>
-                            </div>
-                            <div class="pillar">
-                                <h4>Iterative Excellence</h4>
-                                <p>Rapid experimentation with continuous learning and adaptation</p>
-                            </div>
-                            <div class="pillar">
-                                <h4>Strategic Automation</h4>
-                                <p>Identifying high-leverage opportunities for AI-powered efficiency</p>
+                    <div class="timeline-item" data-quarter="Q1 2025">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Revenue Copilot Launch</h3>
+                            <p>Architected Moveworks integration enabling AI-powered sales automation</p>
+                            <div class="timeline-metrics">
+                                <span class="metric-pill">500+ Daily Users</span>
+                                <span class="metric-pill">60% Time Saved</span>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="philosophy-visual">
-                        <div class="achievement-badge">
-                            <span class="badge-number">7</span>
-                            <span class="badge-label">Years of Product Leadership</span>
+                    <div class="timeline-item" data-quarter="Q2 2025">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Account Recommender Evolution</h3>
+                            <p>Transformed from waterfall to agile, achieving 40% faster deployment</p>
+                            <div class="timeline-metrics">
+                                <span class="metric-pill">$5M Pipeline</span>
+                                <span class="metric-pill">25% Conversion Lift</span>
+                            </div>
                         </div>
-                        <div class="achievement-badge">
-                            <span class="badge-number">15</span>
-                            <span class="badge-label">Digital Platforms Managed</span>
-                        </div>
-                        <div class="achievement-badge">
-                            <span class="badge-number">80%</span>
-                            <span class="badge-label">Reduction in Production Issues</span>
+                    </div>
+                    
+                    <div class="timeline-item active" data-quarter="Now">
+                        <div class="timeline-marker pulse"></div>
+                        <div class="timeline-content">
+                            <h3>Autonomous Agent Framework</h3>
+                            <p>Building zero-touch automation for status reporting and issue refinement</p>
+                            <div class="timeline-metrics">
+                                <span class="metric-pill live">In Development</span>
+                                <span class="metric-pill">1,300 Issues/Year</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Call to Action -->
-        <section id="contact" class="cta-section">
+        <!-- Interactive Skills Matrix -->
+        <section class="skills-section">
             <div class="section-container">
-                <h2>Let's Build the Future Together</h2>
-                <p>Interested in discussing AI automation, product strategy, or leadership opportunities?</p>
-                <div class="cta-buttons">
+                <h2 class="section-title">
+                    <span class="title-accent">Leadership</span> Capabilities
+                </h2>
+                
+                <div class="skills-matrix">
+                    <div class="skill-category" data-category="strategic">
+                        <h3>Strategic Excellence</h3>
+                        <div class="skill-bars">
+                            <div class="skill-item">
+                                <span class="skill-name">Revenue Strategy</span>
+                                <div class="skill-bar">
+                                    <div class="skill-fill" data-level="95"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">AI/ML Product Development</span>
+                                <div class="skill-bar">
+                                    <div class="skill-fill" data-level="90"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <span class="skill-name">Cross-functional Leadership</span>
+                                <div class="skill-bar">
+                                    <div class="skill-fill" data-level="98"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category" data-category="technical">
+                        <h3>Technical Proficiency</h3>
+                        <div class="skill-grid">
+                            <span class="skill-tag">Copilot Agents</span>
+                            <span class="skill-tag">Salesforce</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">SQL</span>
+                            <span class="skill-tag">GitHub Actions</span>
+                            <span class="skill-tag">Analytics</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic CTA -->
+        <section class="cta-section">
+            <div class="cta-container">
+                <h2 class="cta-title">Ready to Transform Your Organization?</h2>
+                <p class="cta-subtitle">Let's explore how AI can revolutionize your revenue operations</p>
+                <div class="cta-actions">
                     <a href="https://www.linkedin.com/in/maggieconboy" class="btn btn-primary">Connect on LinkedIn</a>
-                    <a href="https://github.com/maggieconboy" class="btn btn-secondary">View GitHub</a>
+                    <a href="https://github.com/maggieconboy" class="btn btn-outline">Explore GitHub</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2025 Maggie Conboy. Building tomorrow's revenue systems today.</p>
-        </div>
-    </footer>
+    <script src="js/animations.js"></script>
 </body>
 </html>
