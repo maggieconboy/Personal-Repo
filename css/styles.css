@@ -944,3 +944,276 @@ body {
     font-size: 16px;
 }
 
+/* Case Study Page Styles */
+.case-hero {
+    padding: 80px 0 60px;
+    background: linear-gradient(135deg, #f6f8fa 0%, #ffffff 100%);
+    text-align: center;
+}
+
+.case-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background: var(--primary);
+    color: white;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.case-title {
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.case-subtitle {
+    font-size: 20px;
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Impact Metrics Section */
+.impact-metrics {
+    padding: 80px 0;
+    background: white;
+}
+
+.metrics-showcase {
+    margin-top: 48px;
+}
+
+.metric-hero {
+    text-align: center;
+    margin-bottom: 60px;
+    padding: 40px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    border-radius: 20px;
+    color: white;
+}
+
+.metric-prefix, .metric-suffix {
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.metric-number {
+    font-size: 96px;
+    font-weight: 800;
+    margin: 0 8px;
+}
+
+.metric-context {
+    font-size: 20px;
+    margin-top: 16px;
+    opacity: 0.95;
+}
+
+.supporting-metrics {
+    display: grid;
+    gap: 24px;
+}
+
+.metric-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.metric-item {
+    padding: 24px;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.metric-value {
+    display: block;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 8px;
+}
+
+.metric-label {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.metric-detail {
+    display: block;
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+/* Revenue Chart */
+.financial-impact {
+    padding: 80px 0;
+    background: var(--bg-secondary);
+}
+
+.revenue-chart {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    margin-top: 32px;
+}
+
+.revenue-progression {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 300px;
+    margin-top: 40px;
+}
+
+.revenue-point {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.revenue-bar {
+    width: 60px;
+    background: var(--primary);
+    border-radius: 4px 4px 0 0;
+    margin: 8px 0;
+    transition: all 0.3s;
+}
+
+.revenue-point.highlight .revenue-bar {
+    background: var(--success);
+}
+
+.revenue-point .year {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.revenue-point .amount {
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--primary);
+}
+
+.revenue-point .percentage {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* Platform Grid */
+.platform-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 32px;
+    margin-top: 48px;
+}
+
+.platform-card {
+    background: white;
+    padding: 32px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.platform-card h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: var(--primary);
+}
+
+.metric-list {
+    list-style: none;
+    padding: 0;
+}
+
+.metric-list li {
+    padding: 8px 0;
+    color: var(--text-secondary);
+}
+
+.metric-list strong {
+    color: var(--text-primary);
+}
+
+/* Journey Grid */
+.journey-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+    margin-top: 48px;
+}
+
+.journey-card {
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    border-left: 4px solid var(--primary);
+}
+
+.journey-year {
+    display: inline-block;
+    padding: 4px 8px;
+    background: var(--primary);
+    color: white;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+/* Lessons Grid */
+.lessons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+    margin-top: 48px;
+}
+
+.lesson-card {
+    text-align: center;
+    padding: 32px;
+    background: white;
+    border-radius: 12px;
+}
+
+.lesson-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+/* Case CTA */
+.case-cta {
+    padding: 80px 0;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: white;
+    text-align: center;
+}
+
+.case-cta h2 {
+    color: white;
+    margin-bottom: 16px;
+}
+
+.case-cta p {
+    font-size: 18px;
+    max-width: 700px;
+    margin: 0 auto 32px;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+}
