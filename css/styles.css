@@ -1936,3 +1936,413 @@ h1, h2, h3 {
     background: var(--primary);
     border-radius: 2px;
 }
+/* ===================================
+   CURRENT IMPACT PAGE STYLES
+   =================================== */
+
+/* Impact Hero */
+.impact-hero {
+    padding: 100px 0 80px;
+    background: linear-gradient(135deg, #24292f 0%, #0969da 100%);
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.impact-hero:before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+}
+
+.impact-badge {
+    display: inline-block;
+    padding: 8px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    font-size: 14px;
+    margin-bottom: 24px;
+    backdrop-filter: blur(10px);
+}
+
+.impact-title {
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1.2;
+    max-width: 900px;
+    margin: 0 auto 24px;
+}
+
+.impact-subtitle {
+    font-size: 20px;
+    max-width: 700px;
+    margin: 0 auto 48px;
+    opacity: 0.95;
+}
+
+.impact-stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+}
+
+.impact-stat {
+    text-align: center;
+}
+
+.impact-number {
+    display: block;
+    font-size: 42px;
+    font-weight: 800;
+    color: #ffd700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.impact-label {
+    display: block;
+    font-size: 14px;
+    opacity: 0.9;
+    margin-top: 4px;
+}
+
+/* GitHub Journey */
+.github-journey {
+    padding: 80px 0;
+    background: var(--bg-secondary);
+}
+
+.journey-narrative {
+    max-width: 800px;
+    margin: 0 auto 48px;
+    text-align: center;
+}
+
+.narrative-intro {
+    font-size: 20px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+.transformation-timeline {
+    display: grid;
+    gap: 32px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.transformation-phase {
+    background: white;
+    padding: 32px;
+    border-radius: 12px;
+    border-left: 4px solid var(--border);
+    position: relative;
+    transition: all 0.3s;
+}
+
+.transformation-phase.highlight {
+    border-left-color: var(--primary);
+    box-shadow: var(--shadow-md);
+    transform: translateX(8px);
+}
+
+.transformation-phase.current {
+    border-left-color: var(--success);
+}
+
+.phase-date {
+    display: inline-block;
+    padding: 4px 12px;
+    background: var(--primary);
+    color: white;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.transformation-phase h3 {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.phase-outcome {
+    margin-top: 16px;
+    padding: 12px;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.phase-outcome strong {
+    color: var(--primary);
+}
+
+/* AI Portfolio */
+.ai-portfolio {
+    padding: 80px 0;
+    background: white;
+}
+
+.ai-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 32px;
+    margin-top: 48px;
+}
+
+.ai-project {
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    transition: all 0.3s;
+}
+
+.ai-project:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.ai-project.featured {
+    border: 2px solid var(--primary);
+    grid-column: span 2;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.project-header h3 {
+    font-size: 22px;
+    color: var(--text-primary);
+}
+
+.project-status {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.project-status.live {
+    background: rgba(26, 127, 55, 0.1);
+    color: var(--success);
+}
+
+.project-status.development {
+    background: rgba(251, 133, 0, 0.1);
+    color: var(--warning);
+}
+
+.project-metrics {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.metric-item {
+    text-align: center;
+    flex: 1;
+}
+
+.metric-item strong {
+    display: block;
+    font-size: 24px;
+    color: var(--primary);
+    margin-bottom: 4px;
+}
+
+.project-description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.project-tech {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.tech-badge {
+    padding: 4px 12px;
+    background: var(--primary);
+    color: white;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 12px;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.project-link:hover {
+    text-decoration: underline;
+}
+
+/* Agile Transformation */
+.agile-transformation {
+    padding: 80px 0;
+    background: var(--bg-secondary);
+}
+
+.transformation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+    margin-top: 48px;
+}
+
+.transformation-card {
+    background: white;
+    padding: 32px;
+    border-radius: 12px;
+    border-top: 4px solid var(--border);
+}
+
+.transformation-card.highlight {
+    border-top-color: var(--success);
+    box-shadow: var(--shadow-md);
+    transform: scale(1.02);
+}
+
+.transformation-card h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: var(--primary);
+}
+
+.transformation-list {
+    list-style: none;
+    padding: 0;
+}
+
+.transformation-list li {
+    padding: 8px 0;
+    padding-left: 24px;
+    position: relative;
+    color: var(--text-secondary);
+}
+
+.transformation-list.before li:before {
+    content: "✗";
+    position: absolute;
+    left: 0;
+    color: var(--warning);
+}
+
+.transformation-list.after li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--success);
+    font-weight: bold;
+}
+
+.transformation-list.future li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+}
+
+/* Leadership Lessons */
+.leadership-lessons {
+    padding: 80px 0;
+    background: white;
+}
+
+.lessons-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.key-lesson {
+    font-size: 24px;
+    line-height: 1.6;
+    color: var(--primary);
+    text-align: center;
+    padding: 32px;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    margin-bottom: 48px;
+    font-style: italic;
+}
+
+.lesson-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+}
+
+.lesson-item h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    color: var(--primary);
+}
+
+.lesson-item p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Current CTA */
+.current-cta {
+    padding: 80px 0;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: white;
+    text-align: center;
+}
+
+.current-cta h2 {
+    color: white;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.current-cta p {
+    font-size: 18px;
+    max-width: 700px;
+    margin: 0 auto 32px;
+    opacity: 0.95;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .impact-title {
+        font-size: 36px;
+    }
+    
+    .ai-project.featured {
+        grid-column: span 1;
+    }
+    
+    .transformation-grid {
+        grid-template-columns: 1fr;
+    }
+}
