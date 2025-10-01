@@ -1801,3 +1801,138 @@ body {
     margin: 0 auto 32px;
     color: var(--text-secondary);
 }
+/* ADD THESE VISUAL ENHANCEMENTS TO YOUR CSS */
+
+/* Enhanced Hero Section */
+.hero {
+    padding: 100px 0 120px;
+    background: linear-gradient(135deg, #0969da 0%, #7c3aed 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -200px;
+    width: 500px;
+    height: 500px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+}
+
+.hero-tag {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    color: white !important;
+}
+
+.hero-title {
+    color: white;
+    font-size: 56px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.hero-title .highlight {
+    color: #ffd700;
+    font-weight: 900;
+}
+
+.hero-description {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 22px;
+}
+
+/* Make buttons pop */
+.btn-primary {
+    background: white;
+    color: var(--primary);
+    font-weight: 700;
+    box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-secondary:hover {
+    background: white;
+    color: var(--primary);
+}
+
+/* Enhanced Stats */
+.hero-stats {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.stat-number {
+    color: #ffd700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.stat-label {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Enhanced Timeline */
+.timeline-entry {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-entry:hover {
+    transform: translateX(8px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-entry.highlight {
+    background: linear-gradient(135deg, white 0%, #f0f7ff 100%);
+}
+
+/* Enhanced Cards */
+.story-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.story-card:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+}
+
+/* Typography improvements */
+h1, h2, h3 {
+    letter-spacing: -0.02em;
+}
+
+.section-title {
+    position: relative;
+    padding-bottom: 16px;
+}
+
+.section-title:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: var(--primary);
+    border-radius: 2px;
+}
