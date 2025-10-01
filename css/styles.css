@@ -481,3 +481,605 @@ body {
     gap: 16px;
     justify-content: center;
 }
+
+/* ===================================
+   HOMEPAGE STYLES
+   =================================== */
+
+/* Hero Section */
+.hero {
+    padding: 80px 0 100px;
+    background: linear-gradient(to bottom, var(--bg-secondary), var(--bg-primary));
+}
+
+.hero-content {
+    max-width: 900px;
+}
+
+.hero-tag {
+    display: inline-block;
+    padding: 6px 12px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+}
+
+.hero-title {
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 24px;
+}
+
+.hero-title .highlight {
+    color: var(--primary);
+}
+
+.hero-description {
+    font-size: 20px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+    max-width: 700px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+/* Metrics Section (Homepage) */
+.metrics {
+    padding: 80px 0;
+    background: var(--bg-primary);
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+}
+
+.metric-card {
+    padding: 32px;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.metric-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Initiatives Section */
+.initiatives {
+    padding: 80px 0;
+    background: var(--bg-secondary);
+}
+
+.initiatives-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 24px;
+}
+
+.initiative-card {
+    background: var(--bg-primary);
+    border-radius: 12px;
+    padding: 32px;
+    border: 1px solid var(--border-light);
+    transition: all 0.2s;
+}
+
+.initiative-card:hover {
+    border-color: var(--primary);
+    box-shadow: var(--shadow-md);
+}
+
+.initiative-header {
+    margin-bottom: 16px;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.status-badge.active {
+    background: rgba(26, 127, 55, 0.1);
+    color: var(--success);
+}
+
+.status-badge.development {
+    background: rgba(251, 133, 0, 0.1);
+    color: var(--warning);
+}
+
+.initiative-card h3 {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.initiative-card p {
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+}
+
+.link-arrow {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.link-arrow:hover {
+    text-decoration: underline;
+}
+
+/* Philosophy Section */
+.philosophy {
+    padding: 80px 0;
+    background: var(--bg-primary);
+}
+
+.philosophy-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.philosophy-content h2 {
+    font-size: 36px;
+    margin-bottom: 24px;
+}
+
+.philosophy-statement {
+    font-size: 20px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 48px;
+}
+
+.principles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 32px;
+    text-align: left;
+}
+
+.principle h4 {
+    font-size: 18px;
+    color: var(--primary);
+    margin-bottom: 8px;
+}
+
+.principle p {
+    color: var(--text-secondary);
+}
+
+/* ===================================
+   AI PROJECTS PAGE STYLES
+   =================================== */
+
+.portfolio-header {
+    padding: 80px 0 40px;
+    background: var(--bg-secondary);
+    text-align: center;
+}
+
+.portfolio-header h1 {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+.portfolio-tagline {
+    font-size: 20px;
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+}
+
+.portfolio-metrics {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.metric-pill {
+    display: inline-block;
+    padding: 6px 12px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.metric-pill.large {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+.projects {
+    padding: 60px 0;
+}
+
+.project-card {
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 48px;
+    margin-bottom: 32px;
+}
+
+.project-card.featured {
+    border-color: var(--primary);
+    border-width: 2px;
+}
+
+.project-header h2 {
+    font-size: 32px;
+    margin-bottom: 16px;
+}
+
+.project-badges {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 32px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.badge.production {
+    background: rgba(26, 127, 55, 0.1);
+    color: var(--success);
+}
+
+.badge.impact {
+    background: rgba(121, 66, 193, 0.1);
+    color: var(--secondary);
+}
+
+.badge.automation {
+    background: rgba(9, 105, 218, 0.1);
+    color: var(--primary);
+}
+
+.badge.scale {
+    background: rgba(251, 133, 0, 0.1);
+    color: var(--warning);
+}
+
+.project-section {
+    margin-bottom: 32px;
+}
+
+.project-section h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    color: var(--primary);
+}
+
+.project-section p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.impact-item {
+    padding: 16px;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+}
+
+.impact-item strong {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--text-primary);
+}
+
+.impact-item span {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.impact-list {
+    list-style: none;
+    padding: 0;
+}
+
+.impact-list li {
+    padding: 8px 0;
+    padding-left: 24px;
+    position: relative;
+}
+
+.impact-list li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+}
+
+.tech-tags,
+.capabilities-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.tech-tag,
+.capability {
+    display: inline-block;
+    padding: 6px 12px;
+    background: var(--primary);
+    color: white;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.project-link {
+    margin-top: 16px;
+}
+
+.vision {
+    padding: 60px 0;
+    background: var(--bg-secondary);
+}
+
+.vision-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 32px;
+}
+
+.vision-item {
+    padding: 32px;
+    background: var(--bg-primary);
+    border-radius: 12px;
+    border-left: 4px solid var(--primary);
+}
+
+.vision-item h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+    color: var(--primary);
+}
+
+/* ===================================
+   RESUME/EXPERIENCE PAGE STYLES
+   =================================== */
+
+.resume-header {
+    padding: 80px 0 40px;
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    text-align: center;
+}
+
+.resume-header h1 {
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.resume-tagline {
+    font-size: 24px;
+    color: var(--primary);
+    margin-bottom: 24px;
+    font-weight: 500;
+}
+
+.resume-summary {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.experience,
+.skills,
+.education {
+    padding: 60px 0;
+}
+
+.job {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 32px;
+    margin-bottom: 24px;
+    transition: all 0.2s;
+}
+
+.job:hover {
+    border-color: var(--primary);
+    box-shadow: var(--shadow-md);
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 16px;
+}
+
+.job-header h3 {
+    font-size: 24px;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.company {
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+.job-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.job-badge.current {
+    background: rgba(26, 127, 55, 0.1);
+    color: var(--success);
+}
+
+.job-summary {
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+    font-style: italic;
+}
+
+.job-details {
+    list-style: none;
+    padding: 0;
+}
+
+.job-details li {
+    padding: 10px 0;
+    padding-left: 28px;
+    position: relative;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.job-details li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.job-metrics {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+}
+
+.metric-tag {
+    display: inline-block;
+    padding: 6px 12px;
+    background: rgba(9, 105, 218, 0.1);
+    color: var(--primary);
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 32px;
+}
+
+.skill-category {
+    background: var(--bg-secondary);
+    padding: 24px;
+    border-radius: 12px;
+    border-left: 4px solid var(--primary);
+}
+
+.skill-category h3 {
+    font-size: 18px;
+    margin-bottom: 16px;
+    color: var(--primary);
+}
+
+.skill-category ul {
+    list-style: none;
+    padding: 0;
+}
+
+.skill-category li {
+    padding: 6px 0;
+    color: var(--text-secondary);
+    position: relative;
+    padding-left: 20px;
+}
+
+.skill-category li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+}
+
+.degree {
+    background: var(--bg-primary);
+    padding: 32px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.degree h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.school {
+    color: var(--text-secondary);
+    font-size: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-menu {
+        gap: 16px;
+        font-size: 14px;
+    }
+    
+    .hero-title,
+    .case-title {
+        font-size: 32px;
+    }
+    
+    .metrics-grid,
+    .initiatives-grid,
+    .skills-grid,
+    .vision-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .project-card {
+        padding: 32px 24px;
+    }
+}
