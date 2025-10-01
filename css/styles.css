@@ -2381,3 +2381,44 @@ h1, h2, h3 {
         grid-template-columns: 1fr;
     }
 }
+/* Enhanced Section Spacing for TXRH Page */
+.case-hero,
+.impact-metrics,
+.financial-impact,
+.platform-section,
+.journey-section,
+.implications-section,
+.case-cta {
+    padding: 100px 0;
+}
+
+/* Add visual separators between sections */
+.impact-metrics,
+.platform-section,
+.implications-section {
+    position: relative;
+}
+
+.impact-metrics:before,
+.platform-section:before,
+.implications-section:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+    border-radius: 2px;
+}
+
+/* Ensure the chart container has proper spacing */
+.revenue-chart {
+    background: white;
+    padding: 60px 40px;
+    border-radius: 16px;
+    margin-top: 32px;
+    box-shadow: var(--shadow-md);
+    min-height: 400px;
+}
