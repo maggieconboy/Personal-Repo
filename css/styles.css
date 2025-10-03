@@ -422,6 +422,83 @@ iframe {
     font-size: 12px;
     color: var(--text-muted);
 }
+
+/* Mobile responsive styles for Revenue Chart */
+@media (max-width: 768px) {
+    .revenue-chart {
+        padding: 24px 16px;
+        min-height: 350px;
+    }
+    
+    .revenue-progression {
+        height: 250px;
+        padding-bottom: 60px;
+        margin-top: 24px;
+    }
+    
+    .revenue-bar {
+        width: 40px;
+    }
+    
+    .revenue-point .amount {
+        font-size: 14px;
+        top: -25px;
+        white-space: nowrap;
+    }
+    
+    .revenue-point .year {
+        font-size: 13px;
+        bottom: -35px;
+    }
+    
+    .revenue-point .percentage {
+        font-size: 10px;
+        bottom: -50px;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .revenue-chart {
+        padding: 20px 12px;
+        min-height: 320px;
+    }
+    
+    .chart-header h3 {
+        font-size: 18px;
+    }
+    
+    .chart-header p {
+        font-size: 13px;
+    }
+    
+    .revenue-progression {
+        height: 200px;
+        padding-bottom: 55px;
+        margin-top: 20px;
+        gap: 4px;
+    }
+    
+    .revenue-bar {
+        width: 28px;
+    }
+    
+    .revenue-point .amount {
+        font-size: 12px;
+        top: -22px;
+    }
+    
+    .revenue-point .year {
+        font-size: 11px;
+        bottom: -32px;
+    }
+    
+    .revenue-point .percentage {
+        font-size: 9px;
+        bottom: -46px;
+    }
+}
+
 /* Platform Grid */
 .platform-grid {
     display: grid;
