@@ -30,6 +30,16 @@ body {
     line-height: 1.6;
     color: var(--text-primary);
     background: var(--bg-primary);
+    overflow-x: hidden; /* Prevent horizontal scroll on mobile */
+}
+
+/* Responsive images and media */
+img,
+video,
+iframe {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 .container {
@@ -98,6 +108,7 @@ body {
     display: inline-block;
     padding: 12px 24px;
     font-size: 16px;
+    min-height: 44px; /* Better touch target for mobile */
     font-weight: 600;
     text-decoration: none;
     border-radius: 6px;
@@ -286,7 +297,7 @@ body {
 
 .metric-row {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     gap: 24px;
 }
 
@@ -414,7 +425,7 @@ body {
 /* Platform Grid */
 .platform-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
     gap: 32px;
     margin-top: 48px;
 }
@@ -449,7 +460,7 @@ body {
 /* Journey Grid */
 .journey-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
     gap: 24px;
     margin-top: 48px;
 }
@@ -475,7 +486,7 @@ body {
 /* Lessons Grid */
 .lessons-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     gap: 32px;
     margin-top: 48px;
 }
@@ -576,7 +587,7 @@ body {
 
 .metrics-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
     gap: 24px;
 }
 
@@ -601,7 +612,7 @@ body {
 
 .initiatives-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
     gap: 24px;
 }
 
@@ -688,7 +699,7 @@ body {
 
 .principles {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
     gap: 32px;
     text-align: left;
 }
@@ -821,7 +832,7 @@ body {
 
 .impact-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
     gap: 16px;
     margin-top: 16px;
 }
@@ -892,7 +903,7 @@ body {
 
 .vision-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
     gap: 32px;
 }
 
@@ -1039,7 +1050,7 @@ body {
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
     gap: 32px;
 }
 
@@ -1095,27 +1106,258 @@ body {
     font-size: 16px;
 }
 
-/* Responsive Design */
+/* Responsive Design - Mobile First Approach */
+
+/* Tablet and larger mobile devices (481px - 768px) */
 @media (max-width: 768px) {
+    /* Container adjustments */
+    .container {
+        padding: 0 20px;
+    }
+    
+    /* Navigation */
     .nav-menu {
         gap: 16px;
         font-size: 14px;
     }
     
-    .hero-title,
-    .case-title {
-        font-size: 32px;
+    /* Hero section adjustments */
+    .hero {
+        padding: 60px 0 80px;
     }
     
+    .hero-title,
+    .case-title {
+        font-size: 36px;
+        line-height: 1.3;
+    }
+    
+    .hero-description {
+        font-size: 18px;
+        margin-bottom: 28px;
+    }
+    
+    .hero-stats {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 24px;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .hero-actions .btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* Grid layouts */
     .metrics-grid,
     .initiatives-grid,
     .skills-grid,
     .vision-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
     
-    .project-card {
-        padding: 32px 24px;
+    /* Cards */
+    .project-card,
+    .metric-card,
+    .initiative-card {
+        padding: 24px 20px;
+    }
+    
+    /* Stat displays */
+    .stat-number {
+        font-size: 32px;
+    }
+    
+    .stat-label {
+        font-size: 13px;
+    }
+    
+    /* Section spacing */
+    .career-impact,
+    .metrics,
+    .initiatives,
+    .featured-brands {
+        padding: 60px 0;
+    }
+    
+    /* Typography adjustments */
+    .section-title {
+        font-size: 32px;
+        margin-bottom: 32px;
+    }
+    
+    /* Timeline entries */
+    .timeline-visual {
+        gap: 24px;
+    }
+    
+    .timeline-entry {
+        padding: 24px;
+    }
+    
+    /* Portfolio summary */
+    .portfolio-summary {
+        flex-direction: column;
+        gap: 24px;
+    }
+    
+    .summary-number {
+        font-size: 32px;
+    }
+    
+    /* Brand cards */
+    .brand-card {
+        padding: 24px;
+    }
+    
+    .brand-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    
+    /* CTA sections */
+    .cta-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .cta-buttons .btn {
+        width: 100%;
+    }
+}
+
+/* Small mobile devices (max 480px) */
+@media (max-width: 480px) {
+    /* Container adjustments */
+    .container {
+        padding: 0 16px;
+    }
+    
+    /* Navigation brand */
+    .nav-brand {
+        font-size: 16px;
+    }
+    
+    /* Hero section */
+    .hero {
+        padding: 48px 0 60px;
+    }
+    
+    .hero-title,
+    .case-title {
+        font-size: 28px;
+        line-height: 1.3;
+    }
+    
+    .hero-description {
+        font-size: 16px;
+        margin-bottom: 24px;
+    }
+    
+    .hero-tag {
+        font-size: 12px;
+        padding: 4px 10px;
+    }
+    
+    .hero-stats {
+        padding: 20px;
+        gap: 16px;
+    }
+    
+    /* Buttons */
+    .btn {
+        padding: 12px 20px;
+        font-size: 15px;
+    }
+    
+    /* Stat displays */
+    .stat-number {
+        font-size: 28px;
+    }
+    
+    .stat-label {
+        font-size: 12px;
+    }
+    
+    /* Section spacing */
+    .career-impact,
+    .metrics,
+    .initiatives,
+    .featured-brands,
+    .case-hero,
+    .impact-metrics,
+    .financial-impact,
+    .platform-section,
+    .journey-section,
+    .implications-section,
+    .case-cta {
+        padding: 48px 0;
+    }
+    
+    /* Typography */
+    .section-title {
+        font-size: 26px;
+        margin-bottom: 24px;
+        line-height: 1.3;
+    }
+    
+    /* Cards */
+    .project-card,
+    .metric-card,
+    .initiative-card,
+    .brand-card,
+    .timeline-entry {
+        padding: 20px 16px;
+    }
+    
+    /* Metric displays */
+    .metric-number {
+        font-size: 72px;
+    }
+    
+    .metric-prefix,
+    .metric-suffix {
+        font-size: 36px;
+    }
+    
+    .metric-value {
+        font-size: 32px;
+    }
+    
+    /* Portfolio hero */
+    .portfolio-hero h1 {
+        font-size: 32px;
+    }
+    
+    .portfolio-subtitle {
+        font-size: 16px;
+    }
+    
+    .summary-number {
+        font-size: 28px;
+    }
+    
+    .summary-label {
+        font-size: 12px;
+    }
+    
+    /* Brand header */
+    .brand-header h3 {
+        font-size: 22px;
+    }
+    
+    /* Footer */
+    .footer-links {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
     }
 }
 /* ===================================
@@ -1253,7 +1495,7 @@ body {
 /* Brands Grid */
 .brands-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
     gap: 24px;
     margin-top: 48px;
 }
@@ -1457,7 +1699,7 @@ body {
 /* Brands Grid */
 .brands-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
     gap: 24px;
     margin-top: 48px;
 }
@@ -1533,7 +1775,7 @@ body {
 /* Hero Stats Grid */
 .hero-stats {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
     gap: 24px;
     margin: 32px 0;
     padding: 32px;
@@ -1632,7 +1874,7 @@ body {
 /* Brand Grid */
 .brand-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
     gap: 16px;
     margin-top: 16px;
 }
@@ -1656,7 +1898,7 @@ body {
 
 .story-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
     gap: 24px;
     margin-top: 48px;
 }
@@ -1699,7 +1941,7 @@ body {
 
 .value-props {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
     gap: 32px;
     margin-top: 48px;
 }
@@ -2128,7 +2370,7 @@ h1, h2, h3 {
 
 .ai-projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr));
     gap: 32px;
     margin-top: 48px;
 }
@@ -2242,7 +2484,7 @@ h1, h2, h3 {
 
 .transformation-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
     gap: 32px;
     margin-top: 48px;
 }
@@ -2325,7 +2567,7 @@ h1, h2, h3 {
 
 .lesson-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
     gap: 32px;
 }
 
@@ -2367,10 +2609,10 @@ h1, h2, h3 {
     justify-content: center;
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments for Current Impact page */
 @media (max-width: 768px) {
     .impact-title {
-        font-size: 36px;
+        font-size: 32px;
     }
     
     .ai-project.featured {
@@ -2379,6 +2621,28 @@ h1, h2, h3 {
     
     .transformation-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .current-cta h2 {
+        font-size: 28px;
+    }
+    
+    .current-cta p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .impact-title {
+        font-size: 26px;
+    }
+    
+    .current-cta h2 {
+        font-size: 24px;
+    }
+    
+    .current-cta p {
+        font-size: 15px;
     }
 }
 /* Enhanced Section Spacing for TXRH Page */
@@ -2483,6 +2747,8 @@ h1, h2, h3 {
         visibility: hidden;
         transition: all 0.3s ease;
         z-index: 100;
+        gap: 0;
+        align-items: stretch;
     }
     
     .nav-menu.active {
@@ -2497,12 +2763,13 @@ h1, h2, h3 {
     
     .nav-menu a {
         display: block;
-        padding: 12px 0;
+        padding: 14px 8px;
         font-size: 16px;
         border-bottom: 1px solid var(--border-light);
+        text-align: left;
     }
     
-    .nav-menu a:last-child {
+    .nav-menu li:last-child a {
         border-bottom: none;
     }
     
@@ -2510,5 +2777,109 @@ h1, h2, h3 {
         margin-top: 12px;
         width: 100%;
         text-align: center;
+        padding: 14px 16px !important;
+    }
+}
+
+/* Enhanced mobile menu for smaller screens */
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 12px 16px;
+    }
+    
+    .mobile-menu-toggle {
+        padding: 6px;
+    }
+    
+    .mobile-menu-toggle span {
+        width: 20px;
+    }
+    
+    .nav-menu {
+        padding: 16px;
+    }
+    
+    .nav-menu a {
+        padding: 12px 8px;
+        font-size: 15px;
+    }
+}
+
+/* ===================================
+   DESKTOP OPTIMIZATION
+   =================================== */
+
+/* Large desktop displays (1200px+) */
+@media (min-width: 1200px) {
+    /* Enhanced container width for larger screens */
+    .container {
+        max-width: 1280px;
+        padding: 0 32px;
+    }
+    
+    /* Hero section enhanced spacing */
+    .hero {
+        padding: 100px 0 120px;
+    }
+    
+    .hero-title {
+        font-size: 56px;
+    }
+    
+    .hero-description {
+        font-size: 22px;
+    }
+    
+    /* Grid layouts with more columns on large screens */
+    .metrics-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .hero-stats {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    /* Section spacing */
+    .career-impact,
+    .metrics,
+    .initiatives,
+    .featured-brands {
+        padding: 100px 0;
+    }
+}
+
+/* Extra large desktop displays (1440px+) */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    .hero-title {
+        font-size: 64px;
+    }
+    
+    .hero-description {
+        font-size: 24px;
+    }
+    
+    /* Enhanced card layouts */
+    .initiatives-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Performance optimizations for all devices */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Ensure smooth scrolling on supported browsers */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
     }
 }
