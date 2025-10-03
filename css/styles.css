@@ -427,7 +427,7 @@ iframe {
 @media (max-width: 768px) {
     .revenue-chart {
         padding: 24px 16px;
-        min-height: 300px;
+        min-height: 350px;
     }
     
     .revenue-progression {
@@ -461,7 +461,7 @@ iframe {
 @media (max-width: 480px) {
     .revenue-chart {
         padding: 20px 12px;
-        min-height: 280px;
+        min-height: 320px;
     }
     
     .chart-header h3 {
