@@ -1,0 +1,14 @@
+# Documentation screenshots (test artifacts)
+docs/screenshots/
+
+# Temporary files
+*.tmp
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor directories
+.vscode/
+.idea/
