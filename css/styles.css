@@ -3111,35 +3111,18 @@ h1, h2, h3 {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 32px;
-    margin-bottom: 32px;
-}
-.brand-logo {
-    max-height: 80px;
-    width: auto;
-    background: transparent;
-    transition: transform 0.2s;
-}
-.brand-logos a:hover .brand-logo {
-    transform: scale(1.07);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
-}
-.brand-logos {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     gap: 40px;
-    margin-top: 32px;
+    margin-top: 24px;
     margin-bottom: 0;
     z-index: 2;
     position: relative;
-    background: rgba(255,255,255,0.8);
+    background: rgba(255,255,255,0.95); /* Higher opacity for logo visibility */
     border-radius: 12px;
-    padding: 16px 0;
+    padding: 18px 0;
 }
 
 .brand-logo {
-    max-height: 60px;
+    max-height: 70px; /* Consistent height for all logos */
     width: auto;
     object-fit: contain;
     background: transparent;
@@ -3149,10 +3132,10 @@ h1, h2, h3 {
 
 .brand-logos a:hover .brand-logo {
     transform: scale(1.08);
-    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
 }
 
 /* Jaggers logo is white, so add a subtle shadow for visibility */
 .jaggers-logo {
-    filter: drop-shadow(2px 2px 6px rgba(0,0,0,0.12));
+    filter: drop-shadow(2px 2px 8px rgba(0,0,0,0.20));
 }
