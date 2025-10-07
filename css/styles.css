@@ -254,6 +254,27 @@ iframe {
     margin: 0 auto;
 }
 
+/* TXRH Hero Section */
+.txrh-hero {
+    padding: 100px 0 80px;
+    background: linear-gradient(135deg, #f6f8fa 0%, #ffffff 100%);
+    text-align: center;
+    position: relative;
+}
+
+.txrh-badge {
+    display: inline-block;
+    padding: 8px 20px;
+    background: var(--primary);
+    color: white;
+    border-radius: 24px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
 /* Impact Metrics Section */
 .impact-metrics {
     padding: 80px 0;
@@ -3068,6 +3089,14 @@ h1, h2, h3 {
     display: inline-block;
 }
 
+.user-research-impact a {
+    color: #0366d6;
+    text-decoration: underline;
+}
+
+/* Brand Logos - Consolidated Styles */
+}
+
 .user-research-impact .research-item .btn.btn-primary {
     color: white;
 }
@@ -3102,6 +3131,9 @@ h1, h2, h3 {
     margin-bottom: 0;
     z-index: 2;
     position: relative;
+    background: rgba(255,255,255,0.8);
+    border-radius: 12px;
+    padding: 16px 0;
 }
 
 .brand-logo {
@@ -3110,6 +3142,7 @@ h1, h2, h3 {
     object-fit: contain;
     background: transparent;
     transition: transform 0.18s, box-shadow 0.18s;
+    display: inline-block;
 }
 
 .brand-logos a:hover .brand-logo {
@@ -3120,10 +3153,4 @@ h1, h2, h3 {
 /* Jaggers logo is white, so add a subtle shadow for visibility */
 .jaggers-logo {
     filter: drop-shadow(2px 2px 6px rgba(0,0,0,0.12));
-    background: transparent;
-}
-.brand-logos {
-    background: rgba(255,255,255,0.8);
-    border-radius: 12px;
-    padding: 16px 0;
 }
