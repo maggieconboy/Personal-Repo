@@ -653,12 +653,9 @@ iframe {
     margin-bottom: 24px;
 }
 
-.hero-title {
-    color: #222;
-    font-size: 2.6rem;
-    font-weight: 800;
-    text-shadow: none;
-    margin-bottom: 16px;
+.hero-title, .txrh-hero .hero-title {
+    color: #222 !important;
+    text-shadow: none !important;
 }
 .hero-title {
     font-size: 48px;
@@ -671,12 +668,9 @@ iframe {
     color: var(--primary);
 }
 
-.hero-description {
-    font-size: 20px;
-    line-height: 1.6;
-    color: var(--text-secondary);
-    margin-bottom: 32px;
-    max-width: 700px;
+.hero-description, .txrh-hero .hero-description {
+    color: #57606a !important;
+    text-shadow: none !important;
 }
 
 .hero-actions {
