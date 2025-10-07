@@ -3064,8 +3064,18 @@ h1, h2, h3 {
     font-weight: 600;
 }
 .user-research-impact .research-item .btn {
-    margin-top: 12px;
+    margin-top: 16px;
     display: inline-block;
+}
+
+.user-research-impact .research-item .btn.btn-primary {
+    color: white;
+}
+
+.user-research-impact .research-item .btn.btn-primary:hover {
+    color: white;
+}
+
 .brand-logos {
     display: flex;
     justify-content: center;
@@ -3082,10 +3092,6 @@ h1, h2, h3 {
 .brand-logos a:hover .brand-logo {
     transform: scale(1.07);
     box-shadow: 0 4px 16px rgba(0,0,0,0.10);
-}
-.user-research-impact a {
-    color: #0366d6;
-    text-decoration: underline;
 }
 .brand-logos {
     display: flex;
