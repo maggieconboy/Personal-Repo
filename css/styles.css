@@ -256,20 +256,21 @@ iframe {
 
 /* TXRH Hero Section */
 .txrh-hero {
-    padding: 100px 0 80px;
-    background: linear-gradient(135deg, #f6f8fa 0%, #ffffff 100%);
+    padding: 80px 0 100px;
+    background: linear-gradient(to bottom, var(--bg-secondary), var(--bg-primary));
     text-align: center;
     position: relative;
 }
 
 .txrh-badge {
     display: inline-block;
-    padding: 8px 20px;
-    background: var(--primary);
-    color: white;
-    border-radius: 24px;
+    padding: 6px 12px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: 20px;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 500;
+    color: var(--text-secondary);
     margin-bottom: 24px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
