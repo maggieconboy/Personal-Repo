@@ -1451,7 +1451,8 @@ iframe {
     .platform-section,
     .journey-section,
     .implications-section,
-    .case-cta {
+    .case-cta,
+    .user-research-impact {
         padding: 48px 0;
     }
     
@@ -3036,6 +3037,12 @@ h1, h2, h3 {
     html {
         scroll-behavior: smooth;
     }
+}
+
+/* User Research & Journey Mapping */
+.user-research-impact {
+    padding: 80px 0;
+    background: white;
 }
 
 .user-research-impact .research-grid {
