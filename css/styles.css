@@ -3063,6 +3063,23 @@ h1, h2, h3 {
     margin-top: 0;
     font-weight: 600;
 }
+.brand-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 32px;
+}
+.brand-logo {
+    max-height: 80px;
+    width: auto;
+    background: transparent;
+    transition: transform 0.2s;
+}
+.brand-logos a:hover .brand-logo {
+    transform: scale(1.07);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+}
 .user-research-impact a {
     color: #0366d6;
     text-decoration: underline;
