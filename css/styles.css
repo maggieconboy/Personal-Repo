@@ -3068,6 +3068,14 @@ h1, h2, h3 {
     display: inline-block;
 }
 
+.user-research-impact .research-item .btn.btn-primary {
+    color: white;
+}
+
+.user-research-impact .research-item .btn.btn-primary:hover {
+    color: white;
+}
+
 .brand-logos {
     display: flex;
     justify-content: center;
