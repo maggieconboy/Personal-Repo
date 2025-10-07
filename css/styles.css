@@ -3085,7 +3085,7 @@ h1, h2, h3 {
     font-weight: 600;
 }
 .user-research-impact .research-item .btn {
-    margin-top: 12px;
+    margin-top: 16px;
     display: inline-block;
 }
 
@@ -3095,6 +3095,33 @@ h1, h2, h3 {
 }
 
 /* Brand Logos - Consolidated Styles */
+}
+
+.user-research-impact .research-item .btn.btn-primary {
+    color: white;
+}
+
+.user-research-impact .research-item .btn.btn-primary:hover {
+    color: white;
+}
+
+.brand-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 32px;
+}
+.brand-logo {
+    max-height: 80px;
+    width: auto;
+    background: transparent;
+    transition: transform 0.2s;
+}
+.brand-logos a:hover .brand-logo {
+    transform: scale(1.07);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+}
 .brand-logos {
     display: flex;
     justify-content: center;
