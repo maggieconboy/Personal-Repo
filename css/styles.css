@@ -218,41 +218,6 @@ iframe {
 }
 
 /* Continue with rest of case study styles... */
-
-/* Case Study Page Styles */
-.case-hero {
-    padding: 80px 0 60px;
-    background: linear-gradient(135deg, #f6f8fa 0%, #ffffff 100%);
-    text-align: center;
-}
-
-.case-badge {
-    display: inline-block;
-    padding: 6px 16px;
-    background: var(--primary);
-    color: white;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 20px;
-}
-
-.case-title {
-    font-size: 48px;
-    font-weight: 800;
-    line-height: 1.2;
-    margin-bottom: 20px;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.case-subtitle {
-    font-size: 20px;
-    color: var(--text-secondary);
-    max-width: 700px;
-    margin: 0 auto;
-}
 .brand-logos {
     display: flex;
     justify-content: center;
@@ -1775,210 +1740,6 @@ iframe {
     background: var(--bg-secondary);
 }
 /* ===================================
-   BRAND PORTFOLIO PAGE STYLES
-   =================================== */
-
-.portfolio-hero {
-    padding: 80px 0 60px;
-    background: linear-gradient(135deg, var(--bg-secondary) 0%, white 100%);
-    text-align: center;
-}
-
-.portfolio-hero h1 {
-    font-size: 48px;
-    font-weight: 800;
-    margin-bottom: 16px;
-}
-
-.portfolio-subtitle {
-    font-size: 20px;
-    color: var(--text-secondary);
-    max-width: 700px;
-    margin: 0 auto 48px;
-}
-
-.portfolio-summary {
-    display: flex;
-    justify-content: center;
-    gap: 48px;
-}
-
-.summary-stat {
-    text-align: center;
-}
-
-.summary-number {
-    display: block;
-    font-size: 36px;
-    font-weight: 800;
-    color: var(--primary);
-}
-
-.summary-label {
-    display: block;
-    font-size: 14px;
-    color: var(--text-secondary);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* Featured Brands */
-.featured-brands {
-    padding: 80px 0;
-}
-
-.brand-card {
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 32px;
-    margin-bottom: 24px;
-}
-
-.brand-card.featured {
-    border: 2px solid var(--primary);
-    box-shadow: var(--shadow-md);
-}
-
-.brand-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 24px;
-}
-
-.brand-header h3 {
-    font-size: 28px;
-    color: var(--text-primary);
-}
-
-.brand-badge {
-    padding: 8px 16px;
-    background: var(--primary);
-    color: white;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: 600;
-}
-
-.brand-content {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 32px;
-}
-
-.brand-stats {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.brand-stat {
-    padding: 8px;
-    background: var(--bg-secondary);
-    border-radius: 8px;
-    font-size: 14px;
-}
-
-.brand-metrics ul {
-    list-style: none;
-    padding: 0;
-}
-
-.brand-metrics li {
-    padding: 8px 0;
-    padding-left: 24px;
-    position: relative;
-}
-
-.brand-metrics li:before {
-    content: "→";
-    position: absolute;
-    left: 0;
-    color: var(--primary);
-}
-
-.brand-link {
-    display: inline-block;
-    margin-top: 16px;
-    color: var(--primary);
-    text-decoration: none;
-    font-weight: 600;
-}
-
-/* Brands Grid */
-.brands-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
-    gap: 24px;
-    margin-top: 48px;
-}
-
-.brand-tile {
-    padding: 24px;
-    background: white;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    transition: all 0.3s;
-}
-
-.brand-tile:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
-}
-
-.brand-tile h4 {
-    font-size: 20px;
-    margin-bottom: 8px;
-    color: var(--primary);
-}
-
-.brand-year {
-    color: var(--text-muted);
-    font-size: 14px;
-    margin-bottom: 16px;
-}
-
-.brand-tile ul {
-    list-style: none;
-    padding: 0;
-}
-
-.brand-tile li {
-    padding: 4px 0;
-    font-size: 14px;
-    color: var(--text-secondary);
-}
-
-/* Impact Summary */
-.impact-summary {
-    padding: 80px 0;
-    background: var(--bg-secondary);
-}
-
-.impact-narrative {
-    max-width: 800px;
-    margin: 0 auto 48px;
-    text-align: center;
-}
-
-.impact-narrative p {
-    font-size: 18px;
-    line-height: 1.7;
-    color: var(--text-secondary);
-    margin-bottom: 24px;
-}
-
-.impact-cta {
-    text-align: center;
-}
-
-/* Additional Brands Section */
-.additional-brands {
-    padding: 80px 0;
-    background: var(--bg-secondary);
-}
-/* ===================================
    ENHANCED HOMEPAGE STYLES (MISSING)
    =================================== */
 
@@ -2288,141 +2049,7 @@ iframe {
     margin: 0 auto 32px;
     color: var(--text-secondary);
 }
-/* ADD THESE VISUAL ENHANCEMENTS TO YOUR CSS */
 
-/* Enhanced Hero Section */
-.hero {
-    padding: 100px 0 120px;
-    background: linear-gradient(135deg, #0969da 0%, #7c3aed 100%);
-    color: white;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    right: -200px;
-    width: 500px;
-    height: 500px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 50%;
-}
-
-.hero-tag {
-    background: rgba(255, 255, 255, 0.2) !important;
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
-    color: white !important;
-}
-
-.hero-title {
-    color: white;
-    font-size: 56px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.hero-title .highlight {
-    color: #ffd700;
-    font-weight: 900;
-}
-
-.hero-description {
-    color: rgba(255, 255, 255, 0.95);
-    font-size: 22px;
-}
-
-/* Make buttons pop */
-.btn-primary {
-    background: white;
-    color: var(--primary);
-    font-weight: 700;
-    box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.2);
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-}
-
-.btn-secondary {
-    background: transparent;
-    color: white;
-    border: 2px solid white;
-}
-
-.btn-secondary:hover {
-    background: white;
-    color: var(--primary);
-}
-
-/* Enhanced Stats */
-.hero-stats {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.stat-number {
-    color: #ffd700;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.stat-label {
-    color: rgba(255, 255, 255, 0.9);
-}
-
-/* Enhanced Timeline */
-.timeline-entry {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.timeline-entry:hover {
-    transform: translateX(8px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-}
-
-.timeline-entry.highlight {
-    background: linear-gradient(135deg, white 0%, #f0f7ff 100%);
-}
-
-/* Enhanced Cards */
-.story-card {
-    position: relative;
-    overflow: hidden;
-}
-
-.story-card:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
-}
-
-/* Typography improvements */
-h1, h2, h3 {
-    letter-spacing: -0.02em;
-}
-
-.section-title {
-    position: relative;
-    padding-bottom: 16px;
-}
-
-.section-title:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 4px;
-    background: var(--primary);
-    border-radius: 2px;
-}
 /* ===================================
    CURRENT IMPACT PAGE STYLES
    =================================== */
@@ -2819,42 +2446,7 @@ h1, h2, h3 {
     justify-content: center;
 }
 
-/* Responsive adjustments for Current Impact page */
-@media (max-width: 768px) {
-    .impact-title {
-        font-size: 32px;
-    }
-    
-    .ai-project.featured {
-        grid-column: span 1;
-    }
-    
-    .transformation-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .current-cta h2 {
-        font-size: 28px;
-    }
-    
-    .current-cta p {
-        font-size: 16px;
-    }
-}
 
-@media (max-width: 480px) {
-    .impact-title {
-        font-size: 26px;
-    }
-    
-    .current-cta h2 {
-        font-size: 24px;
-    }
-    
-    .current-cta p {
-        font-size: 15px;
-    }
-}
 /* Enhanced Section Spacing for TXRH Page */
 .case-hero,
 .impact-metrics,
@@ -2934,10 +2526,12 @@ h1, h2, h3 {
 }
 
 @media (max-width: 768px) {
+    /* Mobile Menu Toggle */
     .mobile-menu-toggle {
         display: flex;
     }
     
+    /* Navigation Adjustments */
     .nav-container {
         position: relative;
     }
@@ -2989,10 +2583,32 @@ h1, h2, h3 {
         text-align: center;
         padding: 14px 16px !important;
     }
+    
+    /* Current Impact Page Specific */
+    .impact-title {
+        font-size: 32px;
+    }
+    
+    .ai-project.featured {
+        grid-column: span 1;
+    }
+    
+    .transformation-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .current-cta h2 {
+        font-size: 28px;
+    }
+    
+    .current-cta p {
+        font-size: 16px;
+    }
 }
 
 /* Enhanced mobile menu for smaller screens */
 @media (max-width: 480px) {
+    /* Navigation */
     .nav-container {
         padding: 12px 16px;
     }
@@ -3011,6 +2627,19 @@ h1, h2, h3 {
     
     .nav-menu a {
         padding: 12px 8px;
+        font-size: 15px;
+    }
+    
+    /* Current Impact Page Specific */
+    .impact-title {
+        font-size: 26px;
+    }
+    
+    .current-cta h2 {
+        font-size: 24px;
+    }
+    
+    .current-cta p {
         font-size: 15px;
     }
 }
@@ -3129,7 +2758,6 @@ h1, h2, h3 {
 }
 
 /* Brand Logos - Consolidated Styles */
-}
 
 .user-research-impact .research-item .btn.btn-primary {
     color: white;
@@ -3138,4 +2766,3 @@ h1, h2, h3 {
 .user-research-impact .research-item .btn.btn-primary:hover {
     color: white;
 }
-
