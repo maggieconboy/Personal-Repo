@@ -1451,7 +1451,8 @@ iframe {
     .platform-section,
     .journey-section,
     .implications-section,
-    .case-cta {
+    .case-cta,
+    .user-research-impact {
         padding: 48px 0;
     }
     
@@ -3038,6 +3039,12 @@ h1, h2, h3 {
     }
 }
 
+/* User Research & Journey Mapping */
+.user-research-impact {
+    padding: 80px 0;
+    background: white;
+}
+
 .user-research-impact .research-grid {
     display: flex;
     flex-wrap: wrap;
@@ -3059,4 +3066,58 @@ h1, h2, h3 {
 .user-research-impact .research-item .btn {
     margin-top: 12px;
     display: inline-block;
+.brand-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 32px;
+}
+.brand-logo {
+    max-height: 80px;
+    width: auto;
+    background: transparent;
+    transition: transform 0.2s;
+}
+.brand-logos a:hover .brand-logo {
+    transform: scale(1.07);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+}
+.user-research-impact a {
+    color: #0366d6;
+    text-decoration: underline;
+}
+.brand-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 32px;
+    margin-bottom: 0;
+    z-index: 2;
+    position: relative;
+}
+
+.brand-logo {
+    max-height: 60px;
+    width: auto;
+    object-fit: contain;
+    background: transparent;
+    transition: transform 0.18s, box-shadow 0.18s;
+}
+
+.brand-logos a:hover .brand-logo {
+    transform: scale(1.08);
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+}
+
+/* Jaggers logo is white, so add a subtle shadow for visibility */
+.jaggers-logo {
+    filter: drop-shadow(2px 2px 6px rgba(0,0,0,0.12));
+    background: transparent;
+}
+.brand-logos {
+    background: rgba(255,255,255,0.8);
+    border-radius: 12px;
+    padding: 16px 0;
 }
