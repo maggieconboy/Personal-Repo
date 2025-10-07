@@ -3056,7 +3056,7 @@ h1, h2, h3 {
     margin-top: 0;
     font-weight: 600;
 }
-.user-research-impact a {
-    color: #0366d6;
-    text-decoration: underline;
+.user-research-impact .research-item .btn {
+    margin-top: 12px;
+    display: inline-block;
 }
