@@ -3037,3 +3037,26 @@ h1, h2, h3 {
         scroll-behavior: smooth;
     }
 }
+
+.user-research-impact .research-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    margin-top: 32px;
+}
+.user-research-impact .research-item {
+    background: #fafbfc;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    flex: 1 1 250px;
+    min-width: 220px;
+}
+.user-research-impact h3 {
+    margin-top: 0;
+    font-weight: 600;
+}
+.user-research-impact a {
+    color: #0366d6;
+    text-decoration: underline;
+}
