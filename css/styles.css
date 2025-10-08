@@ -224,34 +224,44 @@ iframe {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px;
-    margin-top: 24px;
+    gap: 32px;
+    margin-top: 32px;
     margin-bottom: 0;
     z-index: 2;
     position: relative;
-    background: rgba(255,255,255,0.98); /* Higher opacity for logo visibility on wood background */
-    border-radius: 12px;
-    padding: 40px 24px; /* Increased padding to allow logos to be larger */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Add shadow for depth on wood background */
+}
+
+.brand-logos a {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 50%;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    height: 140px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+}
+
+.brand-logos a:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    background: rgba(255, 255, 255, 1);
 }
 
 .brand-logo {
-    max-height: 250px; /* Consistent height for all logos */
+    max-width: 90px;
+    max-height: 90px;
     width: auto;
+    height: auto;
     object-fit: contain;
-    background: transparent;
-    transition: transform 0.18s, box-shadow 0.18s;
-    display: inline-block;
-}
-
-.brand-logos a:hover .brand-logo {
-    transform: scale(1.08);
-    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+    display: block;
 }
 
 /* Jaggers logo is white, so add a subtle shadow for visibility */
 .jaggers-logo {
-    filter: drop-shadow(2px 2px 8px rgba(0,0,0,0.20));
+    filter: drop-shadow(2px 2px 6px rgba(0,0,0,0.25));
 }
 
 /* TXRH Hero Section */
