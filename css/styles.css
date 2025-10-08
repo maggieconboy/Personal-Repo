@@ -677,7 +677,7 @@ iframe {
     background: radial-gradient(circle, rgba(9, 105, 218, 0.15) 0%, transparent 70%);
     top: -200px;
     right: -100px;
-    animation: float 20s ease-in-out infinite;
+    animation: floatHero 20s ease-in-out infinite;
     pointer-events: none;
 }
 
@@ -694,7 +694,7 @@ iframe {
     background: radial-gradient(circle, rgba(124, 58, 237, 0.12) 0%, transparent 70%);
     bottom: -100px;
     left: -50px;
-    animation: float 25s ease-in-out infinite;
+    animation: floatHero 25s ease-in-out infinite;
     animation-delay: -5s;
 }
 
@@ -704,7 +704,7 @@ iframe {
     background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
     top: 50%;
     right: 10%;
-    animation: float 18s ease-in-out infinite;
+    animation: floatHero 18s ease-in-out infinite;
     animation-delay: -10s;
 }
 
@@ -714,7 +714,7 @@ iframe {
     z-index: 1;
 }
 
-@keyframes float {
+@keyframes floatHero {
     0%, 100% {
         transform: translate(0, 0) scale(1);
     }
