@@ -5,9 +5,11 @@
     --secondary: #7c3aed;
     --success: #1a7f37;
     --warning: #fb8500;
+    --accent-gold: #ffd700;
     --text-primary: #24292f;
     --text-secondary: #57606a;
     --text-muted: #6e7781;
+    --text-light: rgba(255, 255, 255, 0.9);
     --bg-primary: #ffffff;
     --bg-secondary: #f6f8fa;
     --border: #d0d7de;
@@ -1541,7 +1543,7 @@ iframe {
 
 .portfolio-hero {
     padding: 80px 0 60px;
-    background: linear-gradient(135deg, #0969da 0%, #7c3aed 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
     color: white;
     text-align: center;
     position: relative;
@@ -1581,7 +1583,7 @@ iframe {
 
 .portfolio-subtitle {
     font-size: 20px;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--text-light);
     max-width: 700px;
     margin: 0 auto 48px;
     position: relative;
@@ -1604,14 +1606,14 @@ iframe {
     display: block;
     font-size: 36px;
     font-weight: 800;
-    color: #ffd700;
+    color: var(--accent-gold);
     text-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 .summary-label {
     display: block;
     font-size: 14px;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--text-light);
     text-transform: uppercase;
     letter-spacing: 1px;
 }
