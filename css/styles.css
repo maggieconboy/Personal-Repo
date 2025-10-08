@@ -1662,6 +1662,17 @@ iframe {
     color: var(--text-primary);
 }
 
+.brand-header h3 a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.brand-header h3 a:hover {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
 .brand-badge {
     padding: 8px 16px;
     background: var(--primary);
@@ -1741,6 +1752,17 @@ iframe {
     font-size: 20px;
     margin-bottom: 8px;
     color: var(--primary);
+}
+
+.brand-tile h4 a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.brand-tile h4 a:hover {
+    color: var(--text-primary);
+    text-decoration: underline;
 }
 
 .brand-year {
