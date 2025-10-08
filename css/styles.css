@@ -631,7 +631,10 @@ iframe {
 /* Hero Section */
 .hero {
     padding: 80px 0 100px;
-    background: linear-gradient(to bottom, var(--bg-secondary), var(--bg-primary));
+    background: linear-gradient(135deg, #24292f 0%, #0969da 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
 }
 
 .hero-content {
@@ -641,13 +644,14 @@ iframe {
 .hero-tag {
     display: inline-block;
     padding: 6px 12px;
-    background: var(--bg-primary);
-    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 20px;
     font-size: 14px;
     font-weight: 500;
-    color: var(--text-secondary);
+    color: white;
     margin-bottom: 24px;
+    backdrop-filter: blur(10px);
 }
 
 .hero-title, .txrh-hero .hero-title {
@@ -659,15 +663,25 @@ iframe {
     font-weight: 800;
     line-height: 1.2;
     margin-bottom: 24px;
+    color: white;
 }
 
 .hero-title .highlight {
-    color: var(--primary);
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.5);
 }
 
 .hero-description, .txrh-hero .hero-description {
     color: #57606a !important;
     text-shadow: none !important;
+}
+
+.hero .hero-description {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 32px;
 }
 
 .hero-actions {
@@ -1750,8 +1764,9 @@ iframe {
     gap: 24px;
     margin: 32px 0;
     padding: 32px;
-    background: rgba(9, 105, 218, 0.05);
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 12px;
+    backdrop-filter: blur(10px);
 }
 
 .stat {
@@ -1762,14 +1777,14 @@ iframe {
     display: block;
     font-size: 36px;
     font-weight: 800;
-    color: var(--primary);
+    color: white;
     margin-bottom: 4px;
 }
 
 .stat-label {
     display: block;
     font-size: 14px;
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.8);
 }
 
 /* Career Timeline */
