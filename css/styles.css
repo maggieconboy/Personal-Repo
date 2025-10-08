@@ -229,9 +229,10 @@ iframe {
     margin-bottom: 0;
     z-index: 2;
     position: relative;
-    background: rgba(255,255,255,0.95); /* Higher opacity for logo visibility */
+    background: rgba(255,255,255,0.98); /* Higher opacity for logo visibility on wood background */
     border-radius: 12px;
     padding: 40px 24px; /* Increased padding to allow logos to be larger */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Add shadow for depth on wood background */
 }
 
 .brand-logo {
@@ -256,7 +257,10 @@ iframe {
 /* TXRH Hero Section */
 .txrh-hero {
     padding: 80px 0 100px;
-    background: linear-gradient(to bottom, var(--bg-secondary), var(--bg-primary));
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/images/txrh-woodgrain.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     text-align: center;
     position: relative;
 }
@@ -264,12 +268,12 @@ iframe {
 .txrh-badge {
     display: inline-block;
     padding: 6px 12px;
-    background: var(--bg-primary);
-    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 20px;
     font-size: 14px;
     font-weight: 500;
-    color: var(--text-secondary);
+    color: #24292f;
     margin-bottom: 24px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -657,8 +661,8 @@ iframe {
 }
 
 .txrh-hero .hero-title {
-    color: #222 !important;
-    text-shadow: none !important;
+    color: #ffffff !important;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8) !important;
 }
 .hero .hero-title {
     font-size: 48px;
@@ -675,8 +679,8 @@ iframe {
 }
 
 .txrh-hero .hero-description {
-    color: #57606a !important;
-    text-shadow: none !important;
+    color: #ffffff !important;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8) !important;
 }
 
 .hero .hero-description {
