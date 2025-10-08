@@ -257,6 +257,7 @@ iframe {
 /* TXRH Hero Section */
 .txrh-hero {
     padding: 80px 0 100px;
+    background-color: #3d2817; /* Fallback color matching wood tone */
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/images/txrh-woodgrain.png');
     background-size: cover;
     background-position: center;
@@ -273,7 +274,7 @@ iframe {
     border-radius: 20px;
     font-size: 14px;
     font-weight: 500;
-    color: #24292f;
+    color: var(--text-primary);
     margin-bottom: 24px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
