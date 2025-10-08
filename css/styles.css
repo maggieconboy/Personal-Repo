@@ -231,11 +231,11 @@ iframe {
     position: relative;
     background: rgba(255,255,255,0.95); /* Higher opacity for logo visibility */
     border-radius: 12px;
-    padding: 18px 0;
+    padding: 40px 24px; /* Increased padding to allow logos to be larger */
 }
 
 .brand-logo {
-    max-height: 70px; /* Consistent height for all logos */
+    max-height: 250px; /* Consistent height for all logos */
     width: auto;
     object-fit: contain;
     background: transparent;
