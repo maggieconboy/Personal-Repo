@@ -1541,23 +1541,26 @@ iframe {
     
     /* Brand header */
     .brand-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
+        flex-wrap: wrap;
+        gap: 8px;
     }
     
     .brand-header h3 {
-        font-size: 22px;
+        font-size: 20px;
     }
     
     .brand-header-content {
-        flex-wrap: wrap;
-        gap: 12px;
+        gap: 10px;
     }
     
     .brand-icon {
-        width: 40px;
-        height: 40px;
+        width: 36px;
+        height: 36px;
+    }
+    
+    .brand-badge {
+        font-size: 12px;
+        padding: 6px 12px;
     }
     
     /* Footer */
