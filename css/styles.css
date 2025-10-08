@@ -654,11 +654,11 @@ iframe {
     backdrop-filter: blur(10px);
 }
 
-.hero-title, .txrh-hero .hero-title {
+.txrh-hero .hero-title {
     color: #222 !important;
     text-shadow: none !important;
 }
-.hero-title {
+.hero .hero-title {
     font-size: 48px;
     font-weight: 800;
     line-height: 1.2;
@@ -672,13 +672,13 @@ iframe {
     text-decoration-color: rgba(255, 255, 255, 0.5);
 }
 
-.hero-description, .txrh-hero .hero-description {
+.txrh-hero .hero-description {
     color: #57606a !important;
     text-shadow: none !important;
 }
 
 .hero .hero-description {
-    color: rgba(255, 255, 255, 0.9) !important;
+    color: rgba(255, 255, 255, 0.9);
     font-size: 18px;
     line-height: 1.7;
     margin-bottom: 32px;
