@@ -233,7 +233,7 @@ iframe {
 }
 
 .brand-logo {
-    max-height: 120px; /* Consistent height for all logos */
+    max-height: 180px; /* Consistent height for all logos */
     width: auto;
     object-fit: contain;
     background: transparent;
