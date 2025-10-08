@@ -224,39 +224,54 @@ iframe {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px;
-    margin-top: 24px;
+    gap: 32px;
+    margin-top: 32px;
     margin-bottom: 0;
     z-index: 2;
     position: relative;
-    background: rgba(255,255,255,0.95); /* Higher opacity for logo visibility */
-    border-radius: 12px;
-    padding: 40px 24px; /* Increased padding to allow logos to be larger */
+}
+
+.brand-logos a {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 50%;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    height: 140px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+}
+
+.brand-logos a:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    background: rgba(255, 255, 255, 1);
 }
 
 .brand-logo {
-    max-height: 250px; /* Consistent height for all logos */
+    max-width: 90px;
+    max-height: 90px;
     width: auto;
+    height: auto;
     object-fit: contain;
-    background: transparent;
-    transition: transform 0.18s, box-shadow 0.18s;
-    display: inline-block;
-}
-
-.brand-logos a:hover .brand-logo {
-    transform: scale(1.08);
-    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+    display: block;
 }
 
 /* Jaggers logo is white, so add a subtle shadow for visibility */
 .jaggers-logo {
-    filter: drop-shadow(2px 2px 8px rgba(0,0,0,0.20));
+    filter: drop-shadow(2px 2px 6px rgba(0,0,0,0.25));
 }
 
 /* TXRH Hero Section */
 .txrh-hero {
     padding: 80px 0 100px;
-    background: linear-gradient(to bottom, var(--bg-secondary), var(--bg-primary));
+    background-color: #3d2817; /* Fallback color matching wood tone */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/images/txrh-woodgrain.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     text-align: center;
     position: relative;
 }
@@ -264,12 +279,12 @@ iframe {
 .txrh-badge {
     display: inline-block;
     padding: 6px 12px;
-    background: var(--bg-primary);
-    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 20px;
     font-size: 14px;
     font-weight: 500;
-    color: var(--text-secondary);
+    color: var(--text-primary);
     margin-bottom: 24px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -657,8 +672,8 @@ iframe {
 }
 
 .txrh-hero .hero-title {
-    color: #222 !important;
-    text-shadow: none !important;
+    color: #ffffff !important;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8) !important;
 }
 .hero .hero-title {
     font-size: 48px;
@@ -675,8 +690,8 @@ iframe {
 }
 
 .txrh-hero .hero-description {
-    color: #57606a !important;
-    text-shadow: none !important;
+    color: #ffffff !important;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8) !important;
 }
 
 .hero .hero-description {
@@ -1039,22 +1054,126 @@ iframe {
 
 .resume-header {
     padding: 80px 0 40px;
-    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--primary) 100%);
+    background-size: 200% 200%;
+    animation: gradientShift 15s ease infinite;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animated gradient background */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Geometric decorative elements */
+.resume-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.5;
+}
+
+.resume-header::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -5%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: float 15s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-20px) scale(1.05);
+    }
+}
+
+/* Decorative floating orbs */
+.header-decoration-orb {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.header-orb-1 {
+    top: 10%;
+    right: 10%;
+    width: 300px;
+    height: 300px;
+    animation: float 18s ease-in-out infinite;
+}
+
+.header-orb-2 {
+    top: 50%;
+    left: 5%;
+    width: 200px;
+    height: 200px;
+    animation: float 22s ease-in-out infinite 2s;
+}
+
+.header-orb-3 {
+    bottom: 10%;
+    right: 20%;
+    width: 150px;
+    height: 150px;
+    animation: float 16s ease-in-out infinite 4s;
 }
 
 .resume-header h1 {
     font-size: 48px;
     font-weight: 800;
     margin-bottom: 8px;
-    color: var(--text-primary);
+    color: var(--text-light);
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .resume-tagline {
     font-size: 24px;
-    color: var(--primary);
+    color: var(--text-light);
     margin-bottom: 24px;
     font-weight: 500;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.15);
+    animation: fadeInUp 0.8s ease-out 0.2s both;
 }
 
 .resume-summary {
@@ -1071,6 +1190,9 @@ iframe {
     justify-content: center;
     gap: 24px;
     margin-top: 24px;
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 0.8s ease-out 0.4s both;
 }
 
 .resume-link {
@@ -1078,18 +1200,23 @@ iframe {
     align-items: center;
     gap: 8px;
     padding: 12px 24px;
-    background: var(--bg-primary);
-    border: 2px solid var(--primary);
-    border-radius: 8px;
-    color: var(--primary);
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    color: var(--text-light);
     text-decoration: none;
     font-weight: 600;
-    transition: all 0.2s;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
 .resume-link:hover {
-    background: var(--primary);
-    color: white;
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 .resume-link svg {
@@ -1421,6 +1548,33 @@ iframe {
     .cta-buttons .btn {
         width: 100%;
     }
+    
+    /* Resume header adjustments */
+    .resume-header {
+        padding: 60px 0 40px;
+    }
+    
+    .resume-header h1 {
+        font-size: 36px;
+    }
+    
+    .resume-tagline {
+        font-size: 20px;
+    }
+    
+    .resume-quick-links {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .resume-link {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .header-decoration-orb {
+        display: none;
+    }
 }
 
 /* Small mobile devices (max 480px) */
@@ -1497,6 +1651,19 @@ iframe {
         font-size: 26px;
         margin-bottom: 24px;
         line-height: 1.3;
+    }
+    
+    /* Resume header adjustments */
+    .resume-header {
+        padding: 48px 0 32px;
+    }
+    
+    .resume-header h1 {
+        font-size: 28px;
+    }
+    
+    .resume-tagline {
+        font-size: 18px;
     }
     
     /* Cards */
@@ -1708,6 +1875,17 @@ iframe {
     color: var(--text-primary);
 }
 
+.brand-header h3 a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.brand-header h3 a:hover {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
 .brand-badge {
     padding: 8px 16px;
     background: var(--primary);
@@ -1787,6 +1965,17 @@ iframe {
     font-size: 20px;
     margin-bottom: 8px;
     color: var(--primary);
+}
+
+.brand-tile h4 a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.brand-tile h4 a:hover {
+    color: var(--text-primary);
+    text-decoration: underline;
 }
 
 .brand-year {
