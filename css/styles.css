@@ -2762,20 +2762,14 @@ iframe {
     margin-top: 0;
     font-weight: 600;
 }
-.user-research-impact .research-item .btn {
-    margin-top: 16px;
+.user-research-impact .research-link {
     display: inline-block;
+    margin-top: 16px;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
 }
 
-.user-research-impact a {
-    color: #0366d6;
+.user-research-impact .research-link:hover {
     text-decoration: underline;
-}
-
-.user-research-impact .research-item .btn.btn-primary {
-    color: white;
-}
-
-.user-research-impact .research-item .btn.btn-primary:hover {
-    color: white;
 }
