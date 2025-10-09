@@ -60,13 +60,18 @@ function playDemo(projectId) {
     modal.className = 'demo-modal';
     modal.innerHTML = `
         <div class="modal-content">
-            <span class="close" onclick="closeDemo()">&times;</span>
+            <span class="close">&times;</span>
             <video controls autoplay>
                 <source src="${demoUrls[projectId]}" type="video/mp4">
             </video>
         </div>
     `;
+    
     document.body.appendChild(modal);
+    
+    // Add event listener for close button after modal is in DOM
+    const closeBtn = modal.querySelector('.close');
+    closeBtn.addEventListener('click', closeDemo);
 }
 
 function closeDemo() {
@@ -98,28 +103,27 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Initialize animations
-document.addEventListener('DOMContentLoaded', () => {
+// Smooth scroll for anchor links
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize animations
     animateCounter();
     animateSkills();
-});
-
-// Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
+    
+    // Add smooth scroll behavior
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
     });
-});
-
-// Add active state to navigation based on current page
-document.addEventListener('DOMContentLoaded', function() {
+    
+    // Add active state to navigation based on current page
     const currentLocation = location.pathname.split('/').pop() || 'index.html';
     const menuItems = document.querySelectorAll('.nav-menu a');
     
