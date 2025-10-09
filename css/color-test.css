@@ -1,0 +1,508 @@
+/* ===================================
+   COLOR TEST PAGE STYLES
+   =================================== */
+
+/*
+ * NEW PALETTE: Grayscale + Bold Orange Accent
+ * 
+ * Design Strategy:
+ * - Grayscale foundation provides clean, professional base
+ * - Single bold accent (orange) draws attention to key actions and metrics
+ * - All backgrounds, text, cards, and secondary elements use grayscale only
+ * - Orange accent reserved for: CTAs, key metrics, links, active nav states, hovers
+ * 
+ * Color Palette:
+ * - Primary/Text: #18181b (near-black) - main text and dark elements
+ * - Primary Dark: #09090b (darker black) - deepest blacks
+ * - Accent: #f97316 (bold orange) - PRIMARY ACTION COLOR
+ * - Accent Hover: #ea580c (darker orange) - hover states for accent
+ * - Text Secondary: #52525b (medium gray) - secondary text
+ * - Text Muted: #71717a (light gray) - muted/tertiary text
+ * - BG Primary: #ffffff (white) - main backgrounds
+ * - BG Secondary: #fafafa (near-white) - secondary backgrounds
+ * - BG Dark: #18181b (near-black) - dark sections
+ * 
+ * Usage Rules:
+ * 1. Use accent ONLY for: CTAs, active states, key metrics, primary links
+ * 2. ALL other elements must use grayscale values
+ * 3. Maintain clear hierarchy through grayscale text weights
+ */
+
+:root {
+    /* Grayscale Foundation */
+    --primary: #18181b;
+    --primary-dark: #09090b;
+    --text-primary: #18181b;
+    --text-secondary: #52525b;
+    --text-muted: #71717a;
+    --bg-primary: #ffffff;
+    --bg-secondary: #fafafa;
+    --bg-dark: #18181b;
+    
+    /* Bold Orange Accent - USE SPARINGLY */
+    --accent: #f97316;
+    --accent-hover: #ea580c;
+    
+    /* Grayscale borders and shadows */
+    --border: #e5e5e5;
+    --border-light: #f5f5f5;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background: var(--bg-primary);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ===================================
+   NAVIGATION - Active state uses accent
+   =================================== */
+
+.test-nav {
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-menu a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-menu a:hover {
+    color: var(--text-primary);
+}
+
+/* ACCENT USAGE: Active navigation state */
+.nav-menu a.active {
+    color: var(--accent);
+}
+
+/* ACCENT USAGE: CTA button in navigation */
+.nav-cta {
+    background: var(--accent);
+    color: white !important;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.nav-cta:hover {
+    background: var(--accent-hover) !important;
+}
+
+/* ===================================
+   HERO SECTION - Accent CTA button
+   =================================== */
+
+.test-hero {
+    padding: 100px 0;
+    background: var(--bg-dark);
+    color: white;
+    text-align: center;
+}
+
+.hero-tag {
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-title {
+    font-size: 56px;
+    font-weight: 800;
+    margin-bottom: 24px;
+    line-height: 1.1;
+}
+
+.hero-subtitle {
+    font-size: 20px;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+}
+
+/* ACCENT USAGE: Primary CTA button */
+.btn {
+    display: inline-block;
+    padding: 14px 32px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Grayscale secondary button */
+.btn-secondary {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+    background: var(--bg-secondary);
+    border-color: var(--text-primary);
+}
+
+/* ===================================
+   METRICS SECTION - Accent on key numbers
+   =================================== */
+
+.test-metrics {
+    padding: 80px 0;
+    background: var(--bg-primary);
+}
+
+.section-title {
+    font-size: 42px;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 18px;
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto 48px;
+    line-height: 1.6;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+    margin-top: 48px;
+}
+
+.metric-card {
+    text-align: center;
+    padding: 32px;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+}
+
+.metric-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+/* ACCENT USAGE: Key metric numbers */
+.metric-number {
+    display: block;
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--accent);
+    margin-bottom: 8px;
+}
+
+.metric-label {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.metric-description {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+/* ===================================
+   BODY CONTENT - Grayscale hierarchy
+   =================================== */
+
+.test-content {
+    padding: 80px 0;
+    background: var(--bg-primary);
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 48px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.content-main h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+}
+
+.content-main h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-top: 32px;
+    margin-bottom: 12px;
+}
+
+.content-main p {
+    font-size: 18px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+/* ACCENT USAGE: Links within content */
+.content-main a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.content-main a:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+.content-sidebar {
+    background: var(--bg-secondary);
+    padding: 32px;
+    border-radius: 12px;
+    height: fit-content;
+}
+
+.sidebar-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+}
+
+.sidebar-list {
+    list-style: none;
+}
+
+.sidebar-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-secondary);
+}
+
+.sidebar-list li:last-child {
+    border-bottom: none;
+}
+
+/* ===================================
+   CARD SECTION - Mixed content with accent
+   =================================== */
+
+.test-cards {
+    padding: 80px 0;
+    background: var(--bg-secondary);
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+}
+
+.feature-card {
+    background: var(--bg-primary);
+    padding: 32px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+}
+
+.feature-card:hover {
+    border-color: var(--text-muted);
+    box-shadow: var(--shadow-md);
+}
+
+.card-icon {
+    font-size: 36px;
+    margin-bottom: 16px;
+}
+
+.card-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+}
+
+.card-description {
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* ACCENT USAGE: Card action links */
+.card-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.card-link:hover {
+    color: var(--accent-hover);
+}
+
+.card-link::after {
+    content: "→";
+}
+
+/* ===================================
+   FOOTER - Grayscale with accent links
+   =================================== */
+
+.test-footer {
+    padding: 60px 0;
+    background: var(--bg-dark);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-content {
+    text-align: center;
+}
+
+.footer-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 16px;
+}
+
+.footer-description {
+    font-size: 16px;
+    max-width: 600px;
+    margin: 0 auto 32px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-bottom: 32px;
+}
+
+/* ACCENT USAGE: Footer links on hover */
+.footer-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: var(--accent);
+}
+
+.footer-copy {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 36px;
+    }
+    
+    .hero-subtitle {
+        font-size: 18px;
+    }
+    
+    .section-title {
+        font-size: 32px;
+    }
+    
+    .metrics-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .nav-menu {
+        gap: 16px;
+        font-size: 14px;
+    }
+}
