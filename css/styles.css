@@ -616,13 +616,13 @@ iframe {
     background: white;
     padding: 24px;
     border-radius: 12px;
-    border-left: 4px solid var(--primary);
+    border-left: 4px solid var(--accent);
 }
 
 .journey-year {
     display: inline-block;
     padding: 4px 8px;
-    background: var(--primary);
+    background: var(--accent);
     color: white;
     border-radius: 4px;
     font-size: 12px;
@@ -926,7 +926,7 @@ iframe {
 }
 
 .initiative-card:hover {
-    border-color: var(--primary);
+    border-color: var(--accent);
     box-shadow: var(--shadow-md);
 }
 
@@ -1073,7 +1073,7 @@ iframe {
 }
 
 .project-card.featured {
-    border-color: var(--primary);
+    border-color: var(--accent);
     border-width: 2px;
 }
 
@@ -1124,7 +1124,7 @@ iframe {
 .project-section h3 {
     font-size: 20px;
     margin-bottom: 12px;
-    color: var(--primary);
+    color: var(--text-primary);
 }
 
 .project-section p {
@@ -1213,13 +1213,13 @@ iframe {
     padding: 32px;
     background: var(--bg-primary);
     border-radius: 12px;
-    border-left: 4px solid var(--primary);
+    border-left: 4px solid var(--accent);
 }
 
 .vision-item h3 {
     font-size: 22px;
     margin-bottom: 12px;
-    color: var(--primary);
+    color: var(--text-primary);
 }
 
 /* ===================================
@@ -1423,7 +1423,7 @@ iframe {
 }
 
 .achievement:hover {
-    border-color: var(--primary);
+    border-color: var(--accent);
     box-shadow: var(--shadow-md);
 }
 
@@ -1431,7 +1431,10 @@ iframe {
     display: block;
     font-size: 42px;
     font-weight: 800;
-    color: var(--primary);
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin-bottom: 8px;
 }
 
@@ -1460,7 +1463,7 @@ iframe {
 }
 
 .job:hover {
-    border-color: var(--primary);
+    border-color: var(--accent);
     box-shadow: var(--shadow-md);
 }
 
@@ -1549,13 +1552,13 @@ iframe {
     background: var(--bg-secondary);
     padding: 24px;
     border-radius: 12px;
-    border-left: 4px solid var(--primary);
+    border-left: 4px solid var(--accent);
 }
 
 .skill-category h3 {
     font-size: 18px;
     margin-bottom: 16px;
-    color: var(--primary);
+    color: var(--text-primary);
 }
 
 .skill-category ul {
@@ -2021,7 +2024,7 @@ iframe {
 }
 
 .brand-card.featured {
-    border: 2px solid var(--primary);
+    border: 2px solid var(--accent);
     box-shadow: var(--shadow-md);
 }
 
@@ -2136,22 +2139,23 @@ iframe {
 .brand-tile:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-md);
+    border-color: var(--accent);
 }
 
 .brand-tile h4 {
     font-size: 20px;
     margin-bottom: 8px;
-    color: var(--primary);
+    color: var(--text-primary);
 }
 
 .brand-tile h4 a {
-    color: var(--primary);
+    color: var(--text-primary);
     text-decoration: none;
     transition: color 0.3s;
 }
 
 .brand-tile h4 a:hover {
-    color: var(--text-primary);
+    color: var(--accent);
     text-decoration: underline;
 }
 
@@ -2262,7 +2266,7 @@ iframe {
 }
 
 .timeline-entry.highlight {
-    border-left-color: var(--primary);
+    border-left-color: var(--accent);
     box-shadow: var(--shadow-md);
 }
 
@@ -2273,7 +2277,7 @@ iframe {
 .timeline-entry .year {
     display: inline-block;
     padding: 4px 12px;
-    background: var(--primary);
+    background: var(--accent);
     color: white;
     border-radius: 20px;
     font-size: 12px;
@@ -2359,18 +2363,28 @@ iframe {
 .story-card h3 {
     font-size: 20px;
     margin-bottom: 16px;
-    color: var(--primary);
+    color: var(--text-primary);
 }
 
 .leader-quote {
     margin-top: 48px;
     padding: 32px;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #27272a 100%);
     color: white;
     border-radius: 12px;
     font-size: 18px;
     font-style: italic;
     text-align: center;
+    position: relative;
+}
+
+.leader-quote::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, var(--accent-glow) 0%, transparent 70%);
+    border-radius: 12px;
+    pointer-events: none;
 }
 
 /* Current Value Section */
@@ -2497,18 +2511,21 @@ iframe {
 
 .impact-period.current {
     background: white;
-    border: 2px solid var(--primary);
+    border: 2px solid var(--accent);
 }
 
 .impact-period h3 {
     font-size: 24px;
     margin-bottom: 24px;
     text-align: center;
-    color: var(--primary);
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .highlight-card {
-    border: 2px solid var(--primary);
+    border: 2px solid var(--accent);
     transform: scale(1.05);
 }
 
@@ -2646,7 +2663,7 @@ iframe {
 }
 
 .transformation-phase.highlight {
-    border-left-color: var(--primary);
+    border-left-color: var(--accent);
     box-shadow: var(--shadow-md);
     transform: translateX(8px);
 }
@@ -2707,10 +2724,11 @@ iframe {
 .ai-project:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-lg);
+    border-color: var(--accent);
 }
 
 .ai-project.featured {
-    border: 2px solid var(--primary);
+    border: 2px solid var(--accent);
     grid-column: span 2;
 }
 
@@ -2788,12 +2806,13 @@ iframe {
 .project-link {
     display: inline-block;
     margin-top: 12px;
-    color: var(--primary);
+    color: var(--accent);
     text-decoration: none;
     font-weight: 600;
 }
 
 .project-link:hover {
+    color: var(--accent-hover);
     text-decoration: underline;
 }
 
@@ -2826,7 +2845,7 @@ iframe {
 .transformation-card h3 {
     font-size: 20px;
     margin-bottom: 20px;
-    color: var(--primary);
+    color: var(--text-primary);
 }
 
 .transformation-list {
@@ -2895,7 +2914,7 @@ iframe {
 .lesson-item h3 {
     font-size: 20px;
     margin-bottom: 12px;
-    color: var(--primary);
+    color: var(--text-primary);
 }
 
 .lesson-item p {
