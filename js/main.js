@@ -67,11 +67,11 @@ function playDemo(projectId) {
         </div>
     `;
     
-    // Add event listener for close button
+    document.body.appendChild(modal);
+    
+    // Add event listener for close button after modal is in DOM
     const closeBtn = modal.querySelector('.close');
     closeBtn.addEventListener('click', closeDemo);
-    
-    document.body.appendChild(modal);
 }
 
 function closeDemo() {
