@@ -60,12 +60,17 @@ function playDemo(projectId) {
     modal.className = 'demo-modal';
     modal.innerHTML = `
         <div class="modal-content">
-            <span class="close" onclick="closeDemo()">&times;</span>
+            <span class="close">&times;</span>
             <video controls autoplay>
                 <source src="${demoUrls[projectId]}" type="video/mp4">
             </video>
         </div>
     `;
+    
+    // Add event listener for close button
+    const closeBtn = modal.querySelector('.close');
+    closeBtn.addEventListener('click', closeDemo);
+    
     document.body.appendChild(modal);
 }
 
