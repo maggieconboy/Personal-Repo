@@ -950,8 +950,8 @@ iframe {
 }
 
 .status-badge.development {
-    background: rgba(251, 133, 0, 0.1);
-    color: var(--warning);
+    background: rgba(109, 40, 217, 0.1);
+    color: var(--accent);
 }
 
 .initiative-card h3 {
@@ -2758,8 +2758,8 @@ iframe {
 }
 
 .project-status.development {
-    background: rgba(251, 133, 0, 0.1);
-    color: var(--warning);
+    background: rgba(109, 40, 217, 0.1);
+    color: var(--accent);
 }
 
 .project-metrics {
@@ -2864,7 +2864,7 @@ iframe {
     content: "✗";
     position: absolute;
     left: 0;
-    color: var(--warning);
+    color: var(--text-muted);
 }
 
 .transformation-list.after li:before {
@@ -2987,7 +2987,7 @@ iframe {
     transform: translateX(-50%);
     width: 60px;
     height: 4px;
-    background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+    background: var(--accent-gradient);
     border-radius: 2px;
 }
 
