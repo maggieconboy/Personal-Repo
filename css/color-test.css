@@ -3,19 +3,21 @@
    =================================== */
 
 /*
- * NEW PALETTE: Grayscale + Bold Orange Accent
+ * NEW PALETTE: Grayscale + Deep Royal Purple Accent
  * 
  * Design Strategy:
  * - Grayscale foundation provides clean, professional base
- * - Single bold accent (orange) draws attention to key actions and metrics
+ * - Single bold accent (deep royal purple) draws attention to key actions and metrics
  * - All backgrounds, text, cards, and secondary elements use grayscale only
- * - Orange accent reserved for: CTAs, key metrics, links, active nav states, hovers
+ * - Purple accent reserved for: CTAs, key metrics, links, active nav states, hovers
+ * - Gradients used in hero sections and metric cards for visual depth
  * 
  * Color Palette:
  * - Primary/Text: #18181b (near-black) - main text and dark elements
  * - Primary Dark: #09090b (darker black) - deepest blacks
- * - Accent: #f97316 (bold orange) - PRIMARY ACTION COLOR
- * - Accent Hover: #ea580c (darker orange) - hover states for accent
+ * - Accent: #6d28d9 (deep royal purple) - PRIMARY ACTION COLOR
+ * - Accent Hover: #5b21b6 (darker purple) - hover states for accent
+ * - Accent Light: #8b5cf6 (lighter purple) - for gradients and highlights
  * - Text Secondary: #52525b (medium gray) - secondary text
  * - Text Muted: #71717a (light gray) - muted/tertiary text
  * - BG Primary: #ffffff (white) - main backgrounds
@@ -26,6 +28,7 @@
  * 1. Use accent ONLY for: CTAs, active states, key metrics, primary links
  * 2. ALL other elements must use grayscale values
  * 3. Maintain clear hierarchy through grayscale text weights
+ * 4. Gradients used strategically in hero and cards for visual interest
  */
 
 :root {
@@ -39,9 +42,10 @@
     --bg-secondary: #fafafa;
     --bg-dark: #18181b;
     
-    /* Bold Orange Accent - USE SPARINGLY */
-    --accent: #f97316;
-    --accent-hover: #ea580c;
+    /* Deep Royal Purple Accent - USE SPARINGLY */
+    --accent: #6d28d9;
+    --accent-hover: #5b21b6;
+    --accent-light: #8b5cf6;
     
     /* Grayscale borders and shadows */
     --border: #e5e5e5;
@@ -49,6 +53,7 @@
     --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
     --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
     --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+    --shadow-purple: 0 8px 24px rgba(109, 40, 217, 0.15);
 }
 
 /* Reset and Base Styles */
@@ -141,9 +146,22 @@ body {
 
 .test-hero {
     padding: 100px 0;
-    background: var(--bg-dark);
+    background: linear-gradient(135deg, #18181b 0%, #27272a 50%, #3f3f46 100%);
     color: white;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.test-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(109, 40, 217, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
 }
 
 .hero-tag {
@@ -186,14 +204,15 @@ body {
 }
 
 .btn-primary {
-    background: var(--accent);
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
     color: white;
+    box-shadow: 0 4px 14px rgba(109, 40, 217, 0.3);
 }
 
 .btn-primary:hover {
-    background: var(--accent-hover);
+    background: linear-gradient(135deg, var(--accent-hover) 0%, var(--accent) 100%);
     transform: translateY(-2px);
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-purple);
 }
 
 /* Grayscale secondary button */
@@ -244,23 +263,45 @@ body {
 .metric-card {
     text-align: center;
     padding: 32px;
-    background: var(--bg-secondary);
+    background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
     border-radius: 12px;
     border: 1px solid var(--border);
-    transition: all 0.2s;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.metric-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+    opacity: 0;
+    transition: opacity 0.3s;
 }
 
 .metric-card:hover {
     transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-purple);
+    border-color: rgba(109, 40, 217, 0.2);
 }
 
-/* ACCENT USAGE: Key metric numbers */
+.metric-card:hover::before {
+    opacity: 1;
+}
+
+/* ACCENT USAGE: Key metric numbers with gradient */
 .metric-number {
     display: block;
     font-size: 48px;
     font-weight: 800;
-    color: var(--accent);
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin-bottom: 8px;
 }
 
@@ -428,8 +469,19 @@ body {
 
 .test-footer {
     padding: 60px 0;
-    background: var(--bg-dark);
+    background: linear-gradient(135deg, #18181b 0%, #27272a 100%);
     color: rgba(255, 255, 255, 0.8);
+    position: relative;
+}
+
+.test-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, var(--accent) 50%, transparent 100%);
 }
 
 .footer-content {
@@ -461,11 +513,12 @@ body {
     color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.2s;
+    transition: all 0.2s;
 }
 
 .footer-links a:hover {
-    color: var(--accent);
+    color: var(--accent-light);
+    text-shadow: 0 0 8px rgba(139, 92, 246, 0.5);
 }
 
 .footer-copy {
