@@ -109,6 +109,7 @@ function initScrollAnimations() {
     const fadeElements = document.querySelectorAll('.scroll-fade-in');
     const staggerContainers = document.querySelectorAll('.stagger-children');
     const sectionTitles = document.querySelectorAll('.section-title');
+    const animatedTitles = document.querySelectorAll('.section-title-animated');
     const animatedGrids = document.querySelectorAll('.metrics-grid, .initiatives-grid, .story-content, .brands-grid, .timeline-visual, .value-props');
     
     // Combine all elements and remove duplicates using Set
@@ -116,6 +117,7 @@ function initScrollAnimations() {
         ...fadeElements,
         ...staggerContainers,
         ...sectionTitles,
+        ...animatedTitles,
         ...animatedGrids
     ]);
     
