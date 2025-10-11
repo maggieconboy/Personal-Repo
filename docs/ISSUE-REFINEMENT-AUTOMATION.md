@@ -29,6 +29,8 @@ The system analyzes issue content using keyword detection and content analysis t
 - **Collaboration Needs**: Keywords indicating multiple teams or stakeholders increase complexity
 - **Content Length**: Very short issues (<100 chars) may need clarification (13 points); very long issues (>2000 chars) suggest complexity (min 8 points)
 - **Research Requirements**: Keywords like "investigate", "research", "spike" indicate discovery work
+- **Template Filtering**: Unchecked checkboxes from issue templates (e.g., `- [ ] Third-party integrations`) are filtered out before analysis to prevent false keyword matches
+- **Keyword Priority**: Keywords are checked from lowest to highest points (1→2→3→5→8→13→21) to ensure specific indicators like "typo" take precedence over generic keywords
 
 ### 3. Priority Assignment
 Priority is determined based on urgency indicators and business impact:
@@ -196,6 +198,8 @@ To modify the refinement logic:
 - Review keyword detection logic
 - Check content analysis scoring
 - Consider adding more descriptive keywords to issue
+- Note: Unchecked checkboxes in issue templates are automatically filtered out to prevent false matches
+- Keywords are checked from low to high complexity (1→2→3→5→8→13→21) so specific indicators take priority
 
 **Missing labels**
 - Workflow creates labels automatically on first run
