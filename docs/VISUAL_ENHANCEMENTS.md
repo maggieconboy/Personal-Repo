@@ -218,14 +218,18 @@ All text maintains WCAG 2.1 AA compliance:
 - Text-secondary (#52525b) on white: 7.03:1 ratio ✓
 
 ### Animation Preferences
-Respects `prefers-reduced-motion` system setting:
-- Animations can be disabled by adding media query for reduced motion
-- Currently all animations are subtle and non-disruptive
+Fully respects `prefers-reduced-motion` system setting:
+- All animations disabled for users who prefer reduced motion (WCAG 2.1 Level AA compliant)
+- Transitions reduced to 0.01ms for near-instant feedback
+- Transforms removed from scroll animations
+- Scroll behavior changed to auto (no smooth scrolling)
+- All animations are subtle and non-disruptive by default
 
 ### Screen Reader Support
-- Decorative SVGs use `aria-hidden="true"` (not yet implemented, recommendation)
-- Gradient dividers are purely visual (semantic `<hr>` elements)
+- Decorative SVGs use `aria-hidden="true"` to prevent screen reader announcement
+- Gradient dividers are semantic `<hr>` elements (screen reader accessible)
 - All interactive elements maintain proper focus states
+- Visual enhancements don't affect content structure or semantics
 
 ### Keyboard Navigation
 - All hover effects have corresponding focus states
@@ -332,14 +336,14 @@ All colors reference CSS variables:
 ## Future Enhancements
 
 Potential improvements for consideration:
-- Add `prefers-reduced-motion` media query support
-- Implement lazy-loading for below-fold separators
-- Add dark mode variants for all visual elements
-- Create additional separator designs for variety
-- Add micro-interactions on scroll milestones
-- Implement section progress indicators
+- Implement lazy-loading for below-fold separators to improve initial page load
+- Add dark mode variants for all visual elements with `prefers-color-scheme`
+- Create additional separator designs for variety across different page types
+- Add micro-interactions on scroll milestones (e.g., progress indicators)
+- Implement section progress indicators for long-form content
+- Add print stylesheet optimizations to remove decorative elements
 
 ## Related Documentation
-- [Responsive Design](RESPONSIVE_DESIGN.md) - Breakpoint details and mobile optimizations
-- CSS Variables - See `:root` in `css/styles.css` for all design tokens
-- Animation System - See `js/main.js` for scroll animation logic
+- [Responsive Design](./RESPONSIVE_DESIGN.md) - Breakpoint details and mobile optimizations
+- CSS Variables - See `:root` in `../css/styles.css` for all design tokens
+- Animation System - See `../js/main.js` for scroll animation logic

@@ -4662,4 +4662,33 @@ section {
         padding: 20px;
     }
 }
+
+/* Respect user's motion preferences for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    /* Disable all animations for users who prefer reduced motion */
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    /* Remove transforms for scroll animations */
+    .scroll-fade-in,
+    .section-title-animated,
+    .stagger-children > * {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    
+    /* Keep hover effects but make them instant */
+    .card-elevated:hover,
+    .brand-card:hover,
+    .value-card:hover,
+    .story-card:hover {
+        transition-duration: 0.01ms !important;
+    }
+}
 }
