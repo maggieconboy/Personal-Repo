@@ -181,6 +181,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeFilters();
     initializeCollectionToggles();
     initializeModal();
+    initializeLazyLoadPDFs();
 });
 
 // Render featured artifacts
@@ -220,14 +221,27 @@ function createArtifactCard(artifact, isFeatured) {
     const typeClass = `type-${artifact.type}`;
     const cardClass = isFeatured ? 'artifact-card featured' : 'artifact-card';
     
+    // Create a card ID for lazy loading
+    const cardId = `artifact-${artifact.githubPath.replace(/[^a-zA-Z0-9]/g, '-')}`;
+    
     // Use Mozilla PDF.js viewer with GitHub raw URL to show PDF preview
     const pdfViewerUrl = `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(githubRawUrl)}`;
     
     return `
-        <div class="${cardClass}" data-type="${artifact.type}" data-collection="${artifact.collectionId}">
+        <div class="${cardClass}" data-type="${artifact.type}" data-collection="${artifact.collectionId}" id="${cardId}">
             <div class="artifact-preview">
-                <div class="artifact-pdf-preview" data-pdf="${githubRawUrl}">
-                    <iframe src="${pdfViewerUrl}" class="pdf-preview-embed" loading="lazy"></iframe>
+                <div class="artifact-pdf-preview" data-pdf-url="${pdfViewerUrl}">
+                    <div class="pdf-placeholder ${typeClass}">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                            <polyline points="10 9 9 9 8 9"></polyline>
+                        </svg>
+                        <span class="pdf-title">${artifact.title}</span>
+                        <span class="pdf-hint">Click "View Details" to preview</span>
+                    </div>
                 </div>
                 <div class="artifact-type-badge">${formatType(artifact.type)}</div>
             </div>
@@ -248,6 +262,34 @@ function createArtifactCard(artifact, isFeatured) {
             </div>
         </div>
     `;
+}
+
+// Initialize intersection observer for lazy loading PDF previews
+function initializeLazyLoadPDFs() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const pdfPreview = entry.target;
+                const pdfUrl = pdfPreview.getAttribute('data-pdf-url');
+                
+                if (pdfUrl && !pdfPreview.querySelector('iframe')) {
+                    const iframe = document.createElement('iframe');
+                    iframe.src = pdfUrl;
+                    iframe.className = 'pdf-preview-embed';
+                    iframe.loading = 'lazy';
+                    
+                    pdfPreview.appendChild(iframe);
+                    observer.unobserve(pdfPreview);
+                }
+            }
+        });
+    }, {
+        rootMargin: '50px'
+    });
+    
+    document.querySelectorAll('.artifact-pdf-preview[data-pdf-url]').forEach(preview => {
+        observer.observe(preview);
+    });
 }
 
 // Get icon SVG based on artifact type
