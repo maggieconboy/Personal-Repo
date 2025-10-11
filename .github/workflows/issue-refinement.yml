@@ -109,47 +109,24 @@ jobs:
           let matchedCategory = 'default';
           const bodyLength = (issue.body || '').length;
           
-          // Check in priority order (highest to lowest) to avoid under-estimation
-          // Check for 21 points first (project-level)
-          for (const keyword of twentyOnePointKeywords) {
+          // Check in reverse priority order (lowest to highest) to prioritize specific indicators
+          // This ensures that explicit, specific keywords like "typo" match before generic template text
+          // Check for 1 point first (trivial changes) - most specific
+          for (const keyword of onePointKeywords) {
             if (combinedText.includes(keyword)) {
-              storyPoints = 21;
-              matchedCategory = '21-point';
+              storyPoints = 1;
+              matchedCategory = '1-point';
               detectedKeywords.push(keyword);
               break;
             }
           }
           
-          // Check for 13 points (discovery/unclear)
+          // Check for 2 points (quick work)
           if (matchedCategory === 'default') {
-            for (const keyword of thirteenPointKeywords) {
+            for (const keyword of twoPointKeywords) {
               if (combinedText.includes(keyword)) {
-                storyPoints = 13;
-                matchedCategory = '13-point';
-                detectedKeywords.push(keyword);
-                break;
-              }
-            }
-          }
-          
-          // Check for 8 points (complex with research)
-          if (matchedCategory === 'default') {
-            for (const keyword of eightPointKeywords) {
-              if (combinedText.includes(keyword)) {
-                storyPoints = 8;
-                matchedCategory = '8-point';
-                detectedKeywords.push(keyword);
-                break;
-              }
-            }
-          }
-          
-          // Check for 5 points (standard feature work)
-          if (matchedCategory === 'default') {
-            for (const keyword of fivePointKeywords) {
-              if (combinedText.includes(keyword)) {
-                storyPoints = 5;
-                matchedCategory = '5-point';
+                storyPoints = 2;
+                matchedCategory = '2-point';
                 detectedKeywords.push(keyword);
                 break;
               }
@@ -168,24 +145,48 @@ jobs:
             }
           }
           
-          // Check for 2 points (quick work)
+          // Check for 5 points (standard feature work)
           if (matchedCategory === 'default') {
-            for (const keyword of twoPointKeywords) {
+            for (const keyword of fivePointKeywords) {
               if (combinedText.includes(keyword)) {
-                storyPoints = 2;
-                matchedCategory = '2-point';
+                storyPoints = 5;
+                matchedCategory = '5-point';
                 detectedKeywords.push(keyword);
                 break;
               }
             }
           }
           
-          // Check for 1 point (trivial changes)
+          // Check for 8 points (complex with research)
           if (matchedCategory === 'default') {
-            for (const keyword of onePointKeywords) {
+            for (const keyword of eightPointKeywords) {
               if (combinedText.includes(keyword)) {
-                storyPoints = 1;
-                matchedCategory = '1-point';
+                storyPoints = 8;
+                matchedCategory = '8-point';
+                detectedKeywords.push(keyword);
+                break;
+              }
+            }
+          }
+          
+          // Check for 13 points (discovery/unclear)
+          if (matchedCategory === 'default') {
+            for (const keyword of thirteenPointKeywords) {
+              if (combinedText.includes(keyword)) {
+                storyPoints = 13;
+                matchedCategory = '13-point';
+                detectedKeywords.push(keyword);
+                break;
+              }
+            }
+          }
+          
+          // Check for 21 points last (project-level) - most generic
+          if (matchedCategory === 'default') {
+            for (const keyword of twentyOnePointKeywords) {
+              if (combinedText.includes(keyword)) {
+                storyPoints = 21;
+                matchedCategory = '21-point';
                 detectedKeywords.push(keyword);
                 break;
               }
