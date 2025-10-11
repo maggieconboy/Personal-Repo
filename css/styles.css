@@ -125,6 +125,7 @@ iframe {
     border-radius: 6px;
     transition: all 0.2s;
     cursor: pointer;
+    letter-spacing: 0.3px; /* Improved legibility for button text */
 }
 
 .btn-primary {
