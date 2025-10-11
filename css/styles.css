@@ -125,6 +125,7 @@ iframe {
     border-radius: 6px;
     transition: all 0.2s;
     cursor: pointer;
+    letter-spacing: 0.3px; /* Improved legibility for button text */
 }
 
 .btn-primary {
@@ -3251,12 +3252,12 @@ section:not(.hero):not(.resume-header):not(.impact-hero):not(.portfolio-hero):no
 }
 
 /* Alternating section backgrounds for visual rhythm
-   Note: Maintains consistency by excluding hero sections */
-section:nth-child(even):not(.hero):not(.resume-header):not(.impact-hero):not(.portfolio-hero):not(.txrh-hero) {
+   Note: Maintains consistency by excluding hero sections and special CTA sections */
+section:nth-child(even):not(.hero):not(.resume-header):not(.impact-hero):not(.portfolio-hero):not(.txrh-hero):not(.executive-cta) {
     background: var(--bg-secondary);
 }
 
-section:nth-child(odd):not(.hero):not(.resume-header):not(.impact-hero):not(.portfolio-hero):not(.txrh-hero) {
+section:nth-child(odd):not(.hero):not(.resume-header):not(.impact-hero):not(.portfolio-hero):not(.txrh-hero):not(.executive-cta) {
     background: var(--bg-primary);
 }
 
