@@ -75,7 +75,7 @@ jobs:
           // 3 points: 1-2 days - mostly clear, minimal research/collaboration
           const threePointKeywords = [
             'bug fix', 'bug', 'enhancement', 'small feature', 'minor feature',
-            'update documentation', 'improve', 'documentation update', 'docs update'
+            'update documentation', 'documentation update', 'docs update'
           ];
           
           // 5 points: 3-5 days - requires research and collaboration
@@ -194,6 +194,8 @@ jobs:
           
           // Additional heuristics for better accuracy
           // Very short issues with minimal detail likely need clarification (but only if no keywords matched)
+          // 50 character threshold chosen to catch truly vague issues like "TODO" or "Fix this"
+          // while allowing brief but clear descriptions through
           if (bodyLength < 50 && matchedCategory === 'default') {
             storyPoints = 13;
             complexityReason = '11+ days: Insufficient detail provided, will require discovery and clarification';
