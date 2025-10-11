@@ -53,7 +53,14 @@ jobs:
           
           const title = issue.title.toLowerCase();
           const body = (issue.body || '').toLowerCase();
-          const combinedText = `${title} ${body}`;
+          
+          // Filter out unchecked checkboxes from issue templates to avoid false keyword matches
+          // This prevents template options like "- [ ] Third-party integrations" from triggering keywords
+          const filteredBody = body.split('\n')
+            .filter(line => !line.trim().match(/^-\s*\[\s*\]\s+/))
+            .join('\n');
+          
+          const combinedText = `${title} ${filteredBody}`;
           
           // Story Points Assignment Logic based on realistic engineering effort
           // Focus: Time to complete, clarity of requirements, research needed, collaboration required
@@ -109,8 +116,10 @@ jobs:
           let matchedCategory = 'default';
           const bodyLength = (issue.body || '').length;
           
-          // Check in reverse priority order (lowest to highest) to prioritize specific indicators
-          // This ensures that explicit, specific keywords like "typo" match before generic template text
+          // Check in priority order from lowest to highest points to prioritize specific, simple tasks
+          // This ensures explicit indicators like "typo" or "quick fix" are not overridden by
+          // generic keywords that might appear in longer descriptions
+          
           // Check for 1 point first (trivial changes) - most specific
           for (const keyword of onePointKeywords) {
             if (combinedText.includes(keyword)) {
@@ -181,7 +190,7 @@ jobs:
             }
           }
           
-          // Check for 21 points last (project-level) - most generic
+          // Check for 21 points (project-level)
           if (matchedCategory === 'default') {
             for (const keyword of twentyOnePointKeywords) {
               if (combinedText.includes(keyword)) {
