@@ -220,14 +220,14 @@ function createArtifactCard(artifact, isFeatured) {
     const typeClass = `type-${artifact.type}`;
     const cardClass = isFeatured ? 'artifact-card featured' : 'artifact-card';
     
-    // Create icon based on type
-    const typeIcon = getTypeIcon(artifact.type);
+    // Use Mozilla PDF.js viewer with GitHub raw URL to show PDF preview
+    const pdfViewerUrl = `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(githubRawUrl)}`;
     
     return `
         <div class="${cardClass}" data-type="${artifact.type}" data-collection="${artifact.collectionId}">
             <div class="artifact-preview">
-                <div class="artifact-icon ${typeClass}">
-                    ${typeIcon}
+                <div class="artifact-pdf-preview" data-pdf="${githubRawUrl}">
+                    <iframe src="${pdfViewerUrl}" class="pdf-preview-embed" loading="lazy"></iframe>
                 </div>
                 <div class="artifact-type-badge">${formatType(artifact.type)}</div>
             </div>
