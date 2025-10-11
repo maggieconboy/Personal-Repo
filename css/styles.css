@@ -1,22 +1,30 @@
 /* CSS Variables - REQUIRED FOR ALL PAGES */
+/* Updated: Deep Royal Purple accent with grayscale foundation */
 :root {
-    --primary: #0969da;
-    --primary-dark: #0860ca;
-    --secondary: #7c3aed;
-    --success: #1a7f37;
-    --warning: #fb8500;
-    --accent-gold: #ffd700;
-    --text-primary: #24292f;
-    --text-secondary: #57606a;
-    --text-muted: #6e7781;
+    /* Grayscale Foundation */
+    --primary: #18181b;           /* near-black for text and dark elements */
+    --text-primary: #18181b;      /* near-black for primary text */
+    --text-secondary: #52525b;    /* medium gray for secondary text */
+    --text-muted: #71717a;        /* light gray for muted text */
     --text-light: rgba(255, 255, 255, 0.9);
-    --bg-primary: #ffffff;
-    --bg-secondary: #f6f8fa;
+    --bg-primary: #ffffff;        /* white backgrounds */
+    --bg-secondary: #fafafa;      /* near-white for cards/sections */
+    --bg-dark: #18181b;           /* dark sections */
     --border: #d0d7de;
     --border-light: #e1e7ec;
     --shadow-sm: 0 1px 3px rgba(31,35,40,0.08);
     --shadow-md: 0 4px 12px rgba(31,35,40,0.12);
     --shadow-lg: 0 8px 24px rgba(31,35,40,0.16);
+    
+    /* Deep Royal Purple Accent - Strategic Use Only */
+    --accent: #6d28d9;            /* deep royal purple for CTAs and key metrics */
+    --accent-hover: #5b21b6;      /* darker purple for hover states */
+    --accent-light: #8b5cf6;      /* lighter purple for gradients */
+    --accent-gradient: linear-gradient(135deg, #6d28d9 0%, #8b5cf6 100%);
+    --accent-glow: rgba(109, 40, 217, 0.15); /* for subtle backgrounds */
+    
+    /* Legacy success for compatibility */
+    --success: #1a7f37;
 }
 
 /* Reset and Base Styles */
@@ -91,18 +99,19 @@ iframe {
 
 .nav-menu a:hover,
 .nav-menu a.active {
-    color: var(--primary);
+    color: var(--accent);
+    font-weight: 600;
 }
 
 .nav-cta {
     padding: 8px 16px;
-    background: var(--primary) !important;
+    background: var(--accent) !important;
     color: white !important;
     border-radius: 6px;
 }
 
 .nav-cta:hover {
-    background: var(--primary-dark) !important;
+    background: var(--accent-hover) !important;
 }
 
 /* Button Styles */
@@ -119,14 +128,15 @@ iframe {
 }
 
 .btn-primary {
-    background: var(--primary);
+    background: var(--accent-gradient);
     color: white;
+    border: none;
 }
 
 .btn-primary:hover {
-    background: var(--primary-dark);
+    background: linear-gradient(135deg, var(--accent-hover) 0%, var(--accent) 100%);
     transform: translateY(-1px);
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 8px 24px rgba(109, 40, 217, 0.3);
 }
 
 .btn-secondary {
@@ -136,8 +146,8 @@ iframe {
 }
 
 .btn-secondary:hover {
-    border-color: var(--primary);
-    color: var(--primary);
+    border-color: var(--accent);
+    color: var(--accent);
 }
 
 /* Section Title */
@@ -151,8 +161,19 @@ iframe {
 /* Footer Styles */
 .footer {
     padding: 48px 0;
-    background: var(--bg-secondary);
-    border-top: 1px solid var(--border);
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, #fafafa 100%);
+    border-top: 2px solid var(--accent);
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--accent-gradient);
 }
 
 .footer-content {
@@ -173,7 +194,7 @@ iframe {
 }
 
 .footer-links a:hover {
-    color: var(--primary);
+    color: var(--accent);
 }
 
 .footer-copy {
@@ -194,7 +215,7 @@ iframe {
 .case-badge {
     display: inline-block;
     padding: 6px 16px;
-    background: var(--primary);
+    background: var(--accent);
     color: white;
     border-radius: 20px;
     font-size: 14px;
@@ -304,9 +325,19 @@ iframe {
     text-align: center;
     margin-bottom: 60px;
     padding: 40px;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #27272a 100%);
     border-radius: 20px;
     color: white;
+    position: relative;
+}
+
+.metric-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, var(--accent-glow) 0%, transparent 70%);
+    border-radius: 20px;
+    pointer-events: none;
 }
 
 .metric-prefix, .metric-suffix {
@@ -348,7 +379,10 @@ iframe {
     display: block;
     font-size: 36px;
     font-weight: 700;
-    color: var(--primary);
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin-bottom: 8px;
 }
 
@@ -582,13 +616,13 @@ iframe {
     background: white;
     padding: 24px;
     border-radius: 12px;
-    border-left: 4px solid var(--primary);
+    border-left: 4px solid var(--accent);
 }
 
 .journey-year {
     display: inline-block;
     padding: 4px 8px;
-    background: var(--primary);
+    background: var(--accent);
     color: white;
     border-radius: 4px;
     font-size: 12px;
@@ -619,9 +653,18 @@ iframe {
 /* Case CTA */
 .case-cta {
     padding: 80px 0;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #27272a 100%);
     color: white;
     text-align: center;
+    position: relative;
+}
+
+.case-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, var(--accent-glow) 0%, transparent 70%);
+    pointer-events: none;
 }
 
 .case-cta h2 {
@@ -648,13 +691,13 @@ iframe {
 /* Hero Section */
 .hero {
     padding: 80px 0 100px;
-    background: linear-gradient(135deg, #24292f 0%, #0969da 100%);
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #27272a 100%);
     color: white;
     position: relative;
     overflow: hidden;
 }
 
-/* Animated gradient overlay */
+/* Purple glow overlay */
 .hero::before {
     content: '';
     position: absolute;
@@ -662,14 +705,8 @@ iframe {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, 
-        transparent 0%, 
-        rgba(255, 255, 255, 0.03) 25%,
-        transparent 50%,
-        rgba(255, 255, 255, 0.03) 75%,
-        transparent 100%);
-    background-size: 200% 200%;
-    animation: shimmer 15s ease-in-out infinite;
+    background: radial-gradient(circle at 30% 50%, var(--accent-glow) 0%, transparent 60%),
+                radial-gradient(circle at 70% 80%, var(--accent-glow) 0%, transparent 60%);
     pointer-events: none;
 }
 
@@ -706,7 +743,7 @@ iframe {
 .hero-decoration-1 {
     width: 300px;
     height: 300px;
-    background: radial-gradient(circle, rgba(124, 58, 237, 0.12) 0%, transparent 70%);
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
     bottom: -100px;
     left: -50px;
     animation: floatHero 25s ease-in-out infinite;
@@ -716,7 +753,7 @@ iframe {
 .hero-decoration-2 {
     width: 200px;
     height: 200px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
     top: 50%;
     right: 10%;
     animation: floatHero 18s ease-in-out infinite;
@@ -864,6 +901,8 @@ iframe {
 .metric-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-md);
+    border: 2px solid var(--accent);
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, rgba(109, 40, 217, 0.03) 100%);
 }
 
 /* Initiatives Section */
@@ -887,7 +926,7 @@ iframe {
 }
 
 .initiative-card:hover {
-    border-color: var(--primary);
+    border-color: var(--accent);
     box-shadow: var(--shadow-md);
 }
 
@@ -911,8 +950,8 @@ iframe {
 }
 
 .status-badge.development {
-    background: rgba(251, 133, 0, 0.1);
-    color: var(--warning);
+    background: rgba(109, 40, 217, 0.1);
+    color: var(--accent);
 }
 
 .initiative-card h3 {
@@ -926,12 +965,13 @@ iframe {
 }
 
 .link-arrow {
-    color: var(--primary);
+    color: var(--accent);
     text-decoration: none;
     font-weight: 600;
 }
 
 .link-arrow:hover {
+    color: var(--accent-hover);
     text-decoration: underline;
 }
 
@@ -1033,7 +1073,7 @@ iframe {
 }
 
 .project-card.featured {
-    border-color: var(--primary);
+    border-color: var(--accent);
     border-width: 2px;
 }
 
@@ -1063,18 +1103,18 @@ iframe {
 }
 
 .badge.impact {
-    background: rgba(121, 66, 193, 0.1);
-    color: var(--secondary);
+    background: rgba(109, 40, 217, 0.1);
+    color: var(--accent);
 }
 
 .badge.automation {
-    background: rgba(9, 105, 218, 0.1);
-    color: var(--primary);
+    background: rgba(109, 40, 217, 0.1);
+    color: var(--accent);
 }
 
 .badge.scale {
-    background: rgba(251, 133, 0, 0.1);
-    color: var(--warning);
+    background: rgba(109, 40, 217, 0.1);
+    color: var(--accent);
 }
 
 .project-section {
@@ -1084,7 +1124,7 @@ iframe {
 .project-section h3 {
     font-size: 20px;
     margin-bottom: 12px;
-    color: var(--primary);
+    color: var(--text-primary);
 }
 
 .project-section p {
@@ -1173,13 +1213,13 @@ iframe {
     padding: 32px;
     background: var(--bg-primary);
     border-radius: 12px;
-    border-left: 4px solid var(--primary);
+    border-left: 4px solid var(--accent);
 }
 
 .vision-item h3 {
     font-size: 22px;
     margin-bottom: 12px;
-    color: var(--primary);
+    color: var(--text-primary);
 }
 
 /* ===================================
@@ -1188,7 +1228,7 @@ iframe {
 
 .resume-header {
     padding: 80px 0 40px;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--primary) 100%);
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #27272a 50%, var(--bg-dark) 100%);
     background-size: 200% 200%;
     animation: gradientShift 15s ease infinite;
     text-align: center;
@@ -1231,7 +1271,7 @@ iframe {
     left: -5%;
     width: 400px;
     height: 400px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
     border-radius: 50%;
     animation: float 15s ease-in-out infinite reverse;
 }
@@ -1249,7 +1289,7 @@ iframe {
 .header-decoration-orb {
     position: absolute;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
     pointer-events: none;
 }
 
@@ -1383,7 +1423,7 @@ iframe {
 }
 
 .achievement:hover {
-    border-color: var(--primary);
+    border-color: var(--accent);
     box-shadow: var(--shadow-md);
 }
 
@@ -1391,7 +1431,10 @@ iframe {
     display: block;
     font-size: 42px;
     font-weight: 800;
-    color: var(--primary);
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     margin-bottom: 8px;
 }
 
@@ -1420,7 +1463,7 @@ iframe {
 }
 
 .job:hover {
-    border-color: var(--primary);
+    border-color: var(--accent);
     box-shadow: var(--shadow-md);
 }
 
@@ -1509,13 +1552,13 @@ iframe {
     background: var(--bg-secondary);
     padding: 24px;
     border-radius: 12px;
-    border-left: 4px solid var(--primary);
+    border-left: 4px solid var(--accent);
 }
 
 .skill-category h3 {
     font-size: 18px;
     margin-bottom: 16px;
-    color: var(--primary);
+    color: var(--text-primary);
 }
 
 .skill-category ul {
@@ -1889,7 +1932,7 @@ iframe {
 
 .portfolio-hero {
     padding: 80px 0 60px;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #27272a 100%);
     color: white;
     text-align: center;
     position: relative;
@@ -1903,7 +1946,7 @@ iframe {
     left: -150px;
     width: 500px;
     height: 500px;
-    background: rgba(255, 255, 255, 0.08);
+    background: var(--accent-glow);
     border-radius: 50%;
 }
 
@@ -1914,7 +1957,7 @@ iframe {
     right: -200px;
     width: 600px;
     height: 600px;
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--accent-glow);
     border-radius: 50%;
 }
 
@@ -1952,8 +1995,11 @@ iframe {
     display: block;
     font-size: 36px;
     font-weight: 800;
-    color: var(--accent-gold);
-    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
 }
 
 .summary-label {
@@ -1978,7 +2024,7 @@ iframe {
 }
 
 .brand-card.featured {
-    border: 2px solid var(--primary);
+    border: 2px solid var(--accent);
     box-shadow: var(--shadow-md);
 }
 
@@ -2016,13 +2062,13 @@ iframe {
 }
 
 .brand-header h3 a:hover {
-    color: var(--primary);
+    color: var(--accent);
     text-decoration: underline;
 }
 
 .brand-badge {
     padding: 8px 16px;
-    background: var(--primary);
+    background: var(--accent);
     color: white;
     border-radius: 20px;
     font-size: 14px;
@@ -2093,22 +2139,23 @@ iframe {
 .brand-tile:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-md);
+    border-color: var(--accent);
 }
 
 .brand-tile h4 {
     font-size: 20px;
     margin-bottom: 8px;
-    color: var(--primary);
+    color: var(--text-primary);
 }
 
 .brand-tile h4 a {
-    color: var(--primary);
+    color: var(--text-primary);
     text-decoration: none;
     transition: color 0.3s;
 }
 
 .brand-tile h4 a:hover {
-    color: var(--text-primary);
+    color: var(--accent);
     text-decoration: underline;
 }
 
@@ -2219,7 +2266,7 @@ iframe {
 }
 
 .timeline-entry.highlight {
-    border-left-color: var(--primary);
+    border-left-color: var(--accent);
     box-shadow: var(--shadow-md);
 }
 
@@ -2230,7 +2277,7 @@ iframe {
 .timeline-entry .year {
     display: inline-block;
     padding: 4px 12px;
-    background: var(--primary);
+    background: var(--accent);
     color: white;
     border-radius: 20px;
     font-size: 12px;
@@ -2316,18 +2363,28 @@ iframe {
 .story-card h3 {
     font-size: 20px;
     margin-bottom: 16px;
-    color: var(--primary);
+    color: var(--text-primary);
 }
 
 .leader-quote {
     margin-top: 48px;
     padding: 32px;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #27272a 100%);
     color: white;
     border-radius: 12px;
     font-size: 18px;
     font-style: italic;
     text-align: center;
+    position: relative;
+}
+
+.leader-quote::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, var(--accent-glow) 0%, transparent 70%);
+    border-radius: 12px;
+    pointer-events: none;
 }
 
 /* Current Value Section */
@@ -2352,7 +2409,7 @@ iframe {
 }
 
 .value-card:hover {
-    border-color: var(--primary);
+    border-color: var(--accent);
     transform: translateY(-4px);
     box-shadow: var(--shadow-md);
 }
@@ -2360,15 +2417,27 @@ iframe {
 .value-card h3 {
     font-size: 22px;
     margin-bottom: 16px;
-    color: var(--primary);
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 /* Executive CTA */
 .executive-cta {
     padding: 80px 0;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #27272a 100%);
     color: white;
     text-align: center;
+    position: relative;
+}
+
+.executive-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, var(--accent-glow) 0%, transparent 70%);
+    pointer-events: none;
 }
 
 .executive-cta h2 {
@@ -2442,18 +2511,21 @@ iframe {
 
 .impact-period.current {
     background: white;
-    border: 2px solid var(--primary);
+    border: 2px solid var(--accent);
 }
 
 .impact-period h3 {
     font-size: 24px;
     margin-bottom: 24px;
     text-align: center;
-    color: var(--primary);
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .highlight-card {
-    border: 2px solid var(--primary);
+    border: 2px solid var(--accent);
     transform: scale(1.05);
 }
 
@@ -2483,7 +2555,7 @@ iframe {
 /* Impact Hero */
 .impact-hero {
     padding: 100px 0 80px;
-    background: linear-gradient(135deg, #24292f 0%, #0969da 100%);
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #27272a 100%);
     color: white;
     text-align: center;
     position: relative;
@@ -2497,7 +2569,7 @@ iframe {
     right: -100px;
     width: 400px;
     height: 400px;
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--accent-glow);
     border-radius: 50%;
 }
 
@@ -2542,8 +2614,11 @@ iframe {
     display: block;
     font-size: 42px;
     font-weight: 800;
-    color: #ffd700;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
 }
 
 .impact-label {
@@ -2588,7 +2663,7 @@ iframe {
 }
 
 .transformation-phase.highlight {
-    border-left-color: var(--primary);
+    border-left-color: var(--accent);
     box-shadow: var(--shadow-md);
     transform: translateX(8px);
 }
@@ -2600,7 +2675,7 @@ iframe {
 .phase-date {
     display: inline-block;
     padding: 4px 12px;
-    background: var(--primary);
+    background: var(--accent);
     color: white;
     border-radius: 20px;
     font-size: 12px;
@@ -2649,10 +2724,11 @@ iframe {
 .ai-project:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-lg);
+    border-color: var(--accent);
 }
 
 .ai-project.featured {
-    border: 2px solid var(--primary);
+    border: 2px solid var(--accent);
     grid-column: span 2;
 }
 
@@ -2682,8 +2758,8 @@ iframe {
 }
 
 .project-status.development {
-    background: rgba(251, 133, 0, 0.1);
-    color: var(--warning);
+    background: rgba(109, 40, 217, 0.1);
+    color: var(--accent);
 }
 
 .project-metrics {
@@ -2730,12 +2806,13 @@ iframe {
 .project-link {
     display: inline-block;
     margin-top: 12px;
-    color: var(--primary);
+    color: var(--accent);
     text-decoration: none;
     font-weight: 600;
 }
 
 .project-link:hover {
+    color: var(--accent-hover);
     text-decoration: underline;
 }
 
@@ -2768,7 +2845,7 @@ iframe {
 .transformation-card h3 {
     font-size: 20px;
     margin-bottom: 20px;
-    color: var(--primary);
+    color: var(--text-primary);
 }
 
 .transformation-list {
@@ -2787,7 +2864,7 @@ iframe {
     content: "✗";
     position: absolute;
     left: 0;
-    color: var(--warning);
+    color: var(--text-muted);
 }
 
 .transformation-list.after li:before {
@@ -2837,7 +2914,7 @@ iframe {
 .lesson-item h3 {
     font-size: 20px;
     margin-bottom: 12px;
-    color: var(--primary);
+    color: var(--text-primary);
 }
 
 .lesson-item p {
@@ -2848,9 +2925,18 @@ iframe {
 /* Current CTA */
 .current-cta {
     padding: 80px 0;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #27272a 100%);
     color: white;
     text-align: center;
+    position: relative;
+}
+
+.current-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, var(--accent-glow) 0%, transparent 70%);
+    pointer-events: none;
 }
 
 .current-cta h2 {
@@ -2901,7 +2987,7 @@ iframe {
     transform: translateX(-50%);
     width: 60px;
     height: 4px;
-    background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+    background: var(--accent-gradient);
     border-radius: 2px;
 }
 
