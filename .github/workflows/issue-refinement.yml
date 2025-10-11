@@ -55,92 +55,175 @@ jobs:
           const body = (issue.body || '').toLowerCase();
           const combinedText = `${title} ${body}`;
           
-          // Story Points Assignment Logic based on complexity indicators
-          let storyPoints = 1; // default
+          // Story Points Assignment Logic based on realistic engineering effort
+          // Focus: Time to complete, clarity of requirements, research needed, collaboration required
+          let storyPoints = 3; // default to 3 for undefined cases
           let complexityReason = '';
           
-          // High complexity indicators (13 points)
-          const highComplexityKeywords = [
-            'new service', 'new microservice', 'architecture', 'refactor', 'migration', 
-            'security review', 'compliance', 'multiple teams', 'third-party integration',
-            'database schema', 'api design', 'infrastructure', 'new system'
+          // 1 point: Super quick minor changes (typos, copy updates)
+          const onePointKeywords = [
+            'typo', 'copy', 'text update', 'wording', 'spelling', 
+            'grammar', 'punctuation', 'link fix', 'broken link'
           ];
           
-          // Medium complexity indicators (5-8 points)
-          const mediumComplexityKeywords = [
-            'feature', 'integration', 'database', 'api', 'profile',
-            'testing', 'deployment', 'monitoring', 'performance', 'ui/ux',
-            'settings', 'user interface', 'backend', 'frontend'
+          // 2 points: Less than a day's work - clear requirements, no research
+          const twoPointKeywords = [
+            'small fix', 'quick fix', 'minor bug', 'css fix', 'styling issue',
+            'minor update', 'small change', 'simple fix', 'config change', 'setting change'
           ];
           
-          // Low complexity indicators (1-3 points)
-          const lowComplexityKeywords = [
-            'bug', 'fix', 'typo', 'documentation', 'config', 'small',
-            'update text', 'minor', 'quick fix', 'small change'
+          // 3 points: 1-2 days - mostly clear, minimal research/collaboration
+          const threePointKeywords = [
+            'bug fix', 'bug', 'enhancement', 'small feature', 'minor feature',
+            'update', 'improve', 'documentation', 'docs', 'readme'
           ];
           
-          let complexityScore = 0;
+          // 5 points: 3-5 days - requires research and collaboration
+          const fivePointKeywords = [
+            'feature', 'new feature', 'implement', 'add', 'create',
+            'integration', 'api', 'endpoint', 'component', 'ui', 'frontend', 'backend'
+          ];
+          
+          // 8 points: 6-10 days - significant research and collaboration
+          const eightPointKeywords = [
+            'complex feature', 'significant', 'major', 'redesign', 'overhaul',
+            'multiple components', 'cross-team', 'integration with', 'third-party',
+            'authentication', 'authorization', 'security', 'performance optimization'
+          ];
+          
+          // 13 points: 11+ days - unclear requirements, discovery needed
+          const thirteenPointKeywords = [
+            'discovery', 'research', 'investigate', 'exploration', 'spike',
+            'architecture', 'refactor', 'migration', 'new system', 'new service',
+            'unclear', 'need to determine', 'figure out', 'not sure'
+          ];
+          
+          // 21 points: 2+ sprints - project level, multiple tasks
+          const twentyOnePointKeywords = [
+            'project', 'initiative', 'multiple features', 'epic', 'program',
+            'new product', 'major release', 'complete overhaul', 'full rewrite',
+            'multiple teams', 'long-term', 'phased approach', 'rollout'
+          ];
+          
           let detectedKeywords = [];
+          let matchedCategory = 'default';
           
-          // Check for high complexity
-          for (const keyword of highComplexityKeywords) {
+          // Check in priority order (highest to lowest) to avoid under-estimation
+          // Check for 21 points first (project-level)
+          for (const keyword of twentyOnePointKeywords) {
             if (combinedText.includes(keyword)) {
-              complexityScore += 3;
+              storyPoints = 21;
+              matchedCategory = '21-point';
               detectedKeywords.push(keyword);
+              break;
             }
           }
           
-          // Check for medium complexity
-          for (const keyword of mediumComplexityKeywords) {
-            if (combinedText.includes(keyword)) {
-              complexityScore += 2;
-              detectedKeywords.push(keyword);
+          // Check for 13 points (discovery/unclear)
+          if (matchedCategory === 'default') {
+            for (const keyword of thirteenPointKeywords) {
+              if (combinedText.includes(keyword)) {
+                storyPoints = 13;
+                matchedCategory = '13-point';
+                detectedKeywords.push(keyword);
+                break;
+              }
             }
           }
           
-          // Check for low complexity
-          for (const keyword of lowComplexityKeywords) {
-            if (combinedText.includes(keyword)) {
-              complexityScore += 1;
-              detectedKeywords.push(keyword);
+          // Check for 8 points (complex with research)
+          if (matchedCategory === 'default') {
+            for (const keyword of eightPointKeywords) {
+              if (combinedText.includes(keyword)) {
+                storyPoints = 8;
+                matchedCategory = '8-point';
+                detectedKeywords.push(keyword);
+                break;
+              }
             }
           }
           
-          // Special case: Security vulnerabilities are always high complexity
-          if (combinedText.includes('security vulnerability') || 
-              combinedText.includes('security issue') || 
-              combinedText.includes('vulnerability')) {
-            complexityScore += 5;
-            detectedKeywords.push('security vulnerability');
+          // Check for 5 points (standard feature work)
+          if (matchedCategory === 'default') {
+            for (const keyword of fivePointKeywords) {
+              if (combinedText.includes(keyword)) {
+                storyPoints = 5;
+                matchedCategory = '5-point';
+                detectedKeywords.push(keyword);
+                break;
+              }
+            }
           }
           
-          // Additional complexity factors
+          // Check for 3 points (small work)
+          if (matchedCategory === 'default') {
+            for (const keyword of threePointKeywords) {
+              if (combinedText.includes(keyword)) {
+                storyPoints = 3;
+                matchedCategory = '3-point';
+                detectedKeywords.push(keyword);
+                break;
+              }
+            }
+          }
+          
+          // Check for 2 points (quick work)
+          if (matchedCategory === 'default') {
+            for (const keyword of twoPointKeywords) {
+              if (combinedText.includes(keyword)) {
+                storyPoints = 2;
+                matchedCategory = '2-point';
+                detectedKeywords.push(keyword);
+                break;
+              }
+            }
+          }
+          
+          // Check for 1 point (trivial changes)
+          if (matchedCategory === 'default') {
+            for (const keyword of onePointKeywords) {
+              if (combinedText.includes(keyword)) {
+                storyPoints = 1;
+                matchedCategory = '1-point';
+                detectedKeywords.push(keyword);
+                break;
+              }
+            }
+          }
+          
+          // Additional heuristics for better accuracy
           const bodyLength = (issue.body || '').length;
-          if (bodyLength > 2000) complexityScore += 2;
-          if (bodyLength > 1000) complexityScore += 1;
           
-          // Assign story points based on complexity score
-          // Note: Thresholds are designed to be slightly generous to avoid under-estimation
-          // Security issues get special handling (+5 points) due to their critical nature
-          if (complexityScore >= 7) {
+          // Very short issues with minimal detail likely need clarification
+          if (bodyLength < 100 && matchedCategory === 'default') {
             storyPoints = 13;
-            complexityReason = 'High complexity: multiple systems, architecture changes, or extensive requirements';
-          } else if (complexityScore >= 4) {
-            storyPoints = 8;
-            complexityReason = 'Medium-high complexity: significant feature work or integrations';
-          } else if (complexityScore >= 3) {
-            storyPoints = 5;
-            complexityReason = 'Medium complexity: standard feature development';
-          } else if (complexityScore >= 1) {
-            storyPoints = 3;
-            complexityReason = 'Low-medium complexity: small enhancements';
-          } else {
-            storyPoints = 1;
-            complexityReason = 'Low complexity: bug fixes or minor changes';
+            complexityReason = '11+ days: Insufficient detail provided, will require discovery and clarification';
+          }
+          // Long detailed issues suggest complexity
+          else if (bodyLength > 2000 && storyPoints < 8) {
+            storyPoints = Math.max(storyPoints, 8);
+            complexityReason = '6-10 days: Extensive requirements suggest significant work with multiple considerations';
+          }
+          // Set complexity reasoning based on story points
+          else if (storyPoints === 1) {
+            complexityReason = 'Super quick: Minor change like fixing a typo or updating copy';
+          } else if (storyPoints === 2) {
+            complexityReason = 'Less than 1 day: Clear requirements, straightforward implementation';
+          } else if (storyPoints === 3) {
+            complexityReason = '1-2 days: Mostly clear with minimal research needed';
+          } else if (storyPoints === 5) {
+            complexityReason = '3-5 days: Requires research and collaboration to complete';
+          } else if (storyPoints === 8) {
+            complexityReason = '6-10 days: Significant work requiring substantial research and cross-team collaboration';
+          } else if (storyPoints === 13) {
+            complexityReason = '11+ days: Requirements unclear, will require discovery, extensive collaboration, and research';
+          } else if (storyPoints === 21) {
+            complexityReason = '2+ sprints: Project-level work requiring multiple tasks, research, collaboration, and approvals';
           }
           
-          console.log(`Complexity score: ${complexityScore}, Story points: ${storyPoints}`);
+          console.log(`Story points assigned: ${storyPoints}`);
           console.log(`Detected keywords: ${detectedKeywords.join(', ')}`);
+          console.log(`Matched category: ${matchedCategory}`);
           
           // Priority Assignment Logic based on severity and urgency
           let priority = 'medium'; // default
@@ -308,11 +391,13 @@ jobs:
         script: |
           const labels = [
             // Story point labels
-            { name: 'points-1', color: 'e6f3ff', description: '1 story point - Low complexity task' },
-            { name: 'points-3', color: 'd1e7ff', description: '3 story points - Low-medium complexity task' },
-            { name: 'points-5', color: 'a8d4ff', description: '5 story points - Medium complexity task' },
-            { name: 'points-8', color: '7fc3ff', description: '8 story points - Medium-high complexity task' },
-            { name: 'points-13', color: '4ea5ff', description: '13 story points - High complexity task' },
+            { name: 'points-1', color: 'e6f3ff', description: '1 story point - Super quick minor change' },
+            { name: 'points-2', color: 'd9ebff', description: '2 story points - Less than a day of work' },
+            { name: 'points-3', color: 'd1e7ff', description: '3 story points - 1-2 days of work' },
+            { name: 'points-5', color: 'a8d4ff', description: '5 story points - 3-5 days of work' },
+            { name: 'points-8', color: '7fc3ff', description: '8 story points - 6-10 days of work' },
+            { name: 'points-13', color: '4ea5ff', description: '13 story points - 11+ days of work, discovery needed' },
+            { name: 'points-21', color: '2d7fd8', description: '21 story points - 2+ sprints, project-level work' },
             
             // Priority labels
             { name: 'priority-critical', color: 'ff0000', description: 'Critical priority - immediate attention required' },

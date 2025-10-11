@@ -12,20 +12,23 @@ This repository includes an automated issue refinement system that analyzes new 
 - **Runtime**: ~30-60 seconds per issue analysis
 
 ### 2. Complexity Analysis
-The system analyzes issue content using keyword detection and content analysis to determine story points:
+The system analyzes issue content using keyword detection and content analysis to determine story points based on realistic engineering effort. The scoring considers the time needed to complete the work, clarity of requirements, research needed, and collaboration required—thinking like a real engineer who needs to go back and forth with teams.
 
 #### Story Point Assignment Logic
-- **1 Point**: Bug fixes, typos, documentation updates, minor configuration changes
-- **3 Points**: Small enhancements, minor feature additions
-- **5 Points**: Standard feature development, API modifications, UI/UX changes
-- **8 Points**: Complex features, integrations, significant system modifications
-- **13 Points**: Architecture changes, new services, security reviews, multi-system projects
+- **1 Point**: Super quick minor change (typo, copy update) - minutes to an hour
+- **2 Points**: Less than a day's work - clear requirements, straightforward implementation
+- **3 Points**: 1-2 days of work - mostly clear, minimal research or collaboration needed
+- **5 Points**: 3-5 days of work - requires research and collaboration to complete
+- **8 Points**: 6-10 days of work - significant research and cross-team collaboration required
+- **13 Points**: 11+ days of work - requirements unclear, needs discovery, extensive collaboration, and research
+- **21 Points**: 2+ sprints - project-level work with multiple tasks, research, collaboration, and approvals
 
 #### Analysis Factors
-- **Content Keywords**: Scans for complexity indicators in title and description
-- **Content Length**: Longer, more detailed issues often indicate higher complexity
-- **System Components**: Multiple systems or components increase complexity score
-- **Technical Requirements**: API changes, database modifications, security considerations
+- **Effort Indicators**: Keywords that signal time to complete and complexity level
+- **Requirement Clarity**: Issues with unclear requirements or mentioning "discovery" get higher points
+- **Collaboration Needs**: Keywords indicating multiple teams or stakeholders increase complexity
+- **Content Length**: Very short issues (<100 chars) may need clarification (13 points); very long issues (>2000 chars) suggest complexity (min 8 points)
+- **Research Requirements**: Keywords like "investigate", "research", "spike" indicate discovery work
 
 ### 3. Priority Assignment
 Priority is determined based on urgency indicators and business impact:
@@ -40,7 +43,7 @@ Priority is determined based on urgency indicators and business impact:
 For each analyzed issue, the system:
 
 #### Labels Applied
-- **Story Points**: `points-1`, `points-3`, `points-5`, `points-8`, `points-13`
+- **Story Points**: `points-1`, `points-2`, `points-3`, `points-5`, `points-8`, `points-13`, `points-21`
 - **Priority**: `priority-critical`, `priority-high`, `priority-medium`, `priority-low`
 - **Status**: `refined` to indicate automated analysis is complete
 
@@ -69,11 +72,13 @@ Adds a detailed comment to each issue containing:
 The workflow automatically creates these labels if they don't exist:
 
 **Story Point Labels:**
-- `points-1` (Light blue) - 1 story point
-- `points-3` (Medium blue) - 3 story points  
-- `points-5` (Blue) - 5 story points
-- `points-8` (Dark blue) - 8 story points
-- `points-13` (Deep blue) - 13 story points
+- `points-1` (Light blue) - 1 story point - Super quick minor change
+- `points-2` (Light blue) - 2 story points - Less than a day of work
+- `points-3` (Medium blue) - 3 story points - 1-2 days of work
+- `points-5` (Blue) - 5 story points - 3-5 days of work
+- `points-8` (Dark blue) - 8 story points - 6-10 days of work
+- `points-13` (Deep blue) - 13 story points - 11+ days, discovery needed
+- `points-21` (Darker blue) - 21 story points - 2+ sprints, project-level
 
 **Priority Labels:**
 - `priority-critical` (Red) - Critical priority
@@ -138,13 +143,13 @@ The refinement system integrates seamlessly with the existing [Velocity Reportin
 ```markdown
 ## 🤖 Automated Issue Refinement
 
-**Story Points**: 8 points  
+**Story Points**: 5 points  
 **Priority**: High
 
 ### Analysis Details
-- **Complexity Reasoning**: Medium-high complexity: significant feature work or integrations
+- **Complexity Reasoning**: 3-5 days: Requires research and collaboration to complete
 - **Priority Reasoning**: High: Customer or revenue impact, or time-sensitive requirements
-- **Keywords Detected**: feature, api, integration, customer impact
+- **Keywords Detected**: feature, api
 - **Content Length**: 1247 characters
 
 ### Next Steps
@@ -156,12 +161,12 @@ This issue has been automatically refined and added to the **Intake** milestone 
 ## 📋 New Issue Refined - Ready for Review
 
 **Issue**: #45 - Add user authentication system
-**Story Points**: 8 points
+**Story Points**: 5 points
 **Priority**: High
 **Refined**: 2024-09-24
 
 **Analysis Summary**:
-- Medium-high complexity: significant feature work or integrations
+- 3-5 days: Requires research and collaboration to complete
 - High: Customer or revenue impact, or time-sensitive requirements
 
 [View Issue #45](https://github.com/owner/repo/issues/45)
