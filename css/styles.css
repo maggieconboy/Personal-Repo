@@ -4456,13 +4456,13 @@ section {
 
 /* Wave SVG separator - top wave */
 .wave-separator-top {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: relative;
     width: 100%;
     overflow: hidden;
     line-height: 0;
     transform: rotate(180deg);
+    margin: 0;
+    padding: 0;
 }
 
 .wave-separator-top svg {
@@ -4470,6 +4470,7 @@ section {
     display: block;
     width: calc(100% + 1.3px);
     height: 60px;
+    margin: 0;
 }
 
 .wave-separator-top .shape-fill {
@@ -4478,12 +4479,12 @@ section {
 
 /* Wave SVG separator - bottom wave */
 .wave-separator-bottom {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    position: relative;
     width: 100%;
     overflow: hidden;
     line-height: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .wave-separator-bottom svg {
@@ -4491,6 +4492,7 @@ section {
     display: block;
     width: calc(100% + 1.3px);
     height: 60px;
+    margin: 0;
 }
 
 .wave-separator-bottom .shape-fill {
@@ -4499,12 +4501,12 @@ section {
 
 /* Angled separator for dynamic transitions */
 .angle-separator {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    position: relative;
     width: 100%;
     overflow: hidden;
     line-height: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .angle-separator svg {
@@ -4512,6 +4514,7 @@ section {
     display: block;
     width: calc(100% + 1.3px);
     height: 40px;
+    margin: 0;
 }
 
 .angle-separator .shape-fill {

@@ -41,7 +41,7 @@ Dynamic wave-shaped SVG separators that create organic transitions between secti
 
 **Usage**:
 ```html
-<div class="wave-separator-bottom">
+<div class="wave-separator-bottom" aria-hidden="true">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
         <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
     </svg>
@@ -49,9 +49,12 @@ Dynamic wave-shaped SVG separators that create organic transitions between secti
 ```
 
 **Properties**:
+- Position: Relative (flows naturally in document structure)
 - Height: 60px (desktop), 40px (tablet), 30px (mobile)
 - Fill: Uses CSS variable for background color (--bg-secondary)
+- Margin/Padding: 0 to ensure tight fit with adjacent sections
 - Responsive: Automatically scales with viewport
+- Accessibility: Includes `aria-hidden="true"` for screen readers
 
 ### 3. Angled Separators
 
@@ -61,7 +64,7 @@ Sharp, angular transitions that create a modern, dynamic feel between sections.
 
 **Usage**:
 ```html
-<div class="angle-separator">
+<div class="angle-separator" aria-hidden="true">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
         <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="shape-fill"></path>
     </svg>
@@ -69,8 +72,11 @@ Sharp, angular transitions that create a modern, dynamic feel between sections.
 ```
 
 **Properties**:
+- Position: Relative (flows naturally in document structure)
 - Height: 40px (desktop), 30px (tablet), 20px (mobile)
 - Fill: Customizable via .shape-fill class
+- Margin/Padding: 0 to ensure tight fit with adjacent sections
+- Accessibility: Includes `aria-hidden="true"` for screen readers
 
 ### 4. Accent Color Bands
 
