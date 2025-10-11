@@ -103,11 +103,88 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// Scroll-triggered animations for section visibility
+function initScrollAnimations() {
+    // Select all elements to animate
+    const fadeElements = document.querySelectorAll('.scroll-fade-in');
+    const staggerContainers = document.querySelectorAll('.stagger-children');
+    const sectionTitles = document.querySelectorAll('.section-title');
+    const animatedGrids = document.querySelectorAll('.metrics-grid, .initiatives-grid, .story-content, .brands-grid, .timeline-visual, .value-props');
+    
+    // Combine all elements and remove duplicates using Set
+    const allElementsSet = new Set([
+        ...fadeElements,
+        ...staggerContainers,
+        ...sectionTitles,
+        ...animatedGrids
+    ]);
+    
+    const allElements = Array.from(allElementsSet);
+    
+    if (allElements.length === 0) return;
+    
+    // Create intersection observer with options
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -100px 0px', // Trigger when element is 100px from entering viewport
+        threshold: 0.1
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Add visible class to trigger animations
+                entry.target.classList.add('visible');
+                
+                // Optionally unobserve after animation triggers (better performance)
+                // Comment out if you want animations to re-trigger on scroll up
+                // observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    // Observe all elements
+    allElements.forEach(element => observer.observe(element));
+}
+
+// Add subtle parallax effect to sections
+function initParallaxEffect() {
+    const parallaxSections = document.querySelectorAll('.parallax-section');
+    if (parallaxSections.length === 0) return;
+    
+    let ticking = false;
+    
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                parallaxSections.forEach(section => {
+                    const scrolled = window.pageYOffset;
+                    const rect = section.getBoundingClientRect();
+                    const sectionTop = rect.top + scrolled;
+                    const sectionHeight = rect.height;
+                    
+                    // Only apply parallax when section is in viewport
+                    if (scrolled + window.innerHeight > sectionTop && scrolled < sectionTop + sectionHeight) {
+                        const offset = (scrolled - sectionTop) * 0.1; // Adjust multiplier for effect strength
+                        section.style.transform = `translateY(${offset}px)`;
+                    }
+                });
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+}
+
 // Smooth scroll for anchor links
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize animations
     animateCounter();
     animateSkills();
+    
+    // Initialize new scroll animations
+    initScrollAnimations();
+    initParallaxEffect();
     
     // Add smooth scroll behavior
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
