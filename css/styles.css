@@ -3235,6 +3235,344 @@ iframe {
     }
 }
 
+/* ===================================
+   SECTION VISIBILITY ENHANCEMENTS
+   =================================== */
+
+/* Base section styling with subtle separation */
+section {
+    position: relative;
+}
+
+/* Add subtle decorative dividers between sections */
+section:not(.hero):not(.resume-header):not(.impact-hero):not(.portfolio-hero):not(.txrh-hero):not(.case-hero)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--accent-gradient);
+    border-radius: 2px;
+    opacity: 0.6;
+}
+
+/* Alternating section backgrounds for visual rhythm */
+section:nth-child(even):not(.hero):not(.resume-header):not(.impact-hero):not(.portfolio-hero):not(.txrh-hero) {
+    background: var(--bg-secondary);
+}
+
+section:nth-child(odd):not(.hero):not(.resume-header):not(.impact-hero):not(.portfolio-hero):not(.txrh-hero) {
+    background: var(--bg-primary);
+}
+
+/* Scroll-triggered fade-in animations */
+.scroll-fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered animation for child elements */
+.stagger-children > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.stagger-children.visible > *:nth-child(1) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.1s;
+}
+
+.stagger-children.visible > *:nth-child(2) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.2s;
+}
+
+.stagger-children.visible > *:nth-child(3) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.3s;
+}
+
+.stagger-children.visible > *:nth-child(4) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.4s;
+}
+
+.stagger-children.visible > *:nth-child(5) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.5s;
+}
+
+.stagger-children.visible > *:nth-child(n+6) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.6s;
+}
+
+/* Subtle parallax effect on scroll */
+.parallax-section {
+    transition: transform 0.1s ease-out;
+}
+
+/* Enhanced section titles with animation */
+.section-title {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 16px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: var(--accent-gradient);
+    border-radius: 2px;
+    transition: width 0.6s ease-out;
+}
+
+.section-title.visible::after {
+    width: 100%;
+}
+
+/* Card hover effects with elevation */
+.story-card,
+.brand-card,
+.value-card,
+.metric-card,
+.initiative-card,
+.timeline-entry {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
+}
+
+.story-card:hover,
+.brand-card:hover,
+.value-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 24px rgba(109, 40, 217, 0.15);
+    border-color: var(--accent);
+}
+
+/* Subtle glow effect on interactive elements */
+.btn,
+.nav-cta,
+.brand-badge,
+.status-badge {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.btn:hover,
+.nav-cta:hover {
+    box-shadow: 0 0 20px rgba(109, 40, 217, 0.3);
+}
+
+/* Scroll progress indicator subtle line at top of sections */
+.section-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 2px;
+    background: var(--accent-gradient);
+    width: 0%;
+    transition: width 0.3s ease-out;
+}
+
+/* Decorative corner accent for hero sections */
+.hero::after,
+.resume-header::after,
+.impact-hero::after,
+.portfolio-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, var(--accent-glow) 0%, transparent 100%);
+    border-radius: 0 100% 0 0;
+    pointer-events: none;
+}
+
+/* Floating animation for decorative elements */
+@keyframes float-gentle {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(2deg);
+    }
+}
+
+.hero-decoration,
+.header-decoration-orb {
+    animation: float-gentle 8s ease-in-out infinite;
+}
+
+.hero-decoration:nth-child(2),
+.header-decoration-orb:nth-child(2) {
+    animation-delay: 1s;
+    animation-duration: 10s;
+}
+
+.hero-decoration:nth-child(3),
+.header-decoration-orb:nth-child(3) {
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+
+/* Shimmer effect on stats when visible */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.stat-number,
+.summary-number,
+.achievement-number,
+.impact-number {
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-number::before,
+.summary-number::before,
+.achievement-number::before,
+.impact-number::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Smooth section transitions */
+section {
+    transition: background-color 0.3s ease;
+}
+
+/* Grid item stagger animation */
+.metrics-grid > *,
+.initiatives-grid > *,
+.story-content > *,
+.brands-grid > *,
+.timeline-visual > *,
+.value-props > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.metrics-grid.visible > *:nth-child(1),
+.initiatives-grid.visible > *:nth-child(1),
+.story-content.visible > *:nth-child(1),
+.brands-grid.visible > *:nth-child(1),
+.timeline-visual.visible > *:nth-child(1),
+.value-props.visible > *:nth-child(1) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.1s;
+}
+
+.metrics-grid.visible > *:nth-child(2),
+.initiatives-grid.visible > *:nth-child(2),
+.story-content.visible > *:nth-child(2),
+.brands-grid.visible > *:nth-child(2),
+.timeline-visual.visible > *:nth-child(2),
+.value-props.visible > *:nth-child(2) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.2s;
+}
+
+.metrics-grid.visible > *:nth-child(3),
+.initiatives-grid.visible > *:nth-child(3),
+.story-content.visible > *:nth-child(3),
+.brands-grid.visible > *:nth-child(3),
+.timeline-visual.visible > *:nth-child(3),
+.value-props.visible > *:nth-child(3) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.3s;
+}
+
+.metrics-grid.visible > *:nth-child(4),
+.initiatives-grid.visible > *:nth-child(4),
+.story-content.visible > *:nth-child(4),
+.brands-grid.visible > *:nth-child(4),
+.timeline-visual.visible > *:nth-child(4),
+.value-props.visible > *:nth-child(4) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.4s;
+}
+
+.metrics-grid.visible > *:nth-child(n+5),
+.initiatives-grid.visible > *:nth-child(n+5),
+.story-content.visible > *:nth-child(n+5),
+.brands-grid.visible > *:nth-child(n+5),
+.timeline-visual.visible > *:nth-child(n+5),
+.value-props.visible > *:nth-child(n+5) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.5s;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .scroll-fade-in,
+    .stagger-children > *,
+    .metrics-grid > *,
+    .initiatives-grid > *,
+    .story-content > *,
+    .brands-grid > *,
+    .timeline-visual > *,
+    .value-props > * {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+    
+    .section-title::after {
+        width: 100% !important;
+    }
+    
+    .hero-decoration,
+    .header-decoration-orb {
+        animation: none !important;
+    }
+    
+    .stat-number::before,
+    .summary-number::before,
+    .achievement-number::before,
+    .impact-number::before {
+        animation: none !important;
+    }
+}
+
 /* User Research & Journey Mapping */
 .user-research-impact {
     padding: 80px 0;
