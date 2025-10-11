@@ -75,13 +75,13 @@ jobs:
           // 3 points: 1-2 days - mostly clear, minimal research/collaboration
           const threePointKeywords = [
             'bug fix', 'bug', 'enhancement', 'small feature', 'minor feature',
-            'update', 'improve', 'documentation', 'docs', 'readme'
+            'update documentation', 'improve', 'documentation update', 'docs update'
           ];
           
           // 5 points: 3-5 days - requires research and collaboration
           const fivePointKeywords = [
-            'feature', 'new feature', 'implement', 'add', 'create',
-            'integration', 'api', 'endpoint', 'component', 'ui', 'frontend', 'backend'
+            'feature', 'new feature', 'implement', 'add feature', 'add new', 'create new',
+            'integration', 'api endpoint', 'new component', 'ui component', 'frontend feature', 'backend feature'
           ];
           
           // 8 points: 6-10 days - significant research and collaboration
@@ -107,6 +107,7 @@ jobs:
           
           let detectedKeywords = [];
           let matchedCategory = 'default';
+          const bodyLength = (issue.body || '').length;
           
           // Check in priority order (highest to lowest) to avoid under-estimation
           // Check for 21 points first (project-level)
@@ -192,10 +193,8 @@ jobs:
           }
           
           // Additional heuristics for better accuracy
-          const bodyLength = (issue.body || '').length;
-          
-          // Very short issues with minimal detail likely need clarification
-          if (bodyLength < 100 && matchedCategory === 'default') {
+          // Very short issues with minimal detail likely need clarification (but only if no keywords matched)
+          if (bodyLength < 50 && matchedCategory === 'default') {
             storyPoints = 13;
             complexityReason = '11+ days: Insufficient detail provided, will require discovery and clarification';
           }
