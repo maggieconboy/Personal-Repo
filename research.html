@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+    <title>Research & Deliverables | Maggie Conboy</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">Maggie Conboy</a>
+            <button class="mobile-menu-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="current-impact.html">Current Impact</a></li>
+                <li><a href="txrh-case-study.html">TXRH Story</a></li>
+                <li><a href="portfolio.html">Brand Portfolio</a></li>
+                <li><a href="research.html" class="active">Research & Deliverables</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="https://www.linkedin.com/in/maggieconboy" target="_blank" class="nav-cta">Connect</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main>
+        <!-- Research Hero -->
+        <section class="research-hero">
+            <div class="container">
+                <span class="research-badge">User Research | Journey Mapping | Systems Thinking</span>
+                <h1 class="research-title">Research & Deliverables That Drive Decisions</h1>
+                <p class="research-subtitle">
+                    First PM to interview sellers at GitHub Revenue Systems. Turned 30+ conversations into personas, journey maps, and frameworks that now drive AI automation decisions, workflow improvements, and product roadmaps.
+                </p>
+                <div class="research-cta-buttons">
+                    <a href="#featured" class="btn btn-primary">Explore Artifacts</a>
+                    <a href="#collections" class="btn btn-secondary">Browse by Collection</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Metrics Bar -->
+        <section class="research-metrics-bar">
+            <div class="container">
+                <div class="metrics-grid">
+                    <div class="metric-item">
+                        <span class="metric-number">30+</span>
+                        <span class="metric-label">Interviews Conducted</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-number">6</span>
+                        <span class="metric-label">User Personas</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-number">10+</span>
+                        <span class="metric-label">Tools Mapped</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-number">3</span>
+                        <span class="metric-label">Workflow Systems</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filter/Sort Controls -->
+        <section class="research-controls">
+            <div class="container">
+                <div class="controls-wrapper">
+                    <div class="filter-group">
+                        <label for="folder-filter">Collection:</label>
+                        <select id="folder-filter" class="filter-select">
+                            <option value="all">All Collections</option>
+                            <option value="revenue-systems">Revenue Systems Work</option>
+                            <option value="customer-comms">Customer Comms Tooling</option>
+                            <option value="zendesk">Zendesk Personas</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="type-filter">Type:</label>
+                        <select id="type-filter" class="filter-select">
+                            <option value="all">All Types</option>
+                            <option value="persona">Persona</option>
+                            <option value="journey">Journey Map</option>
+                            <option value="workflow">Workflow</option>
+                            <option value="tool-map">Tool Map</option>
+                        </select>
+                    </div>
+                    <div class="search-group">
+                        <input type="text" id="keyword-search" class="search-input" placeholder="Search by keyword...">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Artifacts -->
+        <section id="featured" class="featured-artifacts">
+            <div class="container">
+                <h2 class="section-title">Featured Artifacts</h2>
+                <p class="section-description">Key deliverables demonstrating research rigor and systems thinking</p>
+                <div class="featured-grid" id="featured-grid">
+                    <!-- Dynamically populated -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Collections -->
+        <section id="collections" class="research-collections">
+            <div class="container">
+                <h2 class="section-title">Artifact Collections</h2>
+                
+                <!-- Revenue Systems Work -->
+                <div class="collection-section" data-collection="revenue-systems">
+                    <div class="collection-header">
+                        <h3>Revenue Systems Work</h3>
+                        <button class="collection-toggle" aria-label="Toggle collection">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="collection-description">
+                        User personas, journey mapping, and workflow analysis from 30+ seller interviews at GitHub
+                    </p>
+                    <div class="collection-grid" data-folder="Revenue Systems Work">
+                        <!-- Dynamically populated -->
+                    </div>
+                </div>
+
+                <!-- Customer Comms Tooling -->
+                <div class="collection-section" data-collection="customer-comms">
+                    <div class="collection-header">
+                        <h3>Customer Comms Tooling</h3>
+                        <button class="collection-toggle" aria-label="Toggle collection">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="collection-description">
+                        Comprehensive mapping of customer communication platforms, identifying gaps and integration opportunities
+                    </p>
+                    <div class="collection-grid" data-folder="Customer Comms Tooling">
+                        <!-- Dynamically populated -->
+                    </div>
+                </div>
+
+                <!-- Zendesk Personas -->
+                <div class="collection-section" data-collection="zendesk">
+                    <div class="collection-header">
+                        <h3>Zendesk Personas</h3>
+                        <button class="collection-toggle" aria-label="Toggle collection">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                    <p class="collection-description">
+                        Support persona work developed in collaboration with design for Zendesk product strategy
+                    </p>
+                    <div class="collection-grid" data-folder="Zendesk Personas">
+                        <!-- Dynamically populated -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="research-cta">
+            <div class="container">
+                <h2>Want the Full Playbook?</h2>
+                <p>
+                    These artifacts are just the beginning. I can walk you through the research process, insights, and how they translate into product decisions and AI automation strategies.
+                </p>
+                <div class="cta-actions">
+                    <a href="https://www.linkedin.com/in/maggieconboy" target="_blank" class="btn btn-primary">Connect on LinkedIn</a>
+                    <a href="mailto:mconboy@github.com" class="btn btn-secondary">Request Custom Walkthrough</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal Viewer -->
+    <div id="artifact-modal" class="artifact-modal" style="display: none;">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <div class="modal-header">
+                <h3 id="modal-title"></h3>
+                <div class="modal-actions">
+                    <a id="modal-download" class="btn btn-secondary btn-small" download>Download</a>
+                    <a id="modal-view" class="btn btn-primary btn-small" target="_blank">View in GitHub</a>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div id="modal-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-quote">"Systems over heroics. Trust over escalations. Impact over activity."</p>
+                <div class="footer-links">
+                    <a href="https://github.com/maggieconboy" target="_blank">GitHub</a>
+                    <a href="https://www.linkedin.com/in/maggieconboy" target="_blank">LinkedIn</a>
+                    <a href="mailto:mconboy@github.com">Email</a>
+                </div>
+                <p class="footer-copyright">&copy; 2025 Maggie Conboy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/mobile-menu.js"></script>
+    <script src="js/research.js"></script>
+</body>
+</html>
