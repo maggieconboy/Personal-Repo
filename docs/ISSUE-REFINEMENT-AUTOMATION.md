@@ -155,6 +155,8 @@ For GitHub Projects integration, the workflow needs a Personal Access Token (PAT
 
 📖 **Detailed Setup Guide**: See [GitHub Projects Setup](GITHUB-PROJECTS-SETUP.md) for step-by-step instructions with screenshots and troubleshooting.
 
+⚡ **Quick Reference**: See [Quick Reference Guide](QUICK-REFERENCE.md) for a one-page summary of features, setup, and troubleshooting.
+
 ## Issue Templates
 
 ### General Issue Template
