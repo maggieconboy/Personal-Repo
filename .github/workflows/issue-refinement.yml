@@ -14,6 +14,7 @@ permissions:
   issues: write
   contents: read
   pull-requests: read
+  repository-projects: write
 
 jobs:
   refine-issue:
@@ -507,4 +508,198 @@ jobs:
             
           } catch (error) {
             console.error('Error creating notification:', error.message);
+          }
+    
+    - name: Add Issue to Project and Update Fields
+      uses: actions/github-script@v7
+      if: steps.analyze.outputs.issue-number
+      env:
+        PROJECT_TOKEN: ${{ secrets.PROJECT_PAT || secrets.GITHUB_TOKEN }}
+      with:
+        github-token: ${{ env.PROJECT_TOKEN }}
+        script: |
+          const issueNumber = '${{ steps.analyze.outputs.issue-number }}';
+          const storyPoints = parseInt('${{ steps.analyze.outputs.story-points }}', 10);
+          const priority = '${{ steps.analyze.outputs.priority }}';
+          
+          console.log(`Adding issue #${issueNumber} to project board...`);
+          
+          try {
+            // Configuration
+            const PROJECT_OWNER = 'maggieconboy';
+            const PROJECT_NUMBER = 1;
+            
+            // Step 1: Get the project ID
+            const projectQuery = `
+              query($owner: String!, $number: Int!) {
+                user(login: $owner) {
+                  projectV2(number: $number) {
+                    id
+                    fields(first: 20) {
+                      nodes {
+                        ... on ProjectV2Field {
+                          id
+                          name
+                        }
+                        ... on ProjectV2SingleSelectField {
+                          id
+                          name
+                          options {
+                            id
+                            name
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            `;
+            
+            const projectData = await github.graphql(projectQuery, {
+              owner: PROJECT_OWNER,
+              number: PROJECT_NUMBER
+            });
+            
+            if (!projectData.user.projectV2) {
+              console.log('Project not found');
+              return;
+            }
+            
+            const projectId = projectData.user.projectV2.id;
+            console.log(`Project ID: ${projectId}`);
+            
+            // Step 2: Get the issue node ID
+            const { data: issue } = await github.rest.issues.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber
+            });
+            
+            const issueNodeId = issue.node_id;
+            console.log(`Issue Node ID: ${issueNodeId}`);
+            
+            // Step 3: Add the issue to the project
+            const addItemMutation = `
+              mutation($projectId: ID!, $contentId: ID!) {
+                addProjectV2ItemById(input: {
+                  projectId: $projectId,
+                  contentId: $contentId
+                }) {
+                  item {
+                    id
+                  }
+                }
+              }
+            `;
+            
+            const addItemResult = await github.graphql(addItemMutation, {
+              projectId: projectId,
+              contentId: issueNodeId
+            });
+            
+            const itemId = addItemResult.addProjectV2ItemById.item.id;
+            console.log(`Added to project with item ID: ${itemId}`);
+            
+            // Step 4: Find the Priority and Estimate field IDs
+            const fields = projectData.user.projectV2.fields.nodes;
+            
+            let priorityField = null;
+            let estimateField = null;
+            
+            for (const field of fields) {
+              if (field.name === 'Priority' && field.options) {
+                priorityField = field;
+              } else if (field.name === 'Estimate') {
+                estimateField = field;
+              }
+            }
+            
+            // Step 5: Update Priority field (single select)
+            if (priorityField) {
+              // Map priority string to option name (adjust based on actual project field options)
+              const priorityNameMap = {
+                'critical': 'Critical',
+                'high': 'High',
+                'medium': 'Medium',
+                'low': 'Low'
+              };
+              
+              const priorityOptionName = priorityNameMap[priority.toLowerCase()] || priority;
+              const priorityOption = priorityField.options.find(opt => 
+                opt.name.toLowerCase() === priorityOptionName.toLowerCase()
+              );
+              
+              if (priorityOption) {
+                const updatePriorityMutation = `
+                  mutation($projectId: ID!, $itemId: ID!, $fieldId: ID!, $optionId: String!) {
+                    updateProjectV2ItemFieldValue(input: {
+                      projectId: $projectId,
+                      itemId: $itemId,
+                      fieldId: $fieldId,
+                      value: {
+                        singleSelectOptionId: $optionId
+                      }
+                    }) {
+                      projectV2Item {
+                        id
+                      }
+                    }
+                  }
+                `;
+                
+                await github.graphql(updatePriorityMutation, {
+                  projectId: projectId,
+                  itemId: itemId,
+                  fieldId: priorityField.id,
+                  optionId: priorityOption.id
+                });
+                
+                console.log(`Updated Priority to: ${priorityOption.name}`);
+              } else {
+                console.log(`Priority option "${priorityOptionName}" not found in project. Available options: ${priorityField.options.map(o => o.name).join(', ')}`);
+              }
+            } else {
+              console.log('Priority field not found in project');
+            }
+            
+            // Step 6: Update Estimate field (number)
+            if (estimateField) {
+              const updateEstimateMutation = `
+                mutation($projectId: ID!, $itemId: ID!, $fieldId: ID!, $value: Float!) {
+                  updateProjectV2ItemFieldValue(input: {
+                    projectId: $projectId,
+                    itemId: $itemId,
+                    fieldId: $fieldId,
+                    value: {
+                      number: $value
+                    }
+                  }) {
+                    projectV2Item {
+                      id
+                    }
+                  }
+                }
+              `;
+              
+              await github.graphql(updateEstimateMutation, {
+                projectId: projectId,
+                itemId: itemId,
+                fieldId: estimateField.id,
+                value: storyPoints
+              });
+              
+              console.log(`Updated Estimate to: ${storyPoints}`);
+            } else {
+              console.log('Estimate field not found in project');
+            }
+            
+            console.log('✅ Successfully added issue to project and updated fields');
+            
+          } catch (error) {
+            console.error('Error managing project:', error.message);
+            if (error.errors) {
+              console.error('GraphQL errors:', JSON.stringify(error.errors, null, 2));
+            }
+            // Don't fail the workflow if project update fails
           }

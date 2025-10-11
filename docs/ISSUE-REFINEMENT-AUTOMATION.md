@@ -2,7 +2,36 @@
 
 ## Overview
 
-This repository includes an automated issue refinement system that analyzes new issues and automatically assigns story points based on complexity and priority levels based on severity and urgency. The system provides instant feedback and notifications when new issues are ready for review.
+This repository includes an automated issue refinement system that analyzes new issues and automatically assigns story points based on complexity and priority levels based on severity and urgency. The system provides instant feedback, notifications when new issues are ready for review, and seamlessly integrates with GitHub Projects to keep your project board up-to-date.
+
+**New in this version**: Automatic integration with [GitHub Projects](https://github.com/users/maggieconboy/projects/1) - issues are automatically added to your project board with Priority and Estimate fields populated based on the automated refinement.
+
+## Complete Workflow
+
+```
+New Issue Created/Edited
+         ↓
+   Analysis Engine
+   ├─ Keyword Detection
+   ├─ Content Analysis
+   └─ Priority Assessment
+         ↓
+   Apply Labels & Milestone
+   ├─ Story Points (points-X)
+   ├─ Priority (priority-X)
+   └─ Assign to "Intake" milestone
+         ↓
+   Add Analysis Comment
+   └─ Reasoning & Next Steps
+         ↓
+   GitHub Projects Integration
+   ├─ Add to Project Board
+   ├─ Set Priority Field
+   └─ Set Estimate Field
+         ↓
+   Create Notification
+   └─ Post to Tracking Issue
+```
 
 ## How It Works
 
@@ -68,6 +97,12 @@ Adds a detailed comment to each issue containing:
 - Provides leads with an easy way to identify issues ready for review
 - Milestone description: "Issues that have been automatically refined and are ready for review by leads"
 
+#### GitHub Projects Integration
+- Automatically adds refined issues to the [Work Tracker Project](https://github.com/users/maggieconboy/projects/1)
+- Updates the **Priority** field on the project board based on automated refinement
+- Sets the **Estimate** field with the assigned story points
+- Provides seamless integration between issue labels and project board fields
+
 ## Setup Requirements
 
 ### Labels
@@ -106,6 +141,21 @@ The workflow requires these permissions (already configured):
 - `issues: write` - Add labels and comments to issues
 - `contents: read` - Access repository content for analysis
 - `pull-requests: read` - Access milestone and project data
+- `repository-projects: write` - Add issues to projects and update custom fields
+
+### Authentication
+For GitHub Projects integration, the workflow needs a Personal Access Token (PAT) with `project` scope:
+
+1. **Create a PAT**: Go to [GitHub Settings > Developer settings > Personal access tokens > Fine-grained tokens](https://github.com/settings/tokens?type=beta)
+2. **Set Permissions**: Grant the token `read:project` and `write:project` permissions for user projects
+3. **Add as Secret**: In the repository, go to Settings > Secrets and variables > Actions
+4. **Create Secret**: Add a new secret named `PROJECT_PAT` with your token value
+
+**Note**: If `PROJECT_PAT` is not configured, the workflow will fall back to `GITHUB_TOKEN` but project integration features will be skipped as the default token lacks project permissions.
+
+📖 **Detailed Setup Guide**: See [GitHub Projects Setup](GITHUB-PROJECTS-SETUP.md) for step-by-step instructions with screenshots and troubleshooting.
+
+⚡ **Quick Reference**: See [Quick Reference Guide](QUICK-REFERENCE.md) for a one-page summary of features, setup, and troubleshooting.
 
 ## Issue Templates
 
@@ -206,6 +256,18 @@ To modify the refinement logic:
 - Check repository permissions for label creation
 - Verify label creation step completed successfully
 
+**Issue not added to project**
+- Verify that `PROJECT_PAT` secret is configured with `project` scope permissions
+- Check that the project number (1) matches the target project URL
+- Review workflow logs for GraphQL errors in the "Add Issue to Project" step
+- Ensure the project has "Priority" and "Estimate" custom fields configured
+
+**Project fields not updating**
+- Confirm Priority field options match: Critical, High, Medium, Low (case-insensitive)
+- Verify Estimate field is configured as a Number type
+- Check that field names are exactly "Priority" and "Estimate"
+- Review GraphQL error details in workflow logs
+
 ### Debugging
 
 Check the Actions tab for detailed execution logs including:
@@ -215,6 +277,8 @@ Check the Actions tab for detailed execution logs including:
 - Priority assignment logic
 - Label application status
 - Comment creation success
+- Project integration status (item ID, field updates)
+- GraphQL API responses and errors
 
 ## Benefits
 
