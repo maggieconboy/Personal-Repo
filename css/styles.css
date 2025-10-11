@@ -3219,15 +3219,6 @@ iframe {
     }
 }
 
-/* Performance optimizations for all devices */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-}
-
 /* Ensure smooth scrolling on supported browsers */
 @media (prefers-reduced-motion: no-preference) {
     html {
@@ -3244,7 +3235,8 @@ section {
     position: relative;
 }
 
-/* Add subtle decorative dividers between sections */
+/* Add subtle decorative dividers between sections 
+   Note: Excludes all hero section variants to maintain their full-width design */
 section:not(.hero):not(.resume-header):not(.impact-hero):not(.portfolio-hero):not(.txrh-hero):not(.case-hero)::before {
     content: '';
     position: absolute;
@@ -3258,7 +3250,8 @@ section:not(.hero):not(.resume-header):not(.impact-hero):not(.portfolio-hero):no
     opacity: 0.6;
 }
 
-/* Alternating section backgrounds for visual rhythm */
+/* Alternating section backgrounds for visual rhythm
+   Note: Maintains consistency by excluding hero sections */
 section:nth-child(even):not(.hero):not(.resume-header):not(.impact-hero):not(.portfolio-hero):not(.txrh-hero) {
     background: var(--bg-secondary);
 }

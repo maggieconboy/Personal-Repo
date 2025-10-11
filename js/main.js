@@ -111,20 +111,22 @@ function initScrollAnimations() {
     const sectionTitles = document.querySelectorAll('.section-title');
     const animatedGrids = document.querySelectorAll('.metrics-grid, .initiatives-grid, .story-content, .brands-grid, .timeline-visual, .value-props');
     
-    // Combine all elements to observe
-    const allElements = [
+    // Combine all elements and remove duplicates using Set
+    const allElementsSet = new Set([
         ...fadeElements,
         ...staggerContainers,
         ...sectionTitles,
         ...animatedGrids
-    ];
+    ]);
+    
+    const allElements = Array.from(allElementsSet);
     
     if (allElements.length === 0) return;
     
     // Create intersection observer with options
     const observerOptions = {
         root: null,
-        rootMargin: '0px 0px -100px 0px', // Trigger slightly before element enters viewport
+        rootMargin: '0px 0px -100px 0px', // Trigger when element is 100px from entering viewport
         threshold: 0.1
     };
     
