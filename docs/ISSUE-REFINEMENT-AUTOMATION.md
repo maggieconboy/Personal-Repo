@@ -124,6 +124,8 @@ For GitHub Projects integration, the workflow needs a Personal Access Token (PAT
 
 **Note**: If `PROJECT_PAT` is not configured, the workflow will fall back to `GITHUB_TOKEN` but project integration features will be skipped as the default token lacks project permissions.
 
+📖 **Detailed Setup Guide**: See [GitHub Projects Setup](GITHUB-PROJECTS-SETUP.md) for step-by-step instructions with screenshots and troubleshooting.
+
 ## Issue Templates
 
 ### General Issue Template
@@ -244,6 +246,8 @@ Check the Actions tab for detailed execution logs including:
 - Priority assignment logic
 - Label application status
 - Comment creation success
+- Project integration status (item ID, field updates)
+- GraphQL API responses and errors
 
 ## Benefits
 
