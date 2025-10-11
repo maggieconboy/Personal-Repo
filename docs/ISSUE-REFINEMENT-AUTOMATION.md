@@ -2,7 +2,36 @@
 
 ## Overview
 
-This repository includes an automated issue refinement system that analyzes new issues and automatically assigns story points based on complexity and priority levels based on severity and urgency. The system provides instant feedback and notifications when new issues are ready for review.
+This repository includes an automated issue refinement system that analyzes new issues and automatically assigns story points based on complexity and priority levels based on severity and urgency. The system provides instant feedback, notifications when new issues are ready for review, and seamlessly integrates with GitHub Projects to keep your project board up-to-date.
+
+**New in this version**: Automatic integration with [GitHub Projects](https://github.com/users/maggieconboy/projects/1) - issues are automatically added to your project board with Priority and Estimate fields populated based on the automated refinement.
+
+## Complete Workflow
+
+```
+New Issue Created/Edited
+         ↓
+   Analysis Engine
+   ├─ Keyword Detection
+   ├─ Content Analysis
+   └─ Priority Assessment
+         ↓
+   Apply Labels & Milestone
+   ├─ Story Points (points-X)
+   ├─ Priority (priority-X)
+   └─ Assign to "Intake" milestone
+         ↓
+   Add Analysis Comment
+   └─ Reasoning & Next Steps
+         ↓
+   GitHub Projects Integration
+   ├─ Add to Project Board
+   ├─ Set Priority Field
+   └─ Set Estimate Field
+         ↓
+   Create Notification
+   └─ Post to Tracking Issue
+```
 
 ## How It Works
 
