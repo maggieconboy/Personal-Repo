@@ -3557,8 +3557,9 @@ section {
     transition-delay: 0.5s;
 }
 
-/* Respect reduced motion preferences */
+/* Respect reduced motion preferences - WCAG 2.1 Level AA Compliance */
 @media (prefers-reduced-motion: reduce) {
+    /* Disable scroll-triggered animations */
     .scroll-fade-in,
     .stagger-children > *,
     .metrics-grid > *,
@@ -3566,26 +3567,50 @@ section {
     .story-content > *,
     .brands-grid > *,
     .timeline-visual > *,
-    .value-props > * {
+    .value-props > *,
+    .section-title-animated {
         opacity: 1 !important;
         transform: none !important;
         transition: none !important;
     }
     
+    /* Instantly show section title underlines */
     .section-title::after {
         width: 100% !important;
+        transition: none !important;
     }
     
+    /* Disable decorative animations */
     .hero-decoration,
     .header-decoration-orb {
         animation: none !important;
     }
     
+    /* Disable number counter animations */
     .stat-number::before,
     .summary-number::before,
     .achievement-number::before,
     .impact-number::before {
         animation: none !important;
+    }
+    
+    /* Disable entrance animations for new visual elements */
+    .section-header-enhanced,
+    .section-title {
+        animation: none !important;
+    }
+    
+    /* Keep hover effects but make them instant */
+    .card-elevated,
+    .brand-card,
+    .value-card,
+    .story-card {
+        transition: none !important;
+    }
+    
+    /* Disable smooth scrolling */
+    html {
+        scroll-behavior: auto !important;
     }
 }
 
@@ -4663,32 +4688,5 @@ section {
     }
 }
 
-/* Respect user's motion preferences for accessibility */
-@media (prefers-reduced-motion: reduce) {
-    /* Disable all animations for users who prefer reduced motion */
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-    }
-    
-    /* Remove transforms for scroll animations */
-    .scroll-fade-in,
-    .section-title-animated,
-    .stagger-children > * {
-        opacity: 1 !important;
-        transform: none !important;
-    }
-    
-    /* Keep hover effects but make them instant */
-    .card-elevated:hover,
-    .brand-card:hover,
-    .value-card:hover,
-    .story-card:hover {
-        transition-duration: 0.01ms !important;
-    }
-}
+
 }
