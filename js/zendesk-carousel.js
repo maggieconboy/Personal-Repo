@@ -84,14 +84,16 @@ function populateCarousel() {
     if (!carouselSlides) return;
     
     carouselSlides.innerHTML = zendeskPersonas.map((persona, index) => {
-        const githubViewUrl = `${GITHUB_REPO_BASE}/blob/main/${persona.githubPath}`;
+        // Use Google Docs viewer for reliable PDF rendering
+        const githubRawUrl = `${GITHUB_REPO_BASE}/raw/main/${persona.githubPath}`;
+        const pdfViewerUrl = `https://docs.google.com/viewer?url=${encodeURIComponent(githubRawUrl)}&embedded=true`;
         
         return `
             <div class="swiper-slide" data-index="${index}">
                 <div class="slide-content">
                     <div class="slide-pdf-viewer">
                         <iframe 
-                            src="${githubViewUrl}" 
+                            src="${pdfViewerUrl}" 
                             class="pdf-embed"
                             loading="lazy"
                             title="${persona.title}">
