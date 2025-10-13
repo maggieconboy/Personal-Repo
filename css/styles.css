@@ -208,7 +208,7 @@ iframe {
 
 /* Case Study Page Styles */
 .case-hero {
-    padding: 80px 0 60px;
+    padding: 80px 0 100px;
     background: linear-gradient(135deg, #f6f8fa 0%, #ffffff 100%);
     text-align: center;
 }
@@ -1932,7 +1932,7 @@ iframe {
    =================================== */
 
 .portfolio-hero {
-    padding: 80px 0 60px;
+    padding: 80px 0 100px;
     background: linear-gradient(135deg, var(--bg-dark) 0%, #27272a 100%);
     color: white;
     text-align: center;
@@ -2555,7 +2555,7 @@ iframe {
 
 /* Impact Hero */
 .impact-hero {
-    padding: 100px 0 80px;
+    padding: 80px 0 100px;
     background: linear-gradient(135deg, var(--bg-dark) 0%, #27272a 100%);
     color: white;
     text-align: center;
@@ -3655,7 +3655,7 @@ section {
 
 /* Research Hero */
 .research-hero {
-    padding: 80px 0 60px;
+    padding: 80px 0 100px;
     background: linear-gradient(135deg, var(--bg-dark) 0%, #27272a 100%);
     color: white;
     text-align: center;
