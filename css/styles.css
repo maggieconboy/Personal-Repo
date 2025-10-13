@@ -668,6 +668,11 @@ iframe {
     pointer-events: none;
 }
 
+.case-cta .container {
+    position: relative;
+    z-index: 1;
+}
+
 .case-cta h2 {
     color: white;
     margin-bottom: 16px;
@@ -2441,6 +2446,11 @@ iframe {
     pointer-events: none;
 }
 
+.executive-cta .container {
+    position: relative;
+    z-index: 1;
+}
+
 .executive-cta h2 {
     color: white;
     font-size: 40px;
@@ -2938,6 +2948,11 @@ iframe {
     inset: 0;
     background: radial-gradient(circle at 50% 50%, var(--accent-glow) 0%, transparent 70%);
     pointer-events: none;
+}
+
+.current-cta .container {
+    position: relative;
+    z-index: 1;
 }
 
 .current-cta h2 {
