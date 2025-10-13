@@ -1,0 +1,166 @@
+/* ===================================================================
+   CONCEPT 2: ORGANIC FLOW WITH DOT MATRIX
+   Enhance wave separators and create complementary horizontal dividers
+   
+   Usage:
+   - Add class "wave-separator-enhanced" to wave separator divs
+   - Add class "divider-organic" for dot matrix animated divider
+   - Add class "section-title-organic" to section titles
+   
+   Features:
+   - Enhanced waves with gradient overlays and increased height
+   - Animated dot matrix divider with dual radial gradients
+   - Organic bracket treatment for section titles
+   - Subtle motion with dotFlow animation
+   =================================================================== */
+
+/* Enhanced wave separator with gradient overlay */
+.wave-separator-enhanced {
+    position: relative;
+}
+
+.wave-separator-enhanced::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(109, 40, 217, 0.08) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.wave-separator-enhanced svg {
+    height: 60px !important;
+}
+
+/* Animated dot matrix divider */
+.divider-organic {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    margin: 60px 0;
+    overflow: hidden;
+}
+
+.divider-organic::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 60px;
+    background-image: 
+        radial-gradient(circle at 20% 50%, var(--accent-glow) 2px, transparent 2px),
+        radial-gradient(circle at 80% 50%, rgba(139, 92, 246, 0.1) 2px, transparent 2px);
+    background-size: 20px 20px, 20px 20px;
+    background-position: 0 0, 10px 10px;
+    animation: dotFlow 20s linear infinite;
+}
+
+@keyframes dotFlow {
+    0% {
+        background-position: 0 0, 10px 10px;
+    }
+    100% {
+        background-position: 40px 0, 50px 10px;
+    }
+}
+
+/* Section title with organic bracket treatment */
+.section-title-organic {
+    position: relative;
+    padding: 0 48px;
+}
+
+.section-title-organic::before,
+.section-title-organic::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 100%;
+    border: 2px solid var(--accent);
+    opacity: 0.6;
+}
+
+.section-title-organic::before {
+    left: 0;
+    border-right: none;
+    border-radius: 12px 0 0 12px;
+}
+
+.section-title-organic::after {
+    right: 0;
+    border-left: none;
+    border-radius: 0 12px 12px 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .wave-separator-enhanced svg {
+        height: 40px !important;
+    }
+    
+    .divider-organic {
+        height: 50px;
+        margin: 48px 0;
+    }
+    
+    .divider-organic::before {
+        width: 150px;
+        height: 50px;
+    }
+    
+    .section-title-organic {
+        padding: 0 36px;
+    }
+    
+    .section-title-organic::before,
+    .section-title-organic::after {
+        width: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .wave-separator-enhanced svg {
+        height: 30px !important;
+    }
+    
+    .divider-organic {
+        height: 40px;
+        margin: 36px 0;
+    }
+    
+    .divider-organic::before {
+        width: 120px;
+        height: 40px;
+        background-size: 15px 15px, 15px 15px;
+    }
+    
+    .section-title-organic {
+        padding: 0 28px;
+    }
+    
+    .section-title-organic::before,
+    .section-title-organic::after {
+        width: 16px;
+        border-width: 1.5px;
+    }
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .divider-organic::before {
+        animation: none !important;
+    }
+    
+    .wave-separator-enhanced,
+    .section-title-organic {
+        transition: none !important;
+        animation: none !important;
+    }
+}

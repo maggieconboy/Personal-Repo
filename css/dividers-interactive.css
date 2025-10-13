@@ -1,0 +1,219 @@
+/* ===================================================================
+   CONCEPT 3: BOLD GRADIENT BARS WITH MICRO-INTERACTIONS
+   Statement-making dividers with scroll-triggered animations
+   
+   Usage:
+   - Add class "divider-bold" for gradient bars with scroll animation
+   - Add class "section-title-interactive" to section titles
+   - Requires js/dividers-interactive.js for Intersection Observer
+   
+   Features:
+   - 8px height gradient bars with prominent glow effects
+   - Shimmer effect on hover using pseudo-element animation
+   - Expanding underline on section titles (visible on scroll)
+   - Pulsing accent dots flanking titles
+   - Scroll-triggered entrance animations
+   =================================================================== */
+
+/* Bold gradient divider with scroll animation */
+.divider-bold {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: 8px;
+    margin: 60px auto;
+    background: var(--accent-gradient);
+    border-radius: 4px;
+    box-shadow: 
+        0 4px 20px rgba(109, 40, 217, 0.3),
+        0 0 60px rgba(109, 40, 217, 0.15);
+    opacity: 0;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: 
+        opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.divider-bold.visible {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+/* Shimmer effect on hover */
+.divider-bold::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.4) 50%,
+        transparent 100%
+    );
+    transition: left 0.8s ease;
+}
+
+.divider-bold:hover::before {
+    left: 100%;
+}
+
+/* Section title with interactive expanding underline */
+.section-title-interactive {
+    position: relative;
+    display: inline-block;
+    padding: 0 60px;
+}
+
+.section-title-interactive::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0%;
+    height: 6px;
+    background: var(--accent-gradient);
+    border-radius: 3px;
+    box-shadow: 0 2px 12px rgba(109, 40, 217, 0.3);
+    transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.section-title-interactive.visible::after {
+    width: 100%;
+}
+
+/* Pulsing accent dots flanking titles */
+.section-title-interactive::before {
+    content: '';
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(109, 40, 217, 0.5);
+    animation: pulseDot 2s ease-in-out infinite;
+}
+
+/* Right dot using a wrapper approach - create with JS or separate element */
+.section-title-interactive-wrapper::after {
+    content: '';
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(109, 40, 217, 0.5);
+    animation: pulseDot 2s ease-in-out infinite;
+    animation-delay: 1s;
+}
+
+@keyframes pulseDot {
+    0%, 100% {
+        opacity: 0.6;
+        transform: translateY(-50%) scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-50%) scale(1.2);
+    }
+}
+
+/* Shimmer animation for added visual interest */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .divider-bold {
+        max-width: 90%;
+        height: 6px;
+        margin: 48px auto;
+        box-shadow: 
+            0 3px 15px rgba(109, 40, 217, 0.25),
+            0 0 45px rgba(109, 40, 217, 0.12);
+    }
+    
+    .section-title-interactive {
+        padding: 0 48px;
+    }
+    
+    .section-title-interactive::after {
+        height: 5px;
+        bottom: -8px;
+    }
+    
+    .section-title-interactive::before {
+        left: 32px;
+        width: 10px;
+        height: 10px;
+    }
+    
+    .section-title-interactive-wrapper::after {
+        right: 32px;
+        width: 10px;
+        height: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .divider-bold {
+        max-width: 95%;
+        height: 5px;
+        margin: 36px auto;
+        box-shadow: 
+            0 2px 12px rgba(109, 40, 217, 0.2),
+            0 0 30px rgba(109, 40, 217, 0.1);
+    }
+    
+    .section-title-interactive {
+        padding: 0 36px;
+    }
+    
+    .section-title-interactive::after {
+        height: 4px;
+        bottom: -6px;
+    }
+    
+    .section-title-interactive::before,
+    .section-title-interactive-wrapper::after {
+        display: none; /* Remove decorative dots on small screens */
+    }
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .divider-bold,
+    .section-title-interactive {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+        animation: none !important;
+    }
+    
+    .divider-bold::before {
+        display: none;
+    }
+    
+    .section-title-interactive::before,
+    .section-title-interactive-wrapper::after {
+        animation: none !important;
+        opacity: 0.8;
+        transform: translateY(-50%) scale(1);
+    }
+}
