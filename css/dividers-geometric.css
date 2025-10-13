@@ -49,11 +49,11 @@
 /* Section title with geometric accent treatment */
 .section-title-geometric {
     position: relative;
-    padding-left: 24px;
-    padding-bottom: 20px;
-    border-left: 6px solid transparent;
-    border-image: var(--accent-gradient) 1;
-    border-image-slice: 1;
+    display: inline-block;
+    padding-left: 20px;
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+    border-left: 4px solid var(--accent);
 }
 
 .section-title-geometric::after {
@@ -61,8 +61,8 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 60%;
-    height: 4px;
+    width: 50%;
+    height: 3px;
     background: linear-gradient(90deg, var(--accent) 0%, transparent 100%);
     border-radius: 2px;
 }
@@ -87,13 +87,13 @@
     }
     
     .section-title-geometric {
-        padding-left: 20px;
-        border-left-width: 5px;
+        padding-left: 16px;
+        border-left-width: 3px;
     }
     
     .section-title-geometric::after {
-        width: 70%;
-        height: 3px;
+        width: 60%;
+        height: 2px;
     }
 }
 
@@ -116,13 +116,13 @@
     }
     
     .section-title-geometric {
-        padding-left: 16px;
-        border-left-width: 4px;
+        padding-left: 12px;
+        border-left-width: 3px;
     }
     
     .section-title-geometric::after {
-        width: 80%;
-        height: 3px;
+        width: 70%;
+        height: 2px;
     }
 }
 

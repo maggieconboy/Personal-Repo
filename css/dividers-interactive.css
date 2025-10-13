@@ -19,14 +19,14 @@
 .divider-bold {
     position: relative;
     width: 100%;
-    max-width: 800px;
-    height: 8px;
-    margin: 60px auto;
+    max-width: 600px;
+    height: 6px;
+    margin: 48px auto;
     background: var(--accent-gradient);
-    border-radius: 4px;
+    border-radius: 3px;
     box-shadow: 
-        0 4px 20px rgba(109, 40, 217, 0.3),
-        0 0 60px rgba(109, 40, 217, 0.15);
+        0 3px 12px rgba(109, 40, 217, 0.25),
+        0 0 40px rgba(109, 40, 217, 0.12);
     opacity: 0;
     transform: scaleX(0);
     transform-origin: center;
@@ -64,67 +64,63 @@
 /* Section title with interactive expanding underline */
 .section-title-interactive {
     position: relative;
-    display: inline-block;
-    padding: 0 60px;
+    text-align: center;
+    margin-bottom: 24px;
 }
 
 .section-title-interactive::after {
     content: '';
     position: absolute;
-    bottom: -10px;
+    bottom: -8px;
     left: 50%;
     transform: translateX(-50%);
     width: 0%;
-    height: 6px;
+    height: 4px;
     background: var(--accent-gradient);
-    border-radius: 3px;
-    box-shadow: 0 2px 12px rgba(109, 40, 217, 0.3);
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(109, 40, 217, 0.25);
     transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .section-title-interactive.visible::after {
-    width: 100%;
+    width: 60%;
+    max-width: 400px;
 }
 
-/* Pulsing accent dots flanking titles */
+/* Pulsing accent dots flanking titles - hidden by default, only show on larger screens */
 .section-title-interactive::before {
     content: '';
     position: absolute;
-    left: 40px;
+    left: calc(50% - 220px);
     top: 50%;
     transform: translateY(-50%);
-    width: 12px;
-    height: 12px;
+    width: 8px;
+    height: 8px;
     background: var(--accent);
     border-radius: 50%;
-    box-shadow: 0 0 12px rgba(109, 40, 217, 0.5);
+    box-shadow: 0 0 8px rgba(109, 40, 217, 0.4);
     animation: pulseDot 2s ease-in-out infinite;
+    display: none;
 }
 
-/* Right dot using a wrapper approach - create with JS or separate element */
-.section-title-interactive-wrapper::after {
-    content: '';
-    position: absolute;
-    right: 40px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 12px;
-    height: 12px;
-    background: var(--accent);
-    border-radius: 50%;
-    box-shadow: 0 0 12px rgba(109, 40, 217, 0.5);
-    animation: pulseDot 2s ease-in-out infinite;
-    animation-delay: 1s;
+@media (min-width: 1024px) {
+    .section-title-interactive::before {
+        display: block;
+    }
 }
+
+/* Remove the wrapper approach for right dot - simplified design */
 
 @keyframes pulseDot {
     0%, 100% {
-        opacity: 0.6;
+        opacity: 0.5;
         transform: translateY(-50%) scale(1);
+        box-shadow: 0 0 8px rgba(109, 40, 217, 0.4);
     }
     50% {
-        opacity: 1;
-        transform: translateY(-50%) scale(1.2);
+        opacity: 0.9;
+        transform: translateY(-50%) scale(1.15);
+        box-shadow: 0 0 12px rgba(109, 40, 217, 0.6);
     }
 }
 
@@ -141,12 +137,12 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .divider-bold {
-        max-width: 90%;
-        height: 6px;
-        margin: 48px auto;
+        max-width: 80%;
+        height: 5px;
+        margin: 40px auto;
         box-shadow: 
-            0 3px 15px rgba(109, 40, 217, 0.25),
-            0 0 45px rgba(109, 40, 217, 0.12);
+            0 2px 10px rgba(109, 40, 217, 0.2),
+            0 0 30px rgba(109, 40, 217, 0.1);
     }
     
     .section-title-interactive {
@@ -173,12 +169,12 @@
 
 @media (max-width: 480px) {
     .divider-bold {
-        max-width: 95%;
-        height: 5px;
-        margin: 36px auto;
+        max-width: 70%;
+        height: 4px;
+        margin: 32px auto;
         box-shadow: 
-            0 2px 12px rgba(109, 40, 217, 0.2),
-            0 0 30px rgba(109, 40, 217, 0.1);
+            0 2px 8px rgba(109, 40, 217, 0.18),
+            0 0 24px rgba(109, 40, 217, 0.08);
     }
     
     .section-title-interactive {
