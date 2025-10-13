@@ -1,5 +1,9 @@
 // Zendesk Personas Carousel Functionality
 
+// Configuration
+const GITHUB_REPO_BASE = 'https://github.com/maggieconboy/Personal-Repo';
+const ZENDESK_FOLDER = 'Zendesk%20Personas';
+
 // Zendesk Personas data
 const zendeskPersonas = [
     {
@@ -66,6 +70,12 @@ document.addEventListener('DOMContentLoaded', function() {
     populateThumbnails();
     initializeSwiper();
     updatePersonaDetails(0);
+    
+    // Set total slides count
+    const totalSlides = document.querySelector('.total-slides');
+    if (totalSlides) {
+        totalSlides.textContent = zendeskPersonas.length;
+    }
 });
 
 // Populate carousel slides
@@ -74,7 +84,7 @@ function populateCarousel() {
     if (!carouselSlides) return;
     
     carouselSlides.innerHTML = zendeskPersonas.map((persona, index) => {
-        const githubViewUrl = `https://github.com/maggieconboy/Personal-Repo/blob/main/${persona.githubPath}`;
+        const githubViewUrl = `${GITHUB_REPO_BASE}/blob/main/${persona.githubPath}`;
         
         return `
             <div class="swiper-slide" data-index="${index}">
@@ -195,8 +205,8 @@ function updatePersonaDetails(index) {
     if (personaName) personaName.textContent = persona.title;
     if (personaDescription) personaDescription.textContent = persona.description;
     
-    const githubViewUrl = `https://github.com/maggieconboy/Personal-Repo/blob/main/${persona.githubPath}`;
-    const githubRawUrl = `https://github.com/maggieconboy/Personal-Repo/raw/main/${persona.githubPath}`;
+    const githubViewUrl = `${GITHUB_REPO_BASE}/blob/main/${persona.githubPath}`;
+    const githubRawUrl = `${GITHUB_REPO_BASE}/raw/main/${persona.githubPath}`;
     
     if (viewGithub) viewGithub.href = githubViewUrl;
     if (downloadPdf) {
@@ -241,11 +251,3 @@ function goToSlide(index) {
         swiperInstance.slideTo(index);
     }
 }
-
-// Set total slides count
-document.addEventListener('DOMContentLoaded', function() {
-    const totalSlides = document.querySelector('.total-slides');
-    if (totalSlides) {
-        totalSlides.textContent = zendeskPersonas.length;
-    }
-});
