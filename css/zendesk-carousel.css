@@ -1,0 +1,495 @@
+/* Zendesk Personas Carousel Styles */
+
+/* Hero Section */
+.zendesk-hero {
+    padding: 80px 0 60px;
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #27272a 100%);
+    color: var(--text-light);
+    position: relative;
+    overflow: hidden;
+}
+
+.zendesk-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 50%, var(--accent-glow) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.zendesk-hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.back-link:hover {
+    opacity: 1;
+}
+
+.zendesk-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    background: rgba(139, 92, 246, 0.15);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 24px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent-light);
+    margin-bottom: 24px;
+}
+
+.zendesk-title {
+    font-size: 48px;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.zendesk-subtitle {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 800px;
+    line-height: 1.6;
+}
+
+/* Carousel Section */
+.carousel-section {
+    padding: 80px 0;
+    background: var(--bg-secondary);
+}
+
+.carousel-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    padding: 16px 24px;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+}
+
+.carousel-counter {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.carousel-counter .current-slide {
+    color: var(--accent);
+    font-size: 24px;
+}
+
+.carousel-controls-hint {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+/* Swiper Carousel Customization */
+.zendesk-carousel {
+    width: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    background: white;
+    box-shadow: var(--shadow-lg);
+}
+
+.swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+}
+
+.slide-content {
+    width: 100%;
+    height: 700px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide-pdf-viewer {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.pdf-embed {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: #f5f5f5;
+}
+
+.slide-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+    padding: 32px 24px 24px;
+    color: white;
+}
+
+.slide-number {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent-light);
+    margin-bottom: 8px;
+}
+
+.slide-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+    margin: 0;
+}
+
+/* Navigation Arrows */
+.swiper-button-prev,
+.swiper-button-next {
+    color: var(--accent);
+    background: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    box-shadow: var(--shadow-md);
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+    background: var(--accent);
+    color: white;
+}
+
+/* Pagination */
+.swiper-pagination {
+    bottom: 16px !important;
+}
+
+.swiper-pagination-progressbar {
+    background: rgba(255, 255, 255, 0.3);
+    height: 4px;
+}
+
+.swiper-pagination-progressbar-fill {
+    background: var(--accent);
+}
+
+/* Persona Details */
+.persona-details {
+    margin-top: 40px;
+    padding: 32px;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+}
+
+.persona-name {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+}
+
+.persona-description {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.persona-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* Thumbnail Navigation */
+.thumbnail-nav {
+    padding: 60px 0;
+    background: white;
+}
+
+.thumbnail-nav h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.thumbnail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.thumbnail-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    background: white;
+    border: 2px solid var(--border-light);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: left;
+}
+
+.thumbnail-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.thumbnail-card.active {
+    border-color: var(--accent);
+    background: rgba(109, 40, 217, 0.05);
+}
+
+.thumbnail-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    color: var(--accent);
+}
+
+.thumbnail-card.active .thumbnail-icon {
+    background: var(--accent);
+    color: white;
+}
+
+.thumbnail-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.thumbnail-number {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.thumbnail-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.4;
+}
+
+/* Documentation Section */
+.documentation-section {
+    padding: 80px 0;
+    background: var(--bg-secondary);
+}
+
+.documentation-section h2 {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.docs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.doc-card {
+    padding: 32px;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+}
+
+.doc-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+}
+
+.doc-card ol,
+.doc-card ul {
+    margin-left: 20px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+.doc-card ol li,
+.doc-card ul li {
+    margin-bottom: 8px;
+}
+
+.doc-card code {
+    padding: 2px 8px;
+    background: var(--bg-secondary);
+    border-radius: 4px;
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: 14px;
+    color: var(--accent);
+}
+
+.doc-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.doc-card strong {
+    color: var(--text-primary);
+}
+
+/* CTA Section */
+.zendesk-cta {
+    padding: 80px 0;
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #27272a 100%);
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.zendesk-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, var(--accent-glow) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.zendesk-cta .container {
+    position: relative;
+    z-index: 1;
+}
+
+.zendesk-cta h2 {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.zendesk-cta p {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 600px;
+    margin: 0 auto 32px;
+    line-height: 1.6;
+}
+
+.cta-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .zendesk-title {
+        font-size: 32px;
+    }
+    
+    .zendesk-subtitle {
+        font-size: 16px;
+    }
+    
+    .carousel-info {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+    
+    .slide-content {
+        height: 500px;
+    }
+    
+    .slide-title {
+        font-size: 18px;
+    }
+    
+    .swiper-button-prev,
+    .swiper-button-next {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .swiper-button-prev:after,
+    .swiper-button-next:after {
+        font-size: 16px;
+    }
+    
+    .persona-name {
+        font-size: 24px;
+    }
+    
+    .thumbnail-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .docs-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .persona-actions {
+        flex-direction: column;
+    }
+    
+    .persona-actions .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .zendesk-title {
+        font-size: 28px;
+    }
+    
+    .slide-content {
+        height: 400px;
+    }
+    
+    .carousel-info {
+        padding: 12px 16px;
+    }
+    
+    .persona-details {
+        padding: 24px 16px;
+    }
+}
