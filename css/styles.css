@@ -341,7 +341,8 @@ iframe {
     pointer-events: none;
 }
 
-.metric-hero > * {
+.metric-hero > div,
+.metric-hero > p {
     position: relative;
     z-index: 1;
 }
