@@ -84,20 +84,12 @@ function populateCarousel() {
     if (!carouselSlides) return;
     
     carouselSlides.innerHTML = zendeskPersonas.map((persona, index) => {
-        // Use Google Docs viewer for reliable PDF rendering
-        const githubRawUrl = `${GITHUB_REPO_BASE}/raw/main/${persona.githubPath}`;
-        const pdfViewerUrl = `https://docs.google.com/viewer?url=${encodeURIComponent(githubRawUrl)}&embedded=true`;
-        
         return `
-            <div class="swiper-slide" data-index="${index}">
+            <div class="swiper-slide" data-index="${index}" data-pdf-path="${persona.githubPath}">
                 <div class="slide-content">
-                    <div class="slide-pdf-viewer">
-                        <iframe 
-                            src="${pdfViewerUrl}" 
-                            class="pdf-embed"
-                            loading="lazy"
-                            title="${persona.title}">
-                        </iframe>
+                    <div class="slide-pdf-image">
+                        <canvas id="pdf-canvas-${index}" class="pdf-canvas"></canvas>
+                        <div class="pdf-loading">Loading ${persona.title}...</div>
                     </div>
                     <div class="slide-overlay">
                         <span class="slide-number">${index + 1} / ${zendeskPersonas.length}</span>
@@ -107,6 +99,56 @@ function populateCarousel() {
             </div>
         `;
     }).join('');
+    
+    // Render PDFs as images after slides are created
+    renderPDFsAsImages();
+}
+
+// Render PDFs as canvas images using PDF.js
+async function renderPDFsAsImages() {
+    for (let i = 0; i < zendeskPersonas.length; i++) {
+        const persona = zendeskPersonas[i];
+        const canvas = document.getElementById(`pdf-canvas-${i}`);
+        if (!canvas) continue;
+        
+        const githubRawUrl = `${GITHUB_REPO_BASE}/raw/main/${persona.githubPath}`;
+        
+        try {
+            // Load PDF
+            const loadingTask = pdfjsLib.getDocument(githubRawUrl);
+            const pdf = await loadingTask.promise;
+            
+            // Get first page
+            const page = await pdf.getPage(1);
+            
+            // Set canvas dimensions
+            const viewport = page.getViewport({ scale: 1.5 });
+            const context = canvas.getContext('2d');
+            canvas.height = viewport.height;
+            canvas.width = viewport.width;
+            
+            // Render PDF page to canvas
+            const renderContext = {
+                canvasContext: context,
+                viewport: viewport
+            };
+            
+            await page.render(renderContext).promise;
+            
+            // Hide loading message
+            const loadingDiv = canvas.parentElement.querySelector('.pdf-loading');
+            if (loadingDiv) loadingDiv.style.display = 'none';
+            
+        } catch (error) {
+            console.error(`Error rendering PDF for ${persona.title}:`, error);
+            // Show error message
+            const loadingDiv = canvas.parentElement.querySelector('.pdf-loading');
+            if (loadingDiv) {
+                loadingDiv.textContent = `Unable to load ${persona.title}`;
+                loadingDiv.style.color = '#999';
+            }
+        }
+    }
 }
 
 // Populate thumbnail navigation
