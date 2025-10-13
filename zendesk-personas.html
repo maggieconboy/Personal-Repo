@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zendesk Personas Gallery | Maggie Conboy</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/zendesk-carousel.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <!-- PDF.js for rendering PDFs as images -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+        // Configure PDF.js worker
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">Maggie Conboy</a>
+            <button class="mobile-menu-toggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="current-impact.html">Current Impact</a></li>
+                <li><a href="txrh-case-study.html">TXRH Story</a></li>
+                <li><a href="portfolio.html">Brand Portfolio</a></li>
+                <li><a href="research.html">Research & Deliverables</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="https://www.linkedin.com/in/maggieconboy" target="_blank" class="nav-cta">Connect</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main>
+        <!-- Hero Section -->
+        <section class="zendesk-hero">
+            <div class="container">
+                <a href="research.html" class="back-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                    Back to Research & Deliverables
+                </a>
+                <span class="zendesk-badge">🎯 Support Persona Work | Zendesk Product Strategy</span>
+                <h1 class="zendesk-title">Zendesk Support Personas</h1>
+                <p class="zendesk-subtitle">
+                    Comprehensive support personas developed in collaboration with design for Zendesk product strategy. 
+                    Navigate through the interactive gallery to explore each persona's workflows, pain points, and opportunities.
+                </p>
+            </div>
+        </section>
+
+        <!-- Carousel Section -->
+        <section class="carousel-section">
+            <div class="container">
+                <!-- Carousel Controls Info -->
+                <div class="carousel-info">
+                    <div class="carousel-counter">
+                        <span class="current-slide">1</span> / <span class="total-slides">9</span>
+                    </div>
+                    <div class="carousel-controls-hint">
+                        <span>💡 Use arrow keys or swipe to navigate</span>
+                    </div>
+                </div>
+
+                <!-- Swiper Carousel -->
+                <div class="swiper zendesk-carousel">
+                    <div class="swiper-wrapper" id="carousel-slides">
+                        <!-- Slides will be dynamically populated -->
+                    </div>
+                    
+                    <!-- Navigation Arrows -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                    
+                    <!-- Pagination -->
+                    <div class="swiper-pagination"></div>
+                </div>
+
+                <!-- Current Persona Details -->
+                <div class="persona-details" id="persona-details">
+                    <h3 class="persona-name"></h3>
+                    <p class="persona-description"></p>
+                    <div class="persona-actions">
+                        <a href="#" class="btn btn-primary" target="_blank" id="view-github">View in GitHub</a>
+                        <a href="#" class="btn btn-secondary" download id="download-pdf">Download PDF</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Thumbnail Navigation -->
+        <section class="thumbnail-nav">
+            <div class="container">
+                <h3>Quick Navigation</h3>
+                <div class="thumbnail-grid" id="thumbnail-grid">
+                    <!-- Thumbnails will be dynamically populated -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Documentation Section -->
+        <section class="documentation-section">
+            <div class="container">
+                <h2>💡 How to Update Personas</h2>
+                <div class="docs-grid">
+                    <div class="doc-card">
+                        <h3>📁 Add New Personas</h3>
+                        <ol>
+                            <li>Upload your PDF file to the <code>Zendesk Personas/</code> folder in GitHub</li>
+                            <li>Update the <code>artifactsData</code> in <code>js/zendesk-carousel.js</code></li>
+                            <li>Add title, description, and file path</li>
+                            <li>The carousel will automatically include the new persona</li>
+                        </ol>
+                    </div>
+                    <div class="doc-card">
+                        <h3>✏️ Edit Existing Personas</h3>
+                        <ol>
+                            <li>Replace the PDF file in the <code>Zendesk Personas/</code> folder</li>
+                            <li>Keep the same filename to maintain automatic updates</li>
+                            <li>Or update the filename in <code>js/zendesk-carousel.js</code></li>
+                            <li>Changes will reflect immediately on refresh</li>
+                        </ol>
+                    </div>
+                    <div class="doc-card">
+                        <h3>🤖 Copilot Automation</h3>
+                        <p>
+                            <strong>Future Enhancement:</strong> GitHub Copilot Agents or Loops could be configured to:
+                        </p>
+                        <ul>
+                            <li>Automatically detect new PDFs in the folder</li>
+                            <li>Generate metadata from PDF content</li>
+                            <li>Update the carousel data without manual edits</li>
+                            <li>Notify stakeholders of changes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="zendesk-cta">
+            <div class="container">
+                <h2>Want to Discuss These Personas?</h2>
+                <p>
+                    Let's talk about how these support personas inform product strategy, workflow design, and AI automation opportunities.
+                </p>
+                <div class="cta-actions">
+                    <a href="https://www.linkedin.com/in/maggieconboy" target="_blank" class="btn btn-primary">Connect on LinkedIn</a>
+                    <a href="research.html" class="btn btn-secondary">View All Research</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-quote">"Systems over heroics. Trust over escalations. Impact over activity."</p>
+                <div class="footer-links">
+                    <a href="https://github.com/maggieconboy" target="_blank">GitHub</a>
+                    <a href="https://www.linkedin.com/in/maggieconboy" target="_blank">LinkedIn</a>
+                    <a href="mailto:mconboy@github.com">Email</a>
+                </div>
+                <p class="footer-copyright">&copy; 2025 Maggie Conboy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <!-- Scripts -->
+    <script src="js/mobile-menu.js"></script>
+    <script src="js/zendesk-carousel.js"></script>
+</body>
+</html>

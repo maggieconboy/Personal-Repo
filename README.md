@@ -23,6 +23,7 @@ Welcome to my GitHub profile! I am a Product Manager of Revenue Systems at GitHu
 
 - **GitHub Account Recommender**: Custom internal ML-driven sales recommendations engine.
 - **Texas Roadhouse**: Led web and mobile ordering experiences for three brands, including .com websites, iOS, and Android apps.
+- **Zendesk Personas Gallery**: Interactive GitHub Pages slideshow showcasing support personas with Swiper.js carousel. [View Gallery](https://maggieconboy.github.io/Personal-Repo/zendesk-personas.html)
 
 Explore more in my top repositories:
 - [Salesforce](https://github.com/github/salesforce)
@@ -56,6 +57,22 @@ This repository also includes a **[Velocity Reporting GitHub Action](.github/wor
 - Posts summaries to project boards
 
 *Example of how AI-driven automation can eliminate manual reporting overhead while providing actionable team performance insights.*
+
+### 🎨 Interactive Zendesk Personas Gallery
+A professional GitHub Pages slideshow built with [Swiper.js](https://swiperjs.com/) that showcases support persona research:
+- **Interactive carousel** with keyboard, mouse, and touch navigation
+- **Automatic content population** from `/Zendesk Personas` folder
+- **Responsive design** optimized for desktop, tablet, and mobile
+- **Accessibility features** including ARIA labels and keyboard support
+- **Easy maintenance**: Just add PDFs to the folder and update the data file
+
+👉 **[View the Interactive Gallery](https://maggieconboy.github.io/Personal-Repo/zendesk-personas.html)**
+
+#### How to Update Personas
+1. Add PDF files to the `Zendesk Personas/` folder
+2. Update `js/zendesk-carousel.js` with title and description
+3. Carousel automatically includes new personas
+4. *Future enhancement*: Copilot Agents could automate this process
 
 ## 📈 Values & Mindset
 
