@@ -341,6 +341,11 @@ iframe {
     pointer-events: none;
 }
 
+.metric-hero > * {
+    position: relative;
+    z-index: 1;
+}
+
 .metric-prefix, .metric-suffix {
     font-size: 48px;
     font-weight: 700;
@@ -1967,13 +1972,16 @@ iframe {
     border-radius: 50%;
 }
 
+.portfolio-hero .container {
+    position: relative;
+    z-index: 1;
+}
+
 .portfolio-hero h1 {
     font-size: 48px;
     font-weight: 800;
     margin-bottom: 16px;
     color: white;
-    position: relative;
-    z-index: 1;
 }
 
 .portfolio-subtitle {
@@ -1981,8 +1989,6 @@ iframe {
     color: var(--text-light);
     max-width: 700px;
     margin: 0 auto 48px;
-    position: relative;
-    z-index: 1;
 }
 
 .portfolio-summary {
@@ -2582,6 +2588,11 @@ iframe {
     height: 400px;
     background: var(--accent-glow);
     border-radius: 50%;
+}
+
+.impact-hero .container {
+    position: relative;
+    z-index: 1;
 }
 
 .impact-badge {
