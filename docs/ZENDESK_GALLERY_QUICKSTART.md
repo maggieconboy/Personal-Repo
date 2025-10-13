@@ -11,7 +11,7 @@ An interactive, professional carousel/slideshow for Zendesk Support Personas on 
 
 - 📄 [View Gallery Page](../zendesk-personas.html)
 - 📚 [Full Documentation](ZENDESK_GALLERY_DOCS.md)
-- 🔗 [Link from Research Page](../research.html) - Look for "🎯 View Interactive Persona Gallery" button
+- 🔗 [Link from Current Impact Page](../current-impact.html) - Features user research and persona work
 
 ## Files Created
 
