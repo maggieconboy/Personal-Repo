@@ -1,10 +1,11 @@
 # 🚀 Zendesk Personas Gallery - Quick Start Guide
 
+> **Gallery URL**: Update this with your GitHub Pages URL after deployment:  
+> `https://[username].github.io/[repo-name]/zendesk-personas.html`
+
 ## What Was Built
 
 An interactive, professional carousel/slideshow for Zendesk Support Personas on GitHub Pages.
-
-**Live URL**: `https://maggieconboy.github.io/Personal-Repo/zendesk-personas.html`
 
 ## Quick Links
 
@@ -71,7 +72,7 @@ Click "Download PDF" button below the carousel
 Click "View in GitHub" button to see the PDF in GitHub's viewer
 
 ### Share the Gallery
-Share: `https://maggieconboy.github.io/Personal-Repo/zendesk-personas.html`
+Share your GitHub Pages URL for the gallery
 
 ## Technologies Used
 
@@ -84,7 +85,7 @@ Share: `https://maggieconboy.github.io/Personal-Repo/zendesk-personas.html`
 
 - Read the [Full Documentation](ZENDESK_GALLERY_DOCS.md)
 - Check the troubleshooting section
-- Contact: mconboy@github.com
+- Contact your repository maintainer or open an issue
 
 ## Future Enhancements
 
