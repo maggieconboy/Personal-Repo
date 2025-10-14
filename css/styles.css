@@ -159,6 +159,15 @@ iframe {
     margin-bottom: 48px;
 }
 
+/* Ensure paragraphs following section titles are centered */
+.section-title + p,
+.section-title + div > p:first-child {
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Footer Styles */
 .footer {
     padding: 48px 0;
@@ -3353,19 +3362,23 @@ section:nth-child(odd):not(.hero):not(.resume-header):not(.impact-hero):not(.por
 /* Enhanced section titles with improved animation and typography */
 .section-title {
     position: relative;
-    display: inline-block;
+    display: block;
     padding-bottom: 20px;
     font-size: 42px;
     font-weight: 800;
     letter-spacing: -0.5px;
     line-height: 1.2;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .section-title::after {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     width: 0;
     height: 4px;
     background: var(--accent-gradient);
@@ -3646,6 +3659,15 @@ section {
 .user-research-impact {
     padding: 80px 0;
     background: white;
+}
+
+.user-research-impact > .container > p {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 32px;
+    font-size: 18px;
+    color: var(--text-secondary);
+    line-height: 1.6;
 }
 
 .user-research-impact .research-grid {
