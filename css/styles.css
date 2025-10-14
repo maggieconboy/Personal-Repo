@@ -1,27 +1,32 @@
 /* CSS Variables - REQUIRED FOR ALL PAGES */
-/* Updated: Deep Royal Purple accent with grayscale foundation */
+/* Updated: Modern Color Palette with Vibrant Accents and Rich Purple */
 :root {
     /* Grayscale Foundation */
-    --primary: #18181b;           /* near-black for text and dark elements */
-    --text-primary: #18181b;      /* near-black for primary text */
+    --primary: #333333;           /* dark gray for text (softer than pure black) */
+    --text-primary: #333333;      /* dark gray for primary text */
     --text-secondary: #52525b;    /* medium gray for secondary text */
     --text-muted: #71717a;        /* light gray for muted text */
-    --text-light: rgba(255, 255, 255, 0.9);
-    --bg-primary: #ffffff;        /* white backgrounds */
-    --bg-secondary: #fafafa;      /* near-white for cards/sections */
-    --bg-dark: #18181b;           /* dark sections */
+    --text-light: #EAEAEA;        /* soft white for dark backgrounds */
+    --bg-primary: #F7F7F7;        /* soft off-white background (reduces eye strain) */
+    --bg-secondary: #EEEEEE;      /* slightly darker off-white for cards/sections */
+    --bg-dark: #1A1A1A;           /* deep charcoal for dark sections */
     --border: #d0d7de;
     --border-light: #e1e7ec;
     --shadow-sm: 0 1px 3px rgba(31,35,40,0.08);
     --shadow-md: 0 4px 12px rgba(31,35,40,0.12);
     --shadow-lg: 0 8px 24px rgba(31,35,40,0.16);
     
-    /* Deep Royal Purple Accent - Strategic Use Only */
-    --accent: #6d28d9;            /* deep royal purple for CTAs and key metrics */
-    --accent-hover: #5b21b6;      /* darker purple for hover states */
-    --accent-light: #8b5cf6;      /* lighter purple for gradients */
-    --accent-gradient: linear-gradient(135deg, #6d28d9 0%, #8b5cf6 100%);
-    --accent-glow: rgba(109, 40, 217, 0.15); /* for subtle backgrounds */
+    /* Rich Purple Primary Brand - Strategic Use with Gradients */
+    --accent: #4C2878;            /* deep purple for major backgrounds and branding */
+    --accent-hover: #3a1f5c;      /* darker purple for hover states */
+    --accent-light: #6d3a9e;      /* lighter purple for gradients */
+    --accent-gradient: linear-gradient(135deg, #3a1f5c 0%, #4C2878 50%, #6d3a9e 100%);
+    --accent-glow: rgba(76, 40, 120, 0.15); /* for subtle backgrounds */
+    
+    /* NEW: Electric Accent Colors - High Contrast "Pop" */
+    --accent-electric: #39FF14;   /* neon green for high-energy elements */
+    --accent-teal: #00FFFF;       /* electric teal alternative */
+    --accent-electric-glow: rgba(57, 255, 20, 0.2);
     
     /* Legacy success for compatibility */
     --success: #1a7f37;
@@ -41,6 +46,18 @@ body {
     color: var(--text-primary);
     background: var(--bg-primary);
     overflow-x: hidden; /* Prevent horizontal scroll on mobile */
+}
+
+/* Typography Enhancement - Serif Headings for Sophistication */
+h1, h2 {
+    font-family: 'Playfair Display', 'Lora', Georgia, serif;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+h3, h4 {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    font-weight: 700;
 }
 
 /* Responsive images and media */
@@ -141,22 +158,26 @@ iframe {
 }
 
 .btn-secondary {
-    background: var(--bg-primary);
-    color: var(--text-primary);
-    border: 1px solid var(--border);
+    background: transparent;
+    color: white;
+    border: 2px solid var(--accent-electric);
 }
 
 .btn-secondary:hover {
-    border-color: var(--accent);
-    color: var(--accent);
+    background: var(--accent-electric);
+    border-color: var(--accent-electric);
+    color: var(--bg-dark);
+    box-shadow: 0 8px 24px var(--accent-electric-glow);
 }
 
 /* Section Title */
 .section-title {
-    font-size: 36px;
-    font-weight: 700;
+    font-size: 3.5rem;
+    font-weight: 800;
     text-align: center;
     margin-bottom: 48px;
+    font-family: 'Playfair Display', 'Lora', Georgia, serif;
+    letter-spacing: -0.5px;
 }
 
 /* Footer Styles */
@@ -703,13 +724,13 @@ iframe {
 /* Hero Section */
 .hero {
     padding: 80px 0 100px;
-    background: linear-gradient(135deg, var(--bg-dark) 0%, #27272a 100%);
+    background: var(--accent-gradient);
     color: white;
     position: relative;
     overflow: hidden;
 }
 
-/* Purple glow overlay */
+/* Purple glow overlay with depth */
 .hero::before {
     content: '';
     position: absolute;
@@ -717,8 +738,8 @@ iframe {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle at 30% 50%, var(--accent-glow) 0%, transparent 60%),
-                radial-gradient(circle at 70% 80%, var(--accent-glow) 0%, transparent 60%);
+    background: radial-gradient(circle at 30% 50%, rgba(76, 40, 120, 0.3) 0%, transparent 60%),
+                radial-gradient(circle at 70% 80%, rgba(76, 40, 120, 0.3) 0%, transparent 60%);
     pointer-events: none;
 }
 
@@ -820,12 +841,13 @@ iframe {
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8) !important;
 }
 .hero .hero-title {
-    font-size: 48px;
+    font-size: 5.5rem;
     font-weight: 800;
-    line-height: 1.2;
+    line-height: 1.1;
     margin-bottom: 24px;
     color: white;
     animation: fadeInUp 0.6s ease-out 0.2s both;
+    font-family: 'Playfair Display', 'Lora', Georgia, serif;
 }
 
 .hero-title .highlight {
@@ -907,14 +929,15 @@ iframe {
     background: var(--bg-secondary);
     border-radius: 12px;
     text-align: center;
-    transition: transform 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s, border 0.2s;
+    border: 2px solid transparent;
 }
 
 .metric-card:hover {
     transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
-    border: 2px solid var(--accent);
-    background: linear-gradient(135deg, var(--bg-secondary) 0%, rgba(109, 40, 217, 0.03) 100%);
+    box-shadow: 0 8px 32px var(--accent-electric-glow);
+    border: 2px solid var(--accent-electric);
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, rgba(57, 255, 20, 0.05) 100%);
 }
 
 /* Initiatives Section */
@@ -1634,8 +1657,8 @@ iframe {
     
     .hero-title,
     .case-title {
-        font-size: 36px;
-        line-height: 1.3;
+        font-size: 3rem;
+        line-height: 1.2;
     }
     
     .hero-description {
@@ -1694,7 +1717,7 @@ iframe {
     
     /* Typography adjustments */
     .section-title {
-        font-size: 32px;
+        font-size: 2.5rem;
         margin-bottom: 32px;
     }
     
@@ -1785,8 +1808,8 @@ iframe {
     
     .hero-title,
     .case-title {
-        font-size: 28px;
-        line-height: 1.3;
+        font-size: 2rem;
+        line-height: 1.2;
     }
     
     .hero-description {
@@ -1837,9 +1860,9 @@ iframe {
     
     /* Typography */
     .section-title {
-        font-size: 26px;
+        font-size: 1.75rem;
         margin-bottom: 24px;
-        line-height: 1.3;
+        line-height: 1.2;
     }
     
     /* Resume header adjustments */
@@ -2227,35 +2250,36 @@ iframe {
     grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
     gap: 24px;
     margin: 32px 0;
-    padding: 32px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
     animation: fadeInUp 0.6s ease-out 0.6s both;
 }
 
 .stat {
     text-align: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 24px;
+    background: var(--accent-electric);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px var(--accent-electric-glow);
 }
 
 .stat:hover {
     transform: translateY(-4px);
+    box-shadow: 0 8px 32px var(--accent-electric-glow);
 }
 
 .stat-number {
     display: block;
     font-size: 36px;
     font-weight: 800;
-    color: white;
+    color: var(--bg-dark);
     margin-bottom: 4px;
 }
 
 .stat-label {
     display: block;
     font-size: 14px;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--bg-dark);
+    font-weight: 600;
 }
 
 /* Career Timeline */
