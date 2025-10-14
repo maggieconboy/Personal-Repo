@@ -2361,7 +2361,7 @@ iframe {
 /* Story Section */
 .story-section {
     padding: 80px 0;
-    background: white;
+    background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 50%, #f3e8ff 100%);
 }
 
 .story-content {
@@ -2373,7 +2373,7 @@ iframe {
 
 .story-card {
     padding: 32px;
-    background: var(--bg-secondary);
+    background: white;
     border-radius: 12px;
     border-top: 4px solid var(--border);
 }
