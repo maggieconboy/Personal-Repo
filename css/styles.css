@@ -4562,7 +4562,7 @@ section {
 }
 
 .wave-separator-bottom .shape-fill {
-    fill: var(--bg-secondary);
+    fill: var(--accent);
 }
 
 /* Angled separator for dynamic transitions */
