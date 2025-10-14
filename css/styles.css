@@ -814,14 +814,14 @@ iframe {
 .hero-tag {
     display: inline-block;
     padding: 6px 12px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: var(--accent-electric);
+    border: 1px solid var(--accent-electric);
     border-radius: 20px;
     font-size: 14px;
-    font-weight: 500;
-    color: white;
+    font-weight: 600;
+    color: var(--bg-dark);
     margin-bottom: 24px;
-    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 16px var(--accent-electric-glow);
     animation: fadeInUp 0.6s ease-out;
 }
 
@@ -2314,12 +2314,13 @@ iframe {
 .timeline-entry .year {
     display: inline-block;
     padding: 4px 12px;
-    background: var(--accent);
-    color: white;
+    background: var(--accent-electric);
+    color: var(--bg-dark);
     border-radius: 20px;
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: 16px;
+    box-shadow: 0 2px 8px var(--accent-electric-glow);
 }
 
 .timeline-entry h3 {
@@ -2349,7 +2350,8 @@ iframe {
     content: "→";
     position: absolute;
     left: 0;
-    color: var(--primary);
+    color: var(--accent-electric);
+    font-weight: 700;
 }
 
 /* Brand Grid */
