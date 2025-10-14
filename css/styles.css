@@ -3282,11 +3282,11 @@ section:not(.hero):not(.resume-header):not(.impact-hero):not(.portfolio-hero):no
 
 /* Alternating section backgrounds for visual rhythm
    Note: Maintains consistency by excluding hero sections and special CTA sections */
-section:nth-child(even):not(.hero):not(.resume-header):not(.impact-hero):not(.portfolio-hero):not(.txrh-hero):not(.executive-cta) {
+section:nth-child(even):not(.hero):not(.resume-header):not(.impact-hero):not(.portfolio-hero):not(.txrh-hero):not(.executive-cta):not(.current-cta):not(.case-cta):not(.research-cta):not(.research-hero) {
     background: var(--bg-secondary);
 }
 
-section:nth-child(odd):not(.hero):not(.resume-header):not(.impact-hero):not(.portfolio-hero):not(.txrh-hero):not(.executive-cta) {
+section:nth-child(odd):not(.hero):not(.resume-header):not(.impact-hero):not(.portfolio-hero):not(.txrh-hero):not(.executive-cta):not(.current-cta):not(.case-cta):not(.research-cta):not(.research-hero) {
     background: var(--bg-primary);
 }
 
