@@ -2506,7 +2506,7 @@ iframe {
     font-size: 18px;
     color: var(--text-secondary);
     max-width: 700px;
-    margin: -24px auto 48px;
+    margin: 0 auto 48px;
 }
 
 /* Proven Impact Section */
