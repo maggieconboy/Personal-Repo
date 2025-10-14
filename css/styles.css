@@ -172,10 +172,11 @@ iframe {
 .footer {
     padding: 48px 0;
     background: linear-gradient(135deg, var(--bg-secondary) 0%, #fafafa 100%);
-    border-top: 2px solid var(--accent);
+    /* REMOVED: Purple divider line - border-top: 2px solid var(--accent); */
     position: relative;
 }
 
+/* REMOVED: Purple divider line
 .footer::before {
     content: '';
     position: absolute;
@@ -185,6 +186,7 @@ iframe {
     height: 2px;
     background: var(--accent-gradient);
 }
+*/
 
 .footer-content {
     text-align: center;
@@ -3014,6 +3016,7 @@ iframe {
     position: relative;
 }
 
+/* REMOVED: Purple divider lines
 .impact-metrics:before,
 .platform-section:before,
 .implications-section:before {
@@ -3027,6 +3030,7 @@ iframe {
     background: var(--accent-gradient);
     border-radius: 2px;
 }
+*/
 
 /* Ensure the chart container has proper spacing */
 .revenue-chart {
@@ -3275,6 +3279,7 @@ section {
 
 /* Enhanced decorative dividers between sections with gradient 
    Note: Excludes all hero section variants to maintain their full-width design */
+/* REMOVED: Purple divider lines
 section:not(.hero):not(.resume-header):not(.impact-hero):not(.portfolio-hero):not(.txrh-hero):not(.case-hero)::before {
     content: '';
     position: absolute;
@@ -3288,6 +3293,7 @@ section:not(.hero):not(.resume-header):not(.impact-hero):not(.portfolio-hero):no
     opacity: 0.8;
     box-shadow: 0 2px 8px rgba(109, 40, 217, 0.2);
 }
+*/
 
 /* Alternating section backgrounds for visual rhythm
    Note: Maintains consistency by excluding hero sections and special CTA sections */
@@ -3373,6 +3379,7 @@ section:nth-child(odd):not(.hero):not(.resume-header):not(.impact-hero):not(.por
     margin-right: auto;
 }
 
+/* REMOVED: Purple divider lines under section titles
 .section-title::after {
     content: '';
     position: absolute;
@@ -3390,6 +3397,7 @@ section:nth-child(odd):not(.hero):not(.resume-header):not(.impact-hero):not(.por
 .section-title.visible::after {
     width: 100%;
 }
+*/
 
 /* Add a subtle entrance animation to section titles */
 .section-title {
@@ -3616,10 +3624,12 @@ section {
     }
     
     /* Instantly show section title underlines */
+    /* REMOVED: Purple divider lines
     .section-title::after {
         width: 100% !important;
         transition: none !important;
     }
+    */
     
     /* Disable decorative animations */
     .hero-decoration,
@@ -4457,6 +4467,7 @@ section {
    =================================================================== */
 
 /* Horizontal gradient dividers between sections */
+/* REMOVED: Purple divider lines - no longer used
 .section-divider {
     width: 100%;
     height: 4px;
@@ -4476,8 +4487,10 @@ section {
     height: 6px;
     opacity: 1;
 }
+*/
 
 /* Accent color band at top of sections */
+/* REMOVED: Purple divider lines
 .section-accent-band {
     position: absolute;
     top: 0;
@@ -4487,8 +4500,10 @@ section {
     background: var(--accent-gradient);
     z-index: 1;
 }
+*/
 
 /* Apply accent bands to key sections */
+/* REMOVED: Purple divider lines
 .career-impact::before,
 .featured-brands::before,
 .user-research-impact::before,
@@ -4503,6 +4518,7 @@ section {
     background: var(--accent-gradient);
     z-index: 1;
 }
+*/
 
 /* Wave SVG separator - top wave */
 .wave-separator-top {
