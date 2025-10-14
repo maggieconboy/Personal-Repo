@@ -2275,12 +2275,12 @@ iframe {
     padding: 32px;
     border-radius: 12px;
     border-left: 4px solid var(--border);
+    box-shadow: var(--shadow-md);
     transition: all 0.3s;
 }
 
 .timeline-entry.highlight {
     border-left-color: var(--accent);
-    box-shadow: var(--shadow-md);
 }
 
 .timeline-entry.current {
