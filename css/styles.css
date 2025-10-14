@@ -2361,7 +2361,7 @@ iframe {
 /* Story Section */
 .story-section {
     padding: 80px 0;
-    background: white;
+    background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 50%, #f3e8ff 100%);
 }
 
 .story-content {
@@ -2373,14 +2373,13 @@ iframe {
 
 .story-card {
     padding: 32px;
-    background: var(--bg-secondary);
+    background: white;
     border-radius: 12px;
     border-top: 4px solid var(--border);
 }
 
 .story-card.highlight {
     border-top-color: var(--success);
-    background: white;
     box-shadow: var(--shadow-md);
 }
 
@@ -3297,11 +3296,11 @@ section:not(.hero):not(.resume-header):not(.impact-hero):not(.portfolio-hero):no
 
 /* Alternating section backgrounds for visual rhythm
    Note: Maintains consistency by excluding hero sections and special CTA sections */
-section:nth-child(even):not(.hero):not(.resume-header):not(.impact-hero):not(.portfolio-hero):not(.txrh-hero):not(.executive-cta):not(.current-cta):not(.case-cta):not(.research-cta):not(.research-hero) {
+section:nth-child(even):not(.hero):not(.resume-header):not(.impact-hero):not(.portfolio-hero):not(.txrh-hero):not(.executive-cta):not(.current-cta):not(.case-cta):not(.research-cta):not(.research-hero):not(.story-section) {
     background: var(--bg-secondary);
 }
 
-section:nth-child(odd):not(.hero):not(.resume-header):not(.impact-hero):not(.portfolio-hero):not(.txrh-hero):not(.executive-cta):not(.current-cta):not(.case-cta):not(.research-cta):not(.research-hero) {
+section:nth-child(odd):not(.hero):not(.resume-header):not(.impact-hero):not(.portfolio-hero):not(.txrh-hero):not(.executive-cta):not(.current-cta):not(.case-cta):not(.research-cta):not(.research-hero):not(.story-section) {
     background: var(--bg-primary);
 }
 
