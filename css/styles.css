@@ -2380,7 +2380,6 @@ iframe {
 
 .story-card.highlight {
     border-top-color: var(--success);
-    background: white;
     box-shadow: var(--shadow-md);
 }
 
