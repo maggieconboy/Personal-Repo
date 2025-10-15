@@ -1797,10 +1797,8 @@ iframe {
     .header-decoration-orb {
         display: none;
     }
-}
-
-/* Mobile adjustments for TXRH sections */
-@media (max-width: 768px) {
+    
+    /* TXRH specific spacing adjustments */
     .txrh-outcome-section {
         padding: 60px 0 30px;
     }
