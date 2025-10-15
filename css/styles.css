@@ -474,12 +474,12 @@ iframe {
 
 /* TXRH Specific: Reduce spacing for outcome section */
 .txrh-outcome-section {
-    padding: 80px 0 40px;
+    padding: 80px 0 20px;
 }
 
 /* TXRH Specific: "What This Proves" section styling */
 .txrh-proves-section {
-    padding: 40px 0 80px;
+    padding: 20px 0 80px;
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     position: relative;
 }
@@ -1848,11 +1848,11 @@ iframe {
     
     /* TXRH specific responsive adjustments for section spacing */
     .txrh-outcome-section {
-        padding: 60px 0 30px;
+        padding: 60px 0 15px;
     }
     
     .txrh-proves-section {
-        padding: 30px 0 60px;
+        padding: 15px 0 60px;
     }
 }
 
