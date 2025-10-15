@@ -3796,6 +3796,25 @@ section {
     text-decoration: underline;
 }
 
+/* Personas Visual Section */
+.personas-visual {
+    padding: 80px 0;
+    background: white;
+}
+
+.personas-visual .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.personas-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: block;
+}
+
 /* Research & Deliverables Page Styles */
 
 /* Research Hero */
