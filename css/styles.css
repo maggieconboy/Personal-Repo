@@ -1798,7 +1798,7 @@ iframe {
         display: none;
     }
     
-    /* TXRH specific responsive adjustments for section spacing and backgrounds */
+    /* TXRH specific responsive adjustments for section spacing */
     .txrh-outcome-section {
         padding: 60px 0 30px;
     }
