@@ -27,7 +27,7 @@
     --success: #1a7f37;
     
     /* Video intro transition timing */
-    --video-fade-duration: 0.8s;
+    --video-fade-duration: 1s;
 }
 
 /* Reset and Base Styles */
@@ -822,7 +822,7 @@ iframe {
     position: relative;
     overflow: hidden;
     opacity: 0;
-    transition: opacity 1s ease-in;
+    transition: opacity 0.8s ease-in;
 }
 
 .hero.visible {
