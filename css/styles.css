@@ -1853,10 +1853,6 @@ iframe {
         padding: 60px 0;
     }
     
-    .portfolio-showcase-image {
-        border-radius: 8px;
-    }
-    
     /* CTA sections */
     .cta-buttons {
         flex-direction: column;
