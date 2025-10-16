@@ -95,6 +95,16 @@ function initVideoIntro() {
         return;
     }
     
+    // Shared function to skip video and show hero section
+    function skipToHeroSection() {
+        videoIntro.classList.add('hidden');
+        heroSection.classList.add('visible');
+        heroSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+    
     // Function to fade out video and show hero
     function fadeOutAndShowHero() {
         console.log('Video ended, fading out and showing hero section');
@@ -119,12 +129,7 @@ function initVideoIntro() {
     // Handle video error - skip to hero section
     introVideo.addEventListener('error', function(e) {
         console.error('Video failed to load, skipping to hero section', e);
-        videoIntro.classList.add('hidden');
-        heroSection.classList.add('visible');
-        heroSection.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
+        skipToHeroSection();
     });
     
     // Wait for video metadata to load before attempting to play
@@ -141,9 +146,7 @@ function initVideoIntro() {
             }).catch(error => {
                 // Autoplay was prevented - this is common in modern browsers
                 console.warn('Video playback prevented:', error);
-                // Skip directly to hero section if playback fails
-                videoIntro.classList.add('hidden');
-                heroSection.classList.add('visible');
+                skipToHeroSection();
             });
         }
     });
