@@ -1848,6 +1848,15 @@ iframe {
         gap: 12px;
     }
     
+    /* Portfolio showcase */
+    .portfolio-showcase {
+        padding: 60px 0;
+    }
+    
+    .portfolio-showcase-image {
+        border-radius: 4px;
+    }
+    
     /* CTA sections */
     .cta-buttons {
         flex-direction: column;
@@ -1968,7 +1977,8 @@ iframe {
     .journey-section,
     .implications-section,
     .case-cta,
-    .user-research-impact {
+    .user-research-impact,
+    .portfolio-showcase {
         padding: 48px 0;
     }
     
@@ -2351,9 +2361,9 @@ iframe {
 
 /* Portfolio Showcase Section */
 .portfolio-showcase {
-    padding: 0;
+    padding: 80px 0;
     margin: 0;
-    background: transparent;
+    background: var(--bg-secondary);
     display: block;
     width: 100%;
 }
@@ -2362,10 +2372,12 @@ iframe {
     width: 100%;
     height: auto;
     display: block;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     border: none;
-    box-shadow: none;
+    box-shadow: var(--shadow-lg);
+    border-radius: 8px;
+    max-width: 1200px;
 }
 
 /* Additional Brands Section */
