@@ -3792,9 +3792,9 @@ section {
     }
 }
 
-/* P&L Ownership Section - Pixelated Background */
+/* P&L Ownership Section - Graffiti Background */
 .pnl-ownership-section {
-    background-image: url('../assets/images/gray-pizelated-background.png');
+    background-image: url('../assets/images/grafitti-background.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
