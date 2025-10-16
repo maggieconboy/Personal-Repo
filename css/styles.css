@@ -4732,6 +4732,131 @@ section {
     fill: var(--bg-primary);
 }
 
+/* Image-based Section Divider Component */
+/* Usage: <div class="image-section-divider">
+            <div class="divider-content">
+                <p class="divider-copy-top">Optional copy above image</p>
+                <div class="divider-image-container">
+                    <img src="path/to/image.png" alt="Description">
+                </div>
+                <p class="divider-copy-bottom">Optional copy below image</p>
+            </div>
+          </div>
+*/
+.image-section-divider {
+    width: 100%;
+    padding: 80px 0;
+    background: var(--bg-secondary);
+    position: relative;
+    overflow: hidden;
+}
+
+.image-section-divider .divider-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    text-align: center;
+}
+
+.image-section-divider .divider-copy-top,
+.image-section-divider .divider-copy-bottom {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.image-section-divider .divider-copy-top {
+    margin-bottom: 32px;
+}
+
+.image-section-divider .divider-copy-bottom {
+    margin-top: 32px;
+}
+
+.image-section-divider .divider-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.image-section-divider .divider-image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: var(--shadow-lg);
+    display: block;
+}
+
+/* Responsive adjustments for image divider */
+@media (max-width: 768px) {
+    .image-section-divider {
+        padding: 60px 0;
+    }
+    
+    .image-section-divider .divider-copy-top,
+    .image-section-divider .divider-copy-bottom {
+        font-size: 16px;
+    }
+    
+    .image-section-divider .divider-copy-top {
+        margin-bottom: 24px;
+    }
+    
+    .image-section-divider .divider-copy-bottom {
+        margin-top: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .image-section-divider {
+        padding: 40px 0;
+    }
+    
+    .image-section-divider .divider-copy-top {
+        margin-bottom: 16px;
+    }
+    
+    .image-section-divider .divider-copy-bottom {
+        margin-top: 16px;
+    }
+}
+
+/* Variant: Dark background */
+.image-section-divider.dark {
+    background: var(--bg-dark);
+}
+
+.image-section-divider.dark .divider-copy-top,
+.image-section-divider.dark .divider-copy-bottom {
+    color: var(--text-light);
+}
+
+/* Variant: Compact spacing */
+.image-section-divider.compact {
+    padding: 48px 0;
+}
+
+.image-section-divider.compact .divider-copy-top {
+    margin-bottom: 20px;
+}
+
+.image-section-divider.compact .divider-copy-bottom {
+    margin-top: 20px;
+}
+
+/* Variant: Wide image (full bleed on larger screens) */
+.image-section-divider.wide .divider-image-container {
+    max-width: 100%;
+}
+
+.image-section-divider.wide .divider-image-container img {
+    max-width: 1400px;
+    width: 100%;
+}
+
 /* Enhanced section headers with animation */
 .section-header-enhanced {
     text-align: center;
