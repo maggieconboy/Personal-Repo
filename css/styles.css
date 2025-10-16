@@ -4892,6 +4892,34 @@ section {
     width: 100%;
 }
 
+/* Variant: Full-bleed edge-to-edge divider */
+.image-section-divider.full-bleed {
+    padding: 0;
+    background: #000000;
+    margin: 0;
+}
+
+.image-section-divider.full-bleed .divider-content {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.image-section-divider.full-bleed .divider-image-container {
+    margin: 0;
+    max-width: 100%;
+}
+
+.image-section-divider.full-bleed .divider-image-container img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+}
+
 /* Enhanced section headers with animation */
 .section-header-enhanced {
     text-align: center;
