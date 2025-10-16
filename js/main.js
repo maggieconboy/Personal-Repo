@@ -64,7 +64,25 @@ function initVideoIntro() {
     const introVideo = document.getElementById('intro-video');
     const heroSection = document.querySelector('.hero');
     
-    if (!videoIntro || !introVideo || !heroSection) return;
+    if (!videoIntro || !introVideo || !heroSection) {
+        // If no video intro, show hero immediately
+        if (heroSection) {
+            heroSection.classList.add('visible');
+        }
+        return;
+    }
+    
+    // Get video fade duration from CSS custom property
+    let fadeDuration = 800; // Default fallback (matches --video-fade-duration: 0.8s)
+    try {
+        const cssValue = getComputedStyle(document.documentElement)
+            .getPropertyValue('--video-fade-duration');
+        if (cssValue) {
+            fadeDuration = parseFloat(cssValue) * 1000;
+        }
+    } catch (e) {
+        console.warn('Could not read --video-fade-duration from CSS, using default 800ms');
+    }
     
     // Check if user prefers reduced motion
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -73,6 +91,7 @@ function initVideoIntro() {
         // Skip video for users who prefer reduced motion
         videoIntro.classList.add('hidden');
         introVideo.pause();
+        heroSection.classList.add('visible');
         return;
     }
     
@@ -81,17 +100,23 @@ function initVideoIntro() {
         // Hide video intro section
         videoIntro.classList.add('hidden');
         
-        // Scroll to hero section smoothly
-        heroSection.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
+        // After video fades out, show hero section with fade-in
+        setTimeout(function() {
+            heroSection.classList.add('visible');
+            
+            // Scroll to hero section smoothly
+            heroSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }, fadeDuration); // Wait for video fade-out transition
     });
     
     // Handle video error - skip to hero section
     introVideo.addEventListener('error', function() {
         console.error('Video failed to load, skipping to hero section');
         videoIntro.classList.add('hidden');
+        heroSection.classList.add('visible');
         heroSection.scrollIntoView({
             behavior: 'smooth',
             block: 'start'
