@@ -73,7 +73,7 @@ function initVideoIntro() {
     }
     
     // Get video fade duration from CSS custom property
-    let fadeDuration = 800; // Default fallback (matches --video-fade-duration: 0.8s)
+    let fadeDuration = 1000; // Default fallback (matches --video-fade-duration: 1s)
     try {
         const cssValue = getComputedStyle(document.documentElement)
             .getPropertyValue('--video-fade-duration');
@@ -81,7 +81,7 @@ function initVideoIntro() {
             fadeDuration = parseFloat(cssValue) * 1000;
         }
     } catch (e) {
-        console.warn('Could not read --video-fade-duration from CSS, using default 800ms');
+        console.warn('Could not read --video-fade-duration from CSS, using default 1000ms');
     }
     
     // Check if user prefers reduced motion
@@ -95,19 +95,46 @@ function initVideoIntro() {
         return;
     }
     
+    // Track whether video has been skipped/completed
+    let videoCompleted = false;
+    
     // Shared function to skip video and show hero section
     function skipToHeroSection() {
+        if (videoCompleted) return; // Prevent multiple calls
+        videoCompleted = true;
+        
+        // Pause video if playing
+        if (!introVideo.paused) {
+            introVideo.pause();
+        }
+        
+        // Remove skip event listeners to prevent duplicate calls
+        document.removeEventListener('keydown', handleSkipKey);
+        videoIntro.removeEventListener('click', handleSkipClick);
+        
         videoIntro.classList.add('hidden');
-        heroSection.classList.add('visible');
-        heroSection.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        });
+        
+        // Show hero section after fade transition
+        setTimeout(function() {
+            heroSection.classList.add('visible');
+            heroSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }, fadeDuration);
     }
     
     // Function to fade out video and show hero
     function fadeOutAndShowHero() {
+        if (videoCompleted) return; // Prevent multiple calls
+        videoCompleted = true;
+        
         console.log('Video ended, fading out and showing hero section');
+        
+        // Remove skip event listeners
+        document.removeEventListener('keydown', handleSkipKey);
+        videoIntro.removeEventListener('click', handleSkipClick);
+        
         // Hide video intro section
         videoIntro.classList.add('hidden');
         
@@ -121,6 +148,17 @@ function initVideoIntro() {
                 block: 'start'
             });
         }, fadeDuration); // Wait for video fade-out transition
+    }
+    
+    // Skip handlers
+    function handleSkipKey(e) {
+        // Skip on any key press
+        skipToHeroSection();
+    }
+    
+    function handleSkipClick(e) {
+        // Skip on click
+        skipToHeroSection();
     }
     
     // Handle video end event
@@ -143,6 +181,10 @@ function initVideoIntro() {
             playPromise.then(() => {
                 // Video is playing successfully
                 console.log('Video intro is now playing');
+                
+                // Add skip event listeners after video starts playing
+                document.addEventListener('keydown', handleSkipKey);
+                videoIntro.addEventListener('click', handleSkipClick);
             }).catch(error => {
                 // Autoplay was prevented - this is common in modern browsers
                 console.warn('Video playback prevented:', error);
@@ -150,6 +192,19 @@ function initVideoIntro() {
             });
         }
     });
+    
+    // Fallback timeout: if video doesn't load or play within 3 seconds, skip to hero
+    const fallbackTimeout = setTimeout(function() {
+        if (!videoCompleted && (introVideo.readyState < 2 || introVideo.paused)) {
+            console.warn('Video failed to load or play within timeout, skipping to hero section');
+            skipToHeroSection();
+        }
+    }, 3000);
+    
+    // Clear fallback timeout when video starts playing
+    introVideo.addEventListener('playing', function() {
+        clearTimeout(fallbackTimeout);
+    }, { once: true });
     
     // Trigger metadata load
     introVideo.load();
