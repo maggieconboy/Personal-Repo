@@ -58,8 +58,28 @@ function initScrollAnimations() {
 
 
 
+// Handle intro animation
+function initIntroAnimation() {
+    const introOverlay = document.getElementById('introOverlay');
+    
+    if (introOverlay) {
+        // Hide intro after animation completes (4.3 seconds total)
+        setTimeout(() => {
+            introOverlay.classList.add('hidden');
+            // Enable scrolling after intro
+            document.body.style.overflow = 'auto';
+        }, 4300);
+        
+        // Disable scrolling during intro
+        document.body.style.overflow = 'hidden';
+    }
+}
+
 // Smooth scroll for anchor links
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize intro animation
+    initIntroAnimation();
+    
     // Initialize scroll animations
     initScrollAnimations();
     
