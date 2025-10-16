@@ -25,6 +25,9 @@
     
     /* Legacy success for compatibility */
     --success: #1a7f37;
+    
+    /* Video intro transition timing */
+    --video-fade-duration: 0.8s;
 }
 
 /* Reset and Base Styles */
@@ -141,7 +144,7 @@ iframe {
 .video-intro.hidden {
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.8s ease-out;
+    transition: opacity var(--video-fade-duration) ease-out;
 }
 
 /* Button Styles */

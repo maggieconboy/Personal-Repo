@@ -72,6 +72,10 @@ function initVideoIntro() {
         return;
     }
     
+    // Get video fade duration from CSS custom property
+    const fadeDuration = parseFloat(getComputedStyle(document.documentElement)
+        .getPropertyValue('--video-fade-duration')) * 1000 || 800;
+    
     // Check if user prefers reduced motion
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     
@@ -97,7 +101,7 @@ function initVideoIntro() {
                 behavior: 'smooth',
                 block: 'start'
             });
-        }, 800); // Wait for video fade-out transition
+        }, fadeDuration); // Wait for video fade-out transition
     });
     
     // Handle video error - skip to hero section
