@@ -103,8 +103,6 @@ function initVideoIntro() {
         if (videoCompleted) return; // Prevent multiple calls
         videoCompleted = true;
         
-        console.log('User skipped video');
-        
         // Pause video if playing
         if (!introVideo.paused) {
             introVideo.pause();
@@ -155,11 +153,13 @@ function initVideoIntro() {
     // Skip handlers
     function handleSkipKey(e) {
         // Skip on any key press
+        console.log('User skipped video');
         skipToHeroSection();
     }
     
     function handleSkipClick(e) {
         // Skip on click
+        console.log('User skipped video');
         skipToHeroSection();
     }
     
