@@ -291,6 +291,13 @@ iframe {
     width: 100%;
 }
 
+.personas-visual .container {
+    padding: 0 !important;
+    margin: 0;
+    width: 100%;
+    max-width: none;
+}
+
 .personas-image {
     display: block;
     width: 100%;
