@@ -284,6 +284,28 @@ iframe {
     padding: 0;
 }
 
+/* Personas Visual Overrides - Remove all padding for full-bleed effect */
+.personas-visual {
+    padding: 0 !important;
+    margin: 0;
+    width: 100%;
+}
+
+.personas-visual .container {
+    padding: 0 !important;
+    margin: 0;
+    width: 100%;
+    max-width: none;
+}
+
+.personas-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
 /* Case Study Page Styles */
 .case-hero {
     padding: 80px 0 100px;
