@@ -73,8 +73,16 @@ function initVideoIntro() {
     }
     
     // Get video fade duration from CSS custom property
-    const fadeDuration = parseFloat(getComputedStyle(document.documentElement)
-        .getPropertyValue('--video-fade-duration')) * 1000 || 800;
+    let fadeDuration = 800; // Default fallback (matches --video-fade-duration: 0.8s)
+    try {
+        const cssValue = getComputedStyle(document.documentElement)
+            .getPropertyValue('--video-fade-duration');
+        if (cssValue) {
+            fadeDuration = parseFloat(cssValue) * 1000;
+        }
+    } catch (e) {
+        console.warn('Could not read --video-fade-duration from CSS, using default 800ms');
+    }
     
     // Check if user prefers reduced motion
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
