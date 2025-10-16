@@ -129,7 +129,7 @@ function initVideoIntro() {
         if (videoCompleted) return; // Prevent multiple calls
         videoCompleted = true;
         
-        console.log('Video ended, fading out and showing hero section');
+        console.log('Video ended, starting fade-out');
         
         // Remove skip event listeners
         document.removeEventListener('keydown', handleSkipKey);
@@ -153,11 +153,13 @@ function initVideoIntro() {
     // Skip handlers
     function handleSkipKey(e) {
         // Skip on any key press
+        console.log('User skipped video');
         skipToHeroSection();
     }
     
     function handleSkipClick(e) {
         // Skip on click
+        console.log('User skipped video');
         skipToHeroSection();
     }
     
@@ -172,7 +174,7 @@ function initVideoIntro() {
     
     // Wait for video metadata to load before attempting to play
     introVideo.addEventListener('loadedmetadata', function() {
-        console.log('Video metadata loaded. Duration:', introVideo.duration, 'seconds');
+        console.log('Video loaded and ready to play');
         
         // Attempt to play the video
         const playPromise = introVideo.play();
@@ -180,7 +182,7 @@ function initVideoIntro() {
         if (playPromise !== undefined) {
             playPromise.then(() => {
                 // Video is playing successfully
-                console.log('Video intro is now playing');
+                console.log('Video playback started');
                 
                 // Add skip event listeners after video starts playing
                 document.addEventListener('keydown', handleSkipKey);
@@ -193,13 +195,13 @@ function initVideoIntro() {
         }
     });
     
-    // Fallback timeout: if video doesn't load or play within 3 seconds, skip to hero
+    // Fallback timeout: if video doesn't load or play within 10 seconds, skip to hero
     const fallbackTimeout = setTimeout(function() {
         if (!videoCompleted && (introVideo.readyState < 2 || introVideo.paused)) {
-            console.warn('Video failed to load or play within timeout, skipping to hero section');
+            console.warn('Video failed to load or autoplay blocked');
             skipToHeroSection();
         }
-    }, 3000);
+    }, 10000);
     
     // Clear fallback timeout when video starts playing
     introVideo.addEventListener('playing', function() {
