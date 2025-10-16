@@ -90,8 +90,8 @@ Omit the top paragraph:
 
 ## Responsive Behavior
 
-- **Desktop (1280px+)**: Full padding (80px vertical), 18px text
-- **Tablet (768px)**: Medium padding (60px vertical), 16px text
+- **Desktop (769px and above)**: Full padding (80px vertical), 18px text
+- **Tablet (481px - 768px)**: Medium padding (60px vertical), 16px text  
 - **Mobile (480px and below)**: Compact padding (40px vertical), 16px text
 
 ## Accessibility
