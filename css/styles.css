@@ -3746,6 +3746,32 @@ section {
     }
 }
 
+/* P&L Ownership Section - Pixelated Background */
+.pnl-ownership-section {
+    background: var(--bg-secondary);
+    position: relative;
+}
+
+.pnl-ownership-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 0, 0, 0.025) 2px, rgba(0, 0, 0, 0.025) 4px),
+        repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0, 0, 0, 0.025) 2px, rgba(0, 0, 0, 0.025) 4px),
+        repeating-linear-gradient(45deg, transparent, transparent 3px, rgba(0, 0, 0, 0.015) 3px, rgba(0, 0, 0, 0.015) 6px),
+        repeating-linear-gradient(-45deg, transparent, transparent 3px, rgba(0, 0, 0, 0.015) 3px, rgba(0, 0, 0, 0.015) 6px);
+    background-size: 4px 4px, 4px 4px, 6px 6px, 6px 6px;
+    opacity: 0.6;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.pnl-ownership-section .container {
+    position: relative;
+    z-index: 1;
+}
+
 /* User Research & Journey Mapping */
 .user-research-impact {
     padding: 80px 0;
