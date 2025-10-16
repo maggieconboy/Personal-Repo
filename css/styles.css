@@ -136,7 +136,9 @@ iframe {
 }
 
 .video-intro.hidden {
-    display: none;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-out;
 }
 
 /* Button Styles */

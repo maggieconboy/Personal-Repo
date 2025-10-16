@@ -66,6 +66,16 @@ function initVideoIntro() {
     
     if (!videoIntro || !introVideo || !heroSection) return;
     
+    // Check if user prefers reduced motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    if (prefersReducedMotion) {
+        // Skip video for users who prefer reduced motion
+        videoIntro.classList.add('hidden');
+        introVideo.pause();
+        return;
+    }
+    
     // Handle video end event
     introVideo.addEventListener('ended', function() {
         // Hide video intro section
@@ -83,7 +93,7 @@ function initVideoIntro() {
         console.error('Video failed to load, skipping to hero section');
         videoIntro.classList.add('hidden');
         heroSection.scrollIntoView({
-            behavior: 'instant',
+            behavior: 'smooth',
             block: 'start'
         });
     });
