@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/zendesk-carousel.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Swiper CSS -->
@@ -176,11 +177,11 @@
         </div>
     </footer>
 
-    <!-- Swiper JS -->
+    <!-- Swiper JS - Load before dependent scripts -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     
     <!-- Scripts -->
-    <script src="js/mobile-menu.js"></script>
+    <script src="js/mobile-menu.js" defer></script>
     <script src="js/zendesk-carousel.js"></script>
 </body>
 </html>

@@ -3446,11 +3446,6 @@ section:nth-child(odd):not(.hero):not(.resume-header):not(.impact-hero):not(.por
     transition-delay: 0.6s;
 }
 
-/* Subtle parallax effect on scroll */
-.parallax-section {
-    transition: transform 0.1s ease-out;
-}
-
 /* Enhanced section titles with improved animation and typography */
 .section-title {
     position: relative;
