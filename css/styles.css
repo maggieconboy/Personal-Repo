@@ -250,6 +250,40 @@ iframe {
 /* ADD YOUR CASE STUDY STYLES BELOW THIS LINE */
 /* ========================================== */
 
+/* Section Divider Image Overrides - Remove all padding for full-bleed effect */
+.image-section-divider,
+.image-section-divider.full-bleed,
+.image-section-divider .divider-content,
+.image-section-divider .divider-image-container {
+    padding: 0 !important;
+    margin: 0;
+    width: 100%;
+    max-width: none;
+}
+
+.image-section-divider img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+/* Portfolio Showcase Overrides - Remove all padding for full-bleed effect */
+.portfolio-showcase {
+    padding: 0 !important;
+    margin: 0;
+    width: 100%;
+}
+
+.portfolio-showcase-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
 /* Case Study Page Styles */
 .case-hero {
     padding: 80px 0 100px;
