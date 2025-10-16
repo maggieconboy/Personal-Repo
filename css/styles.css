@@ -2319,24 +2319,6 @@ iframe {
     width: 100%;
 }
 
-.showcase-description {
-    text-align: center;
-    font-size: 18px;
-    color: var(--text-secondary);
-    max-width: 800px;
-    margin: 0 auto 48px;
-    line-height: 1.6;
-}
-
-.showcase-image-wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: var(--shadow-lg);
-    border: 1px solid var(--border);
-}
-
 .portfolio-showcase-image {
     width: 100%;
     height: auto;
