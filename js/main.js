@@ -58,8 +58,52 @@ function initScrollAnimations() {
 
 
 
+// Video intro handler
+function initVideoIntro() {
+    const videoIntro = document.getElementById('video-intro');
+    const introVideo = document.getElementById('intro-video');
+    const heroSection = document.querySelector('.hero');
+    
+    if (!videoIntro || !introVideo || !heroSection) return;
+    
+    // Check if user prefers reduced motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    if (prefersReducedMotion) {
+        // Skip video for users who prefer reduced motion
+        videoIntro.classList.add('hidden');
+        introVideo.pause();
+        return;
+    }
+    
+    // Handle video end event
+    introVideo.addEventListener('ended', function() {
+        // Hide video intro section
+        videoIntro.classList.add('hidden');
+        
+        // Scroll to hero section smoothly
+        heroSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    });
+    
+    // Handle video error - skip to hero section
+    introVideo.addEventListener('error', function() {
+        console.error('Video failed to load, skipping to hero section');
+        videoIntro.classList.add('hidden');
+        heroSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    });
+}
+
 // Smooth scroll for anchor links
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize video intro
+    initVideoIntro();
+    
     // Initialize scroll animations
     initScrollAnimations();
     
