@@ -2310,6 +2310,36 @@ iframe {
     text-align: center;
 }
 
+/* Portfolio Showcase Section */
+.portfolio-showcase {
+    padding: 80px 0;
+    background: white;
+}
+
+.showcase-description {
+    text-align: center;
+    font-size: 18px;
+    color: var(--text-secondary);
+    max-width: 800px;
+    margin: 0 auto 48px;
+    line-height: 1.6;
+}
+
+.showcase-image-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border);
+}
+
+.portfolio-showcase-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 /* Additional Brands Section */
 .additional-brands {
     padding: 80px 0;
