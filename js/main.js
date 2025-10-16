@@ -63,12 +63,19 @@ function initIntroAnimation() {
     const introOverlay = document.getElementById('introOverlay');
     
     if (introOverlay) {
-        // Hide intro after animation completes (4.3 seconds total)
+        // Check if user prefers reduced motion
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        
+        // Adjust timing based on motion preference
+        // Normal: 4.3s (3.5s delay + 0.8s fadeout), Reduced: 2.3s (2s delay + 0.3s fadeout)
+        const hideDelay = prefersReducedMotion ? 2300 : 4300;
+        
+        // Hide intro after animation completes
         setTimeout(() => {
             introOverlay.classList.add('hidden');
             // Enable scrolling after intro
             document.body.style.overflow = 'auto';
-        }, 4300);
+        }, hideDelay);
         
         // Disable scrolling during intro
         document.body.style.overflow = 'hidden';
