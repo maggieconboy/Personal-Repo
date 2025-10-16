@@ -2312,8 +2312,11 @@ iframe {
 
 /* Portfolio Showcase Section */
 .portfolio-showcase {
-    padding: 80px 0;
-    background: white;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    display: block;
+    width: 100%;
 }
 
 .showcase-description {
@@ -2338,6 +2341,10 @@ iframe {
     width: 100%;
     height: auto;
     display: block;
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-shadow: none;
 }
 
 /* Additional Brands Section */
@@ -3413,11 +3420,11 @@ section:not(.hero):not(.resume-header):not(.impact-hero):not(.portfolio-hero):no
 
 /* Alternating section backgrounds for visual rhythm
    Note: Maintains consistency by excluding hero sections and special CTA sections */
-section:nth-child(even):not(.hero):not(.resume-header):not(.impact-hero):not(.portfolio-hero):not(.txrh-hero):not(.executive-cta):not(.current-cta):not(.case-cta):not(.research-cta):not(.research-hero):not(.story-section):not(.financial-impact) {
+section:nth-child(even):not(.hero):not(.resume-header):not(.impact-hero):not(.portfolio-hero):not(.txrh-hero):not(.executive-cta):not(.current-cta):not(.case-cta):not(.research-cta):not(.research-hero):not(.story-section):not(.financial-impact):not(.portfolio-showcase) {
     background: var(--bg-secondary);
 }
 
-section:nth-child(odd):not(.hero):not(.resume-header):not(.impact-hero):not(.portfolio-hero):not(.txrh-hero):not(.executive-cta):not(.current-cta):not(.case-cta):not(.research-cta):not(.research-hero):not(.story-section):not(.financial-impact) {
+section:nth-child(odd):not(.hero):not(.resume-header):not(.impact-hero):not(.portfolio-hero):not(.txrh-hero):not(.executive-cta):not(.current-cta):not(.case-cta):not(.research-cta):not(.research-hero):not(.story-section):not(.financial-impact):not(.portfolio-showcase) {
     background: var(--bg-primary);
 }
 
