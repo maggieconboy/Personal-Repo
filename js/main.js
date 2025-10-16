@@ -95,8 +95,9 @@ function initVideoIntro() {
         return;
     }
     
-    // Handle video end event
-    introVideo.addEventListener('ended', function() {
+    // Function to fade out video and show hero
+    function fadeOutAndShowHero() {
+        console.log('Video ended, fading out and showing hero section');
         // Hide video intro section
         videoIntro.classList.add('hidden');
         
@@ -110,11 +111,14 @@ function initVideoIntro() {
                 block: 'start'
             });
         }, fadeDuration); // Wait for video fade-out transition
-    });
+    }
+    
+    // Handle video end event
+    introVideo.addEventListener('ended', fadeOutAndShowHero);
     
     // Handle video error - skip to hero section
-    introVideo.addEventListener('error', function() {
-        console.error('Video failed to load, skipping to hero section');
+    introVideo.addEventListener('error', function(e) {
+        console.error('Video failed to load, skipping to hero section', e);
         videoIntro.classList.add('hidden');
         heroSection.classList.add('visible');
         heroSection.scrollIntoView({
@@ -122,6 +126,30 @@ function initVideoIntro() {
             block: 'start'
         });
     });
+    
+    // Wait for video metadata to load before attempting to play
+    introVideo.addEventListener('loadedmetadata', function() {
+        console.log('Video metadata loaded. Duration:', introVideo.duration, 'seconds');
+        
+        // Attempt to play the video
+        const playPromise = introVideo.play();
+        
+        if (playPromise !== undefined) {
+            playPromise.then(() => {
+                // Video is playing successfully
+                console.log('Video intro is now playing');
+            }).catch(error => {
+                // Autoplay was prevented - this is common in modern browsers
+                console.warn('Video playback prevented:', error);
+                // Skip directly to hero section if playback fails
+                videoIntro.classList.add('hidden');
+                heroSection.classList.add('visible');
+            });
+        }
+    });
+    
+    // Trigger metadata load
+    introVideo.load();
 }
 
 // Smooth scroll for anchor links
