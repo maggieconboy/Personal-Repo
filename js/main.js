@@ -214,9 +214,6 @@ function initVideoIntro() {
 
 // Smooth scroll for anchor links
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize video intro
-    initVideoIntro();
-    
     // Initialize scroll animations
     initScrollAnimations();
     
