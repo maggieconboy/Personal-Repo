@@ -58,162 +58,181 @@ function initScrollAnimations() {
 
 
 
-// Video intro handler
-function initVideoIntro() {
-    const videoIntro = document.getElementById('video-intro');
+// Video intro onboarding sequence handler
+function initVideoIntroOnboarding() {
+    const onboardingContainer = document.getElementById('video-intro-onboarding');
+    const videoPhase = document.getElementById('video-phase');
+    const textPhase = document.getElementById('text-phase');
     const introVideo = document.getElementById('intro-video');
     const heroSection = document.querySelector('.hero');
     
-    if (!videoIntro || !introVideo || !heroSection) {
-        // If no video intro, show hero immediately
+    // Check if elements exist
+    if (!onboardingContainer || !videoPhase || !textPhase || !introVideo || !heroSection) {
+        // If no onboarding elements, show hero immediately
         if (heroSection) {
             heroSection.classList.add('visible');
         }
         return;
     }
     
-    // Get video fade duration from CSS custom property
-    let fadeDuration = 1000; // Default fallback (matches --video-fade-duration: 1s)
-    try {
-        const cssValue = getComputedStyle(document.documentElement)
-            .getPropertyValue('--video-fade-duration');
-        if (cssValue) {
-            fadeDuration = parseFloat(cssValue) * 1000;
-        }
-    } catch (e) {
-        console.warn('Could not read --video-fade-duration from CSS, using default 1000ms');
-    }
-    
     // Check if user prefers reduced motion
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     
     if (prefersReducedMotion) {
-        // Skip video for users who prefer reduced motion
-        videoIntro.classList.add('hidden');
-        introVideo.pause();
+        console.log('[Accessibility] User prefers reduced motion - skipping onboarding');
+        onboardingContainer.style.display = 'none';
         heroSection.classList.add('visible');
         return;
     }
     
-    // Track whether video has been skipped/completed
-    let videoCompleted = false;
+    // Timing constants (in milliseconds)
+    const VIDEO_DURATION = 4000;           // 4 seconds
+    const FADE_TO_BLACK_DURATION = 500;    // 0.5 seconds
+    const TEXT_LINE_DELAYS = [
+        4500,  // Line 1: "What's Up" at 4.5s
+        5000,  // Line 2: "I'm Maggie Conboy" at 5.0s
+        5800,  // Line 3: "A Product Manager" at 5.8s
+        6600   // Line 4: "Based in Buffalo New York" at 6.6s
+    ];
+    const TOTAL_DURATION = 8000;           // 8 seconds total
+    const TYPEWRITER_SPEED = 50;           // 50ms per character
     
-    // Shared function to skip video and show hero section
-    function skipToHeroSection() {
-        if (videoCompleted) return; // Prevent multiple calls
-        videoCompleted = true;
-        
-        // Pause video if playing
-        if (!introVideo.paused) {
-            introVideo.pause();
-        }
-        
-        // Remove skip event listeners to prevent duplicate calls
-        document.removeEventListener('keydown', handleSkipKey);
-        videoIntro.removeEventListener('click', handleSkipClick);
-        
-        videoIntro.classList.add('hidden');
-        
-        // Show hero section after fade transition
-        setTimeout(function() {
-            heroSection.classList.add('visible');
-            heroSection.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }, fadeDuration);
+    // Text content for typewriter
+    const textLines = [
+        "What's Up",
+        "I'm Maggie Conboy",
+        "A Product Manager",
+        "Based in Buffalo New York"
+    ];
+    
+    // Start timestamp
+    const startTime = Date.now();
+    
+    // Log function with timestamp
+    function logMilestone(message) {
+        const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
+        console.log(`[${elapsed}s] ${message}`);
     }
     
-    // Function to fade out video and show hero
-    function fadeOutAndShowHero() {
-        if (videoCompleted) return; // Prevent multiple calls
-        videoCompleted = true;
-        
-        console.log('Video ended, starting fade-out');
-        
-        // Remove skip event listeners
-        document.removeEventListener('keydown', handleSkipKey);
-        videoIntro.removeEventListener('click', handleSkipClick);
-        
-        // Hide video intro section
-        videoIntro.classList.add('hidden');
-        
-        // After video fades out, show hero section with fade-in
-        setTimeout(function() {
-            heroSection.classList.add('visible');
+    // Typewriter effect function
+    function typewriterEffect(element, text, speed) {
+        return new Promise((resolve) => {
+            element.textContent = '';
+            element.classList.add('visible');
             
-            // Scroll to hero section smoothly
-            heroSection.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }, fadeDuration); // Wait for video fade-out transition
+            let charIndex = 0;
+            const intervalId = setInterval(() => {
+                if (charIndex < text.length) {
+                    element.textContent += text.charAt(charIndex);
+                    charIndex++;
+                } else {
+                    clearInterval(intervalId);
+                    resolve();
+                }
+            }, speed);
+        });
     }
     
-    // Skip handlers
-    function handleSkipKey(e) {
-        // Skip on any key press
-        console.log('User skipped video');
-        skipToHeroSection();
+    // Sequence manager
+    let sequenceCompleted = false;
+    
+    function completeSequence() {
+        if (sequenceCompleted) return;
+        sequenceCompleted = true;
+        
+        logMilestone('Transitioning to homepage');
+        
+        // Fade out onboarding container
+        onboardingContainer.classList.add('fade-out');
+        
+        // Show hero section after fade
+        setTimeout(() => {
+            onboardingContainer.style.display = 'none';
+            heroSection.classList.add('visible');
+        }, 1000);
     }
     
-    function handleSkipClick(e) {
-        // Skip on click
-        console.log('User skipped video');
-        skipToHeroSection();
-    }
+    // Start sequence
+    logMilestone('Video intro started');
     
-    // Handle video end event
-    introVideo.addEventListener('ended', fadeOutAndShowHero);
-    
-    // Handle video error - skip to hero section
-    introVideo.addEventListener('error', function(e) {
-        console.error('Video failed to load, skipping to hero section', e);
-        skipToHeroSection();
+    // Handle video end
+    introVideo.addEventListener('ended', () => {
+        logMilestone('Video ended, fading to black');
+        
+        // Fade out video phase
+        videoPhase.classList.remove('active');
+        videoPhase.classList.add('fade-out');
+        
+        // Activate text phase
+        setTimeout(() => {
+            textPhase.classList.add('active');
+        }, FADE_TO_BLACK_DURATION);
     });
     
-    // Wait for video metadata to load before attempting to play
-    introVideo.addEventListener('loadedmetadata', function() {
-        console.log('Video loaded and ready to play');
-        
-        // Attempt to play the video
-        const playPromise = introVideo.play();
-        
-        if (playPromise !== undefined) {
-            playPromise.then(() => {
-                // Video is playing successfully
-                console.log('Video playback started');
-                
-                // Add skip event listeners after video starts playing
-                document.addEventListener('keydown', handleSkipKey);
-                videoIntro.addEventListener('click', handleSkipClick);
-            }).catch(error => {
-                // Autoplay was prevented - this is common in modern browsers
-                console.warn('Video playback prevented:', error);
-                skipToHeroSection();
-            });
-        }
+    // Handle video error
+    introVideo.addEventListener('error', (e) => {
+        console.error('Video failed to load:', e);
+        completeSequence();
     });
     
-    // Fallback timeout: if video doesn't load or play within 10 seconds, skip to hero
-    const fallbackTimeout = setTimeout(function() {
-        if (!videoCompleted && (introVideo.readyState < 2 || introVideo.paused)) {
-            console.warn('Video failed to load or autoplay blocked');
-            skipToHeroSection();
+    // Schedule typewriter animations
+    textLines.forEach((text, index) => {
+        const delay = TEXT_LINE_DELAYS[index] - (Date.now() - startTime);
+        const lineElement = document.getElementById(`typewriter-line-${index + 1}`);
+        
+        setTimeout(async () => {
+            await typewriterEffect(lineElement, text, TYPEWRITER_SPEED);
+            logMilestone(`Line ${index + 1} complete: "${text}"`);
+            
+            // If this is the last line, schedule completion
+            if (index === textLines.length - 1) {
+                const remainingTime = TOTAL_DURATION - (Date.now() - startTime);
+                setTimeout(completeSequence, Math.max(0, remainingTime));
+            }
+        }, Math.max(0, delay));
+    });
+    
+    // Fallback timeout to ensure sequence completes
+    setTimeout(() => {
+        if (!sequenceCompleted) {
+            console.warn('Sequence timeout - forcing completion');
+            completeSequence();
         }
-    }, 10000);
+    }, TOTAL_DURATION + 2000); // 2 seconds buffer
     
-    // Clear fallback timeout when video starts playing
-    introVideo.addEventListener('playing', function() {
-        clearTimeout(fallbackTimeout);
-    }, { once: true });
+    // Allow users to skip by clicking or pressing any key
+    let skipHandled = false;
     
-    // Trigger metadata load
-    introVideo.load();
+    function skipSequence() {
+        if (skipHandled || sequenceCompleted) return;
+        skipHandled = true;
+        
+        console.log('User skipped onboarding sequence');
+        completeSequence();
+    }
+    
+    onboardingContainer.addEventListener('click', skipSequence);
+    document.addEventListener('keydown', function handleKeydown(e) {
+        skipSequence();
+        document.removeEventListener('keydown', handleKeydown);
+    });
+    
+    // Attempt to play video
+    const playPromise = introVideo.play();
+    
+    if (playPromise !== undefined) {
+        playPromise.catch(error => {
+            console.warn('Video autoplay prevented:', error);
+            completeSequence();
+        });
+    }
 }
 
 // Smooth scroll for anchor links
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize video intro onboarding
+    initVideoIntroOnboarding();
+    
     // Initialize scroll animations
     initScrollAnimations();
     
