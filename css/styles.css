@@ -5195,3 +5195,150 @@ section {
 
 
 }
+
+/* Systems Narrative Section */
+.systems-narrative {
+    background: var(--bg-dark);
+}
+
+.systems-narrative .section-title {
+    color: white;
+}
+
+.section-subtitle {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 60px;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.narrative-flow {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 32px;
+    margin-bottom: 40px;
+}
+
+.narrative-column {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.narrative-card {
+    background: white;
+    padding: 32px;
+    border-radius: 12px;
+    border-left: 6px solid var(--accent);
+    position: relative;
+}
+
+.card-problem {
+    border-left-color: #d0d7de;
+}
+
+.card-system {
+    border-left-color: var(--accent);
+}
+
+.card-highlight {
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    border: 1px solid var(--border-light);
+}
+
+.adoption-metric {
+    display: inline-block;
+    margin-right: 24px;
+    margin-bottom: 24px;
+}
+
+.metric-number {
+    display: block;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.metric-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+}
+
+.outcome-list {
+    list-style: none;
+    padding: 0;
+}
+
+.outcome-list li {
+    padding: 8px 0;
+    padding-left: 20px;
+    position: relative;
+    color: var(--text-primary);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.outcome-list li:before {
+    content: '↳';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.card-proves {
+    background: var(--accent);
+    color: white;
+    padding: 48px;
+    text-align: center;
+    border-left: none;
+}
+
+.card-proves h3 {
+    color: white;
+    margin-bottom: 16px;
+}
+
+.card-proves p {
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.card-full-width {
+    grid-column: 1 / -1;
+}
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+    .narrative-flow {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .systems-narrative {
+        padding: 60px 0;
+    }
+    
+    .narrative-card {
+        padding: 24px;
+    }
+    
+    .card-proves {
+        padding: 32px 24px;
+    }
+    
+    .adoption-metric {
+        display: block;
+        margin-bottom: 20px;
+    }
+}
