@@ -74,64 +74,58 @@
         </div>
 
 <!-- How I Build Scalable Systems -->
-<section id="scalable-systems" class="story-section scroll-fade-in">
+<section id="scalable-systems" class="story-section scroll-fade-in systems-narrative">
     <div class="container">
         <h2 class="section-title">How I Build Scalable Systems</h2>
-        <p style="text-align: center; max-width: 800px; margin: 0 auto 48px; font-size: 18px; color: var(--text-secondary);">
+        <p class="section-subtitle">
             Most organizations operate on gut feel. I replace intuition with data, and heroic problem-solving with repeatable process.
         </p>
-        <div class="story-content stagger-children">
-            <div class="story-card">
-                <h3>The Problem I Identified</h3>
-                <p>
-                    At GitHub, my teams faced a fundamental challenge: capacity planning was a guessing game. Leadership would defer commitment because there was no data. Teams couldn't accurately forecast delivery. Stakeholders constantly negotiated scope mid-quarter because nobody could say "here's what we can actually commit to." Every conversation was reactive, not proactive.
-                </p>
+        
+        <div class="narrative-flow">
+            <!-- Left Column: Problem & Solution -->
+            <div class="narrative-column narrative-left">
+                <div class="story-card narrative-card card-problem">
+                    <h3>The Problem</h3>
+                    <p>At GitHub, capacity planning was a guessing game. Leadership wouldn't commit without data. Teams couldn't forecast. Stakeholders constantly re-negotiated mid-quarter.</p>
+                </div>
+                
+                <div class="story-card narrative-card card-system">
+                    <h3>The System I Designed</h3>
+                    <p><strong>Quarterly level:</strong> T-shirt size every epic. Measure velocity across 3 quarters. Commit to what you can realistically deliver.</p>
+                    <p><strong>Sprint level:</strong> Story point every issue. Track individual velocity. Answer "can you take this?" with data, not feelings.</p>
+                </div>
             </div>
-            <div class="story-card highlight">
-                <h3>The System I Designed</h3>
-                <p>
-                    I built a two-level capacity framework that separates strategic commitment from tactical execution.
-                </p>
-                <p>
-                    <strong>Quarterly level:</strong> We t-shirt size every epic and initiative (Small, Medium, Large). Each size has a capacity unit value. By measuring our velocity over the past three quarters, we can say with confidence: "We can commit to X capacity units this quarter."
-                </p>
-                <p>
-                    <strong>Sprint level:</strong> Every issue gets story pointed. Individual team members have a velocity metric. When new work arrives, we can instantly see: "Sarah is under committed this sprint. Can she absorb this?"
-                </p>
-                <p>
-                    This transforms negotiations. Instead of "no, we can't do that," the answer becomes "we can do that IF we swap it for this already-prioritized work."
-                </p>
+            
+            <!-- Right Column: Adoption & Results -->
+            <div class="narrative-column narrative-right">
+                <div class="story-card narrative-card card-adoption card-highlight">
+                    <div class="adoption-metric">
+                        <span class="metric-number">18</span>
+                        <span class="metric-label">People</span>
+                    </div>
+                    <div class="adoption-metric">
+                        <span class="metric-number">2</span>
+                        <span class="metric-label">Teams</span>
+                    </div>
+                    <div class="adoption-metric">
+                        <span class="metric-number">3</span>
+                        <span class="metric-label">Quarters</span>
+                    </div>
+                    
+                    <h4>Outcomes</h4>
+                    <ul class="outcome-list">
+                        <li>Planning cycles faster, less stressful</li>
+                        <li>Stakeholders get data-driven answers</li>
+                        <li>Teams focus on committed work</li>
+                    </ul>
+                </div>
             </div>
-            <div class="story-card">
-                <h3>The Adoption and Impact</h3>
-                <p>
-                    <strong>Adoption:</strong> 18 people across two teams (Salesforce and Zendesk) now operate under this framework. The Sr. Director of Revenue Systems has asked to make it the standard for all new teams.
-                </p>
-                <p>
-                    <strong>Measurable outcomes:</strong>
-                </p>
-                <ul style="margin-top: 12px; margin-left: 20px;">
-                    <li>Planning cycles are faster and less stressful. Leadership is confident in commitments.</li>
-                    <li>When stakeholders ask "can you ship this?" we answer with data, not feelings.</li>
-                    <li>Teams can focus on committed work instead of constantly re-negotiating priorities.</li>
-                    <li>Early results show improved planning accuracy and faster sprint execution as the team learns to estimate more precisely.</li>
-                </ul>
-            </div>
-            <div class="story-card">
-                <h3>What This Proves</h3>
-                <p>
-                    This isn't a one-time fix. It's a repeatable system that:
-                </p>
-                <ul style="margin-top: 12px; margin-left: 20px;">
-                    <li>Eliminates the need for heroic problem-solving</li>
-                    <li>Scales across teams without requiring my constant involvement</li>
-                    <li>Transforms organizational decision-making from gut-feel to data-driven</li>
-                    <li>Creates visibility that allows leaders to focus on strategy instead of operational firefighting</li>
-                </ul>
-                <p style="margin-top: 16px;">
-                    This is the kind of operational architecture a Staff PM designs. Not just for one team, but in a way that other teams can adopt and scale.
-                </p>
-            </div>
+        </div>
+        
+        <!-- Full Width: What This Proves -->
+        <div class="story-card card-proves card-full-width">
+            <h3>What This Proves</h3>
+            <p>This is the kind of operational architecture a Staff PM designs. Not just for one team, but in a way that other teams can adopt and scale.</p>
         </div>
     </div>
 </section>
