@@ -1846,7 +1846,7 @@ iframe {
         text-align: center;
     }
     
-    /* Brand logos - Reduce size on tablet */
+    /* Brand logos - Tablet (768px) breakpoint */
     .brand-logos {
         gap: 20px;
     }
@@ -2019,7 +2019,7 @@ iframe {
         margin-bottom: 24px;
     }
     
-    /* Brand logos - Fix mobile cutoff */
+    /* Brand logos - Mobile (480px) breakpoint - Fix cutoff */
     .brand-logos {
         gap: 16px;
         flex-wrap: wrap;
