@@ -145,11 +145,16 @@ function initVideoIntroOnboarding() {
     }
     
     function handleKeydown(e) {
+        // Any key press will skip the sequence for better UX
+        // User can press any key to skip without fumbling for specific keys
         skipSequence();
     }
     
     function cleanupEventListeners() {
-        onboardingContainer.removeEventListener('click', skipSequence);
+        // Only clean up if elements exist
+        if (onboardingContainer) {
+            onboardingContainer.removeEventListener('click', skipSequence);
+        }
         document.removeEventListener('keydown', handleKeydown);
     }
     
@@ -214,14 +219,15 @@ function initVideoIntroOnboarding() {
         setTimeout(async () => {
             await typewriterEffect(lineElement, text, TYPEWRITER_SPEED);
             logMilestone(`Line ${index + 1} complete: "${text}"`);
-            
-            // If this is the last line, schedule completion
-            if (index === textLines.length - 1) {
-                const remainingTime = TOTAL_DURATION - (Date.now() - startTime);
-                setTimeout(completeSequence, Math.max(0, remainingTime));
-            }
         }, delay);
     });
+    
+    // Schedule completion at exactly 8 seconds, regardless of typewriter timing
+    setTimeout(() => {
+        if (!sequenceCompleted) {
+            completeSequence();
+        }
+    }, TOTAL_DURATION);
     
     // Fallback timeout to ensure sequence completes
     setTimeout(() => {
