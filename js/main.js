@@ -133,6 +133,26 @@ function initVideoIntroOnboarding() {
         });
     }
     
+    // Skip and cleanup functions (defined early for use in completeSequence)
+    let skipHandled = false;
+    
+    function skipSequence() {
+        if (skipHandled || sequenceCompleted) return;
+        skipHandled = true;
+        
+        console.log('User skipped onboarding sequence');
+        completeSequence();
+    }
+    
+    function handleKeydown(e) {
+        skipSequence();
+    }
+    
+    function cleanupEventListeners() {
+        onboardingContainer.removeEventListener('click', skipSequence);
+        document.removeEventListener('keydown', handleKeydown);
+    }
+    
     // Sequence manager
     let sequenceCompleted = false;
     
@@ -141,6 +161,9 @@ function initVideoIntroOnboarding() {
         sequenceCompleted = true;
         
         logMilestone('Transitioning to homepage');
+        
+        // Clean up event listeners
+        cleanupEventListeners();
         
         // Fade out onboarding container
         onboardingContainer.classList.add('fade-out');
@@ -177,8 +200,16 @@ function initVideoIntroOnboarding() {
     
     // Schedule typewriter animations
     textLines.forEach((text, index) => {
-        const delay = TEXT_LINE_DELAYS[index] - (Date.now() - startTime);
         const lineElement = document.getElementById(`typewriter-line-${index + 1}`);
+        
+        // Check if element exists
+        if (!lineElement) {
+            console.error(`Typewriter line element ${index + 1} not found`);
+            return;
+        }
+        
+        // Use absolute delay from start
+        const delay = TEXT_LINE_DELAYS[index];
         
         setTimeout(async () => {
             await typewriterEffect(lineElement, text, TYPEWRITER_SPEED);
@@ -189,7 +220,7 @@ function initVideoIntroOnboarding() {
                 const remainingTime = TOTAL_DURATION - (Date.now() - startTime);
                 setTimeout(completeSequence, Math.max(0, remainingTime));
             }
-        }, Math.max(0, delay));
+        }, delay);
     });
     
     // Fallback timeout to ensure sequence completes
@@ -200,22 +231,9 @@ function initVideoIntroOnboarding() {
         }
     }, TOTAL_DURATION + 2000); // 2 seconds buffer
     
-    // Allow users to skip by clicking or pressing any key
-    let skipHandled = false;
-    
-    function skipSequence() {
-        if (skipHandled || sequenceCompleted) return;
-        skipHandled = true;
-        
-        console.log('User skipped onboarding sequence');
-        completeSequence();
-    }
-    
+    // Attach skip event listeners
     onboardingContainer.addEventListener('click', skipSequence);
-    document.addEventListener('keydown', function handleKeydown(e) {
-        skipSequence();
-        document.removeEventListener('keydown', handleKeydown);
-    });
+    document.addEventListener('keydown', handleKeydown);
     
     // Attempt to play video
     const playPromise = introVideo.play();
