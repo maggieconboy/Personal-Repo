@@ -5561,3 +5561,159 @@ section {
         padding: 32px 20px;
     }
 }
+
+/* About Me Section */
+.about-me-section {
+    padding: 80px 0;
+    background: var(--bg-primary);
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    margin-bottom: 64px;
+}
+
+.about-narrative p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+    max-width: 900px;
+}
+
+.about-narrative .approach-intro {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+    margin-top: 32px;
+}
+
+.approach-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 32px;
+    max-width: 900px;
+}
+
+.approach-list li {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+    padding-left: 32px;
+    position: relative;
+}
+
+.approach-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.approach-list li strong {
+    color: var(--text-primary);
+}
+
+.career-metrics {
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, #fafafa 100%);
+    padding: 48px;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+}
+
+.career-metrics h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 32px;
+}
+
+.metric-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.metric-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 8px;
+    display: block;
+}
+
+.metric-label {
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-weight: 500;
+    display: block;
+}
+
+.career-timeline {
+    margin-top: 64px;
+    padding-top: 48px;
+    border-top: 1px solid var(--border-light);
+}
+
+.career-timeline h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.timeline-graphic {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Responsive design for about-me section */
+@media (max-width: 768px) {
+    .about-me-section {
+        padding: 48px 0;
+    }
+    
+    .about-content {
+        gap: 32px;
+        margin-bottom: 48px;
+    }
+    
+    .about-narrative p,
+    .approach-list li {
+        font-size: 16px;
+    }
+    
+    .career-metrics {
+        padding: 32px 24px;
+    }
+    
+    .metrics-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 24px;
+    }
+    
+    .metric-value {
+        font-size: 28px;
+    }
+    
+    .career-timeline {
+        margin-top: 48px;
+        padding-top: 32px;
+    }
+}
