@@ -5561,3 +5561,323 @@ section {
         padding: 32px 20px;
     }
 }
+
+/* About Me Section */
+.about-me-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #fafafa 0%, #ffffff 50%, #f9fafb 100%);
+    position: relative;
+}
+
+.about-me-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 300px;
+    background: radial-gradient(circle at 50% 0%, rgba(109, 40, 217, 0.03) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.about-header {
+    text-align: center;
+    margin-bottom: 64px;
+    position: relative;
+}
+
+.about-label {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accent);
+    margin-bottom: 16px;
+    padding: 8px 20px;
+    background: var(--accent-glow);
+    border-radius: 20px;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 80px;
+    position: relative;
+}
+
+.about-intro-card {
+    background: white;
+    padding: 48px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    border-left: 4px solid var(--accent);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-intro-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(109, 40, 217, 0.15);
+}
+
+.intro-icon {
+    font-size: 48px;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.intro-text {
+    font-size: 20px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.intro-text strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.about-philosophy {
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #27272a 100%);
+    padding: 48px;
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-philosophy::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 50%, var(--accent-glow) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.philosophy-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.philosophy-text {
+    font-size: 18px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    position: relative;
+}
+
+.approach-section {
+    margin-top: 24px;
+}
+
+.approach-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.approach-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+    gap: 24px;
+}
+
+.approach-card {
+    background: white;
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    border-top: 3px solid transparent;
+}
+
+.approach-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    border-top-color: var(--accent);
+}
+
+.approach-icon {
+    font-size: 40px;
+    margin-bottom: 16px;
+    line-height: 1;
+}
+
+.approach-card h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+}
+
+.approach-card p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.about-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 32px;
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, #fafafa 100%);
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+}
+
+.location-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: white;
+    border-radius: 24px;
+    font-weight: 600;
+    color: var(--text-primary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.badge-icon {
+    font-size: 18px;
+}
+
+.footer-text {
+    font-size: 16px;
+    color: var(--text-secondary);
+    text-align: center;
+    margin: 0;
+}
+
+.career-timeline {
+    margin-top: 48px;
+    padding: 64px 48px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.career-timeline h3 {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.timeline-subtitle {
+    text-align: center;
+    font-size: 18px;
+    color: var(--text-secondary);
+    margin-bottom: 48px;
+    font-style: italic;
+}
+
+.timeline-graphic {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Responsive design for about-me section */
+@media (max-width: 768px) {
+    .about-me-section {
+        padding: 60px 0;
+    }
+    
+    .about-header {
+        margin-bottom: 48px;
+    }
+    
+    .about-content {
+        gap: 32px;
+        margin-bottom: 60px;
+    }
+    
+    .about-intro-card {
+        flex-direction: column;
+        padding: 32px 24px;
+        gap: 16px;
+    }
+    
+    .intro-icon {
+        font-size: 36px;
+    }
+    
+    .intro-text {
+        font-size: 18px;
+    }
+    
+    .about-philosophy {
+        padding: 32px 24px;
+    }
+    
+    .philosophy-title {
+        font-size: 22px;
+    }
+    
+    .philosophy-text {
+        font-size: 16px;
+    }
+    
+    .approach-title {
+        font-size: 24px;
+        margin-bottom: 32px;
+    }
+    
+    .approach-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .approach-card {
+        padding: 24px;
+    }
+    
+    .approach-icon {
+        font-size: 32px;
+    }
+    
+    .approach-card h4 {
+        font-size: 17px;
+    }
+    
+    .approach-card p {
+        font-size: 15px;
+    }
+    
+    .about-footer {
+        padding: 24px 20px;
+    }
+    
+    .footer-text {
+        font-size: 14px;
+    }
+    
+    .career-timeline {
+        margin-top: 32px;
+        padding: 40px 24px;
+    }
+    
+    .career-timeline h3 {
+        font-size: 26px;
+    }
+    
+    .timeline-subtitle {
+        font-size: 16px;
+        margin-bottom: 32px;
+    }
+}
