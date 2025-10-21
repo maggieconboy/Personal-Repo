@@ -1174,12 +1174,12 @@ iframe {
     pointer-events: auto;
 }
 
-/* Slide 1: Image slide - no background, just the image */
+/* Slide 1: Image slide - dark purple gradient background */
 .hero-slide-image {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: transparent;
+    background: linear-gradient(135deg, #2d1b4e 0%, #1a1028 50%, #0d0515 100%);
     min-height: 600px;
 }
 
@@ -1191,11 +1191,11 @@ iframe {
     object-position: center;
 }
 
-/* Slide 2: Content slide (existing hero content) - has dark background and purple glow */
+/* Slide 2: Content slide (existing hero content) - has dark purple gradient background */
 .hero-slide-content {
     padding: 80px 0 120px;
     min-height: 600px;
-    background: linear-gradient(135deg, var(--bg-dark) 0%, #27272a 100%);
+    background: linear-gradient(135deg, #2d1b4e 0%, #1a1028 50%, #0d0515 100%);
 }
 
 /* Show decorations inside content slide when hero has show-decorations class */
