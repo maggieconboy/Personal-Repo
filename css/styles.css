@@ -942,10 +942,12 @@ iframe {
 
 /* Hero Section */
 .hero {
-    background: transparent;
+    background: linear-gradient(135deg, #2d1b4e 0%, #1a1028 50%, #0d0515 100%);
     color: white;
     position: relative;
     overflow: hidden;
+    padding: 80px 0 120px;
+    min-height: 600px;
     opacity: 0;
     transition: opacity 0.8s ease-in;
 }
@@ -954,7 +956,7 @@ iframe {
     opacity: 1;
 }
 
-/* Purple glow overlay - only shown on content slide (slide 2) */
+/* Purple glow overlay */
 .hero::before {
     content: '';
     position: absolute;
@@ -965,12 +967,6 @@ iframe {
     background: radial-gradient(circle at 30% 50%, var(--accent-glow) 0%, transparent 60%),
                 radial-gradient(circle at 70% 80%, var(--accent-glow) 0%, transparent 60%);
     pointer-events: none;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-/* Show purple glow when on content slide */
-.hero.show-decorations::before {
     opacity: 1;
 }
 
@@ -995,12 +991,6 @@ iframe {
     right: -100px;
     animation: floatHero 20s ease-in-out infinite;
     pointer-events: none;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-/* Show floating decoration when on content slide */
-.hero.show-decorations::after {
     opacity: 1;
 }
 
@@ -1008,8 +998,7 @@ iframe {
     position: absolute;
     border-radius: 50%;
     pointer-events: none;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
+    opacity: 0.8;
 }
 
 .hero-decoration-1 {
@@ -1150,58 +1139,7 @@ iframe {
     height: 300px;
 }
 
-/* Hero Slider Styles */
-.hero-slider {
-    position: relative;
-    width: 100%;
-    min-height: 600px;
-}
 
-.hero-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    min-height: 100%;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-    pointer-events: none;
-}
-
-.hero-slide.active {
-    position: relative;
-    opacity: 1;
-    pointer-events: auto;
-}
-
-/* Slide 1: Image slide - dark purple gradient background */
-.hero-slide-image {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #2d1b4e 0%, #1a1028 50%, #0d0515 100%);
-    min-height: 600px;
-}
-
-.hero-slide-image img {
-    width: 100%;
-    height: 100%;
-    min-height: 600px;
-    object-fit: cover;
-    object-position: center;
-}
-
-/* Slide 2: Content slide (existing hero content) - has dark purple gradient background */
-.hero-slide-content {
-    padding: 80px 0 120px;
-    min-height: 600px;
-    background: linear-gradient(135deg, #2d1b4e 0%, #1a1028 50%, #0d0515 100%);
-}
-
-/* Show decorations inside content slide when hero has show-decorations class */
-.hero.show-decorations .hero-decoration {
-    opacity: 0.8;
-}
 
 .image-section-divider img {
     display: block;
@@ -1961,14 +1899,6 @@ iframe {
         min-height: auto;
     }
     
-    .hero-slide-image {
-        min-height: 400px;
-    }
-    
-    .hero-slide-image img {
-        min-height: 400px;
-    }
-    
     .hero-title,
     .case-title {
         font-size: 36px;
@@ -2156,19 +2086,6 @@ iframe {
     /* Hero section */
     .hero {
         padding: 48px 0 60px;
-    }
-    
-    .hero-slide-content {
-        padding: 48px 0 60px;
-        min-height: auto;
-    }
-    
-    .hero-slide-image {
-        min-height: 300px;
-    }
-    
-    .hero-slide-image img {
-        min-height: 300px;
     }
     
     .hero-title,
