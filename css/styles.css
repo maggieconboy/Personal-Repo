@@ -5804,7 +5804,7 @@ section {
     
     .about-content {
         gap: 32px;
-        margin-bottom: 60px;
+        margin-bottom: 24px;
     }
     
     .about-intro-card {
@@ -5868,7 +5868,7 @@ section {
     }
     
     .career-timeline {
-        margin-top: 32px;
+        margin-top: 20px;
         padding: 40px 24px;
     }
     
