@@ -255,13 +255,26 @@ function initVideoIntroOnboarding() {
 // Hero Slider functionality
 function initHeroSlider() {
     const slides = document.querySelectorAll('.hero-slide');
+    const heroSection = document.querySelector('.hero');
     if (slides.length <= 1) return; // No slider if only one slide
     
     let currentSlide = 0;
     const slideInterval = 3000; // 3 seconds
     
+    // Function to update hero decorations based on active slide
+    function updateHeroDecorations(slideIndex) {
+        // If on slide 1 (image slide), hide decorations
+        // If on slide 2 (content slide), show decorations
+        if (slideIndex === 0) {
+            heroSection.classList.remove('show-decorations');
+        } else {
+            heroSection.classList.add('show-decorations');
+        }
+    }
+    
     // Show first slide
     slides[currentSlide].classList.add('active');
+    updateHeroDecorations(currentSlide);
     
     // Auto-advance slides only once (no loop)
     const slideTimer = setInterval(() => {
@@ -279,6 +292,9 @@ function initHeroSlider() {
         
         // Add active class to new slide
         slides[currentSlide].classList.add('active');
+        
+        // Update decorations
+        updateHeroDecorations(currentSlide);
     }, slideInterval);
 }
 
