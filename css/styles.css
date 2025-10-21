@@ -1170,15 +1170,18 @@ iframe {
 
 .hero-slide-image img {
     width: 100%;
-    height: auto;
-    max-height: 600px;
-    object-fit: contain;
+    height: 100%;
+    min-height: 600px;
+    object-fit: cover;
     object-position: center;
 }
 
 /* Slide 2: Content slide (existing hero content) */
 .hero-slide-content {
-    padding: 80px 0 100px;
+    padding: 80px 0 120px;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
 }
 
 .image-section-divider img {
@@ -1934,6 +1937,19 @@ iframe {
         padding: 60px 0 80px;
     }
     
+    .hero-slide-content {
+        padding: 60px 0 80px;
+        min-height: auto;
+    }
+    
+    .hero-slide-image {
+        min-height: 400px;
+    }
+    
+    .hero-slide-image img {
+        min-height: 400px;
+    }
+    
     .hero-title,
     .case-title {
         font-size: 36px;
@@ -2121,6 +2137,19 @@ iframe {
     /* Hero section */
     .hero {
         padding: 48px 0 60px;
+    }
+    
+    .hero-slide-content {
+        padding: 48px 0 60px;
+        min-height: auto;
+    }
+    
+    .hero-slide-image {
+        min-height: 300px;
+    }
+    
+    .hero-slide-image img {
+        min-height: 300px;
     }
     
     .hero-title,
