@@ -1140,7 +1140,6 @@ iframe {
     position: relative;
     width: 100%;
     min-height: 600px;
-    overflow: hidden;
 }
 
 .hero-slide {
@@ -1148,13 +1147,14 @@ iframe {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     opacity: 0;
     transition: opacity 1s ease-in-out;
     pointer-events: none;
 }
 
 .hero-slide.active {
+    position: relative;
     opacity: 1;
     pointer-events: auto;
 }
@@ -1180,8 +1180,6 @@ iframe {
 .hero-slide-content {
     padding: 80px 0 120px;
     min-height: 600px;
-    display: flex;
-    align-items: center;
 }
 
 .image-section-divider img {
