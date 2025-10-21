@@ -263,13 +263,19 @@ function initHeroSlider() {
     // Show first slide
     slides[currentSlide].classList.add('active');
     
-    // Auto-advance slides
-    setInterval(() => {
+    // Auto-advance slides only once (no loop)
+    const slideTimer = setInterval(() => {
         // Remove active class from current slide
         slides[currentSlide].classList.remove('active');
         
-        // Move to next slide (loop back to start if at end)
-        currentSlide = (currentSlide + 1) % slides.length;
+        // Move to next slide
+        currentSlide++;
+        
+        // If we've reached the last slide, stop the timer and stay there
+        if (currentSlide >= slides.length) {
+            currentSlide = slides.length - 1;
+            clearInterval(slideTimer);
+        }
         
         // Add active class to new slide
         slides[currentSlide].classList.add('active');
