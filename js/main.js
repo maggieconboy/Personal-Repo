@@ -252,10 +252,37 @@ function initVideoIntroOnboarding() {
     }
 }
 
+// Hero Slider functionality
+function initHeroSlider() {
+    const slides = document.querySelectorAll('.hero-slide');
+    if (slides.length <= 1) return; // No slider if only one slide
+    
+    let currentSlide = 0;
+    const slideInterval = 3000; // 3 seconds
+    
+    // Show first slide
+    slides[currentSlide].classList.add('active');
+    
+    // Auto-advance slides
+    setInterval(() => {
+        // Remove active class from current slide
+        slides[currentSlide].classList.remove('active');
+        
+        // Move to next slide (loop back to start if at end)
+        currentSlide = (currentSlide + 1) % slides.length;
+        
+        // Add active class to new slide
+        slides[currentSlide].classList.add('active');
+    }, slideInterval);
+}
+
 // Smooth scroll for anchor links
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize video intro onboarding
     initVideoIntroOnboarding();
+    
+    // Initialize hero slider
+    initHeroSlider();
     
     // Initialize scroll animations
     initScrollAnimations();
