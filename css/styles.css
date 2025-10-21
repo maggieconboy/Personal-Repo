@@ -942,7 +942,7 @@ iframe {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, var(--bg-dark) 0%, #27272a 100%);
+    background: transparent;
     color: white;
     position: relative;
     overflow: hidden;
@@ -954,7 +954,7 @@ iframe {
     opacity: 1;
 }
 
-/* Purple glow overlay */
+/* Purple glow overlay - only shown on content slide (slide 2) */
 .hero::before {
     content: '';
     position: absolute;
@@ -965,6 +965,13 @@ iframe {
     background: radial-gradient(circle at 30% 50%, var(--accent-glow) 0%, transparent 60%),
                 radial-gradient(circle at 70% 80%, var(--accent-glow) 0%, transparent 60%);
     pointer-events: none;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+/* Show purple glow when on content slide */
+.hero.show-decorations::before {
+    opacity: 1;
 }
 
 @keyframes shimmer {
@@ -988,13 +995,21 @@ iframe {
     right: -100px;
     animation: floatHero 20s ease-in-out infinite;
     pointer-events: none;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+/* Show floating decoration when on content slide */
+.hero.show-decorations::after {
+    opacity: 1;
 }
 
 .hero-decoration {
     position: absolute;
     border-radius: 50%;
     pointer-events: none;
-    opacity: 0.8;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
 }
 
 .hero-decoration-1 {
@@ -1159,12 +1174,12 @@ iframe {
     pointer-events: auto;
 }
 
-/* Slide 1: Image slide */
+/* Slide 1: Image slide - no background, just the image */
 .hero-slide-image {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, var(--bg-dark) 0%, #27272a 100%);
+    background: transparent;
     min-height: 600px;
 }
 
@@ -1176,10 +1191,16 @@ iframe {
     object-position: center;
 }
 
-/* Slide 2: Content slide (existing hero content) */
+/* Slide 2: Content slide (existing hero content) - has dark background and purple glow */
 .hero-slide-content {
     padding: 80px 0 120px;
     min-height: 600px;
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #27272a 100%);
+}
+
+/* Show decorations inside content slide when hero has show-decorations class */
+.hero.show-decorations .hero-decoration {
+    opacity: 0.8;
 }
 
 .image-section-divider img {
