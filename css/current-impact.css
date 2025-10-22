@@ -1,0 +1,1814 @@
+/* ===================================
+   CURRENT IMPACT PAGE STYLES
+   Contains: Brand Portfolio, Featured Brands, Story Section, Value Section, Systems Narrative, User Research, Personas
+   ==================================== */
+
+/* ===================================
+   BRAND PORTFOLIO PAGE STYLES
+   =================================== */
+
+.portfolio-hero {
+    padding: 80px 0 100px;
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #27272a 100%);
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-hero:before {
+    content: "";
+    position: absolute;
+    top: -150px;
+    left: -150px;
+    width: 500px;
+    height: 500px;
+    background: var(--accent-glow);
+    border-radius: 50%;
+}
+
+.portfolio-hero:after {
+    content: "";
+    position: absolute;
+    bottom: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: var(--accent-glow);
+    border-radius: 50%;
+}
+
+.portfolio-hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.portfolio-hero h1 {
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    color: white;
+}
+
+.portfolio-subtitle {
+    font-size: 20px;
+    color: var(--text-light);
+    max-width: 700px;
+    margin: 0 auto 48px;
+}
+
+.portfolio-summary {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    position: relative;
+    z-index: 1;
+}
+
+.summary-stat {
+    text-align: center;
+}
+
+.summary-number {
+    display: block;
+    font-size: 36px;
+    font-weight: 800;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+}
+
+.summary-label {
+    display: block;
+    font-size: 14px;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Featured Brands */
+.featured-brands {
+    padding: 80px 0;
+}
+
+.brand-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 24px;
+}
+
+.brand-card.featured {
+    border: 2px solid var(--accent);
+    box-shadow: var(--shadow-md);
+}
+
+.brand-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.brand-header-content {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.brand-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border: 1px solid var(--border);
+}
+
+.brand-header h3 {
+    font-size: 28px;
+    color: var(--text-primary);
+}
+
+.brand-header h3 a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.brand-header h3 a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+.brand-badge {
+    padding: 8px 16px;
+    background: var(--accent);
+    color: white;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.brand-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 32px;
+}
+
+.brand-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.brand-stat {
+    padding: 8px;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.brand-metrics ul {
+    list-style: none;
+    padding: 0;
+}
+
+.brand-metrics li {
+    padding: 8px 0;
+    padding-left: 24px;
+    position: relative;
+}
+
+.brand-metrics li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+}
+
+.brand-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Brands Grid */
+.brands-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+    gap: 24px;
+    margin-top: 48px;
+}
+
+.brand-tile {
+    padding: 24px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: all 0.3s;
+}
+
+.brand-tile:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent);
+}
+
+.brand-tile h4 {
+    font-size: 20px;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.brand-tile h4 a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.brand-tile h4 a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+.brand-year {
+    color: var(--text-muted);
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.brand-tile ul {
+    list-style: none;
+    padding: 0;
+}
+
+.brand-tile li {
+    padding: 4px 0;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+/* Impact Summary */
+.impact-summary {
+    padding: 80px 0;
+    background: var(--bg-secondary);
+}
+
+.impact-narrative {
+    max-width: 800px;
+    margin: 0 auto 48px;
+    text-align: center;
+}
+
+.impact-narrative p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+}
+
+.impact-cta {
+    text-align: center;
+}
+
+/* Portfolio Showcase Section */
+.portfolio-showcase {
+    padding: 80px 0;
+    margin: 0;
+    background: var(--bg-secondary);
+    display: block;
+    width: 100%;
+}
+
+.portfolio-showcase-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+    border: none;
+    box-shadow: var(--shadow-lg);
+    border-radius: 8px;
+    max-width: 1200px;
+}
+
+/* Additional Brands Section */
+.additional-brands {
+    padding: 80px 0;
+    background: var(--bg-secondary);
+}
+/* ===================================
+   ENHANCED HOMEPAGE STYLES (MISSING)
+   =================================== */
+
+/* Hero Stats Grid */
+.hero-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+    gap: 24px;
+    margin: 32px 0;
+    padding: 32px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    animation: fadeInUp 0.6s ease-out 0.6s both;
+}
+
+.stat {
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.stat:hover {
+    transform: translateY(-4px);
+}
+
+.stat-number {
+    display: block;
+    font-size: 36px;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 4px;
+}
+
+.stat-label {
+    display: block;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Career Timeline */
+.career-impact {
+    padding: 80px 0;
+    background: var(--bg-secondary);
+}
+
+.timeline-visual {
+    display: grid;
+    gap: 32px;
+    margin-top: 48px;
+}
+
+.timeline-entry {
+    background: white;
+    padding: 32px;
+    border-radius: 12px;
+    border-left: 4px solid var(--border);
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s;
+}
+
+.timeline-entry.highlight {
+    border-left-color: var(--accent);
+}
+
+.timeline-entry.current {
+    border-left-color: var(--success);
+}
+
+.timeline-entry .year {
+    display: inline-block;
+    padding: 4px 12px;
+    background: var(--accent);
+    color: white;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.timeline-entry h3 {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.timeline-entry .role {
+    color: var(--text-secondary);
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.timeline-entry .achievements {
+    list-style: none;
+    padding: 0;
+}
+
+.timeline-entry .achievements li {
+    padding: 8px 0;
+    padding-left: 24px;
+    position: relative;
+    color: var(--text-secondary);
+}
+
+.timeline-entry .achievements li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+}
+
+/* Brand Grid */
+.brand-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.brand-impact {
+    padding: 12px;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.brand-impact strong {
+    color: var(--primary);
+}
+
+/* Story Section */
+.story-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 50%, #f3e8ff 100%);
+}
+
+.story-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: 24px;
+    margin-top: 48px;
+}
+
+.story-card {
+    padding: 32px;
+    background: white;
+    border-radius: 12px;
+    border-top: 4px solid var(--border);
+}
+
+.story-card.highlight {
+    border-top-color: var(--success);
+    box-shadow: var(--shadow-md);
+}
+
+.story-card h3 {
+    font-size: 20px;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+}
+
+.leader-quote {
+    margin-top: 48px;
+    padding: 32px;
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #27272a 100%);
+    color: white;
+    border-radius: 12px;
+    font-size: 18px;
+    font-style: italic;
+    text-align: center;
+    position: relative;
+}
+
+.leader-quote::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, var(--accent-glow) 0%, transparent 70%);
+    border-radius: 12px;
+    pointer-events: none;
+}
+
+/* Current Value Section */
+.current-value {
+    padding: 80px 0;
+    background: var(--bg-secondary);
+}
+
+.value-props {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
+    gap: 32px;
+    margin-top: 48px;
+}
+
+.value-card {
+    background: white;
+    padding: 32px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    transition: all 0.3s;
+}
+
+.value-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.value-card h3 {
+    font-size: 22px;
+    margin-bottom: 16px;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Executive CTA */
+.executive-cta {
+    padding: 80px 0;
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #27272a 100%);
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.executive-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, var(--accent-glow) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.executive-cta .container {
+    position: relative;
+    z-index: 1;
+}
+
+.executive-cta h2 {
+    color: white;
+    font-size: 40px;
+    margin-bottom: 16px;
+}
+
+.cta-subtitle {
+    font-size: 20px;
+    max-width: 800px;
+    margin: 0 auto 32px;
+    opacity: 0.95;
+}
+
+.cta-metrics {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+}
+
+.cta-metrics .metric {
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    font-weight: 600;
+}
+
+.cta-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+}
+
+/* Footer Quote */
+.footer-quote {
+    font-style: italic;
+    font-size: 16px;
+    margin-bottom: 24px;
+    color: var(--text-secondary);
+}
+
+/* Section Subtitle */
+.section-subtitle {
+    text-align: center;
+    font-size: 18px;
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto 48px;
+}
+
+/* Proven Impact Section */
+.proven-impact {
+    padding: 80px 0;
+    background: white;
+}
+
+.impact-comparison {
+    display: grid;
+    gap: 48px;
+    margin-top: 48px;
+}
+
+.impact-period {
+    padding: 32px;
+    background: var(--bg-secondary);
+    border-radius: 16px;
+}
+
+.impact-period.current {
+    background: white;
+    border: 2px solid var(--accent);
+}
+
+.impact-period h3 {
+    font-size: 24px;
+    margin-bottom: 24px;
+    text-align: center;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.highlight-card {
+    border: 2px solid var(--accent);
+    transform: scale(1.05);
+}
+
+/* Strategic CTA Section (missing in your CSS) */
+.strategic-cta {
+    padding: 80px 0;
+    background: var(--bg-secondary);
+    text-align: center;
+}
+
+.strategic-cta h2 {
+    font-size: 36px;
+    margin-bottom: 24px;
+}
+
+.strategic-cta p {
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto 32px;
+    color: var(--text-secondary);
+}
+
+/* ===================================
+   CURRENT IMPACT PAGE STYLES
+   =================================== */
+
+/* Impact Hero */
+.impact-hero {
+    padding: 80px 0 100px;
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #27272a 100%);
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.impact-hero:before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    background: var(--accent-glow);
+    border-radius: 50%;
+}
+
+.impact-hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.impact-badge {
+    display: inline-block;
+    padding: 8px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    font-size: 14px;
+    margin-bottom: 24px;
+    backdrop-filter: blur(10px);
+}
+
+.impact-title {
+    font-size: 52px;
+    font-weight: 800;
+    line-height: 1.2;
+    max-width: 900px;
+    margin: 0 auto 24px;
+}
+
+.impact-subtitle {
+    font-size: 20px;
+    max-width: 700px;
+    margin: 0 auto 48px;
+    opacity: 0.95;
+}
+
+.impact-stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+}
+
+.impact-stat {
+    text-align: center;
+}
+
+.impact-number {
+    display: block;
+    font-size: 42px;
+    font-weight: 800;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+}
+
+.impact-label {
+    display: block;
+    font-size: 14px;
+    opacity: 0.9;
+    margin-top: 4px;
+}
+
+/* GitHub Journey */
+.github-journey {
+    padding: 80px 0;
+    background: var(--bg-secondary);
+}
+
+.journey-narrative {
+    max-width: 800px;
+    margin: 0 auto 48px;
+    text-align: center;
+}
+
+.narrative-intro {
+    font-size: 20px;
+    line-height: 1.7;
+    color: var(--text-secondary);
+}
+
+.transformation-timeline {
+    display: grid;
+    gap: 32px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.transformation-phase {
+    background: white;
+    padding: 32px;
+    border-radius: 12px;
+    border-left: 4px solid var(--border);
+    position: relative;
+    transition: all 0.3s;
+}
+
+.transformation-phase.highlight {
+    border-left-color: var(--accent);
+    box-shadow: var(--shadow-md);
+    transform: translateX(8px);
+}
+
+.transformation-phase.current {
+    border-left-color: var(--success);
+}
+
+.phase-date {
+    display: inline-block;
+    padding: 4px 12px;
+    background: var(--accent);
+    color: white;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.transformation-phase h3 {
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.phase-outcome {
+    margin-top: 16px;
+    padding: 12px;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.phase-outcome strong {
+    color: var(--primary);
+}
+
+/* AI Portfolio */
+.ai-portfolio {
+    padding: 80px 0;
+    background: white;
+}
+
+.ai-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr));
+    gap: 32px;
+    margin-top: 48px;
+}
+
+.ai-project {
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    transition: all 0.3s;
+}
+
+.ai-project:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent);
+}
+
+.ai-project.featured {
+    border: 2px solid var(--accent);
+    grid-column: span 2;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.project-header h3 {
+    font-size: 22px;
+    color: var(--text-primary);
+}
+
+.project-status {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.project-status.live {
+    background: rgba(26, 127, 55, 0.1);
+    color: var(--success);
+}
+
+.project-status.development {
+    background: rgba(109, 40, 217, 0.1);
+    color: var(--accent);
+}
+
+.project-metrics {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.metric-item {
+    text-align: center;
+    flex: 1;
+}
+
+.metric-item strong {
+    display: block;
+    font-size: 24px;
+    color: var(--primary);
+    margin-bottom: 4px;
+}
+
+.project-description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.project-tech {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.tech-badge {
+    padding: 4px 12px;
+    background: var(--primary);
+    color: white;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 12px;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.project-link:hover {
+    color: var(--accent-hover);
+    text-decoration: underline;
+}
+
+/* Agile Transformation */
+.agile-transformation {
+    padding: 80px 0;
+    background: var(--bg-secondary);
+}
+
+.transformation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+    gap: 32px;
+    margin-top: 48px;
+}
+
+.transformation-card {
+    background: white;
+    padding: 32px;
+    border-radius: 12px;
+    border-top: 4px solid var(--border);
+}
+
+.transformation-card.highlight {
+    border-top-color: var(--success);
+    box-shadow: var(--shadow-md);
+    transform: scale(1.02);
+}
+
+.transformation-card h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+}
+
+.transformation-list {
+    list-style: none;
+    padding: 0;
+}
+
+.transformation-list li {
+    padding: 8px 0;
+    padding-left: 24px;
+    position: relative;
+    color: var(--text-secondary);
+}
+
+.transformation-list.before li:before {
+    content: "✗";
+    position: absolute;
+    left: 0;
+    color: var(--text-muted);
+}
+
+.transformation-list.after li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--success);
+    font-weight: bold;
+}
+
+.transformation-list.future li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+}
+
+/* Leadership Lessons */
+.leadership-lessons {
+    padding: 80px 0;
+    background: white;
+}
+
+.lessons-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.key-lesson {
+    font-size: 24px;
+    line-height: 1.6;
+    color: var(--primary);
+    text-align: center;
+    padding: 32px;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    margin-bottom: 48px;
+    font-style: italic;
+}
+
+.lesson-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+    gap: 32px;
+}
+
+.lesson-item h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+}
+
+.lesson-item p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Current CTA */
+.current-cta {
+    padding: 80px 0;
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #27272a 100%);
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.current-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, var(--accent-glow) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.current-cta .container {
+    position: relative;
+    z-index: 1;
+}
+
+.current-cta h2 {
+    color: white;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.current-cta p {
+    font-size: 18px;
+    max-width: 700px;
+    margin: 0 auto 32px;
+    opacity: 0.95;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+}
+
+
+/* Enhanced Section Spacing for TXRH Page */
+.case-hero,
+.impact-metrics,
+.financial-impact,
+.platform-section,
+.journey-section,
+.implications-section,
+.case-cta {
+    padding: 100px 0;
+}
+
+/* Add visual separators between sections */
+.impact-metrics,
+.platform-section,
+.implications-section {
+    position: relative;
+}
+
+/* REMOVED: Purple divider lines
+.impact-metrics:before,
+.platform-section:before,
+.implications-section:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: var(--accent-gradient);
+    border-radius: 2px;
+}
+*/
+
+/* Ensure the chart container has proper spacing */
+.revenue-chart {
+    background: white;
+    padding: 60px 40px;
+    border-radius: 16px;
+    margin-top: 32px;
+    box-shadow: var(--shadow-md);
+    min-height: 400px;
+}
+/* ===================================
+   MOBILE OPTIMIZATION - GLOBAL
+   =================================== */
+
+/* Mobile Menu Styles */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 101;
+}
+
+.mobile-menu-toggle span {
+    width: 24px;
+    height: 2px;
+    background: var(--text-primary);
+    transition: all 0.3s;
+    display: block;
+}
+
+/* Animated hamburger to X */
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+@media (max-width: 768px) {
+    /* Mobile Menu Toggle */
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    /* Navigation Adjustments */
+    .nav-container {
+        position: relative;
+    }
+    
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg-primary);
+        flex-direction: column;
+        padding: 20px;
+        box-shadow: var(--shadow-lg);
+        border-top: 1px solid var(--border);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 100;
+        gap: 0;
+        align-items: stretch;
+    }
+    
+    .nav-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .nav-menu li {
+        width: 100%;
+    }
+    
+    .nav-menu a {
+        display: block;
+        padding: 14px 8px;
+        font-size: 16px;
+        border-bottom: 1px solid var(--border-light);
+        text-align: left;
+    }
+    
+    .nav-menu li:last-child a {
+        border-bottom: none;
+    }
+    
+    .nav-cta {
+        margin-top: 12px;
+        width: 100%;
+        text-align: center;
+        padding: 14px 16px !important;
+    }
+    
+    /* Current Impact Page Specific */
+    .impact-title {
+        font-size: 32px;
+    }
+    
+    .ai-project.featured {
+        grid-column: span 1;
+    }
+    
+    .transformation-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .current-cta h2 {
+        font-size: 28px;
+    }
+    
+    .current-cta p {
+        font-size: 16px;
+    }
+}
+
+/* Enhanced mobile menu for smaller screens */
+@media (max-width: 480px) {
+    /* Navigation */
+    .nav-container {
+        padding: 12px 16px;
+    }
+    
+    .mobile-menu-toggle {
+        padding: 6px;
+    }
+    
+    .mobile-menu-toggle span {
+        width: 20px;
+    }
+    
+    .nav-menu {
+        padding: 16px;
+    }
+    
+    .nav-menu a {
+        padding: 12px 8px;
+        font-size: 15px;
+    }
+    
+    /* Current Impact Page Specific */
+    .impact-title {
+        font-size: 26px;
+    }
+    
+    .current-cta h2 {
+        font-size: 24px;
+    }
+    
+    .current-cta p {
+        font-size: 15px;
+    }
+}
+
+/* ===================================
+   DESKTOP OPTIMIZATION
+   =================================== */
+
+/* Large desktop displays (1200px+) */
+@media (min-width: 1200px) {
+    /* Enhanced container width for larger screens */
+    .container {
+        max-width: 1280px;
+        padding: 0 32px;
+    }
+    
+    /* Hero section enhanced spacing */
+    .hero {
+        padding: 100px 0 120px;
+    }
+    
+    .hero-title {
+        font-size: 56px;
+    }
+    
+    .hero-description {
+        font-size: 22px;
+    }
+    
+    /* Grid layouts with more columns on large screens */
+    .metrics-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .hero-stats {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    /* Section spacing */
+    .career-impact,
+    .metrics,
+    .initiatives,
+    .featured-brands {
+        padding: 100px 0;
+    }
+}
+
+/* Extra large desktop displays (1440px+) */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    .hero-title {
+        font-size: 64px;
+    }
+    
+    .hero-description {
+        font-size: 24px;
+    }
+    
+    /* Enhanced card layouts */
+    .initiatives-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Ensure smooth scrolling on supported browsers */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+/* ===================================
+   SECTION VISIBILITY ENHANCEMENTS
+   =================================== */
+
+/* Base section styling with enhanced separation */
+section {
+    position: relative;
+    padding: 80px 0;
+}
+
+/* Enhanced decorative dividers between sections with gradient 
+   Note: Excludes all hero section variants to maintain their full-width design */
+/* REMOVED: Purple divider lines
+section:not(.hero):not(.resume-header):not(.impact-hero):not(.portfolio-hero):not(.txrh-hero):not(.case-hero)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 4px;
+    background: var(--accent-gradient);
+    border-radius: 2px;
+    opacity: 0.8;
+    box-shadow: 0 2px 8px rgba(109, 40, 217, 0.2);
+}
+*/
+
+/* Alternating section backgrounds for visual rhythm
+   Note: Maintains consistency by excluding hero sections and special CTA sections */
+section:nth-child(even):not(.hero):not(.resume-header):not(.impact-hero):not(.portfolio-hero):not(.txrh-hero):not(.executive-cta):not(.current-cta):not(.case-cta):not(.research-cta):not(.research-hero):not(.story-section):not(.financial-impact):not(.portfolio-showcase) {
+    background: var(--bg-secondary);
+}
+
+section:nth-child(odd):not(.hero):not(.resume-header):not(.impact-hero):not(.portfolio-hero):not(.txrh-hero):not(.executive-cta):not(.current-cta):not(.case-cta):not(.research-cta):not(.research-hero):not(.story-section):not(.financial-impact):not(.portfolio-showcase) {
+    background: var(--bg-primary);
+}
+
+/* Scroll-triggered fade-in animations */
+.scroll-fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered animation for child elements */
+.stagger-children > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.stagger-children.visible > *:nth-child(1) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.1s;
+}
+
+.stagger-children.visible > *:nth-child(2) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.2s;
+}
+
+.stagger-children.visible > *:nth-child(3) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.3s;
+}
+
+.stagger-children.visible > *:nth-child(4) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.4s;
+}
+
+.stagger-children.visible > *:nth-child(5) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.5s;
+}
+
+.stagger-children.visible > *:nth-child(n+6) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.6s;
+}
+
+/* Enhanced section titles with improved animation and typography */
+.section-title {
+    position: relative;
+    display: block;
+    padding-bottom: 20px;
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* REMOVED: Purple divider lines under section titles
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 4px;
+    background: var(--accent-gradient);
+    border-radius: 2px;
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(109, 40, 217, 0.3);
+}
+
+.section-title.visible::after {
+    width: 100%;
+}
+*/
+
+/* Add a subtle entrance animation to section titles */
+.section-title {
+    animation: titleEntrance 1s ease-out;
+}
+
+@keyframes titleEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Card hover effects with elevation */
+.story-card,
+.brand-card,
+.value-card,
+.metric-card,
+.initiative-card,
+.timeline-entry {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
+}
+
+.story-card:hover,
+.brand-card:hover,
+.value-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 24px rgba(109, 40, 217, 0.15);
+    border-color: var(--accent);
+}
+
+/* Subtle glow effect on interactive elements */
+.btn,
+.nav-cta,
+.brand-badge,
+.status-badge {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.btn:hover,
+.nav-cta:hover {
+    box-shadow: 0 0 20px rgba(109, 40, 217, 0.3);
+}
+
+/* Scroll progress indicator subtle line at top of sections */
+.section-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 2px;
+    background: var(--accent-gradient);
+    width: 0%;
+    transition: width 0.3s ease-out;
+}
+
+/* Decorative corner accent for hero sections */
+.hero::after,
+.resume-header::after,
+.impact-hero::after,
+.portfolio-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, var(--accent-glow) 0%, transparent 100%);
+    border-radius: 0 100% 0 0;
+    pointer-events: none;
+}
+
+/* Floating animation for decorative elements */
+@keyframes float-gentle {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(2deg);
+    }
+}
+
+.hero-decoration,
+.header-decoration-orb {
+    animation: float-gentle 8s ease-in-out infinite;
+}
+
+.hero-decoration:nth-child(2),
+.header-decoration-orb:nth-child(2) {
+    animation-delay: 1s;
+    animation-duration: 10s;
+}
+
+.hero-decoration:nth-child(3),
+.header-decoration-orb:nth-child(3) {
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+
+/* Shimmer effect on stats when visible */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.stat-number,
+.summary-number,
+.achievement-number,
+.impact-number {
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-number::before,
+.summary-number::before,
+.achievement-number::before,
+.impact-number::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Smooth section transitions */
+section {
+    transition: background-color 0.3s ease;
+}
+
+/* Grid item stagger animation */
+.metrics-grid > *,
+.initiatives-grid > *,
+.story-content > *,
+.brands-grid > *,
+.timeline-visual > *,
+.value-props > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.metrics-grid.visible > *:nth-child(1),
+.initiatives-grid.visible > *:nth-child(1),
+.story-content.visible > *:nth-child(1),
+.brands-grid.visible > *:nth-child(1),
+.timeline-visual.visible > *:nth-child(1),
+.value-props.visible > *:nth-child(1) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.1s;
+}
+
+.metrics-grid.visible > *:nth-child(2),
+.initiatives-grid.visible > *:nth-child(2),
+.story-content.visible > *:nth-child(2),
+.brands-grid.visible > *:nth-child(2),
+.timeline-visual.visible > *:nth-child(2),
+.value-props.visible > *:nth-child(2) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.2s;
+}
+
+.metrics-grid.visible > *:nth-child(3),
+.initiatives-grid.visible > *:nth-child(3),
+.story-content.visible > *:nth-child(3),
+.brands-grid.visible > *:nth-child(3),
+.timeline-visual.visible > *:nth-child(3),
+.value-props.visible > *:nth-child(3) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.3s;
+}
+
+.metrics-grid.visible > *:nth-child(4),
+.initiatives-grid.visible > *:nth-child(4),
+.story-content.visible > *:nth-child(4),
+.brands-grid.visible > *:nth-child(4),
+.timeline-visual.visible > *:nth-child(4),
+.value-props.visible > *:nth-child(4) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.4s;
+}
+
+.metrics-grid.visible > *:nth-child(n+5),
+.initiatives-grid.visible > *:nth-child(n+5),
+.story-content.visible > *:nth-child(n+5),
+.brands-grid.visible > *:nth-child(n+5),
+.timeline-visual.visible > *:nth-child(n+5),
+.value-props.visible > *:nth-child(n+5) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.5s;
+}
+
+/* Respect reduced motion preferences - WCAG 2.1 Level AA Compliance */
+@media (prefers-reduced-motion: reduce) {
+    /* Disable scroll-triggered animations */
+    .scroll-fade-in,
+    .stagger-children > *,
+    .metrics-grid > *,
+    .initiatives-grid > *,
+    .story-content > *,
+    .brands-grid > *,
+    .timeline-visual > *,
+    .value-props > *,
+    .section-title-animated {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+    
+    /* Instantly show section title underlines */
+    /* REMOVED: Purple divider lines
+    .section-title::after {
+        width: 100% !important;
+        transition: none !important;
+    }
+    */
+    
+    /* Disable decorative animations */
+    .hero-decoration,
+    .header-decoration-orb {
+        animation: none !important;
+    }
+    
+    /* Disable number counter animations */
+    .stat-number::before,
+    .summary-number::before,
+    .achievement-number::before,
+    .impact-number::before {
+        animation: none !important;
+    }
+    
+    /* Disable entrance animations for new visual elements */
+    .section-header-enhanced,
+    .section-title {
+        animation: none !important;
+    }
+    
+    /* Keep hover effects but make them instant */
+    .card-elevated,
+    .brand-card,
+    .value-card,
+    .story-card {
+        transition: none !important;
+    }
+    
+    /* Disable smooth scrolling */
+    html {
+        scroll-behavior: auto !important;
+    }
+}
+
+/* P&L Ownership Section - Graffiti Background */
+.pnl-ownership-section {
+    background-image: url('../assets/images/grafitti-background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.pnl-ownership-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* User Research & Journey Mapping */
+.user-research-impact {
+    padding: 80px 0;
+    background: white;
+}
+
+.user-research-impact > .container > p {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 32px;
+    font-size: 18px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.user-research-impact .research-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    margin-top: 32px;
+}
+.user-research-impact .research-item {
+    background: #fafbfc;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    flex: 1 1 250px;
+    min-width: 220px;
+}
+.user-research-impact h3 {
+    margin-top: 0;
+    font-weight: 600;
+}
+.user-research-impact .research-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.user-research-impact .research-link:hover {
+    text-decoration: underline;
+}
+
+/* Personas Visual Section */
+.personas-visual {
+    padding: 80px 0;
+    background: white;
+}
+
+.personas-visual .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.personas-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: block;
+}
+
