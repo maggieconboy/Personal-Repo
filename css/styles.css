@@ -1152,17 +1152,7 @@ iframe {
 
 .homepage-nav-buttons a {
     display: block;
-    width: 100%;
-    border-radius: 0px;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    position: relative;
-    box-shadow: var(--shadow-sm);
-}
-
-.homepage-nav-buttons a:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
+    line-height: 0;
 }
 
 .homepage-nav-buttons a:focus {
@@ -1180,10 +1170,11 @@ iframe {
     height: auto;
     display: block;
     transition: transform 0.3s ease;
+    cursor: pointer;
 }
 
 .homepage-nav-buttons a:hover img {
-    transform: scale(1.02);
+    transform: translateY(-4px) scale(1.02);
 }
 
 /* Responsive adjustments */
@@ -1192,21 +1183,12 @@ iframe {
         padding: 0px 0;
         gap: 0px;
     }
-    
-    .homepage-nav-buttons a {
-        border-radius: 8px;
-    }
 }
 
 /* Reduced motion accessibility */
 @media (prefers-reduced-motion: reduce) {
-    .homepage-nav-buttons a,
     .homepage-nav-buttons img {
         transition: none;
-    }
-    
-    .homepage-nav-buttons a:hover {
-        transform: none;
     }
     
     .homepage-nav-buttons a:hover img {
