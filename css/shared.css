@@ -1,0 +1,524 @@
+/* ===================================
+   SHARED VISUAL COMPONENTS
+   Contains: Image Section Dividers, Wave Separators, Enhanced Headers, Card Elevation
+   ==================================== */
+
+/* Section Divider Image Overrides - Remove all padding for full-bleed effect */
+.image-section-divider,
+.image-section-divider.full-bleed,
+.image-section-divider .divider-content,
+.image-section-divider .divider-image-container {
+    padding: 0 !important;
+    margin: 0;
+    width: 100%;
+    max-width: none;
+}
+
+.image-section-divider img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+/* Portfolio Showcase Overrides - Remove all padding for full-bleed effect */
+.portfolio-showcase {
+    padding: 0 !important;
+    margin: 0;
+    width: 100%;
+}
+
+.portfolio-showcase-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+/* Personas Visual Overrides - Remove all padding for full-bleed effect */
+.personas-visual {
+    padding: 0 !important;
+    margin: 0;
+    width: 100%;
+}
+
+.personas-visual .container {
+    padding: 0 !important;
+    margin: 0;
+    width: 100%;
+    max-width: none;
+}
+
+.personas-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+
+.image-section-divider img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 400px; /* Adjust this value to your preference */
+    object-fit: cover;
+    object-position: center;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+/* ===================================================================
+   VISUAL SECTION SEPARATION ENHANCEMENTS
+   Enhanced visual elements for improved section separation and UX
+   =================================================================== */
+
+/* Horizontal gradient dividers between sections */
+/* REMOVED: Purple divider lines - no longer used
+.section-divider {
+    width: 100%;
+    height: 4px;
+    background: var(--accent-gradient);
+    margin: 0;
+    border: none;
+    border-radius: 2px;
+    opacity: 0.8;
+}
+
+.section-divider.subtle {
+    height: 2px;
+    opacity: 0.5;
+}
+
+.section-divider.bold {
+    height: 6px;
+    opacity: 1;
+}
+*/
+
+/* Accent color band at top of sections */
+/* REMOVED: Purple divider lines
+.section-accent-band {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--accent-gradient);
+    z-index: 1;
+}
+*/
+
+/* Apply accent bands to key sections */
+/* REMOVED: Purple divider lines
+.career-impact::before,
+.featured-brands::before,
+.user-research-impact::before,
+.ai-automation::before,
+.executive-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--accent-gradient);
+    z-index: 1;
+}
+*/
+
+/* Wave SVG separator - top wave */
+.wave-separator-top {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+    margin: 0;
+    padding: 0;
+}
+
+.wave-separator-top svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 60px;
+    margin: 0;
+}
+
+.wave-separator-top .shape-fill {
+    fill: var(--bg-secondary);
+}
+
+/* Wave SVG separator - bottom wave */
+.wave-separator-bottom {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.wave-separator-bottom svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 60px;
+    margin: 0;
+}
+
+.wave-separator-bottom .shape-fill {
+    fill: var(--accent);
+}
+
+/* Angled separator for dynamic transitions */
+.angle-separator {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.angle-separator svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 40px;
+    margin: 0;
+}
+
+.angle-separator .shape-fill {
+    fill: var(--bg-primary);
+}
+
+/* Image-based Section Divider Component */
+/* Usage: <div class="image-section-divider">
+            <div class="divider-content">
+                <p class="divider-copy-top">Optional copy above image</p>
+                <div class="divider-image-container">
+                    <img src="path/to/image.png" alt="Description">
+                </div>
+                <p class="divider-copy-bottom">Optional copy below image</p>
+            </div>
+          </div>
+*/
+.image-section-divider {
+    width: 100%;
+    padding: 80px 0;
+    background: var(--bg-secondary);
+    position: relative;
+    overflow: hidden;
+}
+
+.image-section-divider .divider-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    text-align: center;
+}
+
+.image-section-divider .divider-copy-top,
+.image-section-divider .divider-copy-bottom {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.image-section-divider .divider-copy-top {
+    margin-bottom: 32px;
+}
+
+.image-section-divider .divider-copy-bottom {
+    margin-top: 32px;
+}
+
+.image-section-divider .divider-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.image-section-divider .divider-image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: var(--shadow-lg);
+    display: block;
+}
+
+/* Responsive adjustments for image divider */
+@media (max-width: 768px) {
+    .image-section-divider {
+        padding: 60px 0;
+    }
+    
+    .image-section-divider .divider-copy-top,
+    .image-section-divider .divider-copy-bottom {
+        font-size: 16px;
+    }
+    
+    .image-section-divider .divider-copy-top {
+        margin-bottom: 24px;
+    }
+    
+    .image-section-divider .divider-copy-bottom {
+        margin-top: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .image-section-divider {
+        padding: 40px 0;
+    }
+    
+    .image-section-divider .divider-copy-top {
+        margin-bottom: 16px;
+    }
+    
+    .image-section-divider .divider-copy-bottom {
+        margin-top: 16px;
+    }
+}
+
+/* Variant: Dark background */
+.image-section-divider.dark {
+    background: var(--bg-dark);
+}
+
+.image-section-divider.dark .divider-copy-top,
+.image-section-divider.dark .divider-copy-bottom {
+    color: var(--text-light);
+}
+
+/* Variant: Compact spacing */
+.image-section-divider.compact {
+    padding: 48px 0;
+}
+
+.image-section-divider.compact .divider-copy-top {
+    margin-bottom: 20px;
+}
+
+.image-section-divider.compact .divider-copy-bottom {
+    margin-top: 20px;
+}
+
+/* Variant: Wide image (full bleed on larger screens) */
+.image-section-divider.wide .divider-image-container {
+    max-width: 100%;
+}
+
+.image-section-divider.wide .divider-image-container img {
+    max-width: 1400px;
+    width: 100%;
+}
+
+/* Variant: Full-bleed edge-to-edge divider */
+.image-section-divider.full-bleed {
+    padding: 0;
+    background: #000000;
+    margin: 0;
+}
+
+.image-section-divider.full-bleed .divider-content {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.image-section-divider.full-bleed .divider-image-container {
+    margin: 0;
+    max-width: 100%;
+}
+
+.image-section-divider.full-bleed .divider-image-container img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0;
+}
+
+/* Enhanced section headers with animation */
+.section-header-enhanced {
+    text-align: center;
+    margin-bottom: 48px;
+    position: relative;
+    animation: fadeInDown 0.8s ease-out;
+}
+
+.section-header-enhanced h2 {
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-header-enhanced p {
+    font-size: 18px;
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Enhanced card elevation for featured blocks */
+.card-elevated {
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 
+        0 2px 4px rgba(31, 35, 40, 0.04),
+        0 4px 8px rgba(31, 35, 40, 0.08),
+        0 8px 16px rgba(31, 35, 40, 0.12);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid var(--border-light);
+}
+
+.card-elevated:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+        0 4px 8px rgba(31, 35, 40, 0.08),
+        0 8px 16px rgba(31, 35, 40, 0.12),
+        0 16px 32px rgba(31, 35, 40, 0.16),
+        0 0 0 1px var(--accent);
+}
+
+/* Apply elevation to existing featured content */
+.brand-card,
+.value-card,
+.story-card,
+.metric-card,
+.initiative-card {
+    box-shadow: 
+        0 2px 4px rgba(31, 35, 40, 0.04),
+        0 4px 8px rgba(31, 35, 40, 0.08);
+}
+
+.brand-card:hover,
+.value-card:hover,
+.story-card:hover {
+    box-shadow: 
+        0 8px 16px rgba(31, 35, 40, 0.12),
+        0 16px 32px rgba(31, 35, 40, 0.16),
+        0 0 0 1px var(--accent);
+}
+
+/* Gradient overlay for depth on dark sections */
+.section-gradient-overlay {
+    position: relative;
+}
+
+.section-gradient-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 20%, var(--accent-glow) 0%, transparent 50%);
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+/* Enhanced section title with slide-in animation */
+.section-title-animated {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.section-title-animated.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Decorative dots pattern for section backgrounds */
+.section-dots-pattern {
+    position: relative;
+}
+
+.section-dots-pattern::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 200px;
+    background-image: radial-gradient(circle, var(--accent-glow) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* Responsive adjustments for visual enhancements */
+@media (max-width: 768px) {
+    .wave-separator-top svg,
+    .wave-separator-bottom svg {
+        height: 40px;
+    }
+    
+    .angle-separator svg {
+        height: 30px;
+    }
+    
+    .section-header-enhanced h2 {
+        font-size: 32px;
+    }
+    
+    .section-header-enhanced p {
+        font-size: 16px;
+    }
+    
+    .card-elevated {
+        padding: 24px;
+    }
+    
+    .section-dots-pattern::after {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .wave-separator-top svg,
+    .wave-separator-bottom svg {
+        height: 30px;
+    }
+    
+    .angle-separator svg {
+        height: 20px;
+    }
+    
+    .section-header-enhanced h2 {
+        font-size: 28px;
+    }
+    
+    .card-elevated {
+        padding: 20px;
+    }
+}
+
