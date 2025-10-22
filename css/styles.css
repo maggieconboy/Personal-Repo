@@ -1141,18 +1141,19 @@ iframe {
 
 /* Homepage Navigation Buttons Section */
 .homepage-nav-buttons {
-    padding: 0px 0;
+    padding: 0;
+    margin: 0;
     background: #ffffff;
-    max-width: 1200px;
-    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 0px;
+    gap: 0;
 }
 
 .homepage-nav-buttons a {
     display: block;
     line-height: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .homepage-nav-buttons a:focus {
@@ -1171,6 +1172,7 @@ iframe {
     display: block;
     transition: transform 0.3s ease;
     cursor: pointer;
+    vertical-align: bottom;
 }
 
 .homepage-nav-buttons a:hover img {
@@ -1180,8 +1182,9 @@ iframe {
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .homepage-nav-buttons {
-        padding: 0px 0;
-        gap: 0px;
+        padding: 0;
+        gap: 0;
+        margin: 0;
     }
 }
 
