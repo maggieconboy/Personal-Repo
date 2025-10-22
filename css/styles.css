@@ -1142,7 +1142,7 @@ iframe {
 /* Homepage Navigation Buttons Section */
 .homepage-nav-buttons {
     padding: 40px 0;
-    background: var(--bg-primary);
+    background: #ffffff;
 }
 
 .nav-buttons-container {
@@ -1151,7 +1151,7 @@ iframe {
     padding: 0 24px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 8px;
 }
 
 .nav-button-link {
@@ -1197,7 +1197,7 @@ iframe {
     }
     
     .nav-buttons-container {
-        gap: 12px;
+        gap: 6px;
         padding: 0 16px;
     }
     
