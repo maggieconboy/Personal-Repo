@@ -1143,18 +1143,14 @@ iframe {
 .homepage-nav-buttons {
     padding: 0px 0;
     background: #ffffff;
-}
-
-.nav-buttons-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 0px;
     display: flex;
     flex-direction: column;
     gap: 1px;
 }
 
-.nav-button-link {
+.homepage-nav-buttons a {
     display: block;
     width: 100%;
     border-radius: 0px;
@@ -1164,29 +1160,29 @@ iframe {
     box-shadow: var(--shadow-sm);
 }
 
-.nav-button-link:hover {
+.homepage-nav-buttons a:hover {
     transform: translateY(-4px);
     box-shadow: var(--shadow-lg);
 }
 
-.nav-button-link:focus {
+.homepage-nav-buttons a:focus {
     outline: 3px solid var(--accent);
     outline-offset: 1px;
 }
 
-.nav-button-link:focus-visible {
+.homepage-nav-buttons a:focus-visible {
     outline: 3px solid var(--accent);
     outline-offset: 4px;
 }
 
-.nav-button-image {
+.homepage-nav-buttons img {
     width: 100%;
     height: auto;
     display: block;
     transition: transform 0.3s ease;
 }
 
-.nav-button-link:hover .nav-button-image {
+.homepage-nav-buttons a:hover img {
     transform: scale(1.02);
 }
 
@@ -1194,14 +1190,10 @@ iframe {
 @media (max-width: 768px) {
     .homepage-nav-buttons {
         padding: 0px 0;
-    }
-    
-    .nav-buttons-container {
         gap: 0px;
-        padding: 0 0px;
     }
     
-    .nav-button-link {
+    .homepage-nav-buttons a {
         border-radius: 8px;
     }
 }
