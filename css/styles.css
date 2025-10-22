@@ -1174,10 +1174,6 @@ iframe {
     outline-offset: 4px;
 }
 
-.nav-button-link:focus:not(:focus-visible) {
-    outline: none;
-}
-
 .nav-button-link:focus-visible {
     outline: 3px solid var(--accent);
     outline-offset: 4px;
