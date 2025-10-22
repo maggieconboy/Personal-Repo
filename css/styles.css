@@ -1200,16 +1200,16 @@ iframe {
 
 /* Reduced motion accessibility */
 @media (prefers-reduced-motion: reduce) {
-    .nav-button-link,
-    .nav-button-image {
+    .homepage-nav-buttons a,
+    .homepage-nav-buttons img {
         transition: none;
     }
     
-    .nav-button-link:hover {
+    .homepage-nav-buttons a:hover {
         transform: none;
     }
     
-    .nav-button-link:hover .nav-button-image {
+    .homepage-nav-buttons a:hover img {
         transform: none;
     }
 }
