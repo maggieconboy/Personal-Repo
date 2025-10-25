@@ -5863,7 +5863,7 @@ section {
 
 /* Navigation CTA Buttons */
 .navigation-cta-buttons {
-    padding: 48px 4px;
+    padding: 4px 4px;
     margin: 0;
     background: #ffffff;
     display: flex;
@@ -5893,7 +5893,7 @@ section {
     display: block;
     transition: transform 0.3s ease;
     vertical-align: bottom;
-    border-radius: 12px;
+    border-radius: 4px;
 }
 
 .cta-button-link:hover .cta-button-image {
