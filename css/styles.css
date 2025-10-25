@@ -5861,29 +5861,33 @@ section {
     display: block;
 }
 
-/* Brand Portfolio CTA Button */
-.brand-portfolio-cta {
-    padding: 0;
+/* Navigation CTA Buttons */
+.navigation-cta-buttons {
+    padding: 48px 24px;
     margin: 0;
     background: #ffffff;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
     width: 100%;
 }
 
-.portfolio-button-link {
+.cta-button-link {
     display: block;
     line-height: 0;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     cursor: pointer;
+    max-width: 1200px;
+    width: 100%;
 }
 
-.portfolio-button-link:focus {
+.cta-button-link:focus {
     outline: 3px solid var(--accent);
     outline-offset: 2px;
 }
 
-.portfolio-button-image {
+.cta-button-image {
     width: 100%;
     height: auto;
     display: block;
@@ -5892,18 +5896,33 @@ section {
     border-radius: 12px;
 }
 
-.portfolio-button-link:hover .portfolio-button-image {
+.cta-button-link:hover .cta-button-image {
     transform: translateY(-4px) scale(1.02);
 }
 
 /* Reduced motion accessibility */
 @media (prefers-reduced-motion: reduce) {
-    .portfolio-button-image {
+    .cta-button-image {
         transition: none;
     }
     
-    .portfolio-button-link:hover .portfolio-button-image {
+    .cta-button-link:hover .cta-button-image {
         transform: none;
+    }
+}
+
+/* Responsive adjustments for CTA buttons */
+@media (max-width: 768px) {
+    .navigation-cta-buttons {
+        padding: 32px 16px;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navigation-cta-buttons {
+        padding: 24px 12px;
+        gap: 12px;
     }
 }
 
