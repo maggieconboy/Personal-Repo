@@ -5863,12 +5863,12 @@ section {
 
 /* Navigation CTA Buttons */
 .navigation-cta-buttons {
-    padding: 4px 4px;
+    padding: 0;
     margin: 0;
     background: #ffffff;
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 16px;
     width: 100%;
 }
 
@@ -5880,6 +5880,7 @@ section {
     cursor: pointer;
     max-width: 1200px;
     width: 100%;
+    transition: all 0.3s ease;
 }
 
 .cta-button-link:focus {
@@ -5891,13 +5892,15 @@ section {
     width: 100%;
     height: auto;
     display: block;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
     vertical-align: bottom;
     border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .cta-button-link:hover .cta-button-image {
-    transform: translateY(-4px) scale(1.02);
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 12px 24px rgba(109, 40, 217, 0.25);
 }
 
 /* Reduced motion accessibility */
@@ -5914,15 +5917,15 @@ section {
 /* Responsive adjustments for CTA buttons */
 @media (max-width: 768px) {
     .navigation-cta-buttons {
-        padding: 32px 16px;
-        gap: 16px;
+        padding: 0;
+        gap: 12px;
     }
 }
 
 @media (max-width: 480px) {
     .navigation-cta-buttons {
-        padding: 24px 12px;
-        gap: 12px;
+        padding: 0;
+        gap: 8px;
     }
 }
 
