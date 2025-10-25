@@ -1199,56 +1199,6 @@ iframe {
     }
 }
 
-/* Brand Portfolio Image Button */
-.brand-portfolio-image-button {
-    display: block;
-    line-height: 0;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
-
-.brand-portfolio-image-button:focus {
-    outline: 3px solid var(--accent);
-    outline-offset: 1px;
-}
-
-.brand-portfolio-image-button:focus-visible {
-    outline: 3px solid var(--accent);
-    outline-offset: 4px;
-}
-
-.brand-portfolio-image-button img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.3s ease;
-    cursor: pointer;
-    vertical-align: bottom;
-}
-
-.brand-portfolio-image-button:hover img {
-    transform: translateY(-4px) scale(1.02);
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .brand-portfolio-image-button {
-        padding: 0;
-        margin: 0;
-    }
-}
-
-/* Reduced motion accessibility */
-@media (prefers-reduced-motion: reduce) {
-    .brand-portfolio-image-button img {
-        transition: none;
-    }
-    
-    .brand-portfolio-image-button:hover img {
-        transform: none;
-    }
-}
 
 .image-section-divider img {
     display: block;
