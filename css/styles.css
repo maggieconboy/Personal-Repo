@@ -5889,6 +5889,7 @@ section {
     display: block;
     transition: transform 0.3s ease;
     vertical-align: bottom;
+    border-radius: 12px;
 }
 
 .portfolio-button-link:hover .portfolio-button-image {
