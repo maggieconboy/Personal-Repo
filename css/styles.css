@@ -5880,8 +5880,6 @@ section {
     cursor: pointer;
     max-width: 1200px;
     width: 100%;
-    overflow: hidden;
-    border-radius: 4px;
 }
 
 .cta-button-link:focus {
@@ -5895,13 +5893,11 @@ section {
     display: block;
     transition: transform 0.3s ease;
     vertical-align: bottom;
-    /* Crop the white space from the images by scaling and positioning */
-    transform: scale(1.15);
-    transform-origin: center;
+    border-radius: 4px;
 }
 
 .cta-button-link:hover .cta-button-image {
-    transform: translateY(-4px) scale(1.17);
+    transform: translateY(-4px) scale(1.02);
 }
 
 /* Reduced motion accessibility */
