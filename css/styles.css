@@ -5861,6 +5861,51 @@ section {
     display: block;
 }
 
+/* Brand Portfolio CTA Button */
+.brand-portfolio-cta {
+    padding: 0;
+    margin: 0;
+    background: #ffffff;
+    display: block;
+    width: 100%;
+}
+
+.portfolio-button-link {
+    display: block;
+    line-height: 0;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.portfolio-button-link:focus {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.portfolio-button-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+    vertical-align: bottom;
+}
+
+.portfolio-button-link:hover .portfolio-button-image {
+    transform: translateY(-4px) scale(1.02);
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .portfolio-button-image {
+        transition: none;
+    }
+    
+    .portfolio-button-link:hover .portfolio-button-image {
+        transform: none;
+    }
+}
+
 /* Responsive design for about-me section */
 @media (max-width: 768px) {
     .about-me-section {
