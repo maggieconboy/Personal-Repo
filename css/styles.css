@@ -5863,7 +5863,7 @@ section {
 
 /* Navigation CTA Buttons */
 .navigation-cta-buttons {
-    padding: 48px 24px;
+    padding: 48px 4px;
     margin: 0;
     background: #ffffff;
     display: flex;
