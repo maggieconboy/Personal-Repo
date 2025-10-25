@@ -78,3 +78,128 @@ When making changes or suggestions:
 - Consider how changes can demonstrate AI tool proficiency
 - Reference relevant GitHub features and capabilities
 - Showcase understanding of modern development workflows
+
+## Technology Stack
+
+### Core Technologies
+- **Static Site Generator**: Jekyll (GitHub Pages)
+- **Frontend**: HTML5, CSS3, vanilla JavaScript
+- **Styling**: Custom CSS with responsive design
+- **External Libraries**: Swiper.js for carousels
+- **Automation**: GitHub Actions (Node.js 20)
+
+### Key Dependencies
+- No npm/package manager dependencies for frontend code
+- GitHub Actions use Node.js 20 for automation scripts
+- Jekyll theme: `jekyll-theme-primer`
+
+## Build & Deployment
+
+### Local Development
+- This is a Jekyll-based GitHub Pages site
+- GitHub Pages automatically builds and deploys on push to main branch
+- No local build process required for HTML/CSS/JS changes
+- To test Jekyll locally (optional):
+  ```bash
+  bundle install
+  bundle exec jekyll serve
+  ```
+
+### Deployment
+- **Automatic**: Changes to main branch trigger GitHub Pages deployment
+- **Manual Testing**: Preview HTML files directly in a browser
+- **No build artifacts**: All files are source files
+
+### Validation Before Deployment
+1. Check HTML syntax and structure
+2. Verify JavaScript functionality in browser
+3. Test responsive design across different screen sizes
+4. Validate all internal and external links
+5. Check accessibility features (ARIA labels, keyboard navigation)
+
+## Testing Guidelines
+
+### Manual Testing Required
+- **Visual Testing**: Open HTML files in browser to verify layout and styling
+- **Functional Testing**: Test interactive features (navigation, carousels, links)
+- **Responsive Testing**: Check display on mobile, tablet, and desktop viewports
+- **Cross-browser Testing**: Verify compatibility with major browsers
+
+### GitHub Actions Testing
+- Workflows automatically validate on workflow_dispatch or schedule triggers
+- Review workflow run logs for any errors
+- Test issue refinement automation by creating test issues
+
+### Accessibility Testing
+- Verify keyboard navigation works for all interactive elements
+- Check ARIA labels are present and descriptive
+- Ensure color contrast meets WCAG guidelines
+- Test with screen reader if making significant UI changes
+
+## Acceptance Criteria
+
+### For Content Changes
+- ✅ Markdown is properly formatted with correct syntax
+- ✅ Links are valid and point to correct destinations
+- ✅ Content tone matches professional and outcome-focused style
+- ✅ Emoji usage is consistent with existing patterns
+- ✅ Changes support Maggie's career objectives and personal brand
+
+### For Code Changes
+- ✅ HTML is valid and semantic
+- ✅ CSS follows existing naming conventions and patterns
+- ✅ JavaScript is functional and error-free (check browser console)
+- ✅ Responsive design works across all screen sizes
+- ✅ Accessibility features are maintained or improved
+- ✅ Changes are tested in at least one modern browser
+
+### For GitHub Actions Changes
+- ✅ Workflow syntax is valid YAML
+- ✅ Permissions are correctly scoped and minimal
+- ✅ Workflow runs successfully without errors
+- ✅ Changes are documented in comments or README
+
+### For Documentation
+- ✅ Instructions are clear and actionable
+- ✅ Examples are provided where helpful
+- ✅ Tone is professional and welcoming
+- ✅ Documentation is updated when related code changes
+
+## Common Tasks & Commands
+
+### Working with the Repository
+```bash
+# View the site structure
+ls -la
+
+# Check git status
+git status
+
+# View recent commits
+git log --oneline -10
+
+# Test workflows manually
+gh workflow run issue-refinement.yml
+gh workflow run velocity-report.yml
+```
+
+### Modifying Content
+- **Profile Content**: Edit `README.md`
+- **HTML Pages**: Edit corresponding `.html` files in root
+- **Styling**: Edit files in `css/` directory
+- **JavaScript**: Edit files in `js/` directory
+- **Jekyll Config**: Edit `_config.yml`
+
+### GitHub Actions
+- **Issue Refinement**: `.github/workflows/issue-refinement.yml`
+- **Velocity Reports**: `.github/workflows/velocity-report.yml`
+- Both use Node.js 20 and GitHub's Octokit API
+
+## Notes for Copilot
+- This is a **portfolio repository** - changes should enhance professional presentation
+- **No dependencies to install** - all code is vanilla HTML/CSS/JS
+- **No build step needed** - files can be previewed directly
+- **Focus on content quality** over technical complexity
+- **Preserve existing functionality** - don't break working features
+- **Match existing style** - maintain consistency in code and content
+- When in doubt, **ask for clarification** rather than making assumptions
