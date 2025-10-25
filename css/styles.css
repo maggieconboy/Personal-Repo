@@ -272,7 +272,7 @@ iframe {
 /* Footer Styles */
 .footer {
     padding: 48px 0;
-    background: linear-gradient(135deg, var(--bg-secondary) 0%, #fafafa 100%);
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, #ffffff 100%);
     /* REMOVED: Purple divider line - border-top: 2px solid var(--accent); */
     position: relative;
 }
@@ -5852,7 +5852,7 @@ section {
     align-items: center;
     gap: 16px;
     padding: 32px;
-    background: linear-gradient(135deg, var(--bg-secondary) 0%, #fafafa 100%);
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, #ffffff 100%);
     border-radius: 12px;
     border: 1px solid var(--border-light);
 }
