@@ -1,15 +1,16 @@
 # Velocity Report
 
-*Last updated: 2025-12-20*
+*Last updated: 2025-12-27*
 
 ## Current Week Summary
 
-**Week of 2025-12-08**: 0 story points completed
+**Week of 2025-12-15**: 0 story points completed
 **3-week average**: 0 points
 **Velocity trend**: → 0%
 
 ## Historical Data
 
+- Week of 2025-12-15: 0 story points
 - Week of 2025-12-08: 0 story points
 - Week of 2025-12-01: 0 story points
 - Week of 2025-11-24: 0 story points
