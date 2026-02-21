@@ -1,15 +1,16 @@
 # Velocity Report
 
-*Last updated: 2026-02-14*
+*Last updated: 2026-02-21*
 
 ## Current Week Summary
 
-**Week of 2026-02-02**: 0 story points completed
+**Week of 2026-02-09**: 0 story points completed
 **3-week average**: 0 points
 **Velocity trend**: → 0%
 
 ## Historical Data
 
+- Week of 2026-02-09: 0 story points
 - Week of 2026-02-02: 0 story points
 - Week of 2026-01-26: 0 story points
 - Week of 2026-01-19: 0 story points
