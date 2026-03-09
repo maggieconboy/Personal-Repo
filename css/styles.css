@@ -6018,3 +6018,183 @@ section {
         margin-bottom: 32px;
     }
 }
+
+/* ==========================================
+   TXRH Case Study - Extracted Inline Styles
+   ========================================== */
+.txrh-section-description {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 48px;
+    font-size: 18px;
+    color: var(--text-secondary);
+}
+
+.txrh-callout-box {
+    text-align: center;
+    margin-top: 48px;
+    padding: 32px;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.txrh-callout-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+}
+
+.txrh-callout-text {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.txrh-outcome-screenshot {
+    text-align: center;
+    margin-top: 64px;
+    margin-bottom: 32px;
+}
+
+.txrh-outcome-screenshot img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(31,35,40,0.16);
+}
+
+.txrh-money-quote {
+    text-align: center;
+    margin-top: 32px;
+    padding: 40px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    border-radius: 12px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    margin-bottom: 0;
+}
+
+.txrh-money-quote-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.txrh-money-quote-text {
+    font-size: 18px;
+    line-height: 1.7;
+    opacity: 0.95;
+}
+
+/* ==========================================
+   Skip Link (Accessibility)
+   ========================================== */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 16px;
+    padding: 8px 16px;
+    background: var(--primary, #2563eb);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 0 0 8px 8px;
+    z-index: 10000;
+    text-decoration: none;
+    transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* ==========================================
+   Page Transition Animation
+   ========================================== */
+main {
+    animation: fadeInPage 0.35s ease-in;
+}
+
+@keyframes fadeInPage {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================
+   Print Stylesheet (Resume)
+   ========================================== */
+@media print {
+    .main-nav,
+    .skip-link,
+    .footer,
+    .header-decoration-orb,
+    .resume-quick-links,
+    .resume-link,
+    .job-badge,
+    .metric-tag {
+        display: none !important;
+    }
+
+    .resume-header {
+        background: none !important;
+        padding: 20px 0 !important;
+        color: #000 !important;
+    }
+
+    .resume-header h1 {
+        color: #000 !important;
+        font-size: 24pt !important;
+    }
+
+    .resume-tagline {
+        color: #333 !important;
+    }
+
+    .resume-summary-section,
+    .achievements-bar,
+    .experience,
+    .skills,
+    .education {
+        padding: 12px 0 !important;
+    }
+
+    .section-title {
+        font-size: 14pt !important;
+        color: #000 !important;
+    }
+
+    body {
+        font-size: 11pt !important;
+        line-height: 1.5 !important;
+        color: #000 !important;
+    }
+
+    .container {
+        max-width: 100% !important;
+        padding: 0 !important;
+    }
+
+    .achievement-grid {
+        border: 1px solid #ccc !important;
+        background: none !important;
+    }
+
+    .achievement-number {
+        color: #000 !important;
+    }
+
+    a {
+        color: #000 !important;
+        text-decoration: none !important;
+    }
+
+    * {
+        box-shadow: none !important;
+    }
+}
