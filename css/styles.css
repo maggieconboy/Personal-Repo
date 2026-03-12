@@ -5682,14 +5682,16 @@ section {
 
 /* Responsive adjustments for CTA buttons */
 @media (max-width: 768px) {
-    .navigation-cta-buttons {
+    .navigation-cta-buttons,
+    .homepage-nav-buttons {
         padding: 0 16px 48px 16px;
         gap: 10px;
     }
 }
 
 @media (max-width: 480px) {
-    .navigation-cta-buttons {
+    .navigation-cta-buttons,
+    .homepage-nav-buttons {
         padding: 0 12px 32px 12px;
         gap: 8px;
     }
