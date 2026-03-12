@@ -37,14 +37,14 @@ After creating your stream, you'll see a **Measurement ID** that looks like: `G-
 
 Copy that ID.
 
-### Step 3 — Add Your ID to the Site
+### Step 3 — Update the ID in the Site
 
 1. Open the file `js/analytics.js` in this repository
-2. Find this line near the top:
+2. Find this line near the top (the exact ID value may be different):
    ```
    var GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
    ```
-3. Replace `G-XXXXXXXXXX` with your actual Measurement ID, for example:
+3. Replace whatever is inside the quotes with your actual Measurement ID, for example:
    ```
    var GA_MEASUREMENT_ID = 'G-A1B2C3D4E5';
    ```
