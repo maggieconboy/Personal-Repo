@@ -10,7 +10,7 @@
 // analytics. GA4 Measurement IDs are not sensitive secrets.
 // ============================================================
 
-var GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
+var GA_MEASUREMENT_ID = 'G-7SVB63WZ6J';
 
 // GitHub profile username — used to identify outbound GitHub clicks
 var GITHUB_USERNAME = 'maggieconboy';
