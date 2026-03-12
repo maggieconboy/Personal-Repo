@@ -5891,6 +5891,8 @@ section {
 .cta-button-image {
     width: 100%;
     height: auto;
+    max-height: 100px;
+    object-fit: cover;
     display: block;
     transition: all 0.3s ease;
     vertical-align: bottom;
@@ -5899,8 +5901,8 @@ section {
 }
 
 .cta-button-link:hover .cta-button-image {
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 12px 24px rgba(109, 40, 217, 0.25);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 16px rgba(109, 40, 217, 0.25);
 }
 
 /* Reduced motion accessibility */
@@ -5917,15 +5919,23 @@ section {
 /* Responsive adjustments for CTA buttons */
 @media (max-width: 768px) {
     .navigation-cta-buttons {
-        padding: 0 20px 60px 20px;
-        gap: 12px;
+        padding: 0 16px 48px 16px;
+        gap: 10px;
+    }
+
+    .cta-button-image {
+        max-height: 80px;
     }
 }
 
 @media (max-width: 480px) {
     .navigation-cta-buttons {
-        padding: 0 16px 40px 16px;
+        padding: 0 12px 32px 12px;
         gap: 8px;
+    }
+
+    .cta-button-image {
+        max-height: 68px;
     }
 }
 
