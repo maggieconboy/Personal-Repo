@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (toggle && menu) {
         toggle.addEventListener('click', function() {
+            const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', String(!isExpanded));
             menu.classList.toggle('active');
             toggle.classList.toggle('active');
         });
@@ -14,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const menuLinks = menu.querySelectorAll('a');
         menuLinks.forEach(link => {
             link.addEventListener('click', () => {
+                toggle.setAttribute('aria-expanded', 'false');
                 menu.classList.remove('active');
                 toggle.classList.remove('active');
             });
@@ -22,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Close menu when clicking outside
         document.addEventListener('click', function(event) {
             if (!toggle.contains(event.target) && !menu.contains(event.target)) {
+                toggle.setAttribute('aria-expanded', 'false');
                 menu.classList.remove('active');
                 toggle.classList.remove('active');
             }

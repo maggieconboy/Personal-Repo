@@ -46,25 +46,25 @@
     <nav class="main-nav" aria-label="Main navigation">
         <div class="nav-container">
             <a href="index.html" class="nav-brand">Maggie Conboy</a>
-            <button class="mobile-menu-toggle" aria-label="Menu">
+            <button class="mobile-menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="primary-navigation">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="active">Home</a></li>
+            <ul class="nav-menu" id="primary-navigation">
+                <li><a href="index.html">Home</a></li>
                 <li><a href="current-impact.html">Current Impact</a></li>
                 <li><a href="txrh-case-study.html">TXRH Story</a></li>
                 <li><a href="portfolio.html">Brand Portfolio</a></li>
                 <li><a href="resume.html">Resume</a></li>
-                <li><a href="https://www.linkedin.com/in/maggieconboy" target="_blank" class="nav-cta">Connect</a></li>
+                <li><a href="https://www.linkedin.com/in/maggieconboy" target="_blank" rel="noopener noreferrer" class="nav-cta">Connect</a></li>
             </ul>
         </div>
     </nav>
     
     <main id="main-content">
         <!-- Hero -->
-        <section class="hero visible">
+        <section class="hero">
             <div class="hero-decoration hero-decoration-1"></div>
             <div class="hero-decoration hero-decoration-2"></div>
             <div class="container">
@@ -168,7 +168,7 @@
         </section>
 
         <!-- Navigation CTA Buttons -->
-        <section class="navigation-cta-buttons">
+        <section class="homepage-nav-buttons">
             <a href="portfolio.html" class="cta-button-link">
                 <img src="assets/images/brand-portfolio-cta.svg" alt="View Brand Portfolio" class="cta-button-image">
             </a>
@@ -189,6 +189,7 @@
                 <h2>Product Leader Driving Transformative Growth</h2>
                 <p class="cta-subtitle">
                   I build the systems that allow organizations to operate at full velocity. Whether it's eliminating escalations, establishing release discipline, or designing capacity frameworks that scale across teams, my work creates an environment where good people do their best work without requiring leadership intervention.
+                </p>
                 <div class="cta-metrics">
                     <span class="metric">$2.5B+ Revenue Influenced</span>
                     <span class="metric">15+ Market Leaders Created</span>
@@ -207,8 +208,8 @@
             <div class="footer-content">
                 <p class="footer-quote">"Don't grow a wishbone where your backbone ought to be."</p>
                 <div class="footer-links">
-                    <a href="https://github.com/maggieconboy" target="_blank">GitHub</a>
-                    <a href="https://www.linkedin.com/in/maggieconboy" target="_blank">LinkedIn</a>
+                    <a href="https://github.com/maggieconboy" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a href="https://www.linkedin.com/in/maggieconboy" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                 </div>
                 <p class="footer-copy">© 2026 Maggie Conboy</p>
             </div>
