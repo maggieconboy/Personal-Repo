@@ -948,7 +948,6 @@ iframe {
     overflow: hidden;
     padding: 80px 0 120px;
     min-height: 600px;
-    animation: fadeInPage 0.8s ease-in both;
 }
 
 /* Purple glow overlay */
@@ -1939,7 +1938,7 @@ iframe {
     font-size: 14px;
 }
 
-.degree-cert h3 {
+.degree.degree-cert h3 {
     font-size: 18px;
 }
 
