@@ -5657,7 +5657,6 @@ section {
 .cta-button-image {
     width: 100%;
     height: auto;
-    max-height: 100px;
     display: block;
     transition: all 0.3s ease;
     vertical-align: bottom;
@@ -5689,7 +5688,6 @@ section {
     }
 
     .cta-button-image {
-        max-height: 80px;
     }
 }
 
@@ -5700,7 +5698,6 @@ section {
     }
 
     .cta-button-image {
-        max-height: 68px;
     }
 }
 
