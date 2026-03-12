@@ -5686,18 +5686,12 @@ section {
         padding: 0 16px 48px 16px;
         gap: 10px;
     }
-
-    .cta-button-image {
-    }
 }
 
 @media (max-width: 480px) {
     .navigation-cta-buttons {
         padding: 0 12px 32px 12px;
         gap: 8px;
-    }
-
-    .cta-button-image {
     }
 }
 
