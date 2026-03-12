@@ -948,12 +948,7 @@ iframe {
     overflow: hidden;
     padding: 80px 0 120px;
     min-height: 600px;
-    opacity: 0;
-    transition: opacity 0.8s ease-in;
-}
-
-.hero.visible {
-    opacity: 1;
+    animation: fadeInPage 0.8s ease-in both;
 }
 
 /* Purple glow overlay */
@@ -1922,6 +1917,32 @@ iframe {
     margin: 0 auto;
 }
 
+/* Primary degree (BA) displayed prominently on its own row */
+.degree-primary {
+    border-left: 4px solid var(--accent);
+    margin-bottom: 24px;
+}
+
+/* Certifications displayed side-by-side in a grid */
+.degree-certs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+    gap: 24px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.degree-cert {
+    max-width: none;
+    margin: 0;
+    border: 1px solid var(--border-light);
+    font-size: 14px;
+}
+
+.degree-cert h3 {
+    font-size: 18px;
+}
+
 .degree h3 {
     font-size: 22px;
     margin-bottom: 8px;
@@ -2062,6 +2083,10 @@ iframe {
     /* Brand cards */
     .brand-card {
         padding: 24px;
+    }
+    
+    .brand-content {
+        grid-template-columns: 1fr;
     }
     
     .brand-header {
@@ -3530,6 +3555,14 @@ iframe {
     }
     
     /* Current Impact Page Specific */
+    .impact-hero {
+        padding: 60px 0 80px;
+    }
+
+    .impact-stats-row {
+        gap: 32px;
+    }
+
     .impact-title {
         font-size: 32px;
     }
@@ -3576,6 +3609,14 @@ iframe {
     }
     
     /* Current Impact Page Specific */
+    .impact-hero {
+        padding: 48px 0 60px;
+    }
+
+    .impact-stats-row {
+        gap: 24px;
+    }
+
     .impact-title {
         font-size: 26px;
     }
