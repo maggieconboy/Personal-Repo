@@ -35,7 +35,6 @@ function initScrollAnimations() {
     // Create intersection observer with options
     const observerOptions = {
         root: null,
-        rootMargin: '0px 0px 0px 0px', // Trigger when element enters viewport
         threshold: 0.1
     };
     
@@ -44,10 +43,6 @@ function initScrollAnimations() {
             if (entry.isIntersecting) {
                 // Add visible class to trigger animations
                 entry.target.classList.add('visible');
-                
-                // Optionally unobserve after animation triggers (better performance)
-                // Comment out if you want animations to re-trigger on scroll up
-                // observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
@@ -55,8 +50,6 @@ function initScrollAnimations() {
     // Observe all elements
     allElements.forEach(element => observer.observe(element));
 }
-
-// Hero Slider functionality - REMOVED (reverted to static hero)
 
 // Smooth scroll for anchor links
 document.addEventListener('DOMContentLoaded', function() {

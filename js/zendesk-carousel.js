@@ -2,7 +2,6 @@
 
 // Configuration
 const GITHUB_REPO_BASE = 'https://github.com/maggieconboy/Personal-Repo';
-const ZENDESK_FOLDER = 'Zendesk%20Personas';
 
 // Zendesk Personas data
 const zendeskPersonas = [
