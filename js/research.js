@@ -1,5 +1,7 @@
 // Research & Deliverables Page Functionality
 
+const GITHUB_REPO_BASE = 'https://github.com/maggieconboy/Personal-Repo';
+
 // Artifact data structure with auto-discovery metadata
 const artifactsData = {
     'Revenue Systems Work': [
@@ -199,24 +201,17 @@ function renderCollections() {
     Object.keys(artifactsData).forEach(folder => {
         const grid = document.querySelector(`.collection-grid[data-folder="${folder}"]`);
         if (!grid) return;
-        
-        const artifacts = artifactsData[folder];
-        grid.innerHTML = artifacts.map(artifact => {
-            const fullArtifact = {
-                ...artifact,
-                folder: folder,
-                collectionId: folder === 'Revenue Systems Work' ? 'revenue-systems' : 
-                             folder === 'Customer Comms Tooling' ? 'customer-comms' : 'zendesk'
-            };
-            return createArtifactCard(fullArtifact, false);
-        }).join('');
+
+        // Reuse enriched artifacts from allArtifacts (already have folder + collectionId)
+        const artifacts = allArtifacts.filter(a => a.folder === folder);
+        grid.innerHTML = artifacts.map(artifact => createArtifactCard(artifact, false)).join('');
     });
 }
 
 // Create artifact card HTML
 function createArtifactCard(artifact, isFeatured) {
-    const githubViewUrl = `https://github.com/maggieconboy/Personal-Repo/blob/main/${artifact.githubPath}`;
-    const githubRawUrl = `https://github.com/maggieconboy/Personal-Repo/raw/main/${artifact.githubPath}`;
+    const githubViewUrl = `${GITHUB_REPO_BASE}/blob/main/${artifact.githubPath}`;
+    const githubRawUrl = `${GITHUB_REPO_BASE}/raw/main/${artifact.githubPath}`;
     
     const typeClass = `type-${artifact.type}`;
     const cardClass = isFeatured ? 'artifact-card featured' : 'artifact-card';
@@ -409,6 +404,8 @@ function initializeCollectionToggles() {
 // Modal functionality
 function initializeModal() {
     const modal = document.getElementById('artifact-modal');
+    if (!modal) return;
+
     const closeBtn = modal.querySelector('.modal-close');
     const overlay = modal.querySelector('.modal-overlay');
     
@@ -437,8 +434,8 @@ function openArtifactModal(githubPath, title, type) {
     const modalDownload = document.getElementById('modal-download');
     const modalView = document.getElementById('modal-view');
     
-    const githubViewUrl = `https://github.com/maggieconboy/Personal-Repo/blob/main/${githubPath}`;
-    const githubRawUrl = `https://github.com/maggieconboy/Personal-Repo/raw/main/${githubPath}`;
+    const githubViewUrl = `${GITHUB_REPO_BASE}/blob/main/${githubPath}`;
+    const githubRawUrl = `${GITHUB_REPO_BASE}/raw/main/${githubPath}`;
     
     // Set modal content
     modalTitle.textContent = title;

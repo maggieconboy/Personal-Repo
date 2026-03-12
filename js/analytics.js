@@ -7,14 +7,14 @@
 // See ANALYTICS_SETUP.md for instructions on changing the ID.
 // ============================================================
 
-var GA_MEASUREMENT_ID = 'G-7SVB63WZ6J';
+const GA_MEASUREMENT_ID = 'G-7SVB63WZ6J';
 
 // GitHub profile username — used to identify outbound GitHub clicks
-var GITHUB_USERNAME = 'maggieconboy';
+const GITHUB_USERNAME = 'maggieconboy';
 
 // Inject the Google Analytics script tag into <head>
 (function () {
-    var script = document.createElement('script');
+    const script = document.createElement('script');
     script.async = true;
     script.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
     document.head.appendChild(script);
@@ -42,17 +42,17 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
-        var link = event.target.closest('a');
+        const link = event.target.closest('a');
         if (!link) {
             return;
         }
 
-        var href = link.getAttribute('href') || '';
+        const href = link.getAttribute('href') || '';
         if (!href) {
             return;
         }
 
-        var hostname = '';
+        let hostname = '';
         try {
             hostname = new URL(href, window.location.href).hostname;
         } catch (e) {
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Track CTA button clicks (primary/secondary buttons and nav CTA)
     document.querySelectorAll('.btn, .cta-button-link, .nav-cta').forEach(function (btn) {
         btn.addEventListener('click', function () {
-            var label = (this.textContent || '').trim() ||
+            const label = (this.textContent || '').trim() ||
                         this.getAttribute('aria-label') ||
                         this.getAttribute('href') ||
                         'Unknown';
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Track section visibility — fire once when key sections scroll into view
-    var trackedSections = [
+    const trackedSections = [
         { selector: '.hero', label: 'Hero' },
         { selector: '.metrics-grid', label: 'Metrics' },
         { selector: '.case-study', label: 'Case Study' },
@@ -101,10 +101,10 @@ document.addEventListener('DOMContentLoaded', function () {
     ];
 
     if ('IntersectionObserver' in window) {
-        var sectionObserver = new IntersectionObserver(function (entries) {
+        const sectionObserver = new IntersectionObserver(function (entries) {
             entries.forEach(function (entry) {
                 if (entry.isIntersecting) {
-                    var sectionLabel = entry.target.getAttribute('data-analytics-label') || entry.target.className;
+                    const sectionLabel = entry.target.getAttribute('data-analytics-label') || entry.target.className;
                     gtag('event', 'section_view', {
                         event_category: 'Engagement',
                         event_label: sectionLabel
@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }, { threshold: 0.3 });
 
         trackedSections.forEach(function (item) {
-            var el = document.querySelector(item.selector);
+            const el = document.querySelector(item.selector);
             if (el) {
                 el.setAttribute('data-analytics-label', item.label);
                 sectionObserver.observe(el);
@@ -124,10 +124,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Track time on page using visibilitychange for reliable cross-browser/mobile support
-    var pageStartTime = Date.now();
+    const pageStartTime = Date.now();
     document.addEventListener('visibilitychange', function () {
         if (document.visibilityState === 'hidden') {
-            var secondsOnPage = Math.round((Date.now() - pageStartTime) / 1000);
+            const secondsOnPage = Math.round((Date.now() - pageStartTime) / 1000);
             if (secondsOnPage > 3) {
                 // gtag() uses sendBeacon internally when available for reliable delivery
                 gtag('event', 'time_on_page', {
