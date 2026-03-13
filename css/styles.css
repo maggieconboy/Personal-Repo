@@ -1013,12 +1013,7 @@ iframe {
 
 /* Homepage Navigation Buttons Section */
 .homepage-nav-buttons {
-    padding: 0;
-    margin: 0;
-    background: #ffffff;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
+    display: none !important;
 }
 
 .homepage-nav-buttons a {
