@@ -104,6 +104,7 @@ iframe {
 }
 
 .nav-cta {
+    display: none;
     padding: 8px 16px;
     background: var(--accent) !important;
     color: white !important;
