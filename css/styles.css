@@ -894,9 +894,55 @@ iframe {
 }
 
 .hero-content {
-    max-width: 900px;
+    max-width: 780px;
+    margin: 0 auto;
     position: relative;
     z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Avatar */
+.hero-avatar-wrap {
+    margin-bottom: 20px;
+    position: relative;
+    animation: fadeInUp 0.4s ease-out;
+}
+
+.hero-avatar-wrap::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+    z-index: 0;
+    opacity: 0.85;
+    filter: blur(2px);
+}
+
+.hero-avatar {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    display: block;
+    object-fit: cover;
+    object-position: top center;
+    border: 4px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.5),
+                0 0 40px rgba(109, 40, 217, 0.5),
+                0 16px 40px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 1;
+}
+
+.hero-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.92);
+    margin-bottom: 16px;
+    animation: fadeInUp 0.6s ease-out 0.1s both;
 }
 
 @keyframes floatHero {
@@ -923,6 +969,9 @@ iframe {
     margin-bottom: 24px;
     backdrop-filter: blur(10px);
     animation: fadeInUp 0.6s ease-out;
+    max-width: 100%;
+    white-space: normal;
+    text-align: center;
 }
 
 @keyframes fadeInUp {
@@ -945,6 +994,7 @@ iframe {
     font-weight: 800;
     line-height: 1.2;
     margin-bottom: 24px;
+    width: 100%;
     color: white;
     animation: fadeInUp 0.6s ease-out 0.2s both;
 }
@@ -979,12 +1029,14 @@ iframe {
     line-height: 1.7;
     margin-bottom: 32px;
     animation: fadeInUp 0.6s ease-out 0.4s both;
+    width: 100%;
 }
 
 .hero-actions {
     display: flex;
     gap: 16px;
     flex-wrap: wrap;
+    justify-content: center;
     animation: fadeInUp 0.6s ease-out 0.8s both;
 }
 
@@ -1835,6 +1887,15 @@ iframe {
         padding: 60px 0 80px;
     }
     
+    .hero-avatar {
+        width: 130px;
+        height: 130px;
+    }
+    
+    .hero-name {
+        font-size: 18px;
+    }
+    
     .hero-title,
     .case-title {
         font-size: 36px;
@@ -2037,6 +2098,16 @@ iframe {
     .hero-description {
         font-size: 16px;
         margin-bottom: 24px;
+    }
+    
+    .hero-avatar {
+        width: 110px;
+        height: 110px;
+    }
+    
+    .hero-name {
+        font-size: 17px;
+        margin-bottom: 12px;
     }
     
     /* Brand logos - Mobile (480px) breakpoint - Fix cutoff */
@@ -2518,6 +2589,7 @@ iframe {
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.15);
     animation: fadeInUp 0.6s ease-out 0.6s both;
+    width: 100%;
 }
 
 .stat {
