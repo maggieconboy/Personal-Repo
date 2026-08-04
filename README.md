@@ -1,6 +1,6 @@
 # 👋 Hi, I'm Maggie Conboy
 
-Welcome to my GitHub profile! I am a Product Manager of Revenue Systems at GitHub, driven to make an outsized impact in the AI product space and on every team I support. My approach is opportunity-focused, leveraging curiosity and data-driven thinking to create actionable results and empower others.
+Welcome to my GitHub profile! I am a Senior Product Manager at GitHub building AI products and enterprise platforms across Salesforce, Slack, employee support, and product operations. My approach combines user research, data-driven strategy, technical fluency, and operating discipline to turn complex systems into measurable outcomes.
 
 ## 🚀 Mission & Career Ambitions
 
@@ -22,6 +22,8 @@ Welcome to my GitHub profile! I am a Product Manager of Revenue Systems at GitHu
 ## 🌟 Featured & Impactful Projects
 
 - **GitHub Account Recommender**: Custom internal ML-driven sales recommendations engine.
+- **Enterprise Platform Strategy**: Product strategy and roadmapping across collaboration, CRM, and AI-enabled employee experiences.
+- **AI Support Pilot**: Cross-functional product validation that reached 85% deflection across 338 pilot queries.
 - **Texas Roadhouse**: Led web and mobile ordering experiences for three brands, including .com websites, iOS, and Android apps.
 - **Zendesk Personas Gallery**: Interactive GitHub Pages slideshow showcasing support personas with Swiper.js carousel. [View Gallery](https://maggieconboy.github.io/Personal-Repo/zendesk-personas.html)
 
@@ -47,16 +49,6 @@ This repository demonstrates advanced automation through an **[Issue Refinement 
 - Creates tracking issues and notifications for ready-to-review items
 
 *Example of intelligent automation that eliminates manual triage overhead while providing consistent, data-driven issue assessment, with seamless integration to project management boards.*
-
-### 📊 Automated Velocity Reporting
-This repository also includes a **[Velocity Reporting GitHub Action](.github/workflows/velocity-report.yml)** that:
-- Runs every Friday at 5pm PT automatically
-- Analyzes story points from closed issues in current milestones  
-- Calculates 3-week velocity averages and trends
-- Updates [VELOCITY.md](VELOCITY.md) with data-driven insights
-- Posts summaries to project boards
-
-*Example of how AI-driven automation can eliminate manual reporting overhead while providing actionable team performance insights.*
 
 ### 🎨 Interactive Zendesk Personas Gallery
 A professional GitHub Pages slideshow built with [Swiper.js](https://swiperjs.com/) that showcases support persona research:
@@ -84,4 +76,3 @@ A professional GitHub Pages slideshow built with [Swiper.js](https://swiperjs.co
 ## 🔗 Connect with Me
 
 - [LinkedIn](https://www.linkedin.com/in/maggieconboy/)
-

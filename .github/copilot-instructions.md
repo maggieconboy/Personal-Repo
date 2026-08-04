@@ -2,7 +2,7 @@
 
 ## Repository Summary
 
-This is Maggie Conboy's personal professional portfolio — a Jekyll-based GitHub Pages site showcasing her work as a Product Manager of Revenue Systems at GitHub. It includes HTML pages, custom CSS/JS, GitHub Actions workflows for issue automation and velocity reporting, and issue templates.
+This is Maggie Conboy's personal professional portfolio — a Jekyll-based GitHub Pages site showcasing her work as a Senior Product Manager at GitHub across AI products, enterprise platforms, Revenue Systems, and product operations. It includes HTML pages, custom CSS/JS, GitHub Actions workflows for issue automation and Pages deployment, and issue templates.
 
 ## Project Layout
 
@@ -24,7 +24,6 @@ This is Maggie Conboy's personal professional portfolio — a Jekyll-based GitHu
 ├── assets/                  # Images and media files
 ├── _config.yml              # Jekyll config (theme: jekyll-theme-primer)
 ├── README.md                # GitHub profile content (public-facing)
-├── VELOCITY.md              # Auto-generated weekly velocity report (do not edit manually)
 └── .github/
     ├── copilot-instructions.md
     ├── ISSUE_TEMPLATE/
@@ -32,7 +31,7 @@ This is Maggie Conboy's personal professional portfolio — a Jekyll-based GitHu
     │   └── general-issue.yml     # General issue template
     └── workflows/
         ├── issue-refinement.yml  # Auto-labels/enriches issues on open/edit (Node.js 20)
-        └── velocity-report.yml   # Weekly velocity report to VELOCITY.md (Node.js 20)
+        └── jekyll-gh-pages.yml   # Builds and deploys the GitHub Pages site
 ```
 
 ## Tech Stack
@@ -60,7 +59,7 @@ bundle exec jekyll serve
 2. Check console for JS errors
 3. Verify responsive layout at mobile/tablet/desktop widths
 4. Confirm navigation active state updates correctly (set by `js/main.js`)
-5. For workflow changes, run manually: `gh workflow run issue-refinement.yml` or `gh workflow run velocity-report.yml`
+5. For workflow changes, run manually: `gh workflow run issue-refinement.yml` or `gh workflow run jekyll-gh-pages.yml`
 
 ## CI / GitHub Actions
 
@@ -69,9 +68,9 @@ No CI pipeline runs on pull requests. There are two scheduled/event-driven workf
 | Workflow | Trigger | What it does |
 |---|---|---|
 | `issue-refinement.yml` | Issue opened/edited | Auto-applies labels and enriches issue body via Copilot AI |
-| `velocity-report.yml` | Weekly (Friday 5 PM PT) | Reads closed issues with `points-N` labels, writes `VELOCITY.md` |
+| `jekyll-gh-pages.yml` | Push to `main` / manual | Builds the Jekyll site and deploys it to GitHub Pages |
 
-Both workflows use `actions/checkout@v4`, `actions/setup-node@v4` (Node.js 20), and `actions/github-script@v7`. Permissions are minimal and explicitly scoped in each workflow file.
+Workflow permissions are explicitly scoped in each workflow file.
 
 ## Code Conventions
 
@@ -83,7 +82,6 @@ Both workflows use `actions/checkout@v4`, `actions/setup-node@v4` (Node.js 20), 
 
 ## Key Notes
 
-- `VELOCITY.md` is auto-generated — never edit it manually
 - Profile text lives in `README.md` (rendered on the GitHub profile page)
 - The `css/styles.css` file is large; search for existing component classes before adding new ones
 - Active nav link state is set client-side in `js/main.js` by matching `href` to `location.pathname`

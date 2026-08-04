@@ -181,14 +181,6 @@ You can manually trigger refinement for specific issues:
 4. Enter the issue number to analyze
 5. Click **Run workflow**
 
-## Integration with Velocity Reporting
-
-The refinement system integrates seamlessly with the existing [Velocity Reporting](VELOCITY-AUTOMATION.md) system:
-- Story points assigned here are used in velocity calculations
-- Labels format matches velocity reporting requirements (`points-X`)
-- Milestone assignment works with velocity tracking
-- Historical data includes refined issues
-
 ## Sample Output
 
 ### Issue Analysis Comment
@@ -293,7 +285,7 @@ Check the Actions tab for detailed execution logs including:
 - **Faster Planning**: Pre-refined issues accelerate planning sessions
 - **Better Estimation**: Consistent complexity analysis improves velocity predictions
 - **Reduced Manual Work**: Eliminates manual refinement overhead
-- **Historical Data**: Integration with velocity reporting provides trend analysis
+- **Structured Data**: Consistent labels and milestones support future reporting and analysis
 
 ### for Stakeholders
 - **Transparency**: Clear analysis reasoning and priority justification
